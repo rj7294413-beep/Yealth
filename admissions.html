@@ -396,8 +396,108 @@
               <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-center text-xs font-bold text-slate-700">ICICI Bank</div>
               <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-center text-xs font-bold text-slate-700">Avanse</div>
               <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-center text-xs font-bold text-slate-700">InCred</div>
-              <div class="bg-[#082A50]/5 border border-[#082A50]/20 rounded-lg px-3 py-2.5 text-center text-xs font-bold text-[#082A50]">+ Many More</div>
+              <button onclick="document.getElementById('bankModal').classList.remove('hidden')" class="bg-[#082A50] border border-[#082A50] rounded-lg px-3 py-2.5 text-center text-xs font-bold text-white hover:bg-[#0a3566] transition-colors cursor-pointer w-full">+ Many More</button>
             </div>
+          </div>
+        </div>
+
+        <!-- Bank Modal -->
+        <div id="bankModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+          <!-- Backdrop -->
+          <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="document.getElementById('bankModal').classList.add('hidden')"></div>
+          <!-- Modal Box -->
+          <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-y-auto z-10">
+            <!-- Header -->
+            <div class="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between rounded-t-2xl">
+              <h3 class="text-base font-black text-[#082A50] flex items-center gap-2">
+                <i data-lucide="landmark" class="w-5 h-5 text-[#C59943]"></i>
+                All Banking &amp; Financial Partners
+              </h3>
+              <button onclick="document.getElementById('bankModal').classList.add('hidden')" class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-slate-600 font-bold text-lg leading-none">&times;</button>
+            </div>
+            <!-- Content -->
+            <div class="px-6 py-5 space-y-6">
+
+              <!-- Public Sector Banks -->
+              <div>
+                <h4 class="text-xs font-black text-[#C59943] uppercase tracking-widest mb-3">Public Sector Banks</h4>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">State Bank of India (SBI)</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Bank of Baroda</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Punjab National Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Canara Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Union Bank of India</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Bank of India</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Indian Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Central Bank of India</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Indian Overseas Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">UCO Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Bank of Maharashtra</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Punjab &amp; Sind Bank</div>
+                </div>
+              </div>
+
+              <!-- Private Sector Banks -->
+              <div>
+                <h4 class="text-xs font-black text-[#C59943] uppercase tracking-widest mb-3">Private Sector Banks</h4>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">HDFC Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">ICICI Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Axis Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Kotak Mahindra Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Yes Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">IndusInd Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">IDFC First Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Federal Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">South Indian Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Karur Vysya Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">RBL Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">DCB Bank</div>
+                </div>
+              </div>
+
+              <!-- NBFCs & Specialised Lenders -->
+              <div>
+                <h4 class="text-xs font-black text-[#C59943] uppercase tracking-widest mb-3">NBFCs &amp; Specialised Education Lenders</h4>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">HDFC Credila</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Avanse Financial</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">InCred Finance</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Auxilo Finserve</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Propelld</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Credenc</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Mpower Financing</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">IDBI Bank (Edu Loan)</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Tata Capital</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">L&amp;T Finance</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Bajaj Finserv</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Piramal Finance</div>
+                </div>
+              </div>
+
+              <!-- Foreign / International Banks -->
+              <div>
+                <h4 class="text-xs font-black text-[#C59943] uppercase tracking-widest mb-3">Foreign &amp; International Banks (India Operations)</h4>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Citibank India</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">HSBC India</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Standard Chartered</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Deutsche Bank</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">Barclays India</div>
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-center text-xs font-semibold text-slate-700">DBS Bank India</div>
+                </div>
+              </div>
+
+            </div>
+            <!-- Footer -->
+            <div class="sticky bottom-0 bg-slate-50 border-t border-slate-200 px-6 py-3 rounded-b-2xl text-center">
+              <p class="text-xs text-slate-500">Loan eligibility &amp; terms vary by lender. Our counsellors will help you choose the best option.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Re-open partner banks grid wrapper (closed above) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10" style="display:none">
           </div>
 
           <!-- Eligibility & Covers -->
