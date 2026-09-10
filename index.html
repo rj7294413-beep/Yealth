@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yealth | College Admissions & Student Hostels</title>
+  <meta name="description" content="Welcome to Yealth. Choose your journey: Explore verified college admissions & counseling, or find 10,000+ verified student hostels and PGs near university hubs." />
+
+  <!-- Favicon using official Yealth Logo -->
+  <link rel="icon" type="image/png" href="assets/yealth-logo.png" />
+  <link rel="apple-touch-icon" href="assets/yealth-logo.png" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandNavy: '#082A50',
+            brandNavyDark: '#051C36',
+            brandNavyLight: '#0E3E74',
+            brandGold: '#C59943',
+            brandGoldLight: '#DFB15B',
+            brandGoldDark: '#A47B2E',
+            brandGreen: '#1AB64F',
+            brandGreenHover: '#159c42',
+            heroDark: '#071A33',
+            footerMidnight: '#0B1B2D'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/custom.css" />
+</head>
+<body class="bg-[#071A33] text-white antialiased min-h-screen flex flex-col justify-between relative overflow-x-hidden selection:bg-[#C59943] selection:text-white">
+
+  <!-- Ambient Glow Effects -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-[#C59943]/20 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 -right-32 w-[500px] h-[500px] bg-[#0E3E74]/30 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-[#C59943]/15 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- Top Navigation Utility Bar -->
+  <header class="relative z-20 border-b border-white/10 bg-[#071A33]/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo Branding -->
+      <a href="index.html" class="flex items-center gap-3 group py-1">
+        <div class="bg-white/95 p-1.5 rounded-xl shadow-md inline-block transition-transform group-hover:scale-105">
+          <img 
+            src="assets/yealth-logo.png" 
+            alt="Yealth Logo" 
+            class="h-11 sm:h-12 w-auto object-contain"
+          />
+        </div>
+        <div class="flex flex-col text-left">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl font-black tracking-tight text-white leading-none">YEALTH</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider bg-[#C59943]/20 text-[#DFB15B] px-2 py-0.5 rounded-full border border-[#C59943]/40">
+              Student Network
+            </span>
+          </div>
+          <span class="text-[10px] font-bold tracking-wider text-slate-300 uppercase mt-0.5">College Guidance & Hostels</span>
+        </div>
+      </a>
+
+      <!-- Quick Contact Links -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        <a href="tel:+919110155081" class="hidden sm:flex items-center gap-2 text-xs font-bold text-slate-200 hover:text-[#DFB15B] transition-colors py-2 px-3 rounded-lg hover:bg-white/5 border border-white/10">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+          <span>+91 9110155081</span>
+        </a>
+        <a 
+          href="https://wa.me/919110155081?text=Hi%20Yealth!%20I%20would%20like%20assistance%20with%20admissions%20or%20hostels."
+          target="_blank"
+          class="bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs font-extrabold py-2 px-3 sm:px-4 rounded-xl flex items-center gap-1.5 shadow-md transition-all hover:scale-102">
+          <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+          <span class="hidden sm:inline">WhatsApp Help</span>
+          <span class="sm:hidden">Help</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content: The Two Gateway Options -->
+  <main class="relative z-10 flex-1 flex flex-col items-center justify-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 text-center">
+    
+    <!-- Hero Header Title -->
+    <div class="max-w-3xl mx-auto mb-10 sm:mb-12">
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold text-gray-200 mb-4 border border-[#C59943]/30 shadow-inner">
+        <span class="w-2 h-2 rounded-full bg-[#DFB15B] animate-ping"></span>
+        <span>India's Dedicated Student Portal</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight mb-4">
+        What are you <span class="gold-text-gradient text-[#DFB15B]">looking for</span> today?
+      </h1>
+      <p class="text-sm sm:text-base md:text-lg text-slate-300 max-w-xl mx-auto font-medium">
+        Choose your desired service below to connect directly with verified experts and zero-brokerage campus resources.
+      </p>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- THE TWO CORE SELECTION CARDS                                              -->
+    <!-- ========================================================================= -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full max-w-5xl">
+      
+      <!-- Option 1: College Admissions Card (Fully Clickable) -->
+      <div 
+        role="link"
+        tabindex="0"
+        data-card-url="admissions.html"
+        onclick="navigateToOption(event, 'admissions.html')"
+        class="cursor-pointer group relative bg-gradient-to-b from-white/10 to-white/5 hover:from-white/15 hover:to-white/10 backdrop-blur-xl rounded-3xl p-6 sm:p-8 lg:p-10 border border-[#C59943]/40 hover:border-[#DFB15B] transition-all duration-300 shadow-2xl hover:shadow-[#C59943]/25 flex flex-col justify-between text-left transform hover:-translate-y-1.5 active:scale-[0.99] focus:outline-hidden focus:ring-2 focus:ring-[#DFB15B]">
+        
+        <!-- Top Badge -->
+        <div class="flex items-center justify-between mb-6">
+          <span class="bg-[#C59943]/20 text-[#DFB15B] border border-[#C59943]/40 text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full flex items-center gap-1.5">
+            <i data-lucide="award" class="w-3.5 h-3.5"></i>
+            Option 1
+          </span>
+          <span class="text-xs text-slate-300 font-semibold flex items-center gap-1">
+            <i data-lucide="check-circle" class="w-3.5 h-3.5 text-[#1AB64F]"></i>
+            Verified Counselors
+          </span>
+        </div>
+
+        <!-- Big Visual Icon -->
+        <div class="mb-6">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-[#082A50] to-[#0E3E74] text-[#DFB15B] border border-[#C59943]/50 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="graduation-cap" class="w-8 h-8 sm:w-10 sm:h-10"></i>
+          </div>
+        </div>
+
+        <!-- Heading & Details -->
+        <div class="mb-6">
+          <h2 class="text-2xl sm:text-3xl font-black text-white group-hover:text-[#DFB15B] transition-colors mb-2 flex items-center justify-between">
+            <span>College Admissions</span>
+            <i data-lucide="chevron-right" class="w-6 h-6 text-[#DFB15B] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-200 mb-5 leading-relaxed">
+            Get personalized 1-on-1 career guidance, seat matrices, cutoff analysis, and admission roadmaps for top universities across India.
+          </p>
+
+          <!-- Feature Highlights -->
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-300 mb-2">
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-[#DFB15B] shrink-0"></i>
+              <span>500+ Partner Universities & Institutes</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-[#DFB15B] shrink-0"></i>
+              <span>Engineering, Medical, MBA, Law & Design</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-[#DFB15B] shrink-0"></i>
+              <span>100% Free Career Roadmap & Zero Donation</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row gap-3">
+          <span 
+            class="flex-1 bg-gradient-to-r from-[#C59943] to-[#DFB15B] hover:from-[#DFB15B] hover:to-[#C59943] text-[#082A50] font-black text-sm sm:text-base py-3.5 px-5 rounded-2xl text-center shadow-lg transition-all flex items-center justify-center gap-2 group-hover:shadow-amber-500/30 pointer-events-none">
+            <span>Explore Admissions</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </span>
+          <a 
+            href="https://wa.me/919110155081?text=Hi%20Yealth%20Admissions,%20I%20need%20expert%20guidance%20for%20college%20admissions."
+            target="_blank"
+            onclick="event.stopPropagation()"
+            title="Chat with Counselor on WhatsApp"
+            class="btn-whatsapp-action relative z-10 bg-white/10 hover:bg-white/20 text-white font-bold text-sm py-3.5 px-4 rounded-2xl flex items-center justify-center gap-1.5 border border-white/15 transition-all hover:scale-102">
+            <i data-lucide="message-circle" class="w-4 h-4 text-[#1AB64F]"></i>
+            <span class="sm:hidden lg:inline">Counselor</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Option 2: Hostels Card (Fully Clickable) -->
+      <div 
+        role="link"
+        tabindex="0"
+        data-card-url="hostels.html"
+        onclick="navigateToOption(event, 'hostels.html')"
+        class="cursor-pointer group relative bg-gradient-to-b from-white/10 to-white/5 hover:from-white/15 hover:to-white/10 backdrop-blur-xl rounded-3xl p-6 sm:p-8 lg:p-10 border border-white/15 hover:border-[#1AB64F] transition-all duration-300 shadow-2xl hover:shadow-green-500/20 flex flex-col justify-between text-left transform hover:-translate-y-1.5 active:scale-[0.99] focus:outline-hidden focus:ring-2 focus:ring-[#1AB64F]">
+        
+        <!-- Top Badge -->
+        <div class="flex items-center justify-between mb-6">
+          <span class="bg-[#1AB64F]/20 text-[#22C55E] border border-[#1AB64F]/40 text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full flex items-center gap-1.5">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+            Option 2
+          </span>
+          <span class="text-xs text-slate-300 font-semibold flex items-center gap-1">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+            Zero Brokerage
+          </span>
+        </div>
+
+        <!-- Big Visual Icon -->
+        <div class="mb-6">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-[#082A50] to-[#0E3E74] text-[#1AB64F] border border-green-500/40 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="building-2" class="w-8 h-8 sm:w-10 sm:h-10"></i>
+          </div>
+        </div>
+
+        <!-- Heading & Details -->
+        <div class="mb-6">
+          <h2 class="text-2xl sm:text-3xl font-black text-white group-hover:text-[#1AB64F] transition-colors mb-2 flex items-center justify-between">
+            <span>Hostels & Student PGs</span>
+            <i data-lucide="chevron-right" class="w-6 h-6 text-[#1AB64F] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-200 mb-5 leading-relaxed">
+            Explore 10,000+ verified student hostels, PGs, and apartments near 30+ university hubs with 4-time meals, Wi-Fi, and 0 brokerage.
+          </p>
+
+          <!-- Feature Highlights -->
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-300 mb-2">
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-[#1AB64F] shrink-0"></i>
+              <span>Fully Furnished Rooms + 100 Mbps Wi-Fi</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-[#1AB64F] shrink-0"></i>
+              <span>Hygienic 4-Time Home Meals Included</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-[#1AB64F] shrink-0"></i>
+              <span>24/7 CCTV, Biometrics & Warden Security</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row gap-3">
+          <span 
+            class="flex-1 bg-[#1AB64F] hover:bg-[#159c42] text-white font-black text-sm sm:text-base py-3.5 px-5 rounded-2xl text-center shadow-lg transition-all flex items-center justify-center gap-2 group-hover:shadow-green-500/30 pointer-events-none">
+            <span>Explore Hostels</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </span>
+          <a 
+            href="https://wa.me/919110155081?text=Hi%20Yealth!%20I%20am%20looking%20for%20a%20verified%20student%20hostel/PG."
+            target="_blank"
+            onclick="event.stopPropagation()"
+            title="Chat with Hostel Advisor on WhatsApp"
+            class="btn-whatsapp-action relative z-10 bg-white/10 hover:bg-white/20 text-white font-bold text-sm py-3.5 px-4 rounded-2xl flex items-center justify-center gap-1.5 border border-white/15 transition-all hover:scale-102">
+            <i data-lucide="message-circle" class="w-4 h-4 text-[#1AB64F]"></i>
+            <span class="sm:hidden lg:inline">Hostels</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Quick Location Chips Summary -->
+    <div class="mt-12 text-center text-xs text-slate-300">
+      <span class="font-bold text-[#DFB15B]">Popular Hubs Active:</span> Delhi / NCR • Kota • Bangalore • Pune • Mumbai • Hyderabad • Dehradun • Chandigarh
+    </div>
+  </main>
+
+  <!-- Bottom Mini Footer -->
+  <footer class="relative z-20 border-t border-white/10 py-6 text-center text-xs text-slate-400 bg-[#071A33]/90">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div>
+        © 2026 Yealth Living & Admissions Network. All rights reserved.
+      </div>
+      <div class="flex items-center gap-4 text-slate-300 text-xs">
+        <a href="tel:+919110155081" class="hover:text-[#DFB15B] flex items-center gap-1">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+          +91 9110155081
+        </a>
+        <a href="mailto:yealtthh@gmail.com" class="hover:text-[#DFB15B] flex items-center gap-1">
+          <i data-lucide="mail" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+          yealtthh@gmail.com
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function navigateToOption(event, url) {
+      // If clicked on WhatsApp button or its children, let WhatsApp link handle it
+      if (event.target.closest('.btn-whatsapp-action')) {
+        return;
+      }
+      window.location.href = url;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+
+      // Keyboard navigation: pressing Enter on a focused card triggers navigation
+      document.querySelectorAll('[data-card-url]').forEach(card => {
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            window.location.href = card.dataset.cardUrl;
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

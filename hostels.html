@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yealth | India's Leading Student Living & Hostel Network</title>
+  <meta name="description" content="Explore 10,000+ verified student hostels, PGs, and shared apartments near Delhi University, Kota, Bangalore, Pune, and 30+ university hubs with zero brokerage." />
+
+  <!-- Favicon using the official Yealth Logo -->
+  <link rel="icon" type="image/png" href="assets/yealth-logo.png" />
+  <link rel="apple-touch-icon" href="assets/yealth-logo.png" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandNavy: '#082A50',
+            brandNavyDark: '#051C36',
+            brandNavyLight: '#0E3E74',
+            brandGold: '#C59943',
+            brandGoldLight: '#DFB15B',
+            brandGoldDark: '#A47B2E',
+            brandGreen: '#1AB64F',
+            brandGreenHover: '#159c42',
+            heroDark: '#071A33',
+            footerMidnight: '#0B1B2D'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet with Logo-inspired Palette -->
+  <link rel="stylesheet" href="css/custom.css" />
+</head>
+<body class="bg-[#F8FAFC] text-[#0F172A] antialiased flex flex-col min-h-screen">
+
+  <!-- ========================================================================= -->
+  <!-- 5.1 TOP NAVIGATION BAR (HEADER)                                           -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-xs">
+    <!-- Top Utility Bar -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Left: Yealth Official Logo -->
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3 group py-1" title="Back to Yealth Gateway">
+          <img 
+            src="assets/yealth-logo.png" 
+            alt="Yealth - College Guidance, Student Living & Stays" 
+            class="h-14 sm:h-16 w-auto object-contain transition-transform group-hover:scale-105 drop-shadow-xs" 
+          />
+          <div class="hidden sm:flex flex-col text-left">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl font-black tracking-tight text-[#082A50] leading-none">YEALTH</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider bg-amber-50 text-[#A47B2E] px-2 py-0.5 rounded-full border border-amber-200">
+                Hostels & Stays
+              </span>
+            </div>
+            <span class="text-[10px] font-bold tracking-wider text-[#C59943] uppercase mt-0.5">Verified Student Living</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Middle/Right Actions -->
+      <div class="flex items-center gap-2 sm:gap-3 lg:gap-5">
+        <!-- Gateway Switch Link -->
+        <a href="index.html" class="flex items-center gap-1.5 text-xs font-bold text-[#082A50] hover:text-[#051C36] bg-slate-100 hover:bg-slate-200 py-2 px-3 rounded-lg transition-colors border border-slate-200">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-[#C59943]"></i>
+          <span>Main Menu</span>
+        </a>
+
+        <!-- College Admissions Link -->
+        <a href="admissions.html" class="hidden md:flex items-center gap-1.5 text-xs lg:text-sm font-bold text-gray-700 hover:text-[#082A50] py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors">
+          <i data-lucide="graduation-cap" class="w-4 h-4 text-[#C59943]"></i>
+          College Admissions
+        </a>
+
+        <!-- List Your PG / Property CTA -->
+        <button class="btn-trigger-list-property hidden xl:flex items-center gap-1.5 text-xs lg:text-sm font-bold text-[#082A50] hover:text-[#051C36] border border-[#082A50]/30 hover:border-[#082A50] transition-all py-2 px-3.5 rounded-lg hover:bg-blue-50/50">
+          <i data-lucide="building" class="w-4 h-4 text-[#C59943]"></i>
+          List your PG
+        </button>
+
+        <!-- Direct Phone Link -->
+        <a href="tel:+919110155081" class="flex items-center gap-2 text-xs lg:text-sm font-extrabold text-[#082A50] hover:text-[#C59943] transition-colors py-2 px-2.5 rounded-lg hover:bg-slate-50">
+          <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[#082A50]">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+          </div>
+          <span class="hidden lg:inline">+91 9110155081</span>
+        </a>
+
+        <!-- Direct WhatsApp CTA Button (High Conversion Action Green) -->
+        <a 
+          href="https://wa.me/919110155081?text=Hi%20Yealth!%20I%20am%20looking%20for%20student%20accommodation.%20Please%20share%20options." 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs lg:text-sm font-bold py-2.5 px-3.5 sm:px-4 rounded-xl flex items-center gap-1.5 shadow-sm transition-all hover:shadow hover:scale-102">
+          <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+          <span class="hidden sm:inline">WhatsApp Us</span>
+          <span class="sm:hidden">Chat</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- City Quick-Filter Bar (Secondary Strip) -->
+    <div class="bg-slate-50/80 border-t border-gray-100 py-2.5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-bold text-gray-500 uppercase tracking-wider hidden lg:flex items-center gap-1">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#C59943]"></i>
+            Hubs:
+          </span>
+          <!-- Scrollable Cities Container -->
+          <div id="city-filters-container" class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
+            <!-- Dynamically populated from JS with Navy/Gold badges -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1">
+    <!-- ========================================================================= -->
+    <!-- 5.2 HERO SECTION (MIDNIGHT NAVY CONTRAST WITH OYO-STYLE SEARCH BAR)        -->
+    <!-- ========================================================================= -->
+    <section class="relative bg-[#071A33] text-white pt-14 pb-24 md:pt-18 md:pb-28 overflow-hidden">
+      <!-- Background Ambient Glows (Navy + Gold) -->
+      <div class="absolute inset-0 opacity-25 pointer-events-none">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-[#C59943] rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-[#0E3E74] rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <!-- Trust Tag -->
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold text-gray-200 mb-6 border border-[#C59943]/30 shadow-inner">
+          <span class="w-2 h-2 rounded-full bg-[#DFB15B] animate-ping"></span>
+          <span>Zero Brokerage • 100% Verified Stays • 4-Time Home Meals</span>
+        </div>
+
+        <!-- Main Headline with Golden Accent -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white max-w-4xl mx-auto leading-tight sm:leading-none mb-4">
+          Target <span class="gold-text-gradient text-[#DFB15B]">10,000+</span> Student Rooms & PGs across 30+ University Hubs
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl mx-auto mb-10 font-medium">
+          Verified hostels with nutritious food, high-speed Wi-Fi, laundry, biometric security, and zero brokerage.
+        </p>
+
+        <!-- ========================================================= -->
+        <!-- OYO-STYLE FLOATING SEARCH / INQUIRY PILL BAR             -->
+        <!-- ========================================================= -->
+        <div class="max-w-5xl mx-auto">
+          <form id="oyo-search-form" class="bg-white rounded-2xl md:rounded-full p-2.5 sm:p-3 oyo-search-shadow text-gray-800 grid grid-cols-1 md:grid-cols-12 gap-2 sm:gap-3 items-center border border-gray-100">
+            <!-- Field 1: Location/Campus -->
+            <div class="md:col-span-4 px-3 sm:px-4 py-2 border-b md:border-b-0 md:border-r border-gray-200 text-left">
+              <label for="search-location" class="block text-[11px] font-extrabold uppercase tracking-wider text-gray-400 mb-0.5 flex items-center gap-1">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#C59943]"></i>
+                Location / University Hub
+              </label>
+              <input 
+                type="text" 
+                id="search-location" 
+                placeholder="e.g. North Campus DU, Allen Kota, Koramangala..." 
+                class="w-full text-xs sm:text-sm font-bold text-gray-900 focus:outline-hidden bg-transparent placeholder-gray-400"
+              />
+            </div>
+
+            <!-- Field 2: Move-in Month/Semester -->
+            <div class="md:col-span-3 px-3 sm:px-4 py-2 border-b md:border-b-0 md:border-r border-gray-200 text-left">
+              <label for="search-month" class="block text-[11px] font-extrabold uppercase tracking-wider text-gray-400 mb-0.5 flex items-center gap-1">
+                <i data-lucide="calendar" class="w-3.5 h-3.5 text-slate-500"></i>
+                Move-in Month
+              </label>
+              <select id="search-month" class="w-full text-xs sm:text-sm font-bold text-gray-900 focus:outline-hidden bg-transparent cursor-pointer">
+                <option value="Immediate">Immediate (This Week)</option>
+                <option value="Next Semester">Next Semester</option>
+                <option value="October 2026">October 2026</option>
+                <option value="November 2026">November 2026</option>
+                <option value="December 2026">December 2026</option>
+              </select>
+            </div>
+
+            <!-- Field 3: Room Type -->
+            <div class="md:col-span-2 px-3 sm:px-4 py-2 border-b md:border-b-0 border-gray-200 text-left">
+              <label for="search-roomtype" class="block text-[11px] font-extrabold uppercase tracking-wider text-gray-400 mb-0.5 flex items-center gap-1">
+                <i data-lucide="bed" class="w-3.5 h-3.5 text-slate-500"></i>
+                Room Type
+              </label>
+              <select id="search-roomtype" class="w-full text-xs sm:text-sm font-bold text-gray-900 focus:outline-hidden bg-transparent cursor-pointer">
+                <option value="All Types">All Types</option>
+                <option value="Single Private">Single Private</option>
+                <option value="Twin Sharing">Twin Sharing</option>
+                <option value="Triple Sharing">Triple Sharing</option>
+              </select>
+            </div>
+
+            <!-- Action Button: Solid Green (#1AB64F) -->
+            <div class="md:col-span-3 flex items-center gap-2">
+              <button 
+                type="button"
+                id="btn-search-whatsapp"
+                class="w-full bg-[#1AB64F] hover:bg-[#159c42] text-white font-extrabold py-3.5 px-4 rounded-xl md:rounded-full text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-200 transform active:scale-98">
+                <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+                <span>Inquire on WhatsApp</span>
+              </button>
+            </div>
+          </form>
+
+          <!-- Popular Quick Pill suggestions -->
+          <div class="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-300">
+            <span class="font-semibold text-amber-300">🔥 Quick Hubs:</span>
+            <button class="quick-loc-pill bg-white/10 hover:bg-white/20 text-white px-2.5 py-1 rounded-full transition-colors border border-white/10" data-location="North Campus DU">DU North Campus</button>
+            <button class="quick-loc-pill bg-white/10 hover:bg-white/20 text-white px-2.5 py-1 rounded-full transition-colors border border-white/10" data-location="Allen Kota">Allen Kota</button>
+            <button class="quick-loc-pill bg-white/10 hover:bg-white/20 text-white px-2.5 py-1 rounded-full transition-colors border border-white/10" data-location="Koramangala Bangalore">Koramangala Bangalore</button>
+            <button class="quick-loc-pill bg-white/10 hover:bg-white/20 text-white px-2.5 py-1 rounded-full transition-colors border border-white/10" data-location="Kothrud Pune">Kothrud Pune</button>
+          </div>
+        </div>
+
+        <!-- Metric Counters Row -->
+        <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-white/10 text-left">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-[#082A50] text-[#DFB15B] border border-[#C59943]/40 flex items-center justify-center shadow-inner">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xl font-black text-white">100%</div>
+              <div class="text-xs text-slate-300 font-medium">Physically Verified Stays</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-green-500/20 text-[#1AB64F] flex items-center justify-center">
+              <i data-lucide="badge-percent" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xl font-black text-white">₹0 Brokerage</div>
+              <div class="text-xs text-slate-300 font-medium">Direct Warden Connect</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-300 flex items-center justify-center">
+              <i data-lucide="map" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xl font-black text-white">30+ Hubs</div>
+              <div class="text-xs text-slate-300 font-medium">Near Top Universities</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center">
+              <i data-lucide="utensils" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xl font-black text-white">4-Time Food</div>
+              <div class="text-xs text-slate-300 font-medium">Home-Style Hygienic Diet</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 5.3 VALUE PROPOSITION BANNER ("YEALTH-SERVICED: YEALTH ALAG HAI")          -->
+    <!-- ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 mb-16 relative z-10">
+      <div class="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-8 lg:p-10">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+          <!-- Left Column: Copy & Amenities -->
+          <div class="flex-1 text-left">
+            <div class="inline-flex items-center gap-2 bg-[#082A50]/10 text-[#082A50] border border-[#082A50]/20 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full mb-3">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#C59943]"></i>
+              Yealth-Serviced: Yealth Alag Hai
+            </div>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-[#082A50] tracking-tight leading-tight mb-3">
+              STUDENT LIVING SIMPLIFIED, TEST US.
+            </h2>
+            <p class="text-sm sm:text-base text-gray-600 mb-8 max-w-xl">
+              Tired of sketchy brokers and poor hostel food? Yealth handpicks, audits, and manages student residences with strict safety, hygiene, and study standards.
+            </p>
+
+            <!-- 5 Amenity Badges -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+                <span class="text-2xl">🛏️</span>
+                <div>
+                  <h4 class="text-sm font-bold text-gray-900">Fully Furnished Rooms</h4>
+                  <p class="text-xs text-gray-500">Ergonomic study desk, orthopaedic mattress & wardrobe</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+                <span class="text-2xl">🍲</span>
+                <div>
+                  <h4 class="text-sm font-bold text-gray-900">Home-style 4-Time Meals</h4>
+                  <p class="text-xs text-gray-500">Breakfast, lunch, tea-snacks & dinner included</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+                <span class="text-2xl">📶</span>
+                <div>
+                  <h4 class="text-sm font-bold text-gray-900">High-Speed 100 Mbps Wi-Fi</h4>
+                  <p class="text-xs text-gray-500">Optical dual-band fiber for exams & lectures</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+                <span class="text-2xl">🧹</span>
+                <div>
+                  <h4 class="text-sm font-bold text-gray-900">Daily Housekeeping</h4>
+                  <p class="text-xs text-gray-500">Room sanitization, floor scrubbing & laundry</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100 sm:col-span-2">
+                <span class="text-2xl">🛡️</span>
+                <div>
+                  <h4 class="text-sm font-bold text-gray-900">24/7 CCTV & Biometric Security</h4>
+                  <p class="text-xs text-gray-500">Resident warden on duty, biometric entry logs, emergency doctor on call</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Callout + Schedule Visit CTA -->
+          <div class="w-full lg:w-96 bg-[#071A33] rounded-2xl p-6 text-white text-center flex flex-col justify-between shadow-xl relative overflow-hidden border border-[#C59943]/20">
+            <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-[#C59943] rounded-full blur-2xl opacity-20"></div>
+            
+            <div class="relative z-10">
+              <span class="bg-[#C59943] text-white text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-md mb-3 inline-block shadow">
+                Free Visit Pass
+              </span>
+              <h3 class="text-xl font-bold mb-2">Want to test the food & check rooms in person?</h3>
+              <p class="text-xs text-slate-300 mb-6">
+                Book an in-person physical tour before paying any tokens. We provide free pick-and-drop assistance from campus gates!
+              </p>
+
+              <!-- Room Visual Sample -->
+              <div class="relative rounded-xl overflow-hidden mb-6 h-40 border border-white/10 shadow-inner">
+                <img 
+                  src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80" 
+                  alt="Modern student living room" 
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                  <span class="text-xs font-semibold text-white flex items-center gap-1">
+                    <i data-lucide="check-circle" class="w-3.5 h-3.5 text-[#1AB64F]"></i>
+                    Real Room Photography
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative z-10">
+              <button 
+                id="btn-banner-visit"
+                class="w-full bg-[#1AB64F] hover:bg-[#159c42] text-white font-extrabold py-3 px-4 rounded-xl text-sm flex items-center justify-center gap-2 shadow-md transition-all">
+                <i data-lucide="calendar" class="w-4 h-4"></i>
+                Book Free Property Visit
+              </button>
+              <span class="text-[11px] text-slate-400 block mt-2">Zero commitment • Instant confirmation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 5.4 CURATED STUDENT ACCOMMODATIONS (CARDS GRID)                            -->
+    <!-- ========================================================================= -->
+    <section id="curated-stays-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-bold text-[#C59943] uppercase tracking-wider mb-1">
+            <i data-lucide="compass" class="w-4 h-4"></i>
+            Handpicked & Verified
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black text-[#082A50]">Curated Student Accommodations</h2>
+          <p id="properties-count" class="text-sm text-gray-500 mt-1">
+            Loading student residences...
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div id="category-tabs-container" class="flex flex-wrap items-center gap-2">
+          <!-- Dynamically populated from JS -->
+        </div>
+      </div>
+
+      <!-- Properties Grid -->
+      <div id="properties-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Dynamically rendered via app.js -->
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 5.5 PROMOTIONAL DISCOUNT BANNER ("SEMESTER KICKOFF DEALS")                 -->
+    <!-- ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
+      <div class="relative bg-gradient-to-r from-[#082A50] via-[#0D3B6F] to-[#B8860B] rounded-2xl overflow-hidden shadow-2xl text-white p-6 sm:p-10 lg:p-12 border border-[#C59943]/30">
+        <!-- Decorative Elements -->
+        <div class="absolute -right-20 -top-20 w-80 h-80 bg-amber-400/20 rounded-full blur-3xl"></div>
+        <div class="absolute right-10 bottom-0 opacity-15 hidden lg:block">
+          <i data-lucide="sparkles" class="w-64 h-64"></i>
+        </div>
+
+        <div class="relative z-10 max-w-2xl text-left">
+          <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full inline-flex items-center gap-1.5 mb-4 border border-white/20">
+            <i data-lucide="flame" class="w-4 h-4 fill-amber-300 text-amber-300"></i>
+            Limited Time Admission Special
+          </span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight mb-3">
+            Yealth Semester Starter: Verified PGs Under ₹5,999/mo
+          </h2>
+          <p class="text-sm sm:text-base text-slate-100 mb-8 font-medium">
+            Lock in your room before college admissions rush! Enjoy guaranteed 0 brokerage, free campus luggage shifting, and complete meal plans included.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <button 
+              id="btn-promo-whatsapp"
+              class="bg-[#DFB15B] hover:bg-[#C59943] text-[#082A50] font-black text-sm px-6 py-3.5 rounded-xl shadow-lg transition-all flex items-center gap-2 transform active:scale-98">
+              <i data-lucide="message-circle" class="w-4 h-4 fill-[#082A50]"></i>
+              Claim Deal on WhatsApp
+            </button>
+            <a 
+              href="tel:+919110155081"
+              class="bg-black/30 hover:bg-black/40 text-white font-bold text-sm px-5 py-3.5 rounded-xl border border-white/20 transition-all flex items-center gap-2">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              Call Living Helpline
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 5.6 NEWSLETTER & LEAD CAPTURE BAR                                         -->
+    <!-- ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <div class="bg-white rounded-2xl shadow-md border border-gray-200 p-6 lg:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <!-- Left: Deal Icon + Copy -->
+        <div class="flex items-center gap-4 text-left">
+          <div class="w-14 h-14 rounded-2xl bg-amber-50 text-[#C59943] border border-amber-200 flex items-center justify-center shrink-0">
+            <i data-lucide="flame" class="w-8 h-8 fill-amber-100 text-[#C59943]"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-black text-[#082A50]">Get access to exclusive student deals</h3>
+            <p class="text-xs sm:text-sm text-gray-500">Only verified stays, early-bird campus discounts, and no spam.</p>
+          </div>
+        </div>
+
+        <!-- Right: Clean Email Input + Navy Submit Button -->
+        <form id="newsletter-form" class="w-full md:w-auto flex flex-col sm:flex-row items-center gap-2">
+          <div class="relative w-full sm:w-80">
+            <i data-lucide="mail" class="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input 
+              type="email" 
+              id="newsletter-email"
+              placeholder="Enter your student email address" 
+              class="w-full pl-10 pr-4 py-3 text-xs sm:text-sm font-medium rounded-xl border border-gray-300 focus:outline-hidden focus:border-[#082A50] focus:ring-1 focus:ring-[#082A50] bg-slate-50"
+              required
+            />
+          </div>
+          <button 
+            type="submit"
+            class="w-full sm:w-auto bg-[#082A50] hover:bg-[#051C36] text-white font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-md transition-all whitespace-nowrap border border-[#C59943]/30">
+            Notify Me
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- 5.8 COMPREHENSIVE MULTI-COLUMN FOOTER (MIDNIGHT NAVY #0B1B2D)              -->
+  <!-- ========================================================================= -->
+  <footer class="bg-[#0B1B2D] text-slate-200 pt-14 pb-20 md:pb-12 border-t border-[#132A46]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Top Row: Logo & List Property Banner -->
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-10 mb-10 border-b border-slate-700/60 gap-6">
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <div class="bg-white/95 p-2 rounded-xl shadow-md inline-block">
+              <img src="assets/yealth-logo.png" alt="Yealth" class="h-12 w-auto object-contain" />
+            </div>
+            <div>
+              <span class="text-2xl font-black text-white tracking-tight">YEALTH</span>
+              <span class="block text-[11px] text-[#DFB15B] font-bold tracking-wide">COLLEGE & HOSTEL NETWORKING</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-300 mt-2">India's dedicated student accommodation network & campus living partner.</p>
+        </div>
+
+        <!-- Property Owner CTA Banner -->
+        <div class="bg-[#071525] p-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center gap-4 border border-slate-700">
+          <div>
+            <span class="text-xs font-bold text-white block">Own a student property or PG?</span>
+            <span class="text-[11px] text-slate-400">Join our network & host verified students with guaranteed occupancy.</span>
+          </div>
+          <button 
+            class="btn-trigger-list-property bg-[#C59943] hover:bg-[#A47B2E] text-white text-xs font-extrabold px-4 py-2.5 rounded-lg whitespace-nowrap shadow transition-colors">
+            List Your Property
+          </button>
+        </div>
+      </div>
+
+      <!-- Middle Grid (4 Columns) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-slate-700/60 text-xs">
+        <!-- Column 1: About Us -->
+        <div>
+          <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#DFB15B]"></span>
+            About Yealth
+          </h4>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">About Our Story</a></li>
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">Student Safety Standards</a></li>
+            <li><button class="btn-trigger-campus hover:text-[#DFB15B] transition-colors text-left">Campus Ambassador Program</button></li>
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">Careers at Yealth</a></li>
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">Press & Media Mentions</a></li>
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">Verified Landlord Verification</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Students & Bookings -->
+        <div>
+          <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#DFB15B]"></span>
+            For Students
+          </h4>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">How to Book a Visit</a></li>
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">Zero Brokerage Guarantee</a></li>
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">Standard Meal Plans & Menus</a></li>
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">Hostel House Rules & Curfew</a></li>
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">Refund & Security Deposit Policy</a></li>
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact & Support -->
+        <div>
+          <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#DFB15B]"></span>
+            Contact & Support
+          </h4>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-2">
+              <i data-lucide="phone" class="w-4 h-4 text-[#DFB15B]"></i>
+              <a href="tel:+919110155081" class="hover:text-white font-semibold">+91 9110155081</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="mail" class="w-4 h-4 text-[#DFB15B]"></i>
+              <a href="mailto:yealtthh@gmail.com" class="hover:text-white font-semibold">yealtthh@gmail.com</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="message-circle" class="w-4 h-4 text-[#1AB64F]"></i>
+              <a href="https://wa.me/919110155081?text=Hi%20Yealth%20Team!%20I%20need%20assistance%20finding%20a%20hostel." target="_blank" rel="noopener noreferrer" class="hover:text-white font-semibold">Chat with Advisor</a>
+            </li>
+            <li class="flex items-start gap-2 text-slate-300 pt-1">
+              <i data-lucide="map-pin" class="w-4 h-4 text-[#DFB15B] shrink-0 mt-0.5"></i>
+              <span>Registered Office: Yealth Living Hub, Near North Campus, New Delhi 110007</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Legal & Policies -->
+        <div>
+          <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#DFB15B]"></span>
+            Legal & Compliance
+          </h4>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">Terms & Conditions</a></li>
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">Student Code of Conduct</a></li>
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">Anti-Ragging Compliance</a></li>
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">Cyber Security & Trust</a></li>
+            <li><a href="#" class="hover:text-[#DFB15B] transition-colors">Dispute Resolution</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SEO / Directory City Grid (Bottom) -->
+      <div class="pt-8 pb-10 border-b border-slate-700/60">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-4 flex items-center gap-2">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+          Yealth Student Stays Across India (Popular Search Hubs)
+        </h4>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 text-[11px] text-slate-400">
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="Hostels in Kota">Hostels in Kota</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="PGs in North Campus Delhi">PGs in North Campus Delhi</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="Stays in Koramangala Bangalore">Stays in Koramangala</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="PGs near Symbiosis Pune">PGs near Symbiosis Pune</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="Hostels in Greater Noida">Hostels in Greater Noida</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="Stays in Kothrud">Stays in Kothrud Pune</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="PGs in Dehradun">PGs in Dehradun</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="Hostels near IIT Delhi">Hostels near IIT Delhi</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="PGs in South Campus DU">PGs in South Campus DU</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="Hostels in Laxmi Nagar">Hostels in Laxmi Nagar</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="PGs near Christ University">PGs near Christ Univ</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="Stays in Hinjawadi Pune">Stays in Hinjawadi Pune</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="Hostels in Electronic City">Hostels in Electronic City</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="PGs in Indra Vihar Kota">PGs in Indra Vihar Kota</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="Stays in Vigyan Nagar Kota">Stays in Vigyan Nagar</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="Hostels in Chandigarh Sector 15">Hostels in Chandigarh</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="Hostels in Madhapur Hyderabad">Hostels in Madhapur</a>
+          <a href="#" class="seo-tag-link hover:text-[#DFB15B]" data-keyword="PGs in Bandra Mumbai">PGs in Bandra Mumbai</a>
+        </div>
+      </div>
+
+      <!-- Copyright & Social Icons Bar -->
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+        <div>
+          © 2026 Yealth Living Network Pvt. Ltd. All rights reserved. Zero Brokerage Student Housing.
+        </div>
+        <div class="flex items-center gap-4 text-slate-300">
+          <a href="#" class="hover:text-[#DFB15B]"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+          <a href="#" class="hover:text-[#DFB15B]"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+          <a href="#" class="hover:text-[#DFB15B]"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+          <a href="#" class="hover:text-[#DFB15B]"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+          <a href="https://wa.me/919110155081" target="_blank" class="hover:text-[#25D366]"><i data-lucide="message-circle" class="w-4 h-4"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- 5.7 FLOATING QUICK-CONTACT ACTION (FIXED BOTTOM RIGHT)                    -->
+  <!-- ========================================================================= -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+    <!-- Tooltip -->
+    <div class="hidden md:block bg-[#082A50] text-white text-xs font-bold py-1.5 px-3 rounded-full shadow-lg border border-[#C59943]/40">
+      Need room advice? Chat with us!
+    </div>
+
+    <!-- Pulsing WhatsApp Button -->
+    <button 
+      id="btn-floating-whatsapp"
+      title="Inquire on WhatsApp"
+      class="w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-2xl pulse-whatsapp transition-transform hover:scale-110">
+      <i data-lucide="message-circle" class="w-7 h-7 fill-white"></i>
+    </button>
+  </div>
+
+  <!-- Mobile-Only Fixed Bottom Bar -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 p-2.5 shadow-2xl flex items-center gap-2">
+    <a 
+      href="tel:+919110155081"
+      class="flex-1 bg-slate-100 hover:bg-slate-200 text-[#082A50] font-extrabold text-xs py-3 px-3 rounded-xl flex items-center justify-center gap-1.5 border border-slate-300">
+      <i data-lucide="phone" class="w-4 h-4 text-[#C59943]"></i>
+      Call Us Now
+    </a>
+    <a 
+      href="https://wa.me/919110155081?text=Hi%20Yealth%20Team,%20I%20have%20a%20quick%20question%20regarding%20student%20accommodation."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex-1 bg-[#1AB64F] hover:bg-[#159c42] text-white font-extrabold text-xs py-3 px-3 rounded-xl flex items-center justify-center gap-1.5 shadow-md">
+      <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+      WhatsApp Us
+    </a>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODALS                                                                    -->
+  <!-- ========================================================================= -->
+  
+  <!-- Modal 1: List PG / Property -->
+  <div id="modal-list-property" class="modal-container hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
+    <div class="modal-content-animated bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-gray-100 text-left">
+      <div class="flex items-center justify-between pb-3 border-b border-gray-100 mb-4">
+        <div>
+          <h3 class="text-lg font-black text-[#082A50]">List Your Student PG / Hostel</h3>
+          <p class="text-xs text-gray-500">Connect with 50,000+ students seeking verified accommodation.</p>
+        </div>
+        <button class="btn-close-modal text-gray-400 hover:text-gray-700 p-1.5 rounded-lg hover:bg-gray-100">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="form-list-property" class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Your Full Name</label>
+          <input type="text" id="owner-name" placeholder="e.g. Rajesh Sharma" required class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Phone Number (WhatsApp)</label>
+          <input type="tel" id="owner-phone" placeholder="e.g. +91 9876543210" required class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">City</label>
+            <input type="text" id="owner-city" placeholder="e.g. Kota, Delhi, Bangalore" required class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Property Type</label>
+            <select id="owner-type" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden bg-white">
+              <option value="Boys Hostel">Boys Hostel</option>
+              <option value="Girls Hostel">Girls Hostel</option>
+              <option value="Co-Living Student PG">Co-Living Student PG</option>
+              <option value="Furnished Flat">Furnished Flat</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" class="w-full bg-[#1AB64F] hover:bg-[#159c42] text-white font-black text-sm py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-md transition-colors">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            Submit & Connect on WhatsApp
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: Yealth for Campuses -->
+  <div id="modal-campus" class="modal-container hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
+    <div class="modal-content-animated bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-gray-100 text-left">
+      <div class="flex items-center justify-between pb-3 border-b border-gray-100 mb-4">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#082A50] flex items-center justify-center">
+            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#082A50]">Yealth for Campuses</h3>
+        </div>
+        <button class="btn-close-modal text-gray-400 hover:text-gray-700 p-1.5 rounded-lg hover:bg-gray-100">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <p class="text-xs sm:text-sm text-gray-600 mb-4">
+        We partner with universities, coaching institutes (Kota, Delhi, Bangalore), and student unions to provide verified, zero-brokerage housing with vetted food and strict biometric safety.
+      </p>
+
+      <div class="space-y-2.5 mb-6 text-xs text-gray-700">
+        <div class="flex items-start gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4 text-[#1AB64F] shrink-0 mt-0.5"></i>
+          <span><strong>Institutional Discounts:</strong> Flat 10% to 15% discount for partner college batches.</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4 text-[#1AB64F] shrink-0 mt-0.5"></i>
+          <span><strong>Campus Ambassador Program:</strong> Earn monthly stipend & leadership certification.</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4 text-[#1AB64F] shrink-0 mt-0.5"></i>
+          <span><strong>Emergency Evacuation & Warden Escort:</strong> Dedicated student safety helpline.</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <a 
+          href="https://wa.me/919110155081?text=Hi%20Yealth,%20we%20would%20like%20to%20discuss%20a%20Campus%20Partnership%20or%20Ambassador%20Role." 
+          target="_blank"
+          class="bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs font-bold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          Partner WhatsApp
+        </a>
+        <a 
+          href="mailto:yealtthh@gmail.com?subject=Campus%20Partnership%20Inquiry%20-%20Yealth" 
+          class="border border-gray-300 hover:border-[#082A50] hover:bg-slate-50 text-gray-800 text-xs font-bold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-colors">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          Email Official
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Property Detail Quick View -->
+  <div id="modal-property-detail" class="modal-container hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
+    <div id="modal-property-content" class="modal-content-animated bg-white rounded-2xl max-w-xl w-full shadow-2xl border border-gray-100 text-left overflow-hidden max-h-[90vh] overflow-y-auto">
+      <!-- Populated dynamically via JS -->
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 pointer-events-none w-full max-w-md px-4"></div>
+
+  <!-- Main ES Module Application Script -->
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

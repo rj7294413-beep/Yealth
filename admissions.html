@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Admissions & Guidance | Yealth Network</title>
+  <meta name="description" content="Get expert 1-on-1 college admissions guidance, top university seat assistance, entrance coaching roadmaps, and career counseling with Yealth." />
+
+  <!-- Favicon using official Yealth Logo -->
+  <link rel="icon" type="image/png" href="assets/yealth-logo.png" />
+  <link rel="apple-touch-icon" href="assets/yealth-logo.png" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandNavy: '#082A50',
+            brandNavyDark: '#051C36',
+            brandGold: '#C59943',
+            brandGoldLight: '#DFB15B',
+            brandGreen: '#1AB64F',
+            brandGreenHover: '#159c42',
+            heroDark: '#071A33',
+            footerMidnight: '#0B1B2D'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet with Logo-inspired Palette -->
+  <link rel="stylesheet" href="css/custom.css" />
+</head>
+<body class="bg-[#F8FAFC] text-[#0F172A] antialiased flex flex-col min-h-screen">
+
+  <!-- ========================================================================= -->
+  <!-- TOP NAVIGATION BAR                                                        -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Left: Logo & Wordmark -->
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3 group py-1" title="Back to Yealth Gateway">
+          <img 
+            src="assets/yealth-logo.png" 
+            alt="Yealth - College Guidance, Student Living & Stays" 
+            class="h-14 sm:h-16 w-auto object-contain transition-transform group-hover:scale-105 drop-shadow-xs" 
+          />
+          <div class="hidden sm:flex flex-col text-left">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl font-black tracking-tight text-[#082A50] leading-none">YEALTH</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider bg-amber-50 text-[#A47B2E] px-2 py-0.5 rounded-full border border-amber-200">
+                Admissions
+              </span>
+            </div>
+            <span class="text-[10px] font-bold tracking-wider text-[#C59943] uppercase mt-0.5">College Guidance & Counseling</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Middle/Right Actions -->
+      <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
+        <!-- Gateway Switch Link -->
+        <a href="index.html" class="flex items-center gap-1.5 text-xs font-bold text-[#082A50] hover:text-[#051C36] bg-slate-100 hover:bg-slate-200 py-2 px-3 rounded-lg transition-colors border border-slate-200">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-[#C59943]"></i>
+          <span>Main Menu</span>
+        </a>
+
+        <!-- Switch to Hostels -->
+        <a href="hostels.html" class="flex items-center gap-1.5 text-xs lg:text-sm font-bold text-[#082A50] hover:text-[#051C36] border border-[#082A50]/30 hover:border-[#082A50] py-2 px-3.5 rounded-lg hover:bg-blue-50/50 transition-all">
+          <i data-lucide="building" class="w-4 h-4 text-[#C59943]"></i>
+          <span>Explore Hostels & PGs</span>
+        </a>
+
+        <!-- Direct Phone Link -->
+        <a href="tel:+919110155081" class="hidden sm:flex items-center gap-2 text-xs lg:text-sm font-extrabold text-[#082A50] hover:text-[#C59943] transition-colors py-2 px-2.5 rounded-lg hover:bg-slate-50">
+          <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[#082A50]">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+          </div>
+          <span class="hidden lg:inline">+91 9110155081</span>
+        </a>
+
+        <!-- WhatsApp Counselor Button -->
+        <a 
+          href="https://wa.me/919110155081?text=Hi%20Yealth%20Admissions!%20I%20am%20looking%20for%20college%20counseling%20and%20admission%20guidance." 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs lg:text-sm font-bold py-2.5 px-3.5 sm:px-4 rounded-xl flex items-center gap-1.5 shadow-sm transition-all hover:shadow hover:scale-102">
+          <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+          <span class="hidden sm:inline">WhatsApp Counselor</span>
+          <span class="sm:hidden">Chat</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1">
+    <!-- ========================================================================= -->
+    <!-- HERO SECTION: COLLEGE ADMISSIONS                                         -->
+    <!-- ========================================================================= -->
+    <section class="relative bg-[#071A33] text-white pt-16 pb-24 md:pt-20 md:pb-28 overflow-hidden">
+      <!-- Ambient Glows -->
+      <div class="absolute inset-0 opacity-25 pointer-events-none">
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-[#C59943] rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-[#0E3E74] rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <!-- Trust Tag -->
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold text-gray-200 mb-6 border border-[#C59943]/30 shadow-inner">
+          <span class="w-2 h-2 rounded-full bg-[#DFB15B] animate-ping"></span>
+          <span>100% Free Counseling • 500+ Verified Universities • Zero Donation Policy</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white max-w-4xl mx-auto leading-tight sm:leading-none mb-4">
+          Shape Your Career with Expert <span class="gold-text-gradient text-[#DFB15B]">College Guidance</span> & Admissions
+        </h1>
+
+        <p class="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl mx-auto mb-10 font-medium">
+          Confused about course selection, entrance cutoffs, or private vs government colleges? Get unbiased 1-on-1 counseling from verified academic advisors.
+        </p>
+
+        <!-- Quick Action CTAs -->
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto mb-12">
+          <a 
+            href="https://wa.me/919110155081?text=Hi%20Yealth%20Team!%20I%20want%20to%20book%20a%20free%201-on-1%20college%20counseling%20session." 
+            target="_blank"
+            class="bg-[#1AB64F] hover:bg-[#159c42] text-white font-extrabold text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-lg flex items-center gap-2 transition-all hover:scale-102">
+            <i data-lucide="message-circle" class="w-5 h-5 fill-white"></i>
+            Book Free Counseling on WhatsApp
+          </a>
+          <a 
+            href="tel:+919110155081" 
+            class="bg-white/10 hover:bg-white/20 text-white font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl border border-white/20 flex items-center gap-2 transition-all">
+            <i data-lucide="phone-call" class="w-5 h-5 text-[#DFB15B]"></i>
+            Direct Helpline
+          </a>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-white/10 text-left">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-[#082A50] text-[#DFB15B] border border-[#C59943]/40 flex items-center justify-center">
+              <i data-lucide="award" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xl font-black text-white">500+</div>
+              <div class="text-xs text-slate-300 font-medium">Partner Universities</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-green-500/20 text-[#1AB64F] flex items-center justify-center">
+              <i data-lucide="user-check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xl font-black text-white">25,000+</div>
+              <div class="text-xs text-slate-300 font-medium">Students Counseled</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-300 flex items-center justify-center">
+              <i data-lucide="wallet" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xl font-black text-white">₹0 Fee</div>
+              <div class="text-xs text-slate-300 font-medium">Free Career Guidance</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center">
+              <i data-lucide="map-pin" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xl font-black text-white">All India</div>
+              <div class="text-xs text-slate-300 font-medium">Delhi, Blr, Pune & More</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- EXPLORE POPULAR STREAMS & COURSES                                         -->
+    <!-- ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 mb-16 relative z-10">
+      <div class="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-8 lg:p-10">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="inline-block bg-[#082A50]/10 text-[#082A50] border border-[#082A50]/20 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full mb-2">
+            Top Educational Domains
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-[#082A50]">Explore Admission Streams</h2>
+          <p class="text-xs sm:text-sm text-gray-500 mt-1">Select your desired stream to check eligibility, seat matrix, and fee structures.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Stream 1 -->
+          <div class="oyo-card-shadow bg-slate-50/70 rounded-xl p-5 border border-slate-200 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm">
+                <i data-lucide="cpu" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-1">Engineering & Tech</h3>
+              <p class="text-xs text-gray-600 mb-3">B.Tech, M.Tech, BCA, Data Science, AI & Cyber Security.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">JEE Cutoffs</span>
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">Direct Merit</span>
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">Top Placements</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stream 2 -->
+          <div class="oyo-card-shadow bg-slate-50/70 rounded-xl p-5 border border-slate-200 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm">
+                <i data-lucide="stethoscope" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-1">Medical & Healthcare</h3>
+              <p class="text-xs text-gray-600 mb-3">MBBS, BDS, B.Pharm, BPT, Nursing & Paramedical.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">NEET Guidance</span>
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">NMC Approved</span>
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">Deemed Universities</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stream 3 -->
+          <div class="oyo-card-shadow bg-slate-50/70 rounded-xl p-5 border border-slate-200 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm">
+                <i data-lucide="briefcase" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-1">Management & Commerce</h3>
+              <p class="text-xs text-gray-600 mb-3">MBA, PGDM, BBA, B.Com, Financial Analytics & Fintech.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">CAT/MAT/CUET</span>
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">Corporate Mentors</span>
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">Scholarships</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stream 4 -->
+          <div class="oyo-card-shadow bg-slate-50/70 rounded-xl p-5 border border-slate-200 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm">
+                <i data-lucide="scale" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-1">Law & Legal Studies</h3>
+              <p class="text-xs text-gray-600 mb-3">BA LLB, BBA LLB, LLM, Corporate Law & IPR.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">CLAT Cutoffs</span>
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">BCI Approved</span>
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">Moot Courts</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stream 5 -->
+          <div class="oyo-card-shadow bg-slate-50/70 rounded-xl p-5 border border-slate-200 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm">
+                <i data-lucide="palette" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-1">Design & Architecture</h3>
+              <p class="text-xs text-gray-600 mb-3">B.Des, B.Arch, Fashion Tech, Animation & Game Design.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">UCEED/NATA</span>
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">Portfolio Reviews</span>
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">Studio Labs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stream 6 -->
+          <div class="oyo-card-shadow bg-slate-50/70 rounded-xl p-5 border border-slate-200 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm">
+                <i data-lucide="book-open" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-1">Arts, Science & Journalism</h3>
+              <p class="text-xs text-gray-600 mb-3">BA, B.Sc, Psychology, Mass Comm & Media.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">CUET Guidance</span>
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">Liberal Arts</span>
+                <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">Internships</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- HOW YEALTH COUNSELING WORKS                                               -->
+    <!-- ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <div class="bg-gradient-to-r from-[#082A50] to-[#0E3E74] rounded-2xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
+        <div class="relative z-10 max-w-3xl">
+          <span class="bg-[#C59943] text-white text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full mb-3 inline-block">
+            Our Promise
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black mb-4 leading-tight">
+            Transparent, Zero-Brokerage Admission Mentorship
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-200 mb-6 leading-relaxed">
+            We don't believe in pushy agents or fake promises. Yealth connects you directly with campus alumni, real fee breakdowns, and certified mentors who have personally walked the journey.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-white/10 text-xs">
+            <div class="flex items-start gap-2">
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#DFB15B] shrink-0 mt-0.5"></i>
+              <span>100% Free Career Roadmap</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#DFB15B] shrink-0 mt-0.5"></i>
+              <span>College Campus Physical Tours</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#DFB15B] shrink-0 mt-0.5"></i>
+              <span>Combined Hostel & Stay Package</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- EDUCATION LOAN ASSISTANCE                                                 -->
+    <!-- ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <div class="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-8 lg:p-10">
+
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="inline-block bg-green-50 text-green-700 border border-green-200 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full mb-2">
+            Zero-Stress Financing
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-[#082A50]">Education Loan Assistance</h2>
+          <p class="text-xs sm:text-sm text-gray-500 mt-1">We help you secure the right education loan — fast, paperwork-free, and with the lowest interest rates from top banks &amp; NBFCs.</p>
+        </div>
+
+        <!-- Loan Feature Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+          <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 text-center">
+            <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="indian-rupee" class="w-6 h-6"></i>
+            </div>
+            <div class="text-2xl font-black text-[#082A50]">₹75L+</div>
+            <div class="text-xs text-gray-500 font-medium mt-0.5">Max Loan Amount</div>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 text-center">
+            <div class="w-12 h-12 rounded-xl bg-green-500/15 text-green-600 flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="percent" class="w-6 h-6"></i>
+            </div>
+            <div class="text-2xl font-black text-green-700">8.5%</div>
+            <div class="text-xs text-gray-500 font-medium mt-0.5">Starting Interest Rate</div>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 text-center">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-600 flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="clock" class="w-6 h-6"></i>
+            </div>
+            <div class="text-2xl font-black text-amber-700">48 hrs</div>
+            <div class="text-xs text-gray-500 font-medium mt-0.5">Approval Time</div>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 text-center">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/15 text-blue-600 flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="building-2" class="w-6 h-6"></i>
+            </div>
+            <div class="text-2xl font-black text-blue-700">15+</div>
+            <div class="text-xs text-gray-500 font-medium mt-0.5">Partner Banks &amp; NBFCs</div>
+          </div>
+        </div>
+
+        <!-- Partner Banks + Eligibility -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+
+          <!-- Partner Banks -->
+          <div>
+            <h3 class="text-base font-black text-[#082A50] mb-4 flex items-center gap-2">
+              <i data-lucide="landmark" class="w-5 h-5 text-[#C59943]"></i>
+              Our Banking Partners
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-center text-xs font-bold text-slate-700">SBI</div>
+              <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-center text-xs font-bold text-slate-700">Bank of Baroda</div>
+              <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-center text-xs font-bold text-slate-700">Punjab National Bank</div>
+              <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-center text-xs font-bold text-slate-700">HDFC Credila</div>
+              <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-center text-xs font-bold text-slate-700">Axis Bank</div>
+              <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-center text-xs font-bold text-slate-700">ICICI Bank</div>
+              <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-center text-xs font-bold text-slate-700">Avanse</div>
+              <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-center text-xs font-bold text-slate-700">InCred</div>
+              <div class="bg-[#082A50]/5 border border-[#082A50]/20 rounded-lg px-3 py-2.5 text-center text-xs font-bold text-[#082A50]">+ Many More</div>
+            </div>
+          </div>
+
+          <!-- Eligibility & Covers -->
+          <div>
+            <h3 class="text-base font-black text-[#082A50] mb-4 flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-5 h-5 text-[#C59943]"></i>
+              What the Loan Covers
+            </h3>
+            <div class="space-y-2.5">
+              <div class="flex items-start gap-2.5">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500 shrink-0 mt-0.5"></i>
+                <span class="text-xs text-gray-700">Tuition &amp; university fees (full course duration)</span>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500 shrink-0 mt-0.5"></i>
+                <span class="text-xs text-gray-700">Hostel &amp; accommodation expenses</span>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500 shrink-0 mt-0.5"></i>
+                <span class="text-xs text-gray-700">Books, lab equipment &amp; course materials</span>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500 shrink-0 mt-0.5"></i>
+                <span class="text-xs text-gray-700">Laptop &amp; study devices</span>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500 shrink-0 mt-0.5"></i>
+                <span class="text-xs text-gray-700">Exam &amp; entrance coaching fees</span>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500 shrink-0 mt-0.5"></i>
+                <span class="text-xs text-gray-700">Study abroad &amp; international university fees</span>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500 shrink-0 mt-0.5"></i>
+                <span class="text-xs text-gray-700">Insurance &amp; travel (for abroad programs)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- How It Works Steps -->
+        <div class="bg-gradient-to-r from-[#082A50]/5 to-[#C59943]/10 rounded-xl p-5 sm:p-6 mb-8 border border-[#082A50]/10">
+          <h3 class="text-sm font-black text-[#082A50] mb-5 text-center uppercase tracking-wide">How Yealth Loan Assistance Works</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="text-center">
+              <div class="w-10 h-10 rounded-full bg-[#082A50] text-white font-black text-sm flex items-center justify-center mx-auto mb-2">1</div>
+              <p class="text-xs font-bold text-[#082A50]">Share Your Profile</p>
+              <p class="text-[11px] text-gray-500 mt-0.5">Tell us your course &amp; college</p>
+            </div>
+            <div class="text-center">
+              <div class="w-10 h-10 rounded-full bg-[#082A50] text-white font-black text-sm flex items-center justify-center mx-auto mb-2">2</div>
+              <p class="text-xs font-bold text-[#082A50]">Get Matched</p>
+              <p class="text-[11px] text-gray-500 mt-0.5">We compare 15+ lenders for you</p>
+            </div>
+            <div class="text-center">
+              <div class="w-10 h-10 rounded-full bg-[#082A50] text-white font-black text-sm flex items-center justify-center mx-auto mb-2">3</div>
+              <p class="text-xs font-bold text-[#082A50]">Document Support</p>
+              <p class="text-[11px] text-gray-500 mt-0.5">We assist with paperwork end-to-end</p>
+            </div>
+            <div class="text-center">
+              <div class="w-10 h-10 rounded-full bg-[#082A50] text-white font-black text-sm flex items-center justify-center mx-auto mb-2">4</div>
+              <p class="text-xs font-bold text-[#082A50]">Loan Disbursed</p>
+              <p class="text-[11px] text-gray-500 mt-0.5">Funds go directly to university</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loan CTAs -->
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href="https://wa.me/919110155081?text=Hi%20Yealth%20Team!%20I%20need%20help%20with%20an%20Education%20Loan%20for%20my%20college%20admission.%20Please%20guide%20me."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-2 bg-[#1AB64F] hover:bg-[#159c42] text-white font-extrabold text-sm px-6 py-3.5 rounded-xl shadow-md transition-all hover:scale-[1.02]">
+            <i data-lucide="message-circle" class="w-5 h-5 fill-white"></i>
+            Check Loan Eligibility on WhatsApp
+          </a>
+          <a
+            href="tel:+919110155081"
+            class="flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-[#082A50] font-extrabold text-sm px-6 py-3.5 rounded-xl shadow-sm border border-[#082A50]/30 transition-all">
+            <i data-lucide="phone-call" class="w-5 h-5 text-[#C59943]"></i>
+            Call Our Loan Advisor
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- NEED A HOSTEL TOO? BANNER                                                 -->
+    <!-- ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <div class="bg-white rounded-2xl shadow-md border border-gray-200 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-amber-50 text-[#C59943] border border-amber-200 flex items-center justify-center shrink-0">
+            <i data-lucide="bed" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-black text-[#082A50]">Already finalized your college and need a verified stay?</h3>
+            <p class="text-xs sm:text-sm text-gray-500">Explore 10,000+ student hostels and PGs with meals, Wi-Fi, and 0 brokerage near your campus.</p>
+          </div>
+        </div>
+        <a 
+          href="hostels.html"
+          class="w-full md:w-auto bg-[#082A50] hover:bg-[#051C36] text-white font-extrabold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-md transition-all whitespace-nowrap text-center flex items-center justify-center gap-2 border border-[#C59943]/40">
+          <span>Explore Verified Hostels</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 text-[#DFB15B]"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER (MATCHING BRAND MIDNIGHT NAVY)                                     -->
+  <!-- ========================================================================= -->
+  <footer class="bg-[#0B1B2D] text-slate-200 pt-14 pb-12 border-t border-[#132A46]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-10 mb-10 border-b border-slate-700/60 gap-6">
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <div class="bg-white/95 p-2 rounded-xl shadow-md inline-block">
+              <img src="assets/yealth-logo.png" alt="Yealth" class="h-12 w-auto object-contain" />
+            </div>
+            <div>
+              <span class="text-2xl font-black text-white tracking-tight">YEALTH</span>
+              <span class="block text-[11px] text-[#DFB15B] font-bold tracking-wide">COLLEGE & HOSTEL NETWORKING</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-300 mt-2">India's dedicated student accommodation network & college admissions partner.</p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="hostels.html" class="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-colors border border-white/15">
+            Hostels & Stays
+          </a>
+          <a href="https://wa.me/919110155081?text=Hi%20Yealth%20Team!%20I%20need%20admissions%20counseling." target="_blank" class="bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs font-extrabold px-4 py-2.5 rounded-lg transition-colors">
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+        <div>
+          © 2026 Yealth Living Network Pvt. Ltd. All rights reserved. Zero Brokerage Student Housing & Admissions.
+        </div>
+        <div class="flex items-center gap-4 text-slate-300">
+          <a href="tel:+919110155081" class="hover:text-white flex items-center gap-1"><i data-lucide="phone" class="w-3.5 h-3.5 text-[#DFB15B]"></i> +91 9110155081</a>
+          <a href="mailto:yealtthh@gmail.com" class="hover:text-white flex items-center gap-1"><i data-lucide="mail" class="w-3.5 h-3.5 text-[#DFB15B]"></i> yealtthh@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --brand-navy: #082A50;
+  --brand-navy-dark: #051C36;
+  --brand-navy-light: #0E3E74;
+  --brand-gold: #C59943;
+  --brand-gold-light: #DFB15B;
+  --brand-gold-dark: #A47B2E;
+  --brand-action-green: #1AB64F;
+  --brand-action-green-hover: #159c42;
+  --hero-dark-surface: #071A33;
+  --footer-midnight: #0B1B2D;
+  --footer-midnight-dark: #071322;
+  --text-primary: #0F172A;
+  --text-muted: #64748B;
+  --surface-bg: #F8FAFC;
+  --whatsapp-brand: #25D366;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-primary);
+  background-color: var(--surface-bg);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar for city filter strip */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Floating Search Bar drop-shadow with subtle navy-gold glow */
+.oyo-search-shadow {
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(197, 153, 67, 0.25);
+}
+
+.oyo-card-shadow {
+  box-shadow: 0 4px 20px -2px rgba(8, 42, 80, 0.06), 0 0 0 1px rgba(8, 42, 80, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.oyo-card-shadow:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -10px rgba(8, 42, 80, 0.15), 0 0 0 1px rgba(197, 153, 67, 0.4);
+}
+
+/* Pulse animation for floating WhatsApp button */
+@keyframes whatsapp-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.pulse-whatsapp {
+  animation: whatsapp-pulse 2s infinite;
+}
+
+/* Gold shimmer effect */
+.gold-shimmer {
+  background: linear-gradient(135deg, #C59943 0%, #DFB15B 50%, #A47B2E 100%);
+}
+
+.gold-text-gradient {
+  background: linear-gradient(135deg, #DFB15B 0%, #C59943 50%, #E8C477 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Badges */
+.badge-gold {
+  background-color: #FEF3C7;
+  color: #92400E;
+  border-color: #FDE68A;
+}
+
+.badge-navy {
+  background-color: #E2E8F0;
+  color: #082A50;
+  border-color: #CBD5E1;
+}
+
+.badge-green {
+  background-color: #DCFCE7;
+  color: #15803D;
+}
+
+/* Modal and Backdrop animations */
+.modal-backdrop {
+  background-color: rgba(5, 29, 56, 0.75);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-content-animated {
+  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Toast alert animation */
+@keyframes toastSlide {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.toast-alert {
+  animation: toastSlide 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* High-contrast Midnight Navy Footer styling */
+footer {
+  background-color: #0B1B2D;
+  color: #e2e8f0;
+}
+footer p, footer li, footer span.footer-subtext {
+  color: #94A3B8;
+}
+footer a {
+  color: #94A3B8;
+  transition: color 0.15s ease;
+}
+footer a:hover {
+  color: #DFB15B;
+}
+footer h4 {
+  color: #ffffff;
+}
