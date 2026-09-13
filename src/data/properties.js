@@ -556,6 +556,54 @@ export const PROPERTIES = [
     mealPlan: MEAL_PLAN_TEMPLATE,
     rating: "4.8",
     reviewsCount: 88
+  },
+  {
+    id: "y-delhi-01",
+    title: "Yealth Hauz Khas Campus Residency",
+    location: "Hauz Khas, New Delhi",
+    city: "Delhi / NCR",
+    type: "Boys & Girls (Separate Wings)",
+    category: "Co-Living",
+    roomOptions: ["Single Private", "Twin Sharing"],
+    price: 9999,
+    originalPrice: 12500,
+    proximityBadge: "Walking to IIT Delhi & AIIMS",
+    isVerified: true,
+    tags: ["Hauz Khas", "Near IIT Delhi", "Near AIIMS", "Metro 200m"],
+    amenities: ["Attached Washroom", "High-speed 200Mbps Wi-Fi", "4-Time Hot Meals", "AC & Geyser", "Silent Study Lounge", "Daily Housekeeping"],
+    image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80",
+    images: ["https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80"],
+    virtualTour: [
+      { name: "Hauz Khas Study Room", viewUrl: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1200&q=80", desc: "Premium study rooms close to IIT Delhi and AIIMS." }
+    ],
+    virtualAmenities: DEFAULT_VIRTUAL_AMENITIES,
+    mealPlan: MEAL_PLAN_TEMPLATE,
+    rating: "4.9",
+    reviewsCount: 198
+  },
+  {
+    id: "y-delhi-02",
+    title: "Yealth Rohini Tech Residency",
+    location: "Rohini Sector 16, Delhi",
+    city: "Delhi / NCR",
+    type: "Boys Only",
+    category: "Boys Only",
+    roomOptions: ["Single Private", "Twin Sharing"],
+    price: 7500,
+    originalPrice: 9200,
+    proximityBadge: "Opposite DTU (Delhi Technological University)",
+    isVerified: true,
+    tags: ["Near DTU", "Rohini Sec 16", "Food Included", "Coding Friendly"],
+    amenities: ["Attached Washroom", "High-speed 200Mbps Wi-Fi", "Home-style 4 Meals", "AC & Geyser", "Gaming Room", "Laundry"],
+    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+    images: ["https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80"],
+    virtualTour: [
+      { name: "Rohini Tech Suite", viewUrl: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80", desc: "Walking to DTU campus gate and Rithala metro." }
+    ],
+    virtualAmenities: DEFAULT_VIRTUAL_AMENITIES,
+    mealPlan: MEAL_PLAN_TEMPLATE,
+    rating: "4.8",
+    reviewsCount: 165
   }
 ];
 

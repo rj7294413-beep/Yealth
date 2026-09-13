@@ -1,5 +1,6 @@
 import { SITE_CONFIG } from "./config/siteConfig.js";
 import { PROPERTIES, CATEGORY_FILTERS } from "./data/properties.js";
+import { COLLEGES } from "./data/colleges.js";
 import { openWhatsAppInquiry, getWhatsAppUrl } from "./utils/whatsapp.js";
 import { 
   getCart, 
@@ -43,14 +44,27 @@ const state = {
   },
   selectedProperty: null,
   activeModalTab: "photos",
-  selectedMealDay: "monday"
+  selectedMealDay: "monday",
+  activeCollegeId: null
 };
 
 // Initialize App on DOMContentLoaded
 document.addEventListener("DOMContentLoaded", () => {
+  // Read deep-linked college parameter if provided
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const colParam = urlParams.get("college") || urlParams.get("collegeId");
+    if (colParam) {
+      state.activeCollegeId = colParam;
+    }
+  } catch (e) {
+    console.error("Failed to parse URL query params", e);
+  }
+
   renderCityFilters();
   renderCategoryTabs();
   renderProperties();
+  renderCollegeRecommendations();
   setupSearchForm();
   setupLeadCapture();
   setupModals();
@@ -65,6 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("yealth-cart-updated", () => {
     updateCartBadges();
     renderCartDrawerContent();
+    renderProperties();
+    renderCollegeRecommendations();
   });
 
   window.addEventListener("yealth-auth-updated", () => {
@@ -208,6 +224,17 @@ function renderProperties() {
 
   const filtered = getFilteredProperties();
   const cart = getCart();
+  const cartColleges = cart.colleges || [];
+
+  // Determine active college for proximity badge display
+  let activeCollege = null;
+  if (state.activeCollegeId) {
+    activeCollege = cartColleges.find(c => c.id === state.activeCollegeId) ||
+      COLLEGES.find(c => c.id === state.activeCollegeId);
+  }
+  if (!activeCollege && cartColleges.length > 0) {
+    activeCollege = cartColleges[0];
+  }
 
   if (countElement) {
     countElement.innerHTML = `Showing <span class="font-bold text-[#082A50]">${filtered.length}</span> verified student stays`;
@@ -255,8 +282,37 @@ function renderProperties() {
 
       const isInCart = cart.hostels.some(h => h.id === property.id);
 
+      // Check if property matches active college for proximity highlight
+      let collegeMatchBadge = "";
+      if (activeCollege) {
+        const pProxLower = (property.proximityBadge || "").toLowerCase();
+        const pTitleLower = (property.title || "").toLowerCase();
+        const pTagsLower = (property.tags || []).map(t => t.toLowerCase()).join(" ");
+        const pLocLower = (property.location || "").toLowerCase();
+        const cShortLower = (activeCollege.shortName || "").toLowerCase();
+        const cLocLower = (activeCollege.location || "").toLowerCase();
+
+        if (cShortLower && (pProxLower.includes(cShortLower) || pTitleLower.includes(cShortLower) || pTagsLower.includes(cShortLower))) {
+          collegeMatchBadge = `Walking to ${activeCollege.shortName}`;
+        } else if (cLocLower.includes("knowledge park 2") && (pLocLower.includes("knowledge park 2") || pProxLower.includes("kp 2") || pProxLower.includes("kp2"))) {
+          collegeMatchBadge = `Campus Zone (${activeCollege.shortName})`;
+        } else if (cLocLower.includes("knowledge park 3") && (pLocLower.includes("knowledge park 3") || pProxLower.includes("kp 3") || pProxLower.includes("kp3"))) {
+          collegeMatchBadge = `Campus Zone (${activeCollege.shortName})`;
+        } else if (cLocLower.includes("techzone") && pLocLower.includes("techzone")) {
+          collegeMatchBadge = `Near ${activeCollege.shortName}`;
+        } else if (cLocLower.includes("north campus") && (pProxLower.includes("north campus") || pLocLower.includes("north campus"))) {
+          collegeMatchBadge = `Walking to ${activeCollege.shortName}`;
+        } else if (cLocLower.includes("hauz khas") && (pProxLower.includes("iit") || pProxLower.includes("hauz khas"))) {
+          collegeMatchBadge = `Near ${activeCollege.shortName}`;
+        } else if (cLocLower.includes("koramangala") && pLocLower.includes("koramangala")) {
+          collegeMatchBadge = `Near ${activeCollege.shortName}`;
+        } else if (cLocLower.includes("viman nagar") && pLocLower.includes("viman nagar")) {
+          collegeMatchBadge = `Near ${activeCollege.shortName}`;
+        }
+      }
+
       return `
-        <div data-id="${property.id}" class="property-card cursor-pointer oyo-card-shadow bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-[#082A50] hover:shadow-2xl transition-all duration-300 flex flex-col group relative">
+        <div data-id="${property.id}" class="property-card cursor-pointer oyo-card-shadow bg-white rounded-2xl overflow-hidden border ${collegeMatchBadge ? 'border-[#C59943] ring-2 ring-[#DFB15B]/30' : 'border-gray-200'} hover:border-[#082A50] hover:shadow-2xl transition-all duration-300 flex flex-col group relative">
           <!-- Card Image & Badges -->
           <div class="relative h-52 w-full overflow-hidden bg-gray-100">
             <img 
@@ -300,11 +356,16 @@ function renderProperties() {
             </button>
 
             ${
-              discountPercent 
-                ? `<div class="absolute bottom-3 left-3 bg-[#C59943] text-white text-[11px] font-black px-2.5 py-0.5 rounded shadow-sm">
-                    ${discountPercent}% OFF
+              collegeMatchBadge
+                ? `<div class="absolute bottom-3 left-3 bg-[#082A50]/95 backdrop-blur-xs text-[#DFB15B] border border-[#DFB15B]/60 text-[10px] font-black px-2.5 py-1 rounded-md shadow-md flex items-center gap-1">
+                    <i data-lucide="sparkles" class="w-3 h-3 text-[#DFB15B]"></i>
+                    <span class="truncate">${collegeMatchBadge}</span>
                    </div>`
-                : ""
+                : discountPercent 
+                  ? `<div class="absolute bottom-3 left-3 bg-[#C59943] text-white text-[11px] font-black px-2.5 py-0.5 rounded shadow-sm">
+                      ${discountPercent}% OFF
+                     </div>`
+                  : ""
             }
           </div>
 
@@ -419,6 +480,7 @@ function renderProperties() {
         const res = addToCart(prop, "hostel");
         showToast(res.message, res.success ? "success" : "info");
         renderProperties();
+        renderCollegeRecommendations();
       }
     });
   });
@@ -1431,6 +1493,40 @@ function renderCartDrawerContent() {
     }
   }
 
+  if (cart.colleges.length > 0 && cart.hostels.length === 0) {
+    html += `
+      <div class="bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 rounded-xl p-3.5 mb-4 text-left shadow-xs">
+        <div class="flex items-center gap-1.5 mb-1">
+          <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+          <span class="text-xs font-black uppercase tracking-wider text-[#082A50]">Recommended Campus Stays</span>
+        </div>
+        <p class="text-xs text-amber-900 mb-2.5">
+          You have shortlisted <strong>${cart.colleges[0].shortName || cart.colleges[0].name}</strong>! Pair your college with verified walking-distance student stays and zero brokerage.
+        </p>
+        <button id="btn-cart-explore-nearby" data-college-id="${cart.colleges[0].id}" class="w-full bg-[#082A50] hover:bg-[#051C36] text-[#DFB15B] text-xs font-extrabold py-2.5 px-3 rounded-lg flex items-center justify-center gap-1.5 transition-all shadow-sm">
+          <i data-lucide="building" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+          <span>View Hostels Near ${cart.colleges[0].shortName || cart.colleges[0].name} →</span>
+        </button>
+      </div>
+    `;
+  }
+
+  container.innerHTML = html;
+
+  const nearbyCartBtn = container.querySelector("#btn-cart-explore-nearby");
+  if (nearbyCartBtn) {
+    nearbyCartBtn.addEventListener("click", () => {
+      const colId = nearbyCartBtn.dataset.collegeId;
+      state.activeCollegeId = colId;
+      const drawer = document.getElementById("modal-cart-drawer");
+      if (drawer) drawer.classList.add("hidden");
+      renderCollegeRecommendations();
+      renderProperties();
+      const recSection = document.getElementById("college-recommendations-section");
+      if (recSection) recSection.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
   container.querySelectorAll(".btn-cart-remove").forEach(btn => {
     btn.addEventListener("click", () => {
       const id = btn.dataset.removeId;
@@ -1438,6 +1534,7 @@ function renderCartDrawerContent() {
       removeFromCart(id, type);
       renderCartDrawerContent();
       renderProperties();
+      renderCollegeRecommendations();
       showToast("Item removed from bundle");
     });
   });
@@ -1732,4 +1829,563 @@ export function showToast(message, type = "success") {
     toast.style.transform = "translate(-50%, -10px)";
     setTimeout(() => toast.remove(), 300);
   }, 3500);
+}
+
+/**
+ * Proximity matching algorithm to suggest closest hostels for a given college
+ */
+export function getNearbyHostelsForCollege(college, allProperties = activePropertyList) {
+  if (!college) return [];
+
+  const collegeNameLower = (college.name || "").toLowerCase();
+  const collegeShortLower = (college.shortName || "").toLowerCase();
+  const collegeLocLower = (college.location || "").toLowerCase();
+  const collegeCity = college.city || "";
+
+  // Scoring function
+  const scored = allProperties.map(p => {
+    let score = 0;
+    let matchReason = "";
+    let distanceLabel = "";
+    const pTitleLower = (p.title || "").toLowerCase();
+    const pLocLower = (p.location || "").toLowerCase();
+    const pProxLower = (p.proximityBadge || "").toLowerCase();
+    const pTagsLower = (p.tags || []).map(t => t.toLowerCase()).join(" ");
+
+    // 1. Direct mention of specific college name / acronym in proximityBadge, title, or tags
+    const checkTerms = [
+      collegeShortLower,
+      ...collegeShortLower.split(" ").filter(t => t.length > 3 && !["university", "institute", "college", "delhi"].includes(t))
+    ];
+
+    let directMention = false;
+    for (const term of checkTerms) {
+      if (term && (pProxLower.includes(term) || pTitleLower.includes(term) || pTagsLower.includes(term) || pLocLower.includes(term))) {
+        directMention = true;
+        score += 120;
+        matchReason = p.proximityBadge || `Near ${college.shortName || college.name}`;
+        distanceLabel = "Walking Distance (< 500m)";
+        break;
+      }
+    }
+
+    // 2. Specific campus micro-hub matching (Knowledge Park 2, 3, TechZone 2, North Campus, Hauz Khas, etc.)
+    const microHubs = [
+      { name: "knowledge park 2", label: "Knowledge Park 2 Campus Zone", dist: "Walking Distance / 350m" },
+      { name: "knowledge park 3", label: "Knowledge Park 3 Campus Zone", dist: "Walking Distance / 400m" },
+      { name: "techzone 2", label: "TechZone Campus Zone", dist: "5 mins from Campus" },
+      { name: "pari chowk", label: "Pari Chowk / Metro Hub", dist: "Quick 5-min Commute" },
+      { name: "north campus", label: "DU North Campus Hub", dist: "Walking Distance / 300m" },
+      { name: "south campus", label: "South Delhi Student Hub", dist: "10 mins Commute" },
+      { name: "hauz khas", label: "Hauz Khas Student Area", dist: "Walking / 500m" },
+      { name: "rohini", label: "Rohini Campus Area", dist: "Close to Campus" },
+      { name: "dwarka", label: "Dwarka Sector 14 Hub", dist: "Near Campus" },
+      { name: "koramangala", label: "Koramangala Student Hub", dist: "Walking Distance" },
+      { name: "viman nagar", label: "Viman Nagar Student Hub", dist: "Walking Distance" }
+    ];
+
+    for (const hub of microHubs) {
+      if (collegeLocLower.includes(hub.name) && (pLocLower.includes(hub.name) || pProxLower.includes(hub.name) || pTagsLower.includes(hub.name))) {
+        score += 70;
+        if (!matchReason) {
+          matchReason = hub.label;
+          distanceLabel = hub.dist;
+        }
+        break;
+      }
+    }
+
+    // 3. City matching
+    if (collegeCity && p.city && p.city.toLowerCase() === collegeCity.toLowerCase()) {
+      score += 30;
+      if (!matchReason) {
+        matchReason = `Located in ${collegeCity}`;
+        distanceLabel = `In ${collegeCity}`;
+      }
+    }
+
+    return {
+      property: p,
+      score,
+      matchReason: matchReason || p.proximityBadge || "Verified Student Residence",
+      distanceLabel: distanceLabel || "Nearby Campus",
+      isWalkingDistance: score >= 100
+    };
+  });
+
+  return scored
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score);
+}
+
+/**
+ * Render Smart College-Based Nearby Hostel Recommendations Banner
+ */
+export function renderCollegeRecommendations() {
+  const section = document.getElementById("college-recommendations-section");
+  const container = document.getElementById("college-recommendations-container");
+  if (!section || !container) return;
+
+  const cart = getCart();
+  const cartColleges = cart.colleges || [];
+
+  // Determine active college
+  let activeCollege = null;
+  if (state.activeCollegeId) {
+    activeCollege = cartColleges.find(c => c.id === state.activeCollegeId) ||
+      COLLEGES.find(c => c.id === state.activeCollegeId || c.name.toLowerCase().includes(state.activeCollegeId.toLowerCase()) || (c.shortName && c.shortName.toLowerCase().includes(state.activeCollegeId.toLowerCase())));
+  }
+
+  // If none explicitly set, default to first college in cart
+  if (!activeCollege && cartColleges.length > 0) {
+    activeCollege = cartColleges[0];
+    state.activeCollegeId = activeCollege.id;
+  }
+
+  // Make section visible
+  section.classList.remove("hidden");
+
+  // State 1: A college is selected (either from cart, deep link, or dropdown)
+  if (activeCollege) {
+    const nearby = getNearbyHostelsForCollege(activeCollege, activePropertyList);
+    const topStays = nearby.slice(0, 3);
+
+    container.innerHTML = `
+      <div class="bg-gradient-to-r from-[#071A33] via-[#082A50] to-[#0E3E74] rounded-3xl p-5 sm:p-7 text-white shadow-2xl border-2 border-[#C59943]/40 relative overflow-hidden">
+        <!-- Ambient Background Glow -->
+        <div class="absolute -right-16 -top-16 w-60 h-60 bg-[#C59943]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Top Header Row -->
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 border-b border-white/10">
+          <div class="flex items-start sm:items-center gap-3.5">
+            <div class="w-12 h-12 rounded-2xl bg-[#082A50] text-[#DFB15B] border border-[#DFB15B]/40 flex items-center justify-center shrink-0 shadow-inner">
+              <i data-lucide="graduation-cap" class="w-6 h-6 text-[#DFB15B]"></i>
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2 mb-1">
+                <span class="inline-flex items-center gap-1 bg-[#C59943]/20 border border-[#C59943]/40 text-[#DFB15B] text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full">
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+                  Campus Proximity Match
+                </span>
+                ${cartColleges.some(c => c.id === activeCollege.id) ? `
+                  <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                    <i data-lucide="check" class="w-3 h-3"></i>
+                    In Your Selection Bundle
+                  </span>
+                ` : ''}
+              </div>
+              <h3 class="text-xl sm:text-2xl font-black text-white leading-tight">
+                Recommended Hostels Near <span class="text-[#DFB15B]">${activeCollege.shortName || activeCollege.name}</span>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-200 mt-1">
+                📍 <strong>${activeCollege.location}</strong> • Verified walking-distance student stays with 4-time meals, high-speed Wi-Fi & ₹0 brokerage.
+              </p>
+            </div>
+          </div>
+
+          <!-- College Selector & Switcher -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 shrink-0">
+            <div class="flex items-center gap-1.5 bg-white/10 backdrop-blur-md rounded-xl p-1 border border-white/20">
+              <i data-lucide="building" class="w-4 h-4 text-[#DFB15B] ml-2 shrink-0"></i>
+              <select id="select-active-college" class="bg-transparent text-white text-xs font-bold py-1.5 px-2 focus:outline-hidden cursor-pointer">
+                ${cartColleges.length > 0 ? `
+                  <optgroup label="Your Selected Colleges in Cart" class="text-[#082A50] bg-slate-100 font-bold">
+                    ${cartColleges.map(c => `
+                      <option value="${c.id}" ${c.id === activeCollege.id ? 'selected' : ''}>
+                        ⭐ ${c.shortName || c.name} (${c.city})
+                      </option>
+                    `).join("")}
+                  </optgroup>
+                ` : ''}
+                <optgroup label="All Verified Universities" class="text-[#082A50] bg-white">
+                  ${COLLEGES.map(c => `
+                    <option value="${c.id}" ${c.id === activeCollege.id ? 'selected' : ''}>
+                      ${c.shortName || c.name} (${c.city})
+                    </option>
+                  `).join("")}
+                </optgroup>
+              </select>
+            </div>
+
+            <a href="admissions.html" class="inline-flex items-center justify-center gap-1 text-xs font-bold text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 px-3 py-2.5 rounded-xl border border-white/15 transition-colors">
+              <i data-lucide="search" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+              <span>Browse Colleges</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- If multiple colleges in bundle, render switcher pills -->
+        ${cartColleges.length > 1 ? `
+          <div class="relative z-10 flex items-center gap-2 pt-3 overflow-x-auto no-scrollbar">
+            <span class="text-xs text-slate-300 font-bold whitespace-nowrap">Your Colleges:</span>
+            ${cartColleges.map(c => `
+              <button 
+                data-college-switch="${c.id}" 
+                class="btn-college-switch px-3 py-1 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 ${
+                  c.id === activeCollege.id 
+                    ? 'bg-[#DFB15B] text-[#082A50] shadow-sm' 
+                    : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+                }">
+                <i data-lucide="check-circle" class="w-3 h-3"></i>
+                <span>${c.shortName || c.name}</span>
+              </button>
+            `).join("")}
+          </div>
+        ` : ''}
+
+        <!-- Top Nearby Hostels Cards Grid -->
+        <div class="relative z-10 mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          ${topStays.length > 0 ? topStays.map(({ property, matchReason, distanceLabel }) => {
+            const isInCart = cart.hostels.some(h => h.id === property.id);
+            return `
+              <div class="bg-white rounded-2xl p-3.5 sm:p-4 text-gray-900 shadow-lg border border-white/30 flex flex-col justify-between group hover:shadow-2xl transition-all">
+                <div>
+                  <div class="relative h-44 rounded-xl overflow-hidden bg-slate-100 mb-3">
+                    <img 
+                      src="${property.image}" 
+                      alt="${property.title}" 
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy" 
+                    />
+                    <!-- Proximity Walking Badge -->
+                    <div class="absolute top-2.5 left-2.5">
+                      <span class="bg-[#082A50] text-[#DFB15B] text-[10px] font-black uppercase px-2.5 py-1 rounded-md shadow-md flex items-center gap-1 border border-[#DFB15B]/30">
+                        <i data-lucide="footprints" class="w-3 h-3 text-[#DFB15B]"></i>
+                        ${distanceLabel}
+                      </span>
+                    </div>
+
+                    <div class="absolute top-2.5 right-2.5 bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded text-white text-[10px] font-bold flex items-center gap-1">
+                      <i data-lucide="star" class="w-3 h-3 fill-amber-400 text-amber-400"></i>
+                      ${property.rating || '4.8'}
+                    </div>
+
+                    <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                      <div class="bg-white/95 backdrop-blur-xs text-[#082A50] text-[11px] font-black px-2 py-1 rounded-md shadow-xs truncate">
+                        📍 ${matchReason}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between text-[11px] text-gray-500 mb-1">
+                    <span class="font-bold text-gray-700">${property.type}</span>
+                    <span class="bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded border border-emerald-200">Zero Brokerage</span>
+                  </div>
+
+                  <h4 class="font-extrabold text-sm text-[#082A50] line-clamp-1 group-hover:text-[#C59943] transition-colors cursor-pointer property-title-btn" data-id="${property.id}">
+                    ${property.title}
+                  </h4>
+                  <p class="text-xs text-gray-500 truncate mt-0.5 mb-2">${property.location}</p>
+
+                  <div class="flex flex-wrap gap-1 mb-3">
+                    ${(property.roomOptions || ["Twin Sharing"]).slice(0, 2).map(r => `
+                      <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-semibold border border-slate-200">${r}</span>
+                    `).join("")}
+                    <span class="text-[10px] bg-amber-50 text-amber-800 px-2 py-0.5 rounded font-bold border border-amber-200">4-Time Meals</span>
+                  </div>
+                </div>
+
+                <div class="pt-3 border-t border-gray-100 flex items-center justify-between gap-2">
+                  <div>
+                    <span class="text-[10px] text-gray-400 block font-bold uppercase">Rent Starts</span>
+                    <div class="text-base font-black text-[#082A50]">₹${property.price.toLocaleString("en-IN")}<span class="text-xs font-normal text-gray-500">/mo</span></div>
+                  </div>
+
+                  <div class="flex items-center gap-1.5">
+                    <button 
+                      data-hostel-id="${property.id}"
+                      class="btn-add-hostel-cart text-xs font-extrabold py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all ${
+                        isInCart 
+                          ? "bg-amber-100 text-[#082A50] border border-amber-300"
+                          : "bg-[#082A50] hover:bg-[#051C36] text-white shadow-sm"
+                      }">
+                      <i data-lucide="${isInCart ? 'check' : 'shopping-bag'}" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+                      <span>${isInCart ? 'In Cart' : 'Add to Cart'}</span>
+                    </button>
+                    <button 
+                      data-whatsapp-property="${property.title}"
+                      class="btn-whatsapp-inquiry bg-[#1AB64F] hover:bg-[#159c42] text-white p-2 rounded-xl shadow-xs transition-all" 
+                      title="Book Visit on WhatsApp">
+                      <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join("") : `
+            <div class="col-span-full py-8 text-center bg-white/5 rounded-2xl border border-white/10 text-white">
+              <p class="text-xs text-slate-300">No immediate walking-distance hostels registered for this exact location yet. Our living advisor can arrange nearby accommodation.</p>
+              <button class="mt-3 bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs font-bold py-2 px-4 rounded-xl" onclick="window.open('https://wa.me/919110155081?text=Hi%20Yealth!%20Looking%20for%20hostels%20near%20${encodeURIComponent(activeCollege.name)}', '_blank')">
+                Inquire on WhatsApp
+              </button>
+            </div>
+          `}
+        </div>
+      </div>
+    `;
+
+    // Attach college selector change event
+    const select = document.getElementById("select-active-college");
+    if (select) {
+      select.addEventListener("change", (e) => {
+        state.activeCollegeId = e.target.value;
+        renderCollegeRecommendations();
+        renderProperties();
+      });
+    }
+
+    // Attach college switcher tab clicks
+    container.querySelectorAll(".btn-college-switch").forEach(btn => {
+      btn.addEventListener("click", () => {
+        state.activeCollegeId = btn.dataset.collegeSwitch;
+        renderCollegeRecommendations();
+        renderProperties();
+      });
+    });
+
+  } else {
+    // State 2: No college selected yet -> Provide university discovery widget
+    container.innerHTML = `
+      <div class="bg-gradient-to-r from-[#071A33] via-[#082A50] to-[#0E3E74] rounded-3xl p-5 sm:p-6 text-white shadow-xl border border-[#C59943]/30 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-2xl bg-[#C59943]/20 border border-[#DFB15B]/40 flex items-center justify-center shrink-0">
+            <i data-lucide="compass" class="w-6 h-6 text-[#DFB15B]"></i>
+          </div>
+          <div>
+            <span class="inline-flex items-center gap-1 bg-[#DFB15B]/20 text-[#DFB15B] text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full mb-1">
+              Campus Proximity Search
+            </span>
+            <h3 class="text-base sm:text-lg font-black text-white">
+              Looking for Stays Near Your Target College?
+            </h3>
+            <p class="text-xs text-slate-300 mt-0.5">
+              Select your university or college below to instantly see verified student hostels within walking distance.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 shrink-0">
+          <select id="select-active-college" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-bold py-2.5 px-3 rounded-xl focus:outline-hidden cursor-pointer">
+            <option value="" class="text-[#082A50] bg-white font-bold">-- Select Your College / Campus --</option>
+            ${COLLEGES.map(c => `
+              <option value="${c.id}" class="text-[#082A50] bg-white">
+                ${c.shortName || c.name} (${c.city})
+              </option>
+            `).join("")}
+          </select>
+        </div>
+      </div>
+    `;
+
+    const select = document.getElementById("select-active-college");
+    if (select) {
+      select.addEventListener("change", (e) => {
+        if (e.target.value) {
+          state.activeCollegeId = e.target.value;
+          renderCollegeRecommendations();
+          renderProperties();
+          showToast(`Showing hostels near ${select.options[select.selectedIndex].text}`);
+        }
+      });
+    }
+  }
+
+  // Re-attach card handlers for recommendation section
+  container.querySelectorAll(".btn-add-hostel-cart").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const id = btn.dataset.hostelId;
+      const prop = activePropertyList.find(p => p.id === id);
+      if (prop) {
+        const res = addToCart(prop, "hostel");
+        showToast(res.message, res.success ? "success" : "info");
+        renderCollegeRecommendations();
+        renderProperties();
+      }
+    });
+  });
+
+  container.querySelectorAll(".btn-whatsapp-inquiry").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const title = btn.dataset.whatsappProperty;
+      openWhatsAppInquiry({ propertyTitle: title });
+    });
+  });
+
+  container.querySelectorAll(".property-title-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.id;
+      const prop = activePropertyList.find(p => p.id === id);
+      if (prop) openPropertyModal(prop, "photos");
+    });
+  });
+
+  lucide.createIcons();
+}
+
+/**
+ * Setup Sign In & User Profile Widget
+ */
+function setupAuthWidget() {
+  const container = document.getElementById("auth-header-widget");
+  if (!container) return;
+
+  const user = getCurrentUser();
+
+  if (user) {
+    container.innerHTML = `
+      <div class="relative group">
+        <button id="user-profile-btn" class="flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 py-1.5 px-2.5 sm:px-3 rounded-full text-xs font-bold text-[#082A50] border border-slate-200 transition-all">
+          <span class="w-6 h-6 rounded-full bg-[#082A50] text-[#DFB15B] flex items-center justify-center font-black text-xs">
+            ${user.avatar || 'U'}
+          </span>
+          <span class="hidden md:inline">${user.name}</span>
+          <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-gray-400"></i>
+        </button>
+
+        <div class="absolute right-0 top-full mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-200 py-2 hidden group-hover:block z-50">
+          <div class="px-4 py-2 border-b border-gray-100">
+            <div class="text-xs font-bold text-gray-900">${user.name}</div>
+            <div class="text-[11px] text-gray-500 truncate">${user.email}</div>
+          </div>
+          <button class="btn-trigger-cart w-full text-left px-4 py-2 text-xs text-gray-700 hover:bg-slate-50 flex items-center gap-2">
+            <i data-lucide="shopping-bag" class="w-3.5 h-3.5 text-[#C59943]"></i>
+            My Selection Bundle
+          </button>
+          <button class="btn-trigger-orders w-full text-left px-4 py-2 text-xs text-gray-700 hover:bg-slate-50 flex items-center gap-2">
+            <i data-lucide="clock" class="w-3.5 h-3.5 text-[#082A50]"></i>
+            Track Applications
+          </button>
+          <div class="border-t border-gray-100 my-1"></div>
+          <button id="btn-user-signout" class="w-full text-left px-4 py-2 text-xs text-red-600 hover:bg-red-50 flex items-center gap-2 font-bold">
+            <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+            Sign Out
+          </button>
+        </div>
+      </div>
+    `;
+
+    document.getElementById("btn-user-signout")?.addEventListener("click", () => {
+      signOut();
+      showToast("Signed out successfully");
+    });
+  } else {
+    container.innerHTML = `
+      <button id="btn-trigger-signin" class="flex items-center gap-1 text-xs lg:text-sm font-bold text-white bg-[#082A50] hover:bg-[#051C36] py-2 px-2.5 sm:px-3 rounded-lg shadow-sm transition-all border border-[#082A50]">
+        <i data-lucide="user" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+        <span>Sign In</span>
+      </button>
+    `;
+
+    document.getElementById("btn-trigger-signin")?.addEventListener("click", () => {
+      openAuthModal("signin");
+    });
+  }
+
+  lucide.createIcons();
+}
+
+function showAuthError(message) {
+  const banner = document.getElementById("auth-error-banner");
+  const text = document.getElementById("auth-error-text");
+  if (banner && text) {
+    text.textContent = message;
+    banner.classList.remove("hidden");
+  } else {
+    alert(message);
+  }
+}
+
+function clearAuthError() {
+  const banner = document.getElementById("auth-error-banner");
+  if (banner) {
+    banner.classList.add("hidden");
+  }
+}
+
+export function openAuthModal(defaultTab = "signin") {
+  const modal = document.getElementById("modal-auth");
+  if (!modal) return;
+
+  clearAuthError();
+
+  const signinTab = document.getElementById("tab-auth-signin");
+  const signupTab = document.getElementById("tab-auth-signup");
+  const signinForm = document.getElementById("form-auth-signin");
+  const signupForm = document.getElementById("form-auth-signup");
+
+  if (defaultTab === "signin") {
+    signinTab?.classList.add("border-[#082A50]", "text-[#082A50]");
+    signinTab?.classList.remove("border-transparent", "text-gray-500");
+    signupTab?.classList.remove("border-[#082A50]", "text-[#082A50]");
+    signupTab?.classList.add("border-transparent", "text-gray-500");
+    signinForm?.classList.remove("hidden");
+    signupForm?.classList.add("hidden");
+  } else {
+    signupTab?.classList.add("border-[#082A50]", "text-[#082A50]");
+    signupTab?.classList.remove("border-transparent", "text-gray-500");
+    signinTab?.classList.remove("border-[#082A50]", "text-[#082A50]");
+    signinTab?.classList.add("border-transparent", "text-gray-500");
+    signupForm?.classList.remove("hidden");
+    signinForm?.classList.add("hidden");
+  }
+
+  if (signinTab) signinTab.onclick = () => { clearAuthError(); openAuthModal("signin"); };
+  if (signupTab) signupTab.onclick = () => { clearAuthError(); openAuthModal("signup"); };
+
+  if (signinForm) {
+    signinForm.onsubmit = (e) => {
+      e.preventDefault();
+      clearAuthError();
+      const email = document.getElementById("signin-email")?.value || "";
+      const pass = document.getElementById("signin-password")?.value || "";
+      
+      const res = signIn(email, pass);
+      if (!res.success) {
+        showAuthError(res.error);
+        return;
+      }
+      modal.classList.add("hidden");
+      renderCartDrawerContent();
+      showToast(`Welcome back, ${res.user.name}!`);
+    };
+  }
+
+  if (signupForm) {
+    signupForm.onsubmit = (e) => {
+      e.preventDefault();
+      clearAuthError();
+      const name = document.getElementById("signup-name")?.value || "";
+      const email = document.getElementById("signup-email")?.value || "";
+      const phone = document.getElementById("signup-phone")?.value || "";
+      const pass = document.getElementById("signup-password")?.value || "";
+
+      const res = signUp(name, email, phone, pass);
+      if (!res.success) {
+        showAuthError(res.error);
+        return;
+      }
+      modal.classList.add("hidden");
+      renderCartDrawerContent();
+      showToast(`Account created! Welcome to Yealth, ${res.user.name}!`);
+    };
+  }
+
+  const demoBtn = document.getElementById("btn-demo-login");
+  if (demoBtn) {
+    demoBtn.onclick = () => {
+      clearAuthError();
+      const res = signIn("student@yealth.com", "yealth123");
+      if (res.success) {
+        modal.classList.add("hidden");
+        renderCartDrawerContent();
+        showToast("Signed in as Demo Student Aryan Sharma!");
+      }
+    };
+  }
+
+  modal.classList.remove("hidden");
+  modal.querySelectorAll(".btn-close-modal").forEach(b => b.onclick = () => modal.classList.add("hidden"));
+  lucide.createIcons();
 }

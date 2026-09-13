@@ -329,17 +329,25 @@ function renderColleges() {
         </div>
 
         <!-- Footer CTAs -->
-        <div class="p-4 sm:p-5 pt-0 border-t border-gray-100 flex items-center gap-2 mt-2">
+        <div class="p-4 sm:p-5 pt-0 border-t border-gray-100 flex flex-wrap items-center gap-2 mt-2">
           <button 
             data-college-id="${c.id}" 
-            class="btn-toggle-college-cart flex-1 py-2.5 px-3 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 ${
+            class="btn-toggle-college-cart flex-1 min-w-[120px] py-2.5 px-3 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 ${
               isInCart 
                 ? "bg-red-50 text-red-700 border border-red-200 hover:bg-red-100" 
                 : "bg-[#082A50] hover:bg-[#051C36] text-white shadow-sm"
             }">
             <i data-lucide="${isInCart ? 'trash-2' : 'shopping-bag'}" class="w-4 h-4"></i>
-            <span>${isInCart ? "Remove from Bundle" : "Add to Cart"}</span>
+            <span>${isInCart ? "Remove" : "Add to Cart"}</span>
           </button>
+
+          <a 
+            href="hostels.html?college=${c.id}" 
+            class="bg-amber-50 hover:bg-amber-100 text-[#082A50] border border-amber-300 py-2.5 px-3 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 transition-all shadow-xs" 
+            title="Explore student hostels and PGs near ${c.shortName || c.name}">
+            <i data-lucide="building" class="w-3.5 h-3.5 text-[#C59943]"></i>
+            <span>Hostels</span>
+          </a>
 
           <a 
             href="https://wa.me/919110155081?text=Hi%20Yealth%20Admissions!%20I%20am%20interested%20in%20applying%20to%20${encodeURIComponent(c.name)}%20(${c.type}).%20Please%20guide%20me%20on%20cutoffs%20and%20fees."
@@ -547,6 +555,24 @@ function renderCartDrawerContent() {
             </div>
           `).join("")}
         </div>
+      </div>
+    `;
+  }
+
+  if (cart.colleges.length > 0 && cart.hostels.length === 0) {
+    html += `
+      <div class="bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 rounded-xl p-3.5 mb-4 text-left shadow-xs">
+        <div class="flex items-center gap-1.5 mb-1">
+          <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+          <span class="text-xs font-black uppercase tracking-wider text-[#082A50]">Recommended Campus Stays</span>
+        </div>
+        <p class="text-xs text-amber-900 mb-2.5">
+          You have shortlisted <strong>${cart.colleges[0].shortName || cart.colleges[0].name}</strong>! Pair your college with verified walking-distance student stays and zero brokerage.
+        </p>
+        <a href="hostels.html?college=${cart.colleges[0].id}" class="w-full bg-[#082A50] hover:bg-[#051C36] text-[#DFB15B] text-xs font-extrabold py-2.5 px-3 rounded-lg flex items-center justify-center gap-1.5 transition-all shadow-sm">
+          <i data-lucide="building" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+          <span>View Hostels Near ${cart.colleges[0].shortName || cart.colleges[0].name} →</span>
+        </a>
       </div>
     `;
   }
