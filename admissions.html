@@ -65,36 +65,43 @@
       </div>
 
       <!-- Middle/Right Actions -->
-      <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
+      <div class="flex items-center gap-1.5 sm:gap-2.5 lg:gap-3">
         <!-- Gateway Switch Link -->
-        <a href="index.html" class="flex items-center gap-1.5 text-xs font-bold text-[#082A50] hover:text-[#051C36] bg-slate-100 hover:bg-slate-200 py-2 px-3 rounded-lg transition-colors border border-slate-200">
+        <a href="index.html" class="hidden sm:flex items-center gap-1.5 text-xs font-bold text-[#082A50] hover:text-[#051C36] bg-slate-100 hover:bg-slate-200 py-2 px-2.5 rounded-lg transition-colors border border-slate-200">
           <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-[#C59943]"></i>
-          <span>Main Menu</span>
+          <span>Menu</span>
         </a>
 
         <!-- Switch to Hostels -->
-        <a href="hostels.html" class="flex items-center gap-1.5 text-xs lg:text-sm font-bold text-[#082A50] hover:text-[#051C36] border border-[#082A50]/30 hover:border-[#082A50] py-2 px-3.5 rounded-lg hover:bg-blue-50/50 transition-all">
+        <a href="hostels.html" class="flex items-center gap-1 text-xs lg:text-sm font-bold text-[#082A50] hover:text-[#051C36] border border-[#082A50]/30 hover:border-[#082A50] py-2 px-2.5 rounded-lg hover:bg-blue-50/50 transition-all">
           <i data-lucide="building" class="w-4 h-4 text-[#C59943]"></i>
-          <span>Explore Hostels & PGs</span>
+          <span>Hostels & PGs</span>
         </a>
 
-        <!-- Direct Phone Link -->
-        <a href="tel:+919110155081" class="hidden sm:flex items-center gap-2 text-xs lg:text-sm font-extrabold text-[#082A50] hover:text-[#C59943] transition-colors py-2 px-2.5 rounded-lg hover:bg-slate-50">
-          <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[#082A50]">
-            <i data-lucide="phone" class="w-4 h-4"></i>
-          </div>
-          <span class="hidden lg:inline">+91 9110155081</span>
-        </a>
+        <!-- Cart Button -->
+        <button id="btn-open-cart" class="relative flex items-center gap-1 text-xs lg:text-sm font-bold text-[#082A50] hover:text-[#051C36] bg-amber-50 hover:bg-amber-100 border border-amber-300 py-2 px-2.5 sm:px-3 rounded-lg transition-all" title="View Application Bundle">
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-[#C59943]"></i>
+          <span class="hidden sm:inline">Cart</span>
+          <span id="cart-counter-badge" class="bg-[#082A50] text-[#DFB15B] text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </button>
+
+        <!-- Order Status Button -->
+        <button id="btn-open-orders" class="hidden sm:flex items-center gap-1 text-xs lg:text-sm font-bold text-[#082A50] hover:text-[#051C36] bg-slate-100 hover:bg-slate-200 py-2 px-2.5 rounded-lg transition-colors border border-slate-200" title="Check Order / Application Status">
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-[#082A50]"></i>
+          <span class="hidden lg:inline">Status</span>
+        </button>
+
+        <!-- Auth Header Widget (Sign In / User Avatar) -->
+        <div id="auth-header-widget"></div>
 
         <!-- WhatsApp Counselor Button -->
         <a 
           href="https://wa.me/919110155081?text=Hi%20Yealth%20Admissions!%20I%20am%20looking%20for%20college%20counseling%20and%20admission%20guidance." 
           target="_blank" 
           rel="noopener noreferrer"
-          class="bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs lg:text-sm font-bold py-2.5 px-3.5 sm:px-4 rounded-xl flex items-center gap-1.5 shadow-sm transition-all hover:shadow hover:scale-102">
+          class="bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs lg:text-sm font-bold py-2 px-3 rounded-xl flex items-center gap-1 shadow-sm transition-all hover:scale-102">
           <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
-          <span class="hidden sm:inline">WhatsApp Counselor</span>
-          <span class="sm:hidden">Chat</span>
+          <span class="hidden xl:inline">WhatsApp</span>
         </a>
       </div>
     </div>
@@ -186,6 +193,38 @@
     </section>
 
     <!-- ========================================================================= -->
+    <!-- EXPLORE TOP COLLEGES: GOVERNMENT VS PRIVATE (WITH PHOTOS)                -->
+    <!-- ========================================================================= -->
+    <section id="colleges-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 mb-16 relative z-10">
+      <div class="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-8 lg:p-10">
+        <div class="text-center max-w-2xl mx-auto mb-8">
+          <span class="inline-block bg-[#082A50]/10 text-[#082A50] border border-[#082A50]/20 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full mb-2">
+            Top Educational Institutions
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-[#082A50]">Government & Private Colleges</h2>
+          <p class="text-xs sm:text-sm text-gray-500 mt-1">Explore verified universities across Greater Noida, Delhi NCR & India. Compare NIRF rankings, cutoffs, tuition fees, campus photos and add your selection to cart.</p>
+        </div>
+
+        <!-- Stream Filter Tabs (Engineering, Medical, Management, Law, Design) -->
+        <div class="mb-4">
+          <div class="text-[11px] font-black uppercase text-gray-500 tracking-wider text-center mb-2.5">Select Academic Stream:</div>
+          <div id="college-stream-filters" class="flex flex-wrap items-center justify-center gap-2"></div>
+        </div>
+
+        <!-- Government vs Private Filter Strip -->
+        <div class="mb-3">
+          <div id="college-type-filters" class="flex flex-wrap items-center justify-center gap-2"></div>
+        </div>
+
+        <!-- Results Counter & Reset Filter -->
+        <div id="college-results-count" class="mb-8"></div>
+
+        <!-- Colleges Grid -->
+        <div id="colleges-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
     <!-- EXPLORE POPULAR STREAMS & COURSES                                         -->
     <!-- ========================================================================= -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 mb-16 relative z-10">
@@ -200,12 +239,12 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Stream 1 -->
-          <div class="oyo-card-shadow bg-slate-50/70 rounded-xl p-5 border border-slate-200 flex flex-col justify-between">
+          <div data-stream="engineering" class="stream-card-clickable cursor-pointer oyo-card-shadow bg-slate-50/70 hover:bg-white rounded-xl p-5 border border-slate-200 hover:border-[#082A50] hover:shadow-lg transition-all flex flex-col justify-between group">
             <div>
-              <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm">
+              <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
                 <i data-lucide="cpu" class="w-6 h-6"></i>
               </div>
-              <h3 class="text-lg font-bold text-gray-900 mb-1">Engineering & Tech</h3>
+              <div class="flex items-center justify-between"><h3 class="text-lg font-bold text-gray-900 mb-1">Engineering & Tech</h3><span class="text-[10px] font-bold text-[#082A50] bg-amber-100 px-2 py-0.5 rounded-full">Tap to Filter →</span></div>
               <p class="text-xs text-gray-600 mb-3">B.Tech, M.Tech, BCA, Data Science, AI & Cyber Security.</p>
               <div class="flex flex-wrap gap-1.5">
                 <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">JEE Cutoffs</span>
@@ -216,12 +255,12 @@
           </div>
 
           <!-- Stream 2 -->
-          <div class="oyo-card-shadow bg-slate-50/70 rounded-xl p-5 border border-slate-200 flex flex-col justify-between">
+          <div data-stream="medical" class="stream-card-clickable cursor-pointer oyo-card-shadow bg-slate-50/70 hover:bg-white rounded-xl p-5 border border-slate-200 hover:border-[#082A50] hover:shadow-lg transition-all flex flex-col justify-between group">
             <div>
-              <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm">
+              <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
                 <i data-lucide="stethoscope" class="w-6 h-6"></i>
               </div>
-              <h3 class="text-lg font-bold text-gray-900 mb-1">Medical & Healthcare</h3>
+              <div class="flex items-center justify-between"><h3 class="text-lg font-bold text-gray-900 mb-1">Medical & Healthcare</h3><span class="text-[10px] font-bold text-[#082A50] bg-amber-100 px-2 py-0.5 rounded-full">Tap to Filter →</span></div>
               <p class="text-xs text-gray-600 mb-3">MBBS, BDS, B.Pharm, BPT, Nursing & Paramedical.</p>
               <div class="flex flex-wrap gap-1.5">
                 <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">NEET Guidance</span>
@@ -232,12 +271,12 @@
           </div>
 
           <!-- Stream 3 -->
-          <div class="oyo-card-shadow bg-slate-50/70 rounded-xl p-5 border border-slate-200 flex flex-col justify-between">
+          <div data-stream="management" class="stream-card-clickable cursor-pointer oyo-card-shadow bg-slate-50/70 hover:bg-white rounded-xl p-5 border border-slate-200 hover:border-[#082A50] hover:shadow-lg transition-all flex flex-col justify-between group">
             <div>
-              <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm">
+              <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
                 <i data-lucide="briefcase" class="w-6 h-6"></i>
               </div>
-              <h3 class="text-lg font-bold text-gray-900 mb-1">Management & Commerce</h3>
+              <div class="flex items-center justify-between"><h3 class="text-lg font-bold text-gray-900 mb-1">Management & Commerce</h3><span class="text-[10px] font-bold text-[#082A50] bg-amber-100 px-2 py-0.5 rounded-full">Tap to Filter →</span></div>
               <p class="text-xs text-gray-600 mb-3">MBA, PGDM, BBA, B.Com, Financial Analytics & Fintech.</p>
               <div class="flex flex-wrap gap-1.5">
                 <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">CAT/MAT/CUET</span>
@@ -248,12 +287,12 @@
           </div>
 
           <!-- Stream 4 -->
-          <div class="oyo-card-shadow bg-slate-50/70 rounded-xl p-5 border border-slate-200 flex flex-col justify-between">
+          <div data-stream="law" class="stream-card-clickable cursor-pointer oyo-card-shadow bg-slate-50/70 hover:bg-white rounded-xl p-5 border border-slate-200 hover:border-[#082A50] hover:shadow-lg transition-all flex flex-col justify-between group">
             <div>
-              <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm">
+              <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
                 <i data-lucide="scale" class="w-6 h-6"></i>
               </div>
-              <h3 class="text-lg font-bold text-gray-900 mb-1">Law & Legal Studies</h3>
+              <div class="flex items-center justify-between"><h3 class="text-lg font-bold text-gray-900 mb-1">Law & Legal Studies</h3><span class="text-[10px] font-bold text-[#082A50] bg-amber-100 px-2 py-0.5 rounded-full">Tap to Filter →</span></div>
               <p class="text-xs text-gray-600 mb-3">BA LLB, BBA LLB, LLM, Corporate Law & IPR.</p>
               <div class="flex flex-wrap gap-1.5">
                 <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">CLAT Cutoffs</span>
@@ -264,12 +303,12 @@
           </div>
 
           <!-- Stream 5 -->
-          <div class="oyo-card-shadow bg-slate-50/70 rounded-xl p-5 border border-slate-200 flex flex-col justify-between">
+          <div data-stream="design" class="stream-card-clickable cursor-pointer oyo-card-shadow bg-slate-50/70 hover:bg-white rounded-xl p-5 border border-slate-200 hover:border-[#082A50] hover:shadow-lg transition-all flex flex-col justify-between group">
             <div>
-              <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm">
+              <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
                 <i data-lucide="palette" class="w-6 h-6"></i>
               </div>
-              <h3 class="text-lg font-bold text-gray-900 mb-1">Design & Architecture</h3>
+              <div class="flex items-center justify-between"><h3 class="text-lg font-bold text-gray-900 mb-1">Design & Architecture</h3><span class="text-[10px] font-bold text-[#082A50] bg-amber-100 px-2 py-0.5 rounded-full">Tap to Filter →</span></div>
               <p class="text-xs text-gray-600 mb-3">B.Des, B.Arch, Fashion Tech, Animation & Game Design.</p>
               <div class="flex flex-wrap gap-1.5">
                 <span class="text-[11px] bg-white text-slate-700 px-2 py-0.5 rounded border border-slate-200">UCEED/NATA</span>
@@ -346,6 +385,81 @@
           <p class="text-xs sm:text-sm text-gray-500 mt-1">We help you secure the right education loan — fast, paperwork-free, and with the lowest interest rates from top banks &amp; NBFCs.</p>
         </div>
 
+                <!-- Collateral vs Collateral-Free Comparison Matrix -->
+        <div class="mb-12">
+          <div class="text-center max-w-xl mx-auto mb-6">
+            <span class="text-[10px] font-black uppercase tracking-wider text-[#082A50] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">Financial Comparison</span>
+            <h3 class="text-xl font-black text-[#082A50] mt-1">Which Education Loan is Right for You?</h3>
+            <p class="text-xs text-gray-500">Choose between fast collateral-free sanction or lowest-interest secured loans.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Collateral-Free Card -->
+            <div class="bg-gradient-to-br from-amber-50/50 to-orange-50/30 rounded-2xl p-6 border-2 border-[#C59943] shadow-sm flex flex-col justify-between relative overflow-hidden">
+              <span class="absolute top-4 right-4 bg-[#C59943] text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">Fastest Sanction</span>
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-[#082A50] text-[#DFB15B] flex items-center justify-center mb-4 shadow-sm">
+                  <i data-lucide="zap" class="w-6 h-6"></i>
+                </div>
+                <h4 class="text-lg font-black text-[#082A50]">Collateral-Free (Unsecured) Loan</h4>
+                <p class="text-xs text-gray-600 mt-1 mb-4">Zero asset pledge. Fast digital sanction based on student merit and parent income.</p>
+
+                <div class="space-y-2.5 text-xs text-gray-700 bg-white/80 p-4 rounded-xl border border-amber-200/80 mb-4">
+                  <div class="flex justify-between"><span class="text-gray-500">Max Loan Amount:</span> <strong class="text-gray-900 font-extrabold">Up to ₹50 Lakhs</strong></div>
+                  <div class="flex justify-between"><span class="text-gray-500">Interest Rates:</span> <strong class="text-[#082A50] font-extrabold">9.25% – 10.75% p.a.</strong></div>
+                  <div class="flex justify-between"><span class="text-gray-500">Collateral Required:</span> <strong class="text-[#1AB64F] font-extrabold">Zero (No Property / FD)</strong></div>
+                  <div class="flex justify-between"><span class="text-gray-500">Approval Speed:</span> <strong class="text-gray-900 font-extrabold">48 to 72 Hours</strong></div>
+                  <div class="flex justify-between"><span class="text-gray-500">Repayment Moratorium:</span> <strong class="text-gray-900 font-extrabold">Course + 6–12 Months</strong></div>
+                </div>
+
+                <div class="text-[11px] text-gray-600 mb-4">
+                  <strong class="text-gray-800">Top Lenders:</strong> HDFC Credila, Avanse, Auxilo, InCred, ICICI Bank, Axis Bank.
+                </div>
+              </div>
+
+              <a 
+                href="https://wa.me/919110155081?text=Hi%20Yealth!%20I%20am%20looking%20for%20a%20Collateral-Free%20Education%20Loan%20(up%20to%2050L)%20for%20my%20college%20admissions."
+                target="_blank"
+                class="w-full bg-[#082A50] hover:bg-[#051C36] text-[#DFB15B] font-extrabold text-xs py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all">
+                <i data-lucide="message-circle" class="w-4 h-4 text-[#DFB15B]"></i>
+                <span>Check Collateral-Free Eligibility</span>
+              </a>
+            </div>
+
+            <!-- With Collateral Card -->
+            <div class="bg-gradient-to-br from-blue-50/50 to-indigo-50/30 rounded-2xl p-6 border-2 border-[#082A50] shadow-sm flex flex-col justify-between relative overflow-hidden">
+              <span class="absolute top-4 right-4 bg-[#082A50] text-[#DFB15B] text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">Lowest Interest Rates</span>
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-blue-900 text-white flex items-center justify-center mb-4 shadow-sm">
+                  <i data-lucide="building" class="w-6 h-6"></i>
+                </div>
+                <h4 class="text-lg font-black text-[#082A50]">With Collateral (Secured) Loan</h4>
+                <p class="text-xs text-gray-600 mt-1 mb-4">Pledge residential property, non-agri land, or Fixed Deposit for ultra-low interest rates.</p>
+
+                <div class="space-y-2.5 text-xs text-gray-700 bg-white/80 p-4 rounded-xl border border-blue-200/80 mb-4">
+                  <div class="flex justify-between"><span class="text-gray-500">Max Loan Amount:</span> <strong class="text-gray-900 font-extrabold">Up to ₹1.5 Crore+</strong></div>
+                  <div class="flex justify-between"><span class="text-gray-500">Interest Rates:</span> <strong class="text-green-700 font-extrabold">Starts at 8.20% p.a. (Lowest)</strong></div>
+                  <div class="flex justify-between"><span class="text-gray-500">Security Accepted:</span> <strong class="text-gray-900 font-extrabold">House / Flat / FD / LIC</strong></div>
+                  <div class="flex justify-between"><span class="text-gray-500">Approval Speed:</span> <strong class="text-gray-900 font-extrabold">7 to 10 Working Days</strong></div>
+                  <div class="flex justify-between"><span class="text-gray-500">Tax Benefit:</span> <strong class="text-gray-900 font-extrabold">100% Tax Deductible (Sec 80E)</strong></div>
+                </div>
+
+                <div class="text-[11px] text-gray-600 mb-4">
+                  <strong class="text-gray-800">Top Lenders:</strong> State Bank of India (SBI), Bank of Baroda, PNB, Canara Bank, Union Bank.
+                </div>
+              </div>
+
+              <a 
+                href="https://wa.me/919110155081?text=Hi%20Yealth!%20I%20am%20looking%20for%20a%20Secured%20Education%20Loan%20with%20Collateral%20for%20lowest%20interest%20rates."
+                target="_blank"
+                class="w-full bg-[#1AB64F] hover:bg-[#159c42] text-white font-extrabold text-xs py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all">
+                <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+                <span>Check Secured Loan Rates on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
         <!-- Loan Feature Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
           <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 text-center">
@@ -375,6 +489,136 @@
             </div>
             <div class="text-2xl font-black text-blue-700">15+</div>
             <div class="text-xs text-gray-500 font-medium mt-0.5">Partner Banks &amp; NBFCs</div>
+          </div>
+        </div>
+
+                <!-- Interactive Loan EMI & Eligibility Calculator -->
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-6 md:p-8 mb-10">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+            <div>
+              <span class="text-[10px] font-black uppercase tracking-wider text-[#C59943] bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">Live Financial Tool</span>
+              <h3 class="text-xl font-black text-[#082A50] mt-1">Student Education Loan EMI Calculator</h3>
+              <p class="text-xs text-gray-500">Calculate exact monthly installments with zero processing fee through Yealth banking partners.</p>
+            </div>
+            <div class="bg-white px-4 py-2 rounded-xl border border-slate-200 text-right">
+              <span class="text-[10px] text-gray-400 font-bold uppercase">Estimated Monthly EMI</span>
+              <div id="calc-emi-output" class="text-xl font-black text-[#1AB64F]">₹11,967/mo</div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <!-- Sliders -->
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between text-xs font-bold mb-1.5">
+                  <span class="text-gray-700">Required Loan Amount</span>
+                  <span id="loan-amount-display" class="text-[#082A50] font-black">₹10.0 Lakhs</span>
+                </div>
+                <input id="loan-amount-slider" type="range" min="100000" max="5000000" step="50000" value="1000000" class="w-full accent-[#082A50] cursor-pointer" />
+                <div class="flex justify-between text-[10px] text-gray-400 mt-1">
+                  <span>₹1 Lakh</span>
+                  <span>₹25 Lakhs</span>
+                  <span>₹50 Lakhs</span>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-bold mb-1.5">
+                  <span class="text-gray-700">Repayment Tenure</span>
+                  <span id="loan-tenure-display" class="text-[#082A50] font-black">10 Years</span>
+                </div>
+                <input id="loan-tenure-slider" type="range" min="1" max="15" step="1" value="10" class="w-full accent-[#082A50] cursor-pointer" />
+                <div class="flex justify-between text-[10px] text-gray-400 mt-1">
+                  <span>1 Year</span>
+                  <span>7 Years</span>
+                  <span>15 Years</span>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-bold mb-1.5">
+                  <span class="text-gray-700">Annual Interest Rate</span>
+                  <select id="loan-rate-select" class="text-xs border border-gray-300 rounded-lg px-2 py-1 font-bold text-[#082A50] bg-white">
+                    <option value="8.5">8.5% p.a. (Govt / SBI Scholar)</option>
+                    <option value="9.5" selected>9.5% p.a. (HDFC Credila / ICICI)</option>
+                    <option value="11.0">11.0% p.a. (Avanse / Non-Collateral)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Summary Card -->
+            <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm space-y-3">
+              <h4 class="font-bold text-xs uppercase tracking-wider text-gray-400">Loan Breakdown & Moratorium Benefit</h4>
+              <div class="flex justify-between text-xs py-1 border-b border-gray-100">
+                <span class="text-gray-500">Total Interest Payable:</span>
+                <span id="calc-interest-output" class="font-bold text-gray-800">₹4,36,040</span>
+              </div>
+              <div class="flex justify-between text-xs py-1 border-b border-gray-100">
+                <span class="text-gray-500">Total Loan Repayment:</span>
+                <span id="calc-total-output" class="font-bold text-gray-800">₹14,36,040</span>
+              </div>
+              <div class="flex justify-between text-xs py-1 border-b border-gray-100">
+                <span class="text-gray-500">Moratorium Period:</span>
+                <span class="font-bold text-green-700">Course Duration + 6-12 Months</span>
+              </div>
+              <div class="pt-2">
+                <a 
+                  id="btn-apply-loan-calc" 
+                  href="#" 
+                  target="_blank" 
+                  class="w-full bg-[#1AB64F] hover:bg-[#159c42] text-white font-extrabold text-xs py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all">
+                  <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+                  Apply for Loan Pre-Approval on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust & Investor Transparency Bar -->
+        <div class="bg-gradient-to-r from-[#071A33] to-[#0A264A] text-white rounded-2xl p-6 md:p-8 mb-10 shadow-lg border border-[#C59943]/30">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-white/10">
+            <div>
+              <span class="text-[10px] font-black uppercase tracking-wider text-[#DFB15B]">Commitment to Transparency</span>
+              <h3 class="text-xl font-black text-white mt-0.5">Trust & Academic Integrity Guarantee</h3>
+              <p class="text-xs text-slate-300">Yealth operates with direct university affiliations, verified accreditations, and zero student exploitation.</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs bg-white/10 px-3 py-1 rounded-full text-slate-200 border border-white/20">Zero Donation Policy</span>
+              <span class="text-xs bg-[#1AB64F]/20 text-emerald-300 px-3 py-1 rounded-full border border-[#1AB64F]/30">100% Fee Transparency</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+            <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+              <div class="text-[#DFB15B] font-bold text-sm mb-1 flex items-center gap-1.5">
+                <i data-lucide="check-check" class="w-4 h-4"></i>
+                Govt Regulatory Approvals
+              </div>
+              <p class="text-slate-300 text-[11px]">All listed institutions possess UGC, AICTE, NMC, BCI, or NAAC A/A+ regulatory accreditations.</p>
+            </div>
+            <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+              <div class="text-[#DFB15B] font-bold text-sm mb-1 flex items-center gap-1.5">
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                Direct Institutional Pricing
+              </div>
+              <p class="text-slate-300 text-[11px]">No inflated fees or broker margins. You pay exact government or university published fee schedules.</p>
+            </div>
+            <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+              <div class="text-[#DFB15B] font-bold text-sm mb-1 flex items-center gap-1.5">
+                <i data-lucide="file-text" class="w-4 h-4"></i>
+                Document Security
+              </div>
+              <p class="text-slate-300 text-[11px]">Your scorecards, ID documents, and entrance forms are never shared with unauthorized 3rd parties.</p>
+            </div>
+            <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+              <div class="text-[#DFB15B] font-bold text-sm mb-1 flex items-center gap-1.5">
+                <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                100% Refundable Stay Deposit
+              </div>
+              <p class="text-slate-300 text-[11px]">Hostel security deposits are safeguarded under Yealth Student Guarantee with guaranteed exit refunds.</p>
+            </div>
           </div>
         </div>
 
@@ -641,7 +885,7 @@
 
       <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
         <div>
-          © 2026 Yealth Living Network Pvt. Ltd. All rights reserved. Zero Brokerage Student Housing & Admissions.
+          © 2026 Yealth Living Network Pvt. Ltd. All rights reserved. Zero Brokerage Student Housing & Admissions. | Registered Office: Knowledge Park 2, Greater Noida, Uttar Pradesh 201310
         </div>
         <div class="flex items-center gap-4 text-slate-300">
           <a href="tel:+919110155081" class="hover:text-white flex items-center gap-1"><i data-lucide="phone" class="w-3.5 h-3.5 text-[#DFB15B]"></i> +91 9110155081</a>
@@ -651,10 +895,147 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      lucide.createIcons();
-    });
-  </script>
+  <!-- ========================================================================= -->
+  <!-- MODAL 4: UNIFIED CART / APPLICATION BUNDLE DRAWER                         -->
+  <!-- ========================================================================= -->
+  <div id="modal-cart-drawer" class="modal-container hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-end">
+    <div class="bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between overflow-hidden animate-slide-left border-l border-gray-200">
+      <!-- Cart Drawer Header -->
+      <div class="bg-[#071A33] text-white p-4 flex items-center justify-between border-b border-white/10">
+        <div class="flex items-center gap-2">
+          <i data-lucide="shopping-bag" class="w-5 h-5 text-[#DFB15B]"></i>
+          <h3 class="font-black text-base text-white">Your Selection Bundle</h3>
+        </div>
+        <button id="btn-close-cart" class="text-white/70 hover:text-white p-1 rounded-lg hover:bg-white/10">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Items List -->
+      <div id="cart-items-container" class="p-4 flex-1 overflow-y-auto space-y-4">
+        <!-- Dynamically rendered -->
+      </div>
+
+      <!-- Summary & Checkout Section -->
+      <div id="cart-summary-box" class="p-4 bg-slate-50 border-t border-gray-200">
+        <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-800 mb-3 flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-4 h-4 text-[#C59943] shrink-0"></i>
+          <span><strong>Zero-Brokerage Guarantee:</strong> No token deposit required to submit preferences.</span>
+        </div>
+
+        <form id="cart-checkout-form" class="space-y-2.5">
+          <h4 class="font-bold text-xs uppercase text-[#082A50] tracking-wide">Applicant Details</h4>
+          <div class="grid grid-cols-2 gap-2">
+            <input type="text" id="applicant-name" placeholder="Full Name *" required class="text-xs px-3 py-2 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+            <input type="tel" id="applicant-phone" placeholder="WhatsApp Phone *" required class="text-xs px-3 py-2 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <input type="email" id="applicant-email" placeholder="Email Address *" required class="text-xs px-3 py-2 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+            <input type="text" id="applicant-movein" placeholder="Academic Session (e.g. 2026-27)" class="text-xs px-3 py-2 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+          </div>
+          <input type="text" id="applicant-course" placeholder="Desired Course / Stream (e.g. B.Tech CSE / MBA / MBBS)" class="w-full text-xs px-3 py-2 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+
+          <button type="submit" class="w-full bg-[#082A50] hover:bg-[#051C36] text-white font-extrabold text-xs sm:text-sm py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all">
+            <i data-lucide="send" class="w-4 h-4 text-[#DFB15B]"></i>
+            Submit Application Bundle & Track
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL 5: ORDER & APPLICATION STATUS TRACKER                               -->
+  <!-- ========================================================================= -->
+  <div id="modal-orders-status" class="modal-container hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
+    <div id="modal-orders-content" class="modal-content-animated bg-white rounded-2xl max-w-xl w-full shadow-2xl border border-gray-100 text-left overflow-hidden">
+      <!-- Dynamically populated by JS -->
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL 6: CUSTOMER SIGN IN & SIGN UP AUTH                                  -->
+  <!-- ========================================================================= -->
+  <div id="modal-auth" class="modal-container hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
+    <div class="modal-content-animated bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-gray-100 text-left">
+      <div class="flex items-center justify-between pb-3 border-b border-gray-100 mb-4">
+        <div>
+          <h3 class="text-lg font-black text-[#082A50]">Student & Parent Portal</h3>
+          <p class="text-xs text-gray-500">Sign in to view saved stays, college shortlists & orders.</p>
+        </div>
+        <button class="btn-close-modal text-gray-400 hover:text-gray-700 p-1.5 rounded-lg hover:bg-gray-100">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Auth Tabs -->
+      <div class="flex items-center gap-2 border-b border-gray-200 mb-4 text-xs font-bold">
+        <button id="tab-auth-signin" class="py-2.5 px-4 border-b-2 border-[#082A50] text-[#082A50] transition-colors">Sign In</button>
+        <button id="tab-auth-signup" class="py-2.5 px-4 border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition-colors">Create Account</button>
+      </div>
+
+      <!-- Auth Error Banner (Strict validation message) -->
+      <div id="auth-error-banner" class="hidden bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl p-3 mb-3 flex items-start gap-2">
+        <i data-lucide="alert-circle" class="w-4 h-4 text-red-600 shrink-0 mt-0.5"></i>
+        <span id="auth-error-text"></span>
+      </div>
+
+      <!-- Sign In Form -->
+      <form id="form-auth-signin" class="space-y-3">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Email or Phone Number</label>
+          <input type="text" id="signin-email" placeholder="e.g. rahul@gmail.com" required class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Password</label>
+          <input type="password" id="signin-password" placeholder="••••••••" required class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+        </div>
+        <button type="submit" class="w-full bg-[#082A50] hover:bg-[#051C36] text-white font-bold text-xs py-2.5 rounded-xl transition-colors">
+          Sign In
+        </button>
+      </form>
+
+      <!-- Sign Up Form -->
+      <form id="form-auth-signup" class="space-y-3 hidden">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Student Full Name</label>
+          <input type="text" id="signup-name" placeholder="e.g. Rahul Sharma" required class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Email</label>
+            <input type="email" id="signup-email" placeholder="rahul@gmail.com" required class="w-full text-xs px-3 py-2 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">WhatsApp</label>
+            <input type="tel" id="signup-phone" placeholder="+91 9876543210" required class="w-full text-xs px-3 py-2 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Create Password</label>
+          <input type="password" id="signup-password" placeholder="••••••••" required class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+        </div>
+        <button type="submit" class="w-full bg-[#1AB64F] hover:bg-[#159c42] text-white font-bold text-xs py-2.5 rounded-xl transition-colors">
+          Create Free Student Account
+        </button>
+      </form>
+
+      <div class="pt-3 mt-3 border-t border-gray-100 space-y-2">
+        <button id="btn-demo-login" class="w-full bg-slate-100 hover:bg-slate-200 text-[#082A50] font-bold text-xs py-2 rounded-lg transition-colors border border-slate-200 flex items-center justify-center gap-1.5">
+          <i data-lucide="zap" class="w-3.5 h-3.5 text-[#C59943]"></i>
+          1-Click Demo Student Login (Aryan Sharma)
+        </button>
+        <div class="text-center text-[11px] text-gray-500 bg-slate-50 p-2 rounded-lg border border-slate-200">
+          <span class="font-bold text-[#082A50]">Demo Credentials:</span> student@yealth.com / <span class="font-mono font-bold">yealth123</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 pointer-events-none w-full max-w-md px-4"></div>
+
+  <!-- Main ES Module Admissions Application Script -->
+  <script type="module" src="src/admissionsApp.js"></script>
 </body>
 </html>

@@ -6,10 +6,12 @@ export const SITE_CONFIG = {
   email: "yealtthh@gmail.com",
   whatsappNumber: "919110155081", // Format without '+' or spaces for wa.me
   defaultWhatsAppMessage: "Hi Yealth! I am looking for student accommodation. Please share options.",
+  registeredAddress: "Knowledge Park 2, Greater Noida, Uttar Pradesh 201310",
   operatingCities: [
     "All Cities",
-    "Bangalore",
+    "Greater Noida",
     "Delhi / NCR",
+    "Bangalore",
     "Kota",
     "Pune",
     "Mumbai",
@@ -18,6 +20,8 @@ export const SITE_CONFIG = {
     "Chandigarh"
   ],
   popularHubs: [
+    { name: "Knowledge Park 2 & 3", city: "Greater Noida" },
+    { name: "Pari Chowk", city: "Greater Noida" },
     { name: "North Campus, DU", city: "Delhi / NCR" },
     { name: "Allen Indra Vihar", city: "Kota" },
     { name: "Koramangala", city: "Bangalore" },

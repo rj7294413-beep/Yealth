@@ -68,42 +68,49 @@
       </div>
 
       <!-- Middle/Right Actions -->
-      <div class="flex items-center gap-2 sm:gap-3 lg:gap-5">
+      <div class="flex items-center gap-1.5 sm:gap-2.5 lg:gap-3">
         <!-- Gateway Switch Link -->
-        <a href="index.html" class="flex items-center gap-1.5 text-xs font-bold text-[#082A50] hover:text-[#051C36] bg-slate-100 hover:bg-slate-200 py-2 px-3 rounded-lg transition-colors border border-slate-200">
+        <a href="index.html" class="hidden sm:flex items-center gap-1.5 text-xs font-bold text-[#082A50] hover:text-[#051C36] bg-slate-100 hover:bg-slate-200 py-2 px-2.5 rounded-lg transition-colors border border-slate-200">
           <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-[#C59943]"></i>
-          <span>Main Menu</span>
+          <span>Menu</span>
         </a>
 
         <!-- College Admissions Link -->
-        <a href="admissions.html" class="hidden md:flex items-center gap-1.5 text-xs lg:text-sm font-bold text-gray-700 hover:text-[#082A50] py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors">
+        <a href="admissions.html" class="hidden md:flex items-center gap-1.5 text-xs lg:text-sm font-bold text-gray-700 hover:text-[#082A50] py-2 px-2.5 rounded-lg hover:bg-slate-50 transition-colors">
           <i data-lucide="graduation-cap" class="w-4 h-4 text-[#C59943]"></i>
-          College Admissions
+          <span>Admissions</span>
         </a>
 
         <!-- List Your PG / Property CTA -->
-        <button class="btn-trigger-list-property hidden xl:flex items-center gap-1.5 text-xs lg:text-sm font-bold text-[#082A50] hover:text-[#051C36] border border-[#082A50]/30 hover:border-[#082A50] transition-all py-2 px-3.5 rounded-lg hover:bg-blue-50/50">
-          <i data-lucide="building" class="w-4 h-4 text-[#C59943]"></i>
-          List your PG
+        <button class="btn-trigger-list-property flex items-center gap-1 text-xs lg:text-sm font-bold text-[#082A50] hover:text-[#051C36] border border-[#082A50]/30 hover:border-[#082A50] transition-all py-2 px-2.5 rounded-lg hover:bg-blue-50/50">
+          <i data-lucide="plus-circle" class="w-3.5 h-3.5 text-[#C59943]"></i>
+          <span>List PG</span>
         </button>
 
-        <!-- Direct Phone Link -->
-        <a href="tel:+919110155081" class="flex items-center gap-2 text-xs lg:text-sm font-extrabold text-[#082A50] hover:text-[#C59943] transition-colors py-2 px-2.5 rounded-lg hover:bg-slate-50">
-          <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[#082A50]">
-            <i data-lucide="phone" class="w-4 h-4"></i>
-          </div>
-          <span class="hidden lg:inline">+91 9110155081</span>
-        </a>
+        <!-- Cart Button -->
+        <button id="btn-open-cart" class="relative flex items-center gap-1 text-xs lg:text-sm font-bold text-[#082A50] hover:text-[#051C36] bg-amber-50 hover:bg-amber-100 border border-amber-300 py-2 px-2.5 sm:px-3 rounded-lg transition-all" title="View Application Bundle">
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-[#C59943]"></i>
+          <span class="hidden sm:inline">Cart</span>
+          <span id="cart-counter-badge" class="bg-[#082A50] text-[#DFB15B] text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </button>
 
-        <!-- Direct WhatsApp CTA Button (High Conversion Action Green) -->
+        <!-- Order Status Button -->
+        <button id="btn-open-orders" class="hidden sm:flex items-center gap-1 text-xs lg:text-sm font-bold text-[#082A50] hover:text-[#051C36] bg-slate-100 hover:bg-slate-200 py-2 px-2.5 rounded-lg transition-colors border border-slate-200" title="Check Order / Application Status">
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-[#082A50]"></i>
+          <span class="hidden lg:inline">Status</span>
+        </button>
+
+        <!-- Auth Header Widget (Sign In / User Avatar) -->
+        <div id="auth-header-widget"></div>
+
+        <!-- Direct WhatsApp CTA Button -->
         <a 
-          href="https://wa.me/919110155081?text=Hi%20Yealth!%20I%20am%20looking%20for%20student%20accommodation.%20Please%20share%20options." 
+          href="https://wa.me/919110155081?text=Hi%20Yealth!%20I%20am%20looking%20for%20student%20accommodation%20in%20Knowledge%20Park%202%20Greater%20Noida." 
           target="_blank" 
           rel="noopener noreferrer"
-          class="bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs lg:text-sm font-bold py-2.5 px-3.5 sm:px-4 rounded-xl flex items-center gap-1.5 shadow-sm transition-all hover:shadow hover:scale-102">
+          class="bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs lg:text-sm font-bold py-2 px-3 rounded-xl flex items-center gap-1 shadow-sm transition-all hover:scale-102">
           <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
-          <span class="hidden sm:inline">WhatsApp Us</span>
-          <span class="sm:hidden">Chat</span>
+          <span class="hidden xl:inline">WhatsApp</span>
         </a>
       </div>
     </div>
@@ -570,7 +577,7 @@
             </li>
             <li class="flex items-start gap-2 text-slate-300 pt-1">
               <i data-lucide="map-pin" class="w-4 h-4 text-[#DFB15B] shrink-0 mt-0.5"></i>
-              <span>Registered Office: Yealth Living Hub, Near North Campus, New Delhi 110007</span>
+              <span>Registered Office: Yealth Living Network, Knowledge Park 2, Greater Noida, Uttar Pradesh 201310</span>
             </li>
           </ul>
         </div>
@@ -677,54 +684,129 @@
   <!-- ========================================================================= -->
   
   <!-- Modal 1: List PG / Property -->
+    <!-- ========================================================================= -->
+  <!-- MODAL 1: FULLY FUNCTIONAL LIST YOUR STUDENT PG / HOSTEL                    -->
+  <!-- ========================================================================= -->
   <div id="modal-list-property" class="modal-container hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
-    <div class="modal-content-animated bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-gray-100 text-left">
+    <div class="modal-content-animated bg-white rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-gray-100 text-left max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between pb-3 border-b border-gray-100 mb-4">
         <div>
-          <h3 class="text-lg font-black text-[#082A50]">List Your Student PG / Hostel</h3>
-          <p class="text-xs text-gray-500">Connect with 50,000+ students seeking verified accommodation.</p>
+          <div class="flex items-center gap-2">
+            <span class="bg-amber-100 text-[#C59943] text-[10px] font-black uppercase px-2 py-0.5 rounded">Owner & Partner Portal</span>
+            <span class="text-xs text-gray-400">Zero Listing Fee</span>
+          </div>
+          <h3 class="text-xl font-black text-[#082A50]">List Your Hostel / PG on Yealth</h3>
+          <p class="text-xs text-gray-500">Connect with 50,000+ verified students across Greater Noida, Kota, Delhi NCR & Bangalore.</p>
         </div>
         <button class="btn-close-modal text-gray-400 hover:text-gray-700 p-1.5 rounded-lg hover:bg-gray-100">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <form id="form-list-property" class="space-y-3.5">
-        <div>
-          <label class="block text-xs font-bold text-gray-700 mb-1">Your Full Name</label>
-          <input type="text" id="owner-name" placeholder="e.g. Rajesh Sharma" required class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-gray-700 mb-1">Phone Number (WhatsApp)</label>
-          <input type="tel" id="owner-phone" placeholder="e.g. +91 9876543210" required class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
-        </div>
-        <div class="grid grid-cols-2 gap-3">
+      <form id="form-list-property" class="space-y-4">
+        <!-- Basic Info -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <label class="block text-xs font-bold text-gray-700 mb-1">City</label>
-            <input type="text" id="owner-city" placeholder="e.g. Kota, Delhi, Bangalore" required class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+            <label class="block text-xs font-bold text-gray-700 mb-1">Property / Hostel Name *</label>
+            <input type="text" id="prop-name" placeholder="e.g. Royal Residency Knowledge Park" required class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
           </div>
           <div>
-            <label class="block text-xs font-bold text-gray-700 mb-1">Property Type</label>
-            <select id="owner-type" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden bg-white">
+            <label class="block text-xs font-bold text-gray-700 mb-1">Your Full Name *</label>
+            <input type="text" id="owner-name" placeholder="e.g. Amit Kumar (Owner/Warden)" required class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Phone Number (WhatsApp) *</label>
+            <input type="tel" id="owner-phone" placeholder="e.g. +91 9876543210" required class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">City *</label>
+            <select id="prop-city" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden bg-white">
+              <option value="Greater Noida" selected>Greater Noida (Knowledge Park 2 / 3 / Pari Chowk)</option>
+              <option value="Delhi / NCR">Delhi / NCR</option>
+              <option value="Kota">Kota</option>
+              <option value="Bangalore">Bangalore</option>
+              <option value="Pune">Pune</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Hyderabad">Hyderabad</option>
+              <option value="Dehradun">Dehradun</option>
+              <option value="Chandigarh">Chandigarh</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Exact Address / Landmark *</label>
+            <input type="text" id="prop-location" placeholder="e.g. Knowledge Park 2, Near Galgotias Metro" required class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Property Category *</label>
+            <select id="prop-type" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden bg-white">
+              <option value="Co-Living Student PG" selected>Co-Living Student PG</option>
               <option value="Boys Hostel">Boys Hostel</option>
               <option value="Girls Hostel">Girls Hostel</option>
-              <option value="Co-Living Student PG">Co-Living Student PG</option>
               <option value="Furnished Flat">Furnished Flat</option>
             </select>
           </div>
         </div>
 
+        <!-- Rent & Room Types -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Starting Monthly Rent (₹) *</label>
+            <input type="number" id="prop-rent" placeholder="e.g. 7500" required min="3000" max="50000" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Room Types Available</label>
+            <div class="flex items-center gap-3 pt-1.5 text-xs text-gray-700">
+              <label class="flex items-center gap-1 cursor-pointer">
+                <input type="checkbox" name="room-type" value="Single Private" checked class="rounded text-[#082A50]" /> Single
+              </label>
+              <label class="flex items-center gap-1 cursor-pointer">
+                <input type="checkbox" name="room-type" value="Twin Sharing" checked class="rounded text-[#082A50]" /> Twin
+              </label>
+              <label class="flex items-center gap-1 cursor-pointer">
+                <input type="checkbox" name="room-type" value="Triple Sharing" class="rounded text-[#082A50]" /> Triple
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amenities Checkboxes -->
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1.5">Amenities Included in Rent</label>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-gray-700 bg-slate-50 p-3 rounded-lg border border-gray-200">
+            <label class="flex items-center gap-1.5"><input type="checkbox" name="prop-amenities" value="Attached Washroom" checked /> Attached Washroom</label>
+            <label class="flex items-center gap-1.5"><input type="checkbox" name="prop-amenities" value="High-speed 200Mbps Wi-Fi" checked /> 200Mbps Wi-Fi</label>
+            <label class="flex items-center gap-1.5"><input type="checkbox" name="prop-amenities" value="4-Time Buffet Meals" checked /> 4-Time Meals</label>
+            <label class="flex items-center gap-1.5"><input type="checkbox" name="prop-amenities" value="AC & Power Backup" checked /> AC & Backup</label>
+            <label class="flex items-center gap-1.5"><input type="checkbox" name="prop-amenities" value="Biometric Access Gate" checked /> Biometric Gate</label>
+            <label class="flex items-center gap-1.5"><input type="checkbox" name="prop-amenities" value="Daily Housekeeping" checked /> Housekeeping</label>
+          </div>
+        </div>
+
+        <!-- Photo URL -->
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Hostel Cover Photo (URL or Sample)</label>
+          <input type="url" id="prop-image-url" value="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+        </div>
+
         <div class="pt-2">
-          <button type="submit" class="w-full bg-[#1AB64F] hover:bg-[#159c42] text-white font-black text-sm py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-md transition-colors">
-            <i data-lucide="message-circle" class="w-4 h-4"></i>
-            Submit & Connect on WhatsApp
+          <button type="submit" class="w-full bg-[#1AB64F] hover:bg-[#159c42] text-white font-black text-sm py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all hover:scale-101">
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            Publish Property & Verify on WhatsApp
           </button>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- Modal 2: Yealth for Campuses -->
+  <!-- ========================================================================= -->
+  <!-- MODAL 2: YEALTH FOR CAMPUSES                                              -->
+  <!-- ========================================================================= -->
   <div id="modal-campus" class="modal-container hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
     <div class="modal-content-animated bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-gray-100 text-left">
       <div class="flex items-center justify-between pb-3 border-b border-gray-100 mb-4">
@@ -740,7 +822,7 @@
       </div>
 
       <p class="text-xs sm:text-sm text-gray-600 mb-4">
-        We partner with universities, coaching institutes (Kota, Delhi, Bangalore), and student unions to provide verified, zero-brokerage housing with vetted food and strict biometric safety.
+        We partner with universities, coaching institutes (Knowledge Park 2 Greater Noida, Kota, Delhi, Bangalore), and student unions to provide verified, zero-brokerage housing with vetted food and strict biometric safety.
       </p>
 
       <div class="space-y-2.5 mb-6 text-xs text-gray-700">
@@ -760,7 +842,7 @@
 
       <div class="grid grid-cols-2 gap-3">
         <a 
-          href="https://wa.me/919110155081?text=Hi%20Yealth,%20we%20would%20like%20to%20discuss%20a%20Campus%20Partnership%20or%20Ambassador%20Role." 
+          href="https://wa.me/919110155081?text=Hi%20Yealth,%20we%20would%20like%20to%20discuss%20a%20Campus%20Partnership%20in%20Knowledge%20Park%202%20Greater%20Noida." 
           target="_blank"
           class="bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs font-bold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5">
           <i data-lucide="message-circle" class="w-4 h-4"></i>
@@ -776,10 +858,149 @@
     </div>
   </div>
 
-  <!-- Modal 3: Property Detail Quick View -->
+  <!-- ========================================================================= -->
+  <!-- MODAL 3: PROPERTY DETAIL, VIRTUAL TOUR & MEAL PLAN                        -->
+  <!-- ========================================================================= -->
   <div id="modal-property-detail" class="modal-container hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
-    <div id="modal-property-content" class="modal-content-animated bg-white rounded-2xl max-w-xl w-full shadow-2xl border border-gray-100 text-left overflow-hidden max-h-[90vh] overflow-y-auto">
-      <!-- Populated dynamically via JS -->
+    <div id="modal-property-content" class="modal-content-animated bg-white rounded-2xl max-w-4xl w-full shadow-2xl border border-gray-200 text-left overflow-hidden flex flex-col max-h-[92vh]">
+      <!-- Dynamically populated by JS -->
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL 4: UNIFIED CART / APPLICATION BUNDLE DRAWER                         -->
+  <!-- ========================================================================= -->
+  <div id="modal-cart-drawer" class="modal-container hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-end">
+    <div class="bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between overflow-hidden animate-slide-left border-l border-gray-200">
+      <!-- Cart Drawer Header -->
+      <div class="bg-[#071A33] text-white p-4 flex items-center justify-between border-b border-white/10">
+        <div class="flex items-center gap-2">
+          <i data-lucide="shopping-bag" class="w-5 h-5 text-[#DFB15B]"></i>
+          <h3 class="font-black text-base text-white">Your Selection Bundle</h3>
+        </div>
+        <button id="btn-close-cart" class="text-white/70 hover:text-white p-1 rounded-lg hover:bg-white/10">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Items List -->
+      <div id="cart-items-container" class="p-4 flex-1 overflow-y-auto space-y-4">
+        <!-- Dynamically rendered -->
+      </div>
+
+      <!-- Summary & Checkout Section -->
+      <div id="cart-summary-box" class="p-4 bg-slate-50 border-t border-gray-200">
+        <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-800 mb-3 flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-4 h-4 text-[#C59943] shrink-0"></i>
+          <span><strong>Zero-Brokerage Guarantee:</strong> No token deposit required to submit preferences.</span>
+        </div>
+
+        <form id="cart-checkout-form" class="space-y-2.5">
+          <h4 class="font-bold text-xs uppercase text-[#082A50] tracking-wide">Applicant Details</h4>
+          <div class="grid grid-cols-2 gap-2">
+            <input type="text" id="applicant-name" placeholder="Full Name *" required class="text-xs px-3 py-2 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+            <input type="tel" id="applicant-phone" placeholder="WhatsApp Phone *" required class="text-xs px-3 py-2 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <input type="email" id="applicant-email" placeholder="Email Address *" required class="text-xs px-3 py-2 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+            <input type="text" id="applicant-movein" placeholder="Move-in Month (e.g. Aug 2026)" class="text-xs px-3 py-2 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+          </div>
+          <input type="text" id="applicant-course" placeholder="Desired Course / Stream (e.g. B.Tech / MBA / MBBS)" class="w-full text-xs px-3 py-2 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+
+          <button type="submit" class="w-full bg-[#082A50] hover:bg-[#051C36] text-white font-extrabold text-xs sm:text-sm py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all">
+            <i data-lucide="send" class="w-4 h-4 text-[#DFB15B]"></i>
+            Submit Application Bundle & Track
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL 5: ORDER & APPLICATION STATUS TRACKER                               -->
+  <!-- ========================================================================= -->
+  <div id="modal-orders-status" class="modal-container hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
+    <div id="modal-orders-content" class="modal-content-animated bg-white rounded-2xl max-w-xl w-full shadow-2xl border border-gray-100 text-left overflow-hidden">
+      <!-- Dynamically populated by JS -->
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL 6: CUSTOMER SIGN IN & SIGN UP AUTH                                  -->
+  <!-- ========================================================================= -->
+  <div id="modal-auth" class="modal-container hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
+    <div class="modal-content-animated bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-gray-100 text-left">
+      <div class="flex items-center justify-between pb-3 border-b border-gray-100 mb-4">
+        <div>
+          <h3 class="text-lg font-black text-[#082A50]">Student & Parent Portal</h3>
+          <p class="text-xs text-gray-500">Sign in to view saved stays, college shortlists & orders.</p>
+        </div>
+        <button class="btn-close-modal text-gray-400 hover:text-gray-700 p-1.5 rounded-lg hover:bg-gray-100">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Auth Tabs -->
+      <div class="flex items-center gap-2 border-b border-gray-200 mb-4 text-xs font-bold">
+        <button id="tab-auth-signin" class="py-2.5 px-4 border-b-2 border-[#082A50] text-[#082A50] transition-colors">Sign In</button>
+        <button id="tab-auth-signup" class="py-2.5 px-4 border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition-colors">Create Account</button>
+      </div>
+
+      <!-- Auth Error Banner (Strict validation message) -->
+      <div id="auth-error-banner" class="hidden bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl p-3 mb-3 flex items-start gap-2">
+        <i data-lucide="alert-circle" class="w-4 h-4 text-red-600 shrink-0 mt-0.5"></i>
+        <span id="auth-error-text"></span>
+      </div>
+
+      <!-- Sign In Form -->
+      <form id="form-auth-signin" class="space-y-3">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Email or Phone Number</label>
+          <input type="text" id="signin-email" placeholder="e.g. rahul@gmail.com" required class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Password</label>
+          <input type="password" id="signin-password" placeholder="••••••••" required class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+        </div>
+        <button type="submit" class="w-full bg-[#082A50] hover:bg-[#051C36] text-white font-bold text-xs py-2.5 rounded-xl transition-colors">
+          Sign In
+        </button>
+      </form>
+
+      <!-- Sign Up Form -->
+      <form id="form-auth-signup" class="space-y-3 hidden">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Student Full Name</label>
+          <input type="text" id="signup-name" placeholder="e.g. Rahul Sharma" required class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Email</label>
+            <input type="email" id="signup-email" placeholder="rahul@gmail.com" required class="w-full text-xs px-3 py-2 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">WhatsApp</label>
+            <input type="tel" id="signup-phone" placeholder="+91 9876543210" required class="w-full text-xs px-3 py-2 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Create Password</label>
+          <input type="password" id="signup-password" placeholder="••••••••" required class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-[#082A50] focus:outline-hidden" />
+        </div>
+        <button type="submit" class="w-full bg-[#1AB64F] hover:bg-[#159c42] text-white font-bold text-xs py-2.5 rounded-xl transition-colors">
+          Create Free Student Account
+        </button>
+      </form>
+
+      <div class="pt-3 mt-3 border-t border-gray-100 space-y-2">
+        <button id="btn-demo-login" class="w-full bg-slate-100 hover:bg-slate-200 text-[#082A50] font-bold text-xs py-2 rounded-lg transition-colors border border-slate-200 flex items-center justify-center gap-1.5">
+          <i data-lucide="zap" class="w-3.5 h-3.5 text-[#C59943]"></i>
+          1-Click Demo Student Login (Aryan Sharma)
+        </button>
+        <div class="text-center text-[11px] text-gray-500 bg-slate-50 p-2 rounded-lg border border-slate-200">
+          <span class="font-bold text-[#082A50]">Demo Credentials:</span> student@yealth.com / <span class="font-mono font-bold">yealth123</span>
+        </div>
+      </div>
     </div>
   </div>
 
