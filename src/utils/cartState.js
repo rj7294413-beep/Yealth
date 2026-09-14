@@ -39,8 +39,8 @@ export function getCartCount() {
 export function addToCart(item, type) {
   const cart = getCart();
   if (type === "college") {
-    const exists = cart.colleges.some(c => c.id === item.id);
-    if (!exists) {
+    const existing = cart.colleges.find(c => c.id === item.id);
+    if (!existing) {
       cart.colleges.push({
         id: item.id,
         name: item.name,
@@ -51,11 +51,17 @@ export function addToCart(item, type) {
         fees: item.fees,
         avgPackage: item.avgPackage,
         category: item.category,
+        selectedCourse: item.selectedCourse || null,
         addedAt: new Date().toISOString()
       });
       saveCart(cart);
       return { success: true, message: `${item.shortName || item.name} added to your selection bundle!` };
     } else {
+      if (item.selectedCourse) {
+        existing.selectedCourse = item.selectedCourse;
+        saveCart(cart);
+        return { success: true, message: `Updated ${item.shortName || item.name} with course ${item.selectedCourse}!` };
+      }
       return { success: false, message: `${item.shortName || item.name} is already in your selection!` };
     }
   } else if (type === "hostel") {

@@ -1,4 +1,5 @@
 import { COLLEGES } from "./data/colleges.js";
+import { RANK_CUTOFFS } from "./data/rankCutoffs.js";
 import { SITE_CONFIG } from "./config/siteConfig.js";
 import { 
   getCart, 
@@ -20,13 +21,23 @@ import {
 const state = {
   activeCollegeType: "all", // "all" | "Government" | "Private"
   activeStream: "all",      // "all" | "engineering" | "medical" | "management" | "law" | "design"
-  searchQuery: ""
+  searchQuery: "",
+  modalActiveCollegeId: null,
+  modalCourseSearch: "",
+  modalDegreeFilter: "all",
+  // Rank Calculator State
+  calcExam: "neet",         // "neet" | "jee"
+  calcChanceFilter: "all",  // "all" | "Safe" | "Probable" | "Ambitious"
+  calcLastResults: [],
+  calcSubmittedQuery: null
 };
 
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get("stream")) state.activeStream = urlParams.get("stream");
   if (urlParams.get("type")) state.activeCollegeType = urlParams.get("type");
+  const linkedCollege = urlParams.get("college") || urlParams.get("collegeId");
+
   renderStreamFilterTabs();
   renderCollegeFilters();
   renderColleges();
@@ -35,6 +46,45 @@ document.addEventListener("DOMContentLoaded", () => {
   setupOrdersUI();
   setupStreamCardsClick();
   setupLoanCalculator();
+  setupCollegeDetailsModalEvents();
+  setupRankCalculator();
+
+  const calcExamParam = urlParams.get("calcExam");
+  const calcRankParam = urlParams.get("calcRank");
+  const calcCatParam = urlParams.get("calcCategory");
+  const calcQuotaParam = urlParams.get("calcQuota");
+  const calcTypeParam = urlParams.get("calcType");
+
+  if (calcExamParam) setCalcExam(calcExamParam);
+  if (calcRankParam) {
+    const rInput = document.getElementById("calc-rank-input");
+    if (rInput) rInput.value = calcRankParam;
+    if (calcCatParam) {
+      const cSelect = document.getElementById("calc-category-select");
+      if (cSelect) cSelect.value = calcCatParam;
+    }
+    if (calcQuotaParam) {
+      const qSelect = document.getElementById("calc-quota-select");
+      if (qSelect) qSelect.value = calcQuotaParam;
+    }
+    if (calcTypeParam) {
+      const tSelect = document.getElementById("calc-inst-type-select");
+      if (tSelect) tSelect.value = calcTypeParam;
+    }
+    state.calcSubmittedQuery = {
+      rank: parseFloat(calcRankParam),
+      category: calcCatParam || "General",
+      quota: calcQuotaParam || "all",
+      instType: calcTypeParam || "all",
+      exam: calcExamParam || state.calcExam
+    };
+    runRankPrediction();
+  }
+
+  if (linkedCollege) {
+    openCollegeDetailsModal(linkedCollege);
+  }
+
   lucide.createIcons();
 
   window.addEventListener("yealth-cart-updated", () => {
@@ -245,9 +295,13 @@ function renderColleges() {
   container.innerHTML = filtered.map(c => {
     const isInCart = cart.colleges.some(item => item.id === c.id);
     const isGovt = c.type === "Government";
+    const courseList = c.courses || [];
+    const courseCount = courseList.length > 0 ? courseList.length : (c.streams || []).length;
 
     return `
-      <div class="bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group">
+      <div 
+        data-college-id="${c.id}"
+        class="college-card-interactive bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group cursor-pointer hover:border-[#DFB15B]/80 hover:-translate-y-1">
         <div>
           <!-- Campus Photo with Badges -->
           <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-100">
@@ -305,13 +359,19 @@ function renderColleges() {
 
             <!-- Streams & Courses Offered -->
             <div>
-              <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Offered Disciplines & Courses:</div>
+              <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">
+                <span>Offered Disciplines:</span>
+                <span class="text-[#082A50] font-black text-[10px] flex items-center gap-0.5 group-hover:text-[#DFB15B]">
+                  <span>View Details</span>
+                  <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                </span>
+              </div>
               <div class="flex flex-wrap gap-1">
                 ${(c.streams || []).slice(0, 4).map(st => `
-                  <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded-md font-semibold border border-slate-200">${st}</span>
+                  <button type="button" class="btn-stream-tag-click text-[10px] bg-slate-100 hover:bg-[#082A50] hover:text-[#DFB15B] text-slate-700 px-2 py-0.5 rounded-md font-semibold border border-slate-200 transition-colors" data-college-id="${c.id}" data-stream-name="${st}">${st}</button>
                 `).join("")}
                 ${(c.streams || []).length > 4 ? `
-                  <span class="text-[10px] bg-amber-50 text-amber-800 px-1.5 py-0.5 rounded-md font-bold border border-amber-200">+${c.streams.length - 4} more</span>
+                  <button type="button" class="btn-stream-more-click text-[10px] bg-amber-50 hover:bg-[#DFB15B] hover:text-[#071A33] text-amber-800 px-1.5 py-0.5 rounded-md font-bold border border-amber-200 transition-colors" data-college-id="${c.id}">+${c.streams.length - 4} more</button>
                 ` : ''}
               </div>
             </div>
@@ -325,12 +385,22 @@ function renderColleges() {
                 </div>
               `).join("")}
             </div>
+
+            <!-- Prominent Explore Courses Button -->
+            <button 
+              type="button" 
+              data-college-id="${c.id}" 
+              class="btn-view-courses-action w-full py-2.5 px-3 rounded-xl text-xs font-black bg-gradient-to-r from-blue-50/80 via-amber-50/70 to-blue-50/80 hover:from-[#082A50] hover:to-[#051C36] text-[#082A50] hover:text-[#DFB15B] border border-amber-300 hover:border-[#082A50] transition-all flex items-center justify-center gap-1.5 shadow-xs group/btn">
+              <i data-lucide="book-open" class="w-4 h-4 text-[#C59943] group-hover/btn:text-[#DFB15B]"></i>
+              <span>Explore Courses &amp; Eligibility (${courseCount} Courses) →</span>
+            </button>
           </div>
         </div>
 
         <!-- Footer CTAs -->
         <div class="p-4 sm:p-5 pt-0 border-t border-gray-100 flex flex-wrap items-center gap-2 mt-2">
           <button 
+            type="button"
             data-college-id="${c.id}" 
             class="btn-toggle-college-cart flex-1 min-w-[120px] py-2.5 px-3 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 ${
               isInCart 
@@ -343,7 +413,7 @@ function renderColleges() {
 
           <a 
             href="hostels.html?college=${c.id}" 
-            class="bg-amber-50 hover:bg-amber-100 text-[#082A50] border border-amber-300 py-2.5 px-3 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 transition-all shadow-xs" 
+            class="btn-card-hostel-link bg-amber-50 hover:bg-amber-100 text-[#082A50] border border-amber-300 py-2.5 px-3 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 transition-all shadow-xs" 
             title="Explore student hostels and PGs near ${c.shortName || c.name}">
             <i data-lucide="building" class="w-3.5 h-3.5 text-[#C59943]"></i>
             <span>Hostels</span>
@@ -352,7 +422,7 @@ function renderColleges() {
           <a 
             href="https://wa.me/919110155081?text=Hi%20Yealth%20Admissions!%20I%20am%20interested%20in%20applying%20to%20${encodeURIComponent(c.name)}%20(${c.type}).%20Please%20guide%20me%20on%20cutoffs%20and%20fees."
             target="_blank"
-            class="bg-[#1AB64F] hover:bg-[#159c42] text-white p-2.5 rounded-xl flex items-center justify-center shadow-sm"
+            class="btn-card-whatsapp-link bg-[#1AB64F] hover:bg-[#159c42] text-white p-2.5 rounded-xl flex items-center justify-center shadow-sm"
             title="Chat about this college on WhatsApp">
             <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
           </a>
@@ -361,8 +431,47 @@ function renderColleges() {
     `;
   }).join("");
 
+  // Card click -> Open modal
+  container.querySelectorAll(".college-card-interactive").forEach(card => {
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".btn-toggle-college-cart, .btn-card-hostel-link, .btn-card-whatsapp-link")) {
+        return;
+      }
+      const colId = card.dataset.collegeId;
+      openCollegeDetailsModal(colId);
+    });
+  });
+
+  // Action button click
+  container.querySelectorAll(".btn-view-courses-action").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const colId = btn.dataset.collegeId;
+      openCollegeDetailsModal(colId);
+    });
+  });
+
+  // Stream pill clicks
+  container.querySelectorAll(".btn-stream-tag-click").forEach(tag => {
+    tag.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const colId = tag.dataset.collegeId;
+      const streamName = tag.dataset.streamName;
+      openCollegeDetailsModal(colId, streamName);
+    });
+  });
+
+  container.querySelectorAll(".btn-stream-more-click").forEach(tag => {
+    tag.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const colId = tag.dataset.collegeId;
+      openCollegeDetailsModal(colId);
+    });
+  });
+
   container.querySelectorAll(".btn-toggle-college-cart").forEach(btn => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
       const colId = btn.dataset.collegeId;
       const col = COLLEGES.find(c => c.id === colId);
       if (!col) return;
@@ -1157,3 +1266,1091 @@ function showToast(message, type = "success") {
     setTimeout(() => toast.remove(), 300);
   }, 3500);
 }
+
+/**
+ * 7. College Details, Courses Catalog & Eligibility Modal
+ */
+export function setupCollegeDetailsModalEvents() {
+  const modal = document.getElementById("modal-college-details");
+  if (!modal) return;
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal || e.target.closest(".btn-close-college-modal")) {
+      closeCollegeDetailsModal();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+      closeCollegeDetailsModal();
+    }
+  });
+}
+
+export function closeCollegeDetailsModal() {
+  const modal = document.getElementById("modal-college-details");
+  if (modal) {
+    modal.classList.add("hidden");
+    document.body.style.overflow = "";
+  }
+}
+
+export function openCollegeDetailsModal(collegeId, searchKeyword = "") {
+  const college = COLLEGES.find(c => c.id === collegeId);
+  if (!college) return;
+
+  state.modalActiveCollegeId = collegeId;
+  state.modalCourseSearch = searchKeyword || "";
+  state.modalDegreeFilter = "all";
+
+  const modal = document.getElementById("modal-college-details");
+  const content = document.getElementById("modal-college-details-content");
+  if (!modal || !content) return;
+
+  renderCollegeModalContent(college);
+  modal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+  lucide.createIcons();
+}
+
+function getFilteredCollegeCourses(college) {
+  const allCourses = college.courses || [];
+  return allCourses.filter(course => {
+    // Degree level filter
+    if (state.modalDegreeFilter !== "all") {
+      const deg = (course.degree || "").toLowerCase();
+      if (state.modalDegreeFilter === "UG" && !deg.includes("undergraduate") && !deg.includes("ug")) {
+        return false;
+      }
+      if (state.modalDegreeFilter === "PG" && !deg.includes("postgraduate") && !deg.includes("pg")) {
+        return false;
+      }
+      if (state.modalDegreeFilter === "Integrated" && !deg.includes("integrated") && !deg.includes("diploma")) {
+        return false;
+      }
+    }
+
+    // Keyword search filter
+    if (state.modalCourseSearch && state.modalCourseSearch.trim()) {
+      const q = state.modalCourseSearch.toLowerCase().trim();
+      const matchName = (course.name || "").toLowerCase().includes(q);
+      const matchSpecialization = (course.specializations || []).some(s => s.toLowerCase().includes(q));
+      const matchExam = (course.entranceExam || "").toLowerCase().includes(q);
+      const matchElig = (course.eligibility || "").toLowerCase().includes(q);
+      if (!matchName && !matchSpecialization && !matchExam && !matchElig) {
+        return false;
+      }
+    }
+
+    return true;
+  });
+}
+
+function renderCollegeModalContent(college) {
+  const content = document.getElementById("modal-college-details-content");
+  if (!content) return;
+
+  const isGovt = college.type === "Government";
+  const coursesCount = (college.courses || []).length;
+
+  content.innerHTML = `
+    <!-- Modal Header Banner -->
+    <div class="relative bg-[#071A33] text-white p-5 sm:p-6 pb-6 overflow-hidden shrink-0 border-b border-white/10">
+      <!-- Background photo with overlay -->
+      <div class="absolute inset-0 z-0">
+        <img src="${college.image}" alt="${college.name}" class="w-full h-full object-cover opacity-25" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#071A33] via-[#071A33]/85 to-[#071A33]/60"></div>
+      </div>
+
+      <div class="relative z-10 flex flex-col justify-between h-full">
+        <!-- Top Controls & Badges -->
+        <div class="flex items-center justify-between gap-3 mb-3">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-black uppercase tracking-wider ${
+              isGovt 
+                ? "bg-emerald-600 text-white shadow-sm" 
+                : "bg-[#082A50] text-[#DFB15B] border border-[#DFB15B]/40 shadow-sm"
+            }">
+              ${isGovt ? "🏛️ Government Institution" : "🏫 Top Private University"}
+            </span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-white/15 backdrop-blur-md text-[#DFB15B] border border-white/20">
+              ${college.nirfRank || college.accreditation}
+            </span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-black/40 text-amber-300 flex items-center gap-1 border border-white/10">
+              <i data-lucide="star" class="w-3 h-3 text-amber-400 fill-amber-400"></i>
+              ${college.rating} (${college.reviewsCount} reviews)
+            </span>
+          </div>
+
+          <button 
+            type="button"
+            class="btn-close-college-modal text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-all shrink-0"
+            title="Close modal (Esc)">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- College Name & Campus Details -->
+        <div>
+          <div class="flex items-center gap-1.5 text-xs text-[#DFB15B] font-bold mb-1">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 shrink-0"></i>
+            <span>${college.location}</span>
+            <span class="text-white/40">•</span>
+            <span>Est. ${college.established}</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-black text-white leading-tight drop-shadow-sm">
+            ${college.name}
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-200 mt-1 max-w-3xl line-clamp-2">
+            ${college.description}
+          </p>
+        </div>
+
+        <!-- Quick Metrics Row -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-4 mt-3 border-t border-white/15 text-xs">
+          <div class="bg-white/10 backdrop-blur-md p-2.5 rounded-xl border border-white/10">
+            <div class="text-[10px] uppercase font-bold text-slate-300">Offered Programs</div>
+            <div class="text-sm font-black text-[#DFB15B] flex items-center gap-1">
+              <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+              ${coursesCount} Verified Courses
+            </div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md p-2.5 rounded-xl border border-white/10">
+            <div class="text-[10px] uppercase font-bold text-slate-300">Avg Placement</div>
+            <div class="text-sm font-black text-emerald-400 flex items-center gap-1">
+              <i data-lucide="trending-up" class="w-3.5 h-3.5"></i>
+              ${college.avgPackage || 'High ROI'}
+            </div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md p-2.5 rounded-xl border border-white/10">
+            <div class="text-[10px] uppercase font-bold text-slate-300">Highest Package</div>
+            <div class="text-sm font-black text-white flex items-center gap-1">
+              <i data-lucide="award" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+              ${college.highestPackage || 'Top Tier'}
+            </div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md p-2.5 rounded-xl border border-white/10">
+            <div class="text-[10px] uppercase font-bold text-slate-300">Est. Tuition Fee</div>
+            <div class="text-sm font-black text-white truncate">
+              ${college.fees}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter & Search Strip inside Modal -->
+    <div class="bg-slate-50 border-b border-gray-200 p-3 sm:p-4 space-y-2.5 shrink-0">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-2.5">
+        <!-- Search input -->
+        <div class="relative w-full sm:flex-1">
+          <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+          <input 
+            type="text" 
+            id="modal-courses-search-input" 
+            value="${state.modalCourseSearch}" 
+            placeholder="Search course by name, branch (e.g. CSE, AI, MBBS, MBA, Law, Nursing)..." 
+            class="w-full text-xs sm:text-sm pl-9 pr-8 py-2 rounded-xl border border-gray-300 bg-white focus:border-[#082A50] focus:ring-2 focus:ring-[#082A50]/20 focus:outline-hidden"
+          />
+          ${state.modalCourseSearch ? `
+            <button id="btn-modal-clear-search" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1">
+              <i data-lucide="x" class="w-3.5 h-3.5"></i>
+            </button>
+          ` : ''}
+        </div>
+
+        <!-- Degree level filter chips -->
+        <div class="flex items-center gap-1.5 w-full sm:w-auto overflow-x-auto no-scrollbar">
+          ${[
+            { id: "all", label: "All Programs" },
+            { id: "UG", label: "UG (Bachelor)" },
+            { id: "PG", label: "PG (Master)" },
+            { id: "Integrated", label: "Integrated" }
+          ].map(tab => {
+            const isActive = state.modalDegreeFilter === tab.id;
+            return `
+              <button 
+                type="button" 
+                data-degree="${tab.id}" 
+                class="modal-degree-chip px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all border ${
+                  isActive 
+                    ? "bg-[#082A50] text-[#DFB15B] border-[#082A50] shadow-xs" 
+                    : "bg-white text-gray-700 hover:bg-slate-100 border-gray-300"
+                }">
+                ${tab.label}
+              </button>
+            `;
+          }).join("")}
+        </div>
+      </div>
+
+      <!-- Result Counter strip -->
+      <div id="modal-courses-counter-bar" class="flex items-center justify-between text-xs text-gray-600">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+
+    <!-- Scrollable Course Cards Container -->
+    <div id="modal-courses-cards-container" class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
+      <!-- Dynamically rendered by renderCollegeModalCoursesList() -->
+    </div>
+
+    <!-- Modal Footer Actions Bar -->
+    <div class="bg-white border-t border-gray-200 p-3 sm:p-4 shrink-0 flex flex-wrap items-center justify-between gap-3 shadow-lg">
+      <div class="flex items-center gap-2 text-xs text-gray-500">
+        <span class="w-2 h-2 rounded-full bg-[#1AB64F] animate-pulse"></span>
+        <span>Admissions Open for Session 2026-27 • Zero Brokerage Assistance</span>
+      </div>
+
+      <div class="flex items-center gap-2 w-full sm:w-auto">
+        <a 
+          href="hostels.html?college=${college.id}"
+          class="flex-1 sm:flex-initial bg-amber-50 hover:bg-amber-100 text-[#082A50] border border-amber-300 font-extrabold text-xs py-2.5 px-3.5 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-xs">
+          <i data-lucide="building" class="w-3.5 h-3.5 text-[#C59943]"></i>
+          <span>View Hostels Near Campus</span>
+        </a>
+
+        <a 
+          href="https://wa.me/919110155081?text=Hi%20Yealth%20Admissions!%20I%20am%20reviewing%20courses%20at%20${encodeURIComponent(college.name)}.%20Please%20connect%20me%20with%20an%20academic%20advisor."
+          target="_blank"
+          class="flex-1 sm:flex-initial bg-[#1AB64F] hover:bg-[#159c42] text-white font-extrabold text-xs py-2.5 px-3.5 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm">
+          <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+          <span>Chat with College Advisor</span>
+        </a>
+
+        <button 
+          type="button" 
+          class="btn-close-college-modal bg-slate-100 hover:bg-slate-200 text-gray-700 font-bold text-xs py-2.5 px-3.5 rounded-xl border border-slate-300 transition-all">
+          Close
+        </button>
+      </div>
+    </div>
+  `;
+
+  // Attach search and filter events
+  const searchInput = document.getElementById("modal-courses-search-input");
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      state.modalCourseSearch = e.target.value;
+      renderCollegeModalCoursesList(college);
+    });
+  }
+
+  document.getElementById("btn-modal-clear-search")?.addEventListener("click", () => {
+    state.modalCourseSearch = "";
+    if (searchInput) searchInput.value = "";
+    renderCollegeModalCoursesList(college);
+  });
+
+  content.querySelectorAll(".modal-degree-chip").forEach(chip => {
+    chip.addEventListener("click", () => {
+      state.modalDegreeFilter = chip.dataset.degree;
+      content.querySelectorAll(".modal-degree-chip").forEach(c => {
+        const isActive = c.dataset.degree === state.modalDegreeFilter;
+        c.className = `modal-degree-chip px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all border ${
+          isActive 
+            ? "bg-[#082A50] text-[#DFB15B] border-[#082A50] shadow-xs" 
+            : "bg-white text-gray-700 hover:bg-slate-100 border-gray-300"
+        }`;
+      });
+      renderCollegeModalCoursesList(college);
+    });
+  });
+
+  content.querySelectorAll(".btn-close-college-modal").forEach(btn => {
+    btn.addEventListener("click", () => closeCollegeDetailsModal());
+  });
+
+  // Render course list
+  renderCollegeModalCoursesList(college);
+  lucide.createIcons();
+}
+
+function renderCollegeModalCoursesList(college) {
+  const container = document.getElementById("modal-courses-cards-container");
+  const counterBar = document.getElementById("modal-courses-counter-bar");
+  if (!container) return;
+
+  const courses = getFilteredCollegeCourses(college);
+  const totalCourses = (college.courses || []).length;
+  const cart = getCart();
+
+  if (counterBar) {
+    counterBar.innerHTML = `
+      <span>
+        Showing <strong class="text-[#082A50] font-black">${courses.length}</strong> of ${totalCourses} course${totalCourses === 1 ? '' : 's'} offered by <strong>${college.shortName || college.name}</strong>
+      </span>
+      ${(state.modalCourseSearch || state.modalDegreeFilter !== 'all') ? `
+        <button id="btn-reset-course-search" class="text-xs text-red-600 hover:text-red-700 underline font-bold">
+          Reset Filter
+        </button>
+      ` : ''}
+    `;
+
+    document.getElementById("btn-reset-course-search")?.addEventListener("click", () => {
+      state.modalCourseSearch = "";
+      state.modalDegreeFilter = "all";
+      const input = document.getElementById("modal-courses-search-input");
+      if (input) input.value = "";
+      document.querySelectorAll(".modal-degree-chip").forEach(c => {
+        const isActive = c.dataset.degree === "all";
+        c.className = `modal-degree-chip px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all border ${
+          isActive 
+            ? "bg-[#082A50] text-[#DFB15B] border-[#082A50] shadow-xs" 
+            : "bg-white text-gray-700 hover:bg-slate-100 border-gray-300"
+        }`;
+      });
+      renderCollegeModalCoursesList(college);
+    });
+  }
+
+  if (courses.length === 0) {
+    container.innerHTML = `
+      <div class="py-12 text-center bg-slate-50 rounded-2xl border border-dashed border-gray-300 p-8">
+        <div class="w-12 h-12 rounded-full bg-slate-200 text-gray-400 flex items-center justify-center mx-auto mb-3">
+          <i data-lucide="book-x" class="w-6 h-6"></i>
+        </div>
+        <h4 class="text-sm font-bold text-gray-800 mb-1">No Courses Match Your Search</h4>
+        <p class="text-xs text-gray-500 max-w-sm mx-auto mb-4">Try adjusting your keyword or reset filters to see all available degree programs.</p>
+        <button id="btn-empty-reset-courses" class="bg-[#082A50] text-white text-xs font-bold py-2 px-4 rounded-xl">
+          View All ${totalCourses} Programs
+        </button>
+      </div>
+    `;
+
+    document.getElementById("btn-empty-reset-courses")?.addEventListener("click", () => {
+      state.modalCourseSearch = "";
+      state.modalDegreeFilter = "all";
+      const input = document.getElementById("modal-courses-search-input");
+      if (input) input.value = "";
+      renderCollegeModalCoursesList(college);
+    });
+
+    lucide.createIcons();
+    return;
+  }
+
+  container.innerHTML = courses.map((course) => {
+    const isShortlisted = cart.colleges.some(c => c.id === college.id && c.selectedCourse === course.name);
+
+    return `
+      <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-[#082A50] transition-all p-4 sm:p-5 shadow-xs hover:shadow-md space-y-3.5">
+        <!-- Course Header -->
+        <div class="flex flex-wrap items-start justify-between gap-3 border-b border-slate-100 pb-3">
+          <div class="flex-1 min-w-[240px]">
+            <div class="flex items-center gap-2 flex-wrap mb-1.5">
+              <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#082A50] text-[#DFB15B]">
+                ${course.degree || 'Degree Program'}
+              </span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-1">
+                <i data-lucide="clock" class="w-3 h-3 text-emerald-600"></i>
+                <span>${course.duration}</span>
+              </span>
+              ${course.seats ? `
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-blue-50 text-blue-800 border border-blue-200 flex items-center gap-1">
+                  <i data-lucide="users" class="w-3 h-3 text-blue-600"></i>
+                  <span>${course.seats}</span>
+                </span>
+              ` : ''}
+              ${course.mode ? `
+                <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 border border-slate-200">
+                  ${course.mode}
+                </span>
+              ` : ''}
+            </div>
+
+            <h4 class="text-base sm:text-lg font-black text-gray-900 leading-snug">
+              ${course.name}
+            </h4>
+          </div>
+
+          <!-- Fees Callout Box -->
+          <div class="bg-amber-50/90 border border-amber-300 rounded-xl p-2.5 sm:px-3.5 text-right sm:text-right shrink-0">
+            <div class="text-[10px] font-bold uppercase tracking-wide text-[#A47B2E]">Tuition Fee</div>
+            <div class="text-sm sm:text-base font-black text-[#082A50] whitespace-nowrap">${course.fees}</div>
+            ${course.feeBreakdown ? `<div class="text-[10px] text-gray-500 mt-0.5 max-w-[220px] truncate" title="${course.feeBreakdown}">${course.feeBreakdown}</div>` : ''}
+          </div>
+        </div>
+
+        <!-- 3-Column Specifications Matrix -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs">
+          <div>
+            <div class="text-[10px] uppercase font-bold text-gray-400">Duration & Semesters</div>
+            <div class="font-extrabold text-[#082A50] mt-0.5">${course.duration}</div>
+          </div>
+          <div>
+            <div class="text-[10px] uppercase font-bold text-gray-400">Entrance / Selection</div>
+            <div class="font-extrabold text-gray-800 mt-0.5 truncate" title="${course.entranceExam}">${course.entranceExam}</div>
+          </div>
+          <div class="col-span-2 sm:col-span-1">
+            <div class="text-[10px] uppercase font-bold text-gray-400">Approved Intake</div>
+            <div class="font-extrabold text-[#1AB64F] mt-0.5">${course.seats || 'Merit Counseling'}</div>
+          </div>
+        </div>
+
+        <!-- ELIGIBILITY CRITERIA HIGHLIGHT CALLOUT BOX -->
+        <div class="bg-gradient-to-r from-amber-50/80 via-blue-50/40 to-slate-50 border-2 border-amber-300/80 rounded-xl p-3.5 shadow-xs">
+          <div class="flex items-center gap-2 mb-1.5">
+            <div class="w-5 h-5 rounded-full bg-[#082A50] text-[#DFB15B] flex items-center justify-center shrink-0 shadow-xs">
+              <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+            </div>
+            <span class="text-xs font-black uppercase tracking-wider text-[#082A50]">
+              Eligibility Criteria & Admission Requirements:
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-800 leading-relaxed font-medium pl-7">
+            ${course.eligibility}
+          </p>
+        </div>
+
+        <!-- Specializations / Streams if present -->
+        ${course.specializations && course.specializations.length > 0 ? `
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Curriculum Specializations & Tracks:</div>
+            <div class="flex flex-wrap gap-1">
+              ${course.specializations.map(s => `
+                <span class="text-[11px] bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-md font-semibold border border-slate-200">${s}</span>
+              `).join("")}
+            </div>
+          </div>
+        ` : ''}
+
+        <!-- Placement & Career Highlight -->
+        ${course.careerScope ? `
+          <div class="flex items-start gap-2 text-xs text-gray-700 bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+            <i data-lucide="trending-up" class="w-4 h-4 text-[#1AB64F] shrink-0 mt-0.5"></i>
+            <span><strong>Placement & Careers:</strong> ${course.careerScope}</span>
+          </div>
+        ` : ''}
+
+        <!-- Course Action CTAs -->
+        <div class="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2.5">
+          <button 
+            type="button"
+            data-course-name="${course.name}"
+            data-college-id="${college.id}"
+            class="btn-modal-select-course flex-1 sm:flex-initial py-2.5 px-4 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 transition-all shadow-sm ${
+              isShortlisted 
+                ? "bg-emerald-600 text-white hover:bg-emerald-700" 
+                : "bg-[#082A50] hover:bg-[#051C36] text-[#DFB15B] hover:text-white"
+            }">
+            <i data-lucide="${isShortlisted ? 'check-check' : 'plus-circle'}" class="w-4 h-4"></i>
+            <span>${isShortlisted ? "Shortlisted in Bundle" : "Select for Application Bundle"}</span>
+          </button>
+
+          <a 
+            href="https://wa.me/919110155081?text=Hi%20Yealth%20Admissions!%20I%20am%20interested%20in%20applying%20for%20${encodeURIComponent(course.name)}%20at%20${encodeURIComponent(college.name)}.%20Please%20verify%20my%20eligibility%20and%20provide%20cutoff%20details."
+            target="_blank"
+            class="flex-1 sm:flex-initial bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs font-extrabold py-2.5 px-4 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm">
+            <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+            <span>Inquire for ${course.shortName || 'Course'} on WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  // Attach button click listeners inside course cards
+  container.querySelectorAll(".btn-modal-select-course").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const courseName = btn.dataset.courseName;
+      const colId = btn.dataset.collegeId;
+      const col = COLLEGES.find(c => c.id === colId);
+      if (!col) return;
+
+      const payload = {
+        ...col,
+        selectedCourse: courseName
+      };
+
+      addToCart(payload, "college");
+      showToast(`Selected ${courseName} at ${col.shortName || col.name} for your bundle!`, "success");
+      renderCollegeModalCoursesList(college);
+      renderColleges();
+    });
+  });
+
+  lucide.createIcons();
+}
+
+/**
+ * =========================================================================
+ * NEET & JEE COLLEGE RANK CALCULATOR & PREDICTOR
+ * Authentic NTA, JoSAA, CSAB, MCC Cutoff Intelligence Engine
+ * =========================================================================
+ */
+function setupRankCalculator() {
+  const form = document.getElementById("rank-calculator-form");
+  const rankInput = document.getElementById("calc-rank-input");
+  const btnNeet = document.getElementById("calc-btn-neet");
+  const btnJee = document.getElementById("calc-btn-jee");
+  const btnMba = document.getElementById("calc-btn-mba");
+  const btnReset = document.getElementById("calc-btn-reset");
+  const presetBtns = document.querySelectorAll(".rank-preset-btn");
+  const chanceChips = document.querySelectorAll(".calc-chance-chip");
+
+  if (!form) return;
+
+  // 1. Exam Toggle
+  if (btnNeet) {
+    btnNeet.addEventListener("click", () => setCalcExam("neet"));
+  }
+  if (btnJee) {
+    btnJee.addEventListener("click", () => setCalcExam("jee"));
+  }
+  if (btnMba) {
+    btnMba.addEventListener("click", () => setCalcExam("mba"));
+  }
+
+  // 2. Rank Presets
+  presetBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const val = btn.dataset.rank;
+      if (rankInput && val) {
+        rankInput.value = val;
+        rankInput.focus();
+      }
+    });
+  });
+
+  // 3. Form Submission
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const rankVal = parseFloat(rankInput.value);
+    if (isNaN(rankVal) || rankVal <= 0) {
+      showToast(state.calcExam === "mba" ? "Please enter a valid Percentile (e.g. 85.5) or Rank" : "Please enter a valid All India Rank (AIR)", "error");
+      rankInput?.focus();
+      return;
+    }
+
+    const category = document.getElementById("calc-category-select")?.value || "General";
+    const quota = document.getElementById("calc-quota-select")?.value || "all";
+    const instType = document.getElementById("calc-inst-type-select")?.value || "all";
+
+    state.calcSubmittedQuery = {
+      rank: rankVal,
+      category,
+      quota,
+      instType,
+      exam: state.calcExam
+    };
+
+    runRankPrediction();
+  });
+
+  // 4. Reset Button
+  if (btnReset) {
+    btnReset.addEventListener("click", () => {
+      form.reset();
+      state.calcLastResults = [];
+      state.calcSubmittedQuery = null;
+      state.calcChanceFilter = "all";
+      const resultsSection = document.getElementById("rank-calc-results-section");
+      if (resultsSection) resultsSection.classList.add("hidden");
+      showToast("Rank & percentile predictor reset", "info");
+    });
+  }
+
+  // 5. Chance Filter Tabs
+  chanceChips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      state.calcChanceFilter = chip.dataset.chance;
+      updateChanceChipStyles();
+      renderRankResultsCards();
+    });
+  });
+}
+
+function setCalcExam(exam) {
+  state.calcExam = exam;
+  const btnNeet = document.getElementById("calc-btn-neet");
+  const btnJee = document.getElementById("calc-btn-jee");
+  const btnMba = document.getElementById("calc-btn-mba");
+  const rankLabel = document.getElementById("calc-rank-label");
+  const rankInput = document.getElementById("calc-rank-input");
+
+  const tabs = [
+    { id: "neet", el: btnNeet },
+    { id: "jee", el: btnJee },
+    { id: "mba", el: btnMba }
+  ];
+
+  tabs.forEach(t => {
+    if (!t.el) return;
+    if (t.id === exam) {
+      t.el.className = "calc-exam-tab px-3.5 sm:px-5 py-2.5 rounded-xl font-black text-xs sm:text-sm flex items-center gap-1.5 transition-all shadow-sm bg-[#082A50] text-[#DFB15B]";
+    } else {
+      t.el.className = "calc-exam-tab px-3.5 sm:px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-1.5 transition-all text-gray-700 hover:text-[#082A50] hover:bg-white";
+    }
+  });
+
+  // Update input label and placeholder dynamically
+  if (exam === "mba") {
+    if (rankLabel) rankLabel.textContent = "Entrance Percentile (%) or Rank";
+    if (rankInput) {
+      rankInput.placeholder = "e.g. 85.5% (or AIR Rank)";
+      rankInput.min = "0.1";
+    }
+  } else {
+    if (rankLabel) rankLabel.textContent = "All India Rank (AIR)";
+    if (rankInput) {
+      rankInput.placeholder = "e.g. 18500";
+      rankInput.min = "1";
+    }
+  }
+
+  // Update preset buttons for the active exam
+  updateRankPresetsForExam(exam);
+
+  // If already submitted, re-run prediction with the newly selected exam
+  if (state.calcSubmittedQuery) {
+    state.calcSubmittedQuery.exam = exam;
+    runRankPrediction();
+  }
+}
+
+function updateRankPresetsForExam(exam) {
+  const presetContainer = document.querySelector("#rank-calculator-form .flex.items-center.gap-1\\.5.mt-2.flex-wrap") 
+    || document.querySelector("#rank-calculator-form .flex.items-center.gap-1\\.5");
+  if (!presetContainer) return;
+
+  const neetPresets = [
+    { label: "4.5k", rank: "4500" },
+    { label: "18.5k", rank: "18500" },
+    { label: "42k", rank: "42000" },
+    { label: "98k", rank: "98000" },
+    { label: "240k", rank: "240000" }
+  ];
+
+  const jeePresets = [
+    { label: "2.5k", rank: "2500" },
+    { label: "18k", rank: "18000" },
+    { label: "45k", rank: "45000" },
+    { label: "95k", rank: "95000" },
+    { label: "210k", rank: "210000" }
+  ];
+
+  const mbaPresets = [
+    { label: "99%", rank: "99" },
+    { label: "92%", rank: "92" },
+    { label: "82%", rank: "82" },
+    { label: "72%", rank: "72" },
+    { label: "58%", rank: "58" }
+  ];
+
+  let list = neetPresets;
+  if (exam === "jee") list = jeePresets;
+  if (exam === "mba") list = mbaPresets;
+
+  presetContainer.innerHTML = `
+    <span class="text-[10px] text-gray-500 font-bold">Quick:</span>
+    ${list.map(p => `
+      <button type="button" class="rank-preset-btn text-[10px] bg-white border border-gray-200 px-1.5 py-0.5 rounded font-bold text-slate-700 hover:bg-amber-50 hover:border-amber-300" data-rank="${p.rank}">${p.label}</button>
+    `).join("")}
+  `;
+
+  const rankInput = document.getElementById("calc-rank-input");
+  presetContainer.querySelectorAll(".rank-preset-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const val = btn.dataset.rank;
+      if (rankInput && val) {
+        rankInput.value = val;
+        rankInput.focus();
+      }
+    });
+  });
+}
+
+function runRankPrediction() {
+  if (!state.calcSubmittedQuery) return;
+  const { rank, category, quota, instType, exam } = state.calcSubmittedQuery;
+
+  // Filter and score from RANK_CUTOFFS
+  const matches = [];
+
+  for (const item of RANK_CUTOFFS) {
+    // 1. Exam filter
+    if (exam === "neet") {
+      if (item.stream !== "medical" && item.exam !== "neet_ug" && item.exam !== "neet") continue;
+    } else if (exam === "jee") {
+      if (item.stream !== "engineering" && item.exam !== "jee_main" && item.exam !== "jee_adv") continue;
+    } else if (exam === "mba") {
+      if (item.stream !== "management" && item.exam !== "cat" && item.exam !== "mba") continue;
+    }
+
+    // 2. Institution Type filter
+    if (instType !== "all" && item.type !== instType) {
+      continue;
+    }
+
+    // 3. Quota filter
+    if (quota !== "all") {
+      const q = item.quota || "";
+      if (quota === "AI" && !q.includes("All India") && !q.includes("(AI)")) continue;
+      if (quota === "HS-UP" && !q.includes("UP") && !q.includes("Uttar Pradesh") && !q.includes("All India") && !q.includes("(AI)")) continue;
+      if (quota === "HS-DL" && !q.includes("Delhi") && !q.includes("IPU") && !q.includes("DU") && !q.includes("All India") && !q.includes("(AI)")) continue;
+      if (quota === "HS-KA" && !q.includes("Karnataka") && !q.includes("COMEDK") && !q.includes("All India") && !q.includes("(AI)")) continue;
+      if (quota === "Deemed/Mgt" && !q.includes("Management") && !q.includes("Direct") && !q.includes("Deemed")) continue;
+    }
+
+    // 4. Category cutoffs lookup
+    const catCutoff = (item.categoryCutoffs && item.categoryCutoffs[category]) 
+      || (item.categoryCutoffs && item.categoryCutoffs["General"])
+      || { openingRank: 1, closingRank: 100000 };
+
+    let chance = null;
+    let probability = 0;
+    let badgeText = "";
+    let badgeClass = "";
+    let probabilityColor = "";
+
+    if (exam === "mba" && rank <= 100) {
+      // User entered a Percentile (e.g. 85.5%ile)
+      const userPercentile = rank;
+      const minP = catCutoff.minPercentile || 55.0;
+      const targetP = catCutoff.targetPercentile || 65.0;
+
+      if (userPercentile >= targetP) {
+        chance = "Safe";
+        probability = Math.min(98, Math.max(86, Math.round(86 + (userPercentile - targetP) * 3)));
+        badgeText = "🟢 Safe (High GD-PI Call Probability)";
+        badgeClass = "bg-emerald-50 text-emerald-800 border-emerald-300";
+        probabilityColor = "from-emerald-500 to-green-600";
+      } else if (userPercentile >= (minP - 2.0)) {
+        chance = "Probable";
+        const range = Math.max(1, targetP - (minP - 2.0));
+        const progress = (userPercentile - (minP - 2.0)) / range;
+        probability = Math.min(84, Math.max(55, Math.round(55 + progress * 28)));
+        badgeText = "🟡 Probable (Competitive Call)";
+        badgeClass = "bg-amber-50 text-amber-800 border-amber-300";
+        probabilityColor = "from-amber-500 to-yellow-600";
+      } else if (userPercentile >= (minP - 6.0)) {
+        chance = "Ambitious";
+        const progress = (userPercentile - (minP - 6.0)) / 4.0;
+        probability = Math.min(50, Math.max(25, Math.round(25 + progress * 24)));
+        badgeText = "🔴 Ambitious (Spot / Waitlist)";
+        badgeClass = "bg-rose-50 text-rose-800 border-rose-300";
+        probabilityColor = "from-rose-500 to-pink-600";
+      } else {
+        continue;
+      }
+    } else {
+      // User entered an AIR Rank
+      const cRank = catCutoff.closingRank || 100000;
+      const oRank = catCutoff.openingRank || 1;
+
+      if (rank <= Math.round(cRank * 0.90)) {
+        chance = "Safe";
+        probability = Math.min(98, Math.max(85, Math.round(98 - ((rank / cRank) * 12))));
+        badgeText = "🟢 Safe / High Chance";
+        badgeClass = "bg-emerald-50 text-emerald-800 border-emerald-300";
+        probabilityColor = "from-emerald-500 to-green-600";
+      } else if (rank <= Math.round(cRank * 1.08)) {
+        chance = "Probable";
+        const progress = (rank - (cRank * 0.90)) / (cRank * 0.18);
+        probability = Math.min(84, Math.max(55, Math.round(84 - (progress * 28))));
+        badgeText = "🟡 Probable / Realistic";
+        badgeClass = "bg-amber-50 text-amber-800 border-amber-300";
+        probabilityColor = "from-amber-500 to-yellow-600";
+      } else if (rank <= Math.round(cRank * 1.30)) {
+        chance = "Ambitious";
+        const progress = (rank - (cRank * 1.08)) / (cRank * 0.22);
+        probability = Math.min(50, Math.max(25, Math.round(50 - (progress * 24))));
+        badgeText = "🔴 Ambitious (Stray / Mop-up)";
+        badgeClass = "bg-rose-50 text-rose-800 border-rose-300";
+        probabilityColor = "from-rose-500 to-pink-600";
+      } else {
+        continue;
+      }
+    }
+
+    // Attach college reference
+    const collegeRef = COLLEGES.find(c => c.id === item.collegeId);
+
+    matches.push({
+      ...item,
+      collegeRef,
+      catCutoff,
+      selectedCategory: category,
+      chance,
+      probability,
+      badgeText,
+      badgeClass,
+      probabilityColor,
+      isMba: exam === "mba",
+      isPercentileInput: exam === "mba" && rank <= 100
+    });
+  }
+
+  // Sort matches: Safe first, then Probable, then Ambitious; then by probability descending
+  const chanceWeight = { "Safe": 3, "Probable": 2, "Ambitious": 1 };
+  matches.sort((a, b) => {
+    if (chanceWeight[b.chance] !== chanceWeight[a.chance]) {
+      return chanceWeight[b.chance] - chanceWeight[a.chance];
+    }
+    return b.probability - a.probability;
+  });
+
+  state.calcLastResults = matches;
+  state.calcChanceFilter = "all";
+
+  // Show results section
+  const resultsSection = document.getElementById("rank-calc-results-section");
+  if (resultsSection) {
+    resultsSection.classList.remove("hidden");
+  }
+
+  // Update Summary Header Text
+  const summaryText = document.getElementById("calc-results-summary-text");
+  if (summaryText) {
+    if (exam === "mba") {
+      const scoreDisplay = rank <= 100 ? `${rank}%ile` : `AIR #${rank.toLocaleString()}`;
+      summaryText.innerHTML = `Found <span class="text-[#DFB15B] font-black">${matches.length} Verified Institutions</span> for ${scoreDisplay} (${category} • MBA / PGDM)`;
+    } else {
+      const examLabel = exam === "neet" ? "NEET-UG" : "JEE Main / Adv";
+      summaryText.innerHTML = `Found <span class="text-[#DFB15B] font-black">${matches.length} Verified Institutions</span> for AIR #${rank.toLocaleString()} (${category} • ${examLabel})`;
+    }
+  }
+
+  // Update counts on filter chips
+  updateChanceCounters();
+  updateChanceChipStyles();
+  renderRankResultsCards();
+
+  // Scroll smoothly to results with sticky navbar offset
+  if (resultsSection) {
+    const navOffset = 90;
+    const elementPosition = resultsSection.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
+    });
+  }
+}
+
+function updateChanceCounters() {
+  const all = state.calcLastResults.length;
+  const safe = state.calcLastResults.filter(m => m.chance === "Safe").length;
+  const probable = state.calcLastResults.filter(m => m.chance === "Probable").length;
+  const ambitious = state.calcLastResults.filter(m => m.chance === "Ambitious").length;
+
+  const countAll = document.getElementById("calc-count-all");
+  const countSafe = document.getElementById("calc-count-safe");
+  const countProbable = document.getElementById("calc-count-probable");
+  const countAmbitious = document.getElementById("calc-count-ambitious");
+
+  if (countAll) countAll.textContent = all;
+  if (countSafe) countSafe.textContent = safe;
+  if (countProbable) countProbable.textContent = probable;
+  if (countAmbitious) countAmbitious.textContent = ambitious;
+}
+
+function updateChanceChipStyles() {
+  const chips = document.querySelectorAll(".calc-chance-chip");
+  chips.forEach(chip => {
+    const isSelected = chip.dataset.chance === state.calcChanceFilter;
+    if (isSelected) {
+      chip.className = "calc-chance-chip px-3 py-1.5 rounded-lg text-xs font-black bg-[#DFB15B] text-[#071A33] border border-[#DFB15B] shadow-sm transition-all";
+    } else {
+      const chance = chip.dataset.chance;
+      if (chance === "Safe") {
+        chip.className = "calc-chance-chip px-3 py-1.5 rounded-lg text-xs font-bold bg-white/10 hover:bg-white/20 text-emerald-300 border border-emerald-500/30 transition-all flex items-center gap-1";
+      } else if (chance === "Probable") {
+        chip.className = "calc-chance-chip px-3 py-1.5 rounded-lg text-xs font-bold bg-white/10 hover:bg-white/20 text-amber-300 border border-amber-500/30 transition-all flex items-center gap-1";
+      } else if (chance === "Ambitious") {
+        chip.className = "calc-chance-chip px-3 py-1.5 rounded-lg text-xs font-bold bg-white/10 hover:bg-white/20 text-rose-300 border border-rose-500/30 transition-all flex items-center gap-1";
+      } else {
+        chip.className = "calc-chance-chip px-3 py-1.5 rounded-lg text-xs font-bold bg-white/10 hover:bg-white/20 text-slate-200 border border-white/20 transition-all";
+      }
+    }
+  });
+}
+
+function renderRankResultsCards() {
+  const container = document.getElementById("calc-results-cards-grid");
+  if (!container) return;
+
+  let results = state.calcLastResults;
+  if (state.calcChanceFilter !== "all") {
+    results = results.filter(r => r.chance === state.calcChanceFilter);
+  }
+
+  if (results.length === 0) {
+    container.innerHTML = `
+      <div class="col-span-full py-12 text-center bg-slate-50 rounded-2xl border-2 border-dashed border-gray-300 p-8">
+        <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center mx-auto mb-3">
+          <i data-lucide="info" class="w-6 h-6"></i>
+        </div>
+        <h4 class="text-base font-black text-gray-800 mb-1">No Institutions in This Category Tier</h4>
+        <p class="text-xs text-gray-500 max-w-md mx-auto mb-4">
+          Try clicking <strong>"All Matches"</strong> above or adjust your score/quota filter to view other admission opportunities.
+        </p>
+        <button id="btn-calc-show-all" class="bg-[#082A50] text-[#DFB15B] font-bold text-xs py-2 px-4 rounded-xl">
+          Show All ${state.calcLastResults.length} Matches
+        </button>
+      </div>
+    `;
+
+    document.getElementById("btn-calc-show-all")?.addEventListener("click", () => {
+      state.calcChanceFilter = "all";
+      updateChanceChipStyles();
+      renderRankResultsCards();
+    });
+
+    lucide.createIcons();
+    return;
+  }
+
+  const { rank, category, exam } = state.calcSubmittedQuery || {};
+  const isMba = exam === "mba";
+  const isPercentile = isMba && rank <= 100;
+  const scoreDisplay = isPercentile ? `${rank}%ile` : `AIR #${rank?.toLocaleString()}`;
+  const examLabel = isMba ? "MBA" : (exam === "neet" ? "NEET-UG" : "JEE");
+
+  container.innerHTML = results.map(item => {
+    const isGovt = item.type === "Government";
+    const college = item.collegeRef;
+    const imgUrl = college?.image || "assets/yealth-logo.png";
+    const stars = college?.rating || "4.8";
+
+    // Cutoff range display text
+    let cutoffDisplay = "";
+    if (item.isPercentileInput && item.catCutoff.targetPercentile) {
+      cutoffDisplay = `${item.catCutoff.minPercentile}%ile – ${item.catCutoff.targetPercentile}%ile`;
+    } else {
+      cutoffDisplay = `AIR #${item.catCutoff.openingRank?.toLocaleString() || 1} – #${item.catCutoff.closingRank?.toLocaleString() || 100000}`;
+    }
+
+    return `
+      <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-[#082A50] transition-all shadow-xs hover:shadow-xl flex flex-col justify-between overflow-hidden group">
+        <!-- Top Visual & Header -->
+        <div>
+          <div class="relative h-32 w-full overflow-hidden bg-slate-900">
+            <img src="${imgUrl}" alt="${item.collegeName}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-80" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+
+            <div class="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between gap-2">
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider ${
+                isGovt 
+                  ? "bg-emerald-600 text-white shadow-xs" 
+                  : "bg-[#082A50] text-[#DFB15B] border border-[#DFB15B]/40 shadow-xs"
+              }">
+                ${isGovt ? "🏛️ Government" : "🏫 Top Private"}
+              </span>
+
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-black/60 text-amber-300 flex items-center gap-1 backdrop-blur-xs">
+                <i data-lucide="star" class="w-3 h-3 fill-amber-300"></i>
+                ${stars}
+              </span>
+            </div>
+
+            <!-- College Name Overlay -->
+            <div class="absolute bottom-2 left-2.5 right-2.5">
+              <div class="text-[10px] text-[#DFB15B] font-bold flex items-center gap-1 truncate">
+                <i data-lucide="map-pin" class="w-3 h-3 shrink-0"></i>
+                <span>${item.location || item.city}</span>
+              </div>
+              <h3 class="text-sm font-black text-white leading-snug line-clamp-1">
+                ${item.shortName || item.collegeName}
+              </h3>
+            </div>
+          </div>
+
+          <!-- Body Content -->
+          <div class="p-4 space-y-3">
+            <!-- Program / Branch -->
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+              <div class="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Recommended Program</div>
+              <div class="text-xs sm:text-sm font-black text-[#082A50] leading-snug">
+                ${item.courseName}
+              </div>
+            </div>
+
+            <!-- Probability & Chance Tier -->
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <span class="text-xs font-extrabold px-2 py-0.5 rounded-md border ${item.badgeClass}">
+                  ${item.badgeText}
+                </span>
+                <span class="text-xs font-black text-[#082A50]">
+                  ${item.probability}% Match
+                </span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r ${item.probabilityColor} h-2 rounded-full transition-all duration-500" style="width: ${item.probability}%"></div>
+              </div>
+            </div>
+
+            <!-- Authentic Cutoffs Box -->
+            <div class="bg-blue-50/60 rounded-xl p-2.5 border border-blue-100 text-xs space-y-1.5">
+              <div class="flex items-center justify-between text-[11px]">
+                <span class="text-gray-500 font-bold">Category:</span>
+                <span class="font-extrabold text-[#082A50] bg-white px-1.5 py-0.5 rounded border border-blue-200">${item.selectedCategory}</span>
+              </div>
+              <div class="flex items-center justify-between text-[11px]">
+                <span class="text-gray-500 font-bold">${item.isPercentileInput ? 'Cutoff %ile:' : 'Cutoff Range:'}</span>
+                <span class="font-black text-[#082A50]">${cutoffDisplay}</span>
+              </div>
+              <div class="flex items-center justify-between text-[11px]">
+                <span class="text-gray-500 font-bold">Quota:</span>
+                <span class="font-semibold text-gray-700 truncate max-w-[150px]">${item.quota}</span>
+              </div>
+              <div class="text-[10px] text-gray-500 pt-1 border-t border-blue-200/60">
+                <i data-lucide="award" class="w-3 h-3 inline text-[#C59943]"></i>
+                <span>${item.counselingBoard}</span>
+              </div>
+            </div>
+
+            <!-- Highlights: Fee & Placement/Beds -->
+            <div class="grid grid-cols-2 gap-2 text-xs pt-1">
+              <div class="bg-slate-50 p-2 rounded-lg border border-slate-200">
+                <div class="text-[10px] text-gray-400 font-bold uppercase">Est. Fee</div>
+                <div class="font-black text-gray-900 truncate">${item.fees}</div>
+              </div>
+              <div class="bg-slate-50 p-2 rounded-lg border border-slate-200">
+                <div class="text-[10px] text-gray-400 font-bold uppercase">${item.avgPackage ? 'Avg Package' : 'Hospital'}</div>
+                <div class="font-black text-emerald-700 truncate">${item.avgPackage || (item.hospitalBeds ? item.hospitalBeds + ' Beds' : 'Verified')}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Footer Actions -->
+        <div class="p-4 pt-0 space-y-2">
+          <button 
+            type="button" 
+            data-college-id="${item.collegeId}" 
+            data-course-name="${item.courseName}"
+            class="btn-calc-explore-course w-full bg-[#082A50] hover:bg-[#051C36] text-[#DFB15B] hover:text-white font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm">
+            <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+            <span>Explore Course & Eligibility</span>
+          </button>
+
+          <a 
+            href="https://wa.me/919110155081?text=Hi%20Yealth%20Admissions!%20I%20used%20the%20${isMba ? 'MBA%20Predictor' : 'Rank%20Predictor'}%20(${encodeURIComponent(scoreDisplay)}%20in%20${examLabel}%2C%20${category}%20category)%20and%20got%20matched%20with%20${encodeURIComponent(item.courseName)}%20at%20${encodeURIComponent(item.collegeName)}.%20Please%20guide%20me%20with%20admission%20and%20counseling."
+            target="_blank" 
+            class="w-full bg-[#1AB64F] hover:bg-[#159c42] text-white font-extrabold text-xs py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm">
+            <i data-lucide="message-circle" class="w-3.5 h-3.5 fill-white"></i>
+            <span>WhatsApp Admission Advisor</span>
+          </a>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  // Attach button click listeners
+  container.querySelectorAll(".btn-calc-explore-course").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const colId = btn.dataset.collegeId;
+      const cName = btn.dataset.courseName;
+      if (colId) {
+        openCollegeDetailsModal(colId, cName);
+      }
+    });
+  });
+
+  lucide.createIcons();
+}
+
+
