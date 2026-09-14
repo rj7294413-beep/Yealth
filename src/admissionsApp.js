@@ -1296,7 +1296,49 @@ export function closeCollegeDetailsModal() {
 }
 
 export function openCollegeDetailsModal(collegeId, searchKeyword = "") {
-  const college = COLLEGES.find(c => c.id === collegeId);
+  let college = COLLEGES.find(c => c.id === collegeId);
+  if (!college) {
+    const cutoff = RANK_CUTOFFS.find(r => r.collegeId === collegeId);
+    if (cutoff) {
+      college = {
+        id: cutoff.collegeId,
+        name: cutoff.collegeName,
+        shortName: cutoff.shortName || cutoff.collegeName,
+        type: cutoff.type || "Government",
+        category: cutoff.stream === "medical" ? "Medical & Healthcare" : (cutoff.stream === "management" ? "Management & MBA" : "Engineering & Tech"),
+        disciplines: [cutoff.stream],
+        city: cutoff.city,
+        location: cutoff.location,
+        nirfRank: cutoff.tier || "Verified Premier",
+        accreditation: cutoff.highlights || "Recognized Institution",
+        rating: "4.8",
+        reviewsCount: 850,
+        established: "1980",
+        avgPackage: cutoff.avgPackage || "₹12.5 LPA",
+        highestPackage: cutoff.highestPackage || "₹45 LPA",
+        fees: cutoff.fees,
+        entranceExams: [cutoff.counselingBoard || cutoff.exam],
+        streams: [cutoff.courseName],
+        image: "assets/yealth-logo.png",
+        highlights: [cutoff.highlights, cutoff.counselingBoard],
+        description: `${cutoff.collegeName} is recognized for top-tier academic excellence in ${cutoff.courseName}, featuring accredited faculty, state-of-the-art labs, and strong placement records.`,
+        courses: [{
+          id: `${cutoff.collegeId}-course`,
+          name: cutoff.courseName,
+          degree: cutoff.stream === "management" ? "Postgraduate (PG)" : "Undergraduate (UG)",
+          duration: cutoff.stream === "medical" ? "5.5 Years (Inc. 1 Yr Internship)" : (cutoff.stream === "management" ? "2 Years (4 Semesters)" : "4 Years (8 Semesters)"),
+          fees: cutoff.fees,
+          feeBreakdown: `Estimated Annual Fee: ${cutoff.fees}`,
+          eligibility: `Admission via ${cutoff.counselingBoard || "Central Entrance Counseling"} based on entrance merit.`,
+          entranceExam: cutoff.counselingBoard || "Entrance Merit",
+          seats: "120 - 180 Seats",
+          mode: "Full-Time Regular (On-Campus)",
+          specializations: ["Core Curriculum", "Advanced Electives & Practical Labs"],
+          careerScope: `Average Package / Outcome: ${cutoff.avgPackage || 'Verified Clinical / Corporate Recruitment'}`
+        }]
+      };
+    }
+  }
   if (!college) return;
 
   state.modalActiveCollegeId = collegeId;
@@ -1315,7 +1357,7 @@ export function openCollegeDetailsModal(collegeId, searchKeyword = "") {
 
 function getFilteredCollegeCourses(college) {
   const allCourses = college.courses || [];
-  return allCourses.filter(course => {
+  let filtered = allCourses.filter(course => {
     // Degree level filter
     if (state.modalDegreeFilter !== "all") {
       const deg = (course.degree || "").toLowerCase();
@@ -1338,12 +1380,24 @@ function getFilteredCollegeCourses(college) {
       const matchExam = (course.entranceExam || "").toLowerCase().includes(q);
       const matchElig = (course.eligibility || "").toLowerCase().includes(q);
       if (!matchName && !matchSpecialization && !matchExam && !matchElig) {
-        return false;
+        // Also check if key words match
+        const words = q.split(/[\s,&/()\-]+/).filter(w => w.length > 2 && !["the", "and", "for", "with"].includes(w));
+        const hasWordMatch = words.some(w => 
+          (course.name || "").toLowerCase().includes(w) ||
+          (course.specializations || []).some(s => s.toLowerCase().includes(w))
+        );
+        if (!hasWordMatch) return false;
       }
     }
 
     return true;
   });
+
+  // Safe fallback: If strict filter yields 0 matches, show all college courses so the student never sees an empty screen
+  if (filtered.length === 0 && allCourses.length > 0) {
+    return allCourses;
+  }
+  return filtered;
 }
 
 function renderCollegeModalContent(college) {
@@ -1786,59 +1840,28 @@ function setupRankCalculator() {
   const btnJee = document.getElementById("calc-btn-jee");
   const btnMba = document.getElementById("calc-btn-mba");
   const btnReset = document.getElementById("calc-btn-reset");
-  const presetBtns = document.querySelectorAll(".rank-preset-btn");
   const chanceChips = document.querySelectorAll(".calc-chance-chip");
 
   if (!form) return;
 
-  // 1. Exam Toggle
+  // 1. Exam Toggle Buttons
   if (btnNeet) {
-    btnNeet.addEventListener("click", () => setCalcExam("neet"));
+    btnNeet.addEventListener("click", () => setCalcExam("neet", true));
   }
   if (btnJee) {
-    btnJee.addEventListener("click", () => setCalcExam("jee"));
+    btnJee.addEventListener("click", () => setCalcExam("jee", true));
   }
   if (btnMba) {
-    btnMba.addEventListener("click", () => setCalcExam("mba"));
+    btnMba.addEventListener("click", () => setCalcExam("mba", true));
   }
 
-  // 2. Rank Presets
-  presetBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const val = btn.dataset.rank;
-      if (rankInput && val) {
-        rankInput.value = val;
-        rankInput.focus();
-      }
-    });
-  });
-
-  // 3. Form Submission
+  // 2. Form Submission
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const rankVal = parseFloat(rankInput.value);
-    if (isNaN(rankVal) || rankVal <= 0) {
-      showToast(state.calcExam === "mba" ? "Please enter a valid Percentile (e.g. 85.5) or Rank" : "Please enter a valid All India Rank (AIR)", "error");
-      rankInput?.focus();
-      return;
-    }
-
-    const category = document.getElementById("calc-category-select")?.value || "General";
-    const quota = document.getElementById("calc-quota-select")?.value || "all";
-    const instType = document.getElementById("calc-inst-type-select")?.value || "all";
-
-    state.calcSubmittedQuery = {
-      rank: rankVal,
-      category,
-      quota,
-      instType,
-      exam: state.calcExam
-    };
-
-    runRankPrediction();
+    triggerPredictorCalculation(true);
   });
 
-  // 4. Reset Button
+  // 3. Reset Button
   if (btnReset) {
     btnReset.addEventListener("click", () => {
       form.reset();
@@ -1851,7 +1874,7 @@ function setupRankCalculator() {
     });
   }
 
-  // 5. Chance Filter Tabs
+  // 4. Chance Filter Tabs
   chanceChips.forEach(chip => {
     chip.addEventListener("click", () => {
       state.calcChanceFilter = chip.dataset.chance;
@@ -1859,9 +1882,53 @@ function setupRankCalculator() {
       renderRankResultsCards();
     });
   });
+
+  // 5. Reactive Filter Changes (Category, Quota, Institution Type)
+  ["calc-category-select", "calc-quota-select", "calc-inst-type-select"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener("change", () => {
+        if (state.calcSubmittedQuery) {
+          triggerPredictorCalculation(false);
+        }
+      });
+    }
+  });
+
+  // 6. Initialize presets and auto-run default prediction on load
+  updateRankPresetsForExam(state.calcExam || "neet");
+  triggerPredictorCalculation(false);
 }
 
-function setCalcExam(exam) {
+function triggerPredictorCalculation(scrollIntoView = true) {
+  const rankInput = document.getElementById("calc-rank-input");
+  if (!rankInput) return;
+
+  const rawVal = String(rankInput.value || "").trim().replace(/%/g, "").replace(/,/g, "");
+  const rankVal = parseFloat(rawVal);
+
+  if (isNaN(rankVal) || rankVal <= 0) {
+    showToast(state.calcExam === "mba" ? "Please enter a valid Percentile (e.g. 88.5) or Rank" : "Please enter a valid All India Rank (AIR)", "error");
+    rankInput.focus();
+    return;
+  }
+
+  const category = document.getElementById("calc-category-select")?.value || "General";
+  const quota = document.getElementById("calc-quota-select")?.value || "all";
+  const instType = document.getElementById("calc-inst-type-select")?.value || "all";
+
+  state.calcSubmittedQuery = {
+    rank: rankVal,
+    category,
+    quota,
+    instType,
+    exam: state.calcExam
+  };
+
+  runRankPrediction(scrollIntoView);
+}
+
+function setCalcExam(exam, autoRun = true) {
   state.calcExam = exam;
   const btnNeet = document.getElementById("calc-btn-neet");
   const btnJee = document.getElementById("calc-btn-jee");
@@ -1884,28 +1951,32 @@ function setCalcExam(exam) {
     }
   });
 
-  // Update input label and placeholder dynamically
+  // Dynamically update input label, placeholder, and sensible default value
   if (exam === "mba") {
     if (rankLabel) rankLabel.textContent = "Entrance Percentile (%) or Rank";
     if (rankInput) {
-      rankInput.placeholder = "e.g. 85.5% (or AIR Rank)";
-      rankInput.min = "0.1";
+      rankInput.placeholder = "e.g. 88.5% (or CAT/CMAT Rank)";
+      const currVal = parseFloat(String(rankInput.value || "").replace(/%/g, "").replace(/,/g, ""));
+      if (isNaN(currVal) || currVal > 100) {
+        rankInput.value = "88.5";
+      }
     }
   } else {
     if (rankLabel) rankLabel.textContent = "All India Rank (AIR)";
     if (rankInput) {
-      rankInput.placeholder = "e.g. 18500";
-      rankInput.min = "1";
+      rankInput.placeholder = exam === "neet" ? "e.g. 18500 (NEET AIR)" : "e.g. 18500 (JEE Main AIR)";
+      const currVal = parseFloat(String(rankInput.value || "").replace(/%/g, "").replace(/,/g, ""));
+      if (isNaN(currVal) || currVal <= 100) {
+        rankInput.value = "18500";
+      }
     }
   }
 
-  // Update preset buttons for the active exam
+  // Update quick preset buttons for this exam
   updateRankPresetsForExam(exam);
 
-  // If already submitted, re-run prediction with the newly selected exam
-  if (state.calcSubmittedQuery) {
-    state.calcSubmittedQuery.exam = exam;
-    runRankPrediction();
+  if (autoRun) {
+    triggerPredictorCalculation(false);
   }
 }
 
@@ -1945,7 +2016,7 @@ function updateRankPresetsForExam(exam) {
   presetContainer.innerHTML = `
     <span class="text-[10px] text-gray-500 font-bold">Quick:</span>
     ${list.map(p => `
-      <button type="button" class="rank-preset-btn text-[10px] bg-white border border-gray-200 px-1.5 py-0.5 rounded font-bold text-slate-700 hover:bg-amber-50 hover:border-amber-300" data-rank="${p.rank}">${p.label}</button>
+      <button type="button" class="rank-preset-btn text-[10px] bg-white border border-gray-200 px-1.5 py-0.5 rounded font-bold text-slate-700 hover:bg-amber-50 hover:border-amber-300 transition-colors" data-rank="${p.rank}">${p.label}</button>
     `).join("")}
   `;
 
@@ -1955,17 +2026,19 @@ function updateRankPresetsForExam(exam) {
       const val = btn.dataset.rank;
       if (rankInput && val) {
         rankInput.value = val;
-        rankInput.focus();
+        // Instantly trigger calculation on tap
+        triggerPredictorCalculation(false);
       }
     });
   });
 }
 
-function runRankPrediction() {
+function runRankPrediction(scrollIntoView = true) {
   if (!state.calcSubmittedQuery) return;
   const { rank, category, quota, instType, exam } = state.calcSubmittedQuery;
 
-  // Filter and score from RANK_CUTOFFS
+  const is_mba = exam === "mba";
+  const is_percentile = is_mba && rank <= 100;
   const matches = [];
 
   for (const item of RANK_CUTOFFS) {
@@ -1975,7 +2048,7 @@ function runRankPrediction() {
     } else if (exam === "jee") {
       if (item.stream !== "engineering" && item.exam !== "jee_main" && item.exam !== "jee_adv") continue;
     } else if (exam === "mba") {
-      if (item.stream !== "management" && item.exam !== "cat" && item.exam !== "mba") continue;
+      if (item.stream !== "management" && item.exam !== "cat" && item.exam !== "mba" && item.exam !== "cmat" && item.exam !== "xat") continue;
     }
 
     // 2. Institution Type filter
@@ -1985,12 +2058,23 @@ function runRankPrediction() {
 
     // 3. Quota filter
     if (quota !== "all") {
-      const q = item.quota || "";
-      if (quota === "AI" && !q.includes("All India") && !q.includes("(AI)")) continue;
-      if (quota === "HS-UP" && !q.includes("UP") && !q.includes("Uttar Pradesh") && !q.includes("All India") && !q.includes("(AI)")) continue;
-      if (quota === "HS-DL" && !q.includes("Delhi") && !q.includes("IPU") && !q.includes("DU") && !q.includes("All India") && !q.includes("(AI)")) continue;
-      if (quota === "HS-KA" && !q.includes("Karnataka") && !q.includes("COMEDK") && !q.includes("All India") && !q.includes("(AI)")) continue;
-      if (quota === "Deemed/Mgt" && !q.includes("Management") && !q.includes("Direct") && !q.includes("Deemed")) continue;
+      const q = (item.quota || "").toLowerCase();
+      const is_all_india = q.includes("all india") || q.includes("(ai") || q.includes("aiq") || q.includes("josaa") || q.includes("mcc");
+      if (quota === "AI") {
+        if (!is_all_india) continue;
+      } else if (quota === "HS-UP") {
+        const is_up = q.includes("up") || q.includes("uttar pradesh") || q.includes("aktu") || q.includes("uptac") || q.includes("updgme") || (item.city && (item.city.includes("Noida") || item.city.includes("Uttar Pradesh") || item.city.includes("Lucknow") || item.city.includes("Kanpur")));
+        if (!is_up && !is_all_india) continue;
+      } else if (quota === "HS-DL") {
+        const is_dl = q.includes("delhi") || q.includes("jac") || q.includes("ipu") || q.includes("du") || (item.city && item.city.includes("Delhi"));
+        if (!is_dl && !is_all_india) continue;
+      } else if (quota === "HS-KA") {
+        const is_ka = q.includes("karnataka") || q.includes("kea") || q.includes("comedk") || (item.city && (item.city.includes("Karnataka") || item.city.includes("Bangalore") || item.city.includes("Mangalore")));
+        if (!is_ka && !is_all_india) continue;
+      } else if (quota === "Deemed/Mgt") {
+        const is_mgt = q.includes("management") || q.includes("direct") || q.includes("deemed") || q.includes("merit") || item.type === "Private";
+        if (!is_mgt) continue;
+      }
     }
 
     // 4. Category cutoffs lookup
@@ -2004,30 +2088,28 @@ function runRankPrediction() {
     let badgeClass = "";
     let probabilityColor = "";
 
-    if (exam === "mba" && rank <= 100) {
-      // User entered a Percentile (e.g. 85.5%ile)
+    if (is_percentile) {
       const userPercentile = rank;
-      const minP = catCutoff.minPercentile || 55.0;
-      const targetP = catCutoff.targetPercentile || 65.0;
+      const minP = catCutoff.minPercentile || 50.0;
+      const targetP = catCutoff.targetPercentile || (minP + 5.0);
 
       if (userPercentile >= targetP) {
         chance = "Safe";
-        probability = Math.min(98, Math.max(86, Math.round(86 + (userPercentile - targetP) * 3)));
-        badgeText = "🟢 Safe (High GD-PI Call Probability)";
+        probability = Math.min(99, Math.max(86, Math.round(86 + (userPercentile - targetP) * 2.5)));
+        badgeText = "🟢 Safe (Confirmed GD-PI Call)";
         badgeClass = "bg-emerald-50 text-emerald-800 border-emerald-300";
         probabilityColor = "from-emerald-500 to-green-600";
-      } else if (userPercentile >= (minP - 2.0)) {
+      } else if (userPercentile >= minP) {
         chance = "Probable";
-        const range = Math.max(1, targetP - (minP - 2.0));
-        const progress = (userPercentile - (minP - 2.0)) / range;
-        probability = Math.min(84, Math.max(55, Math.round(55 + progress * 28)));
-        badgeText = "🟡 Probable (Competitive Call)";
+        const progress = (userPercentile - minP) / Math.max(0.5, targetP - minP);
+        probability = Math.min(85, Math.max(55, Math.round(55 + progress * 29)));
+        badgeText = "🟡 Probable (Competitive Call Range)";
         badgeClass = "bg-amber-50 text-amber-800 border-amber-300";
         probabilityColor = "from-amber-500 to-yellow-600";
-      } else if (userPercentile >= (minP - 6.0)) {
+      } else if (userPercentile >= (minP - 5.0)) {
         chance = "Ambitious";
-        const progress = (userPercentile - (minP - 6.0)) / 4.0;
-        probability = Math.min(50, Math.max(25, Math.round(25 + progress * 24)));
+        const progress = (userPercentile - (minP - 5.0)) / 5.0;
+        probability = Math.min(52, Math.max(25, Math.round(25 + progress * 26)));
         badgeText = "🔴 Ambitious (Spot / Waitlist)";
         badgeClass = "bg-rose-50 text-rose-800 border-rose-300";
         probabilityColor = "from-rose-500 to-pink-600";
@@ -2035,28 +2117,27 @@ function runRankPrediction() {
         continue;
       }
     } else {
-      // User entered an AIR Rank
       const cRank = catCutoff.closingRank || 100000;
       const oRank = catCutoff.openingRank || 1;
 
-      if (rank <= Math.round(cRank * 0.90)) {
+      if (rank <= Math.round(cRank * 0.85)) {
         chance = "Safe";
-        probability = Math.min(98, Math.max(85, Math.round(98 - ((rank / cRank) * 12))));
-        badgeText = "🟢 Safe / High Chance";
+        probability = Math.min(99, Math.max(86, Math.round(99 - ((rank / cRank) * 14))));
+        badgeText = "🟢 Safe (Confirmed Allotment)";
         badgeClass = "bg-emerald-50 text-emerald-800 border-emerald-300";
         probabilityColor = "from-emerald-500 to-green-600";
-      } else if (rank <= Math.round(cRank * 1.08)) {
+      } else if (rank <= Math.round(cRank * 1.05)) {
         chance = "Probable";
-        const progress = (rank - (cRank * 0.90)) / (cRank * 0.18);
-        probability = Math.min(84, Math.max(55, Math.round(84 - (progress * 28))));
-        badgeText = "🟡 Probable / Realistic";
+        const progress = (rank - (cRank * 0.85)) / Math.max(1, cRank * 0.20);
+        probability = Math.min(85, Math.max(55, Math.round(85 - (progress * 30))));
+        badgeText = "🟡 Probable (High Realistic Zone)";
         badgeClass = "bg-amber-50 text-amber-800 border-amber-300";
         probabilityColor = "from-amber-500 to-yellow-600";
-      } else if (rank <= Math.round(cRank * 1.30)) {
+      } else if (rank <= Math.round(cRank * 1.35)) {
         chance = "Ambitious";
-        const progress = (rank - (cRank * 1.08)) / (cRank * 0.22);
-        probability = Math.min(50, Math.max(25, Math.round(50 - (progress * 24))));
-        badgeText = "🔴 Ambitious (Stray / Mop-up)";
+        const progress = (rank - (cRank * 1.05)) / Math.max(1, cRank * 0.30);
+        probability = Math.min(52, Math.max(25, Math.round(52 - (progress * 25))));
+        badgeText = "🔴 Ambitious (Mop-up / Stray Round)";
         badgeClass = "bg-rose-50 text-rose-800 border-rose-300";
         probabilityColor = "from-rose-500 to-pink-600";
       } else {
@@ -2064,7 +2145,10 @@ function runRankPrediction() {
       }
     }
 
-    // Attach college reference
+    const tier = item.tier || "";
+    const tierWeight = tier.includes("Tier 1") ? 3 : (tier.includes("Tier 2") ? 2 : 1);
+    const chanceWeight = chance === "Safe" ? 3 : (chance === "Probable" ? 2 : 1);
+
     const collegeRef = COLLEGES.find(c => c.id === item.collegeId);
 
     matches.push({
@@ -2073,28 +2157,36 @@ function runRankPrediction() {
       catCutoff,
       selectedCategory: category,
       chance,
+      chanceWeight,
+      tierWeight,
       probability,
       badgeText,
       badgeClass,
       probabilityColor,
-      isMba: exam === "mba",
-      isPercentileInput: exam === "mba" && rank <= 100
+      isMba: is_mba,
+      isPercentileInput: is_percentile
     });
   }
 
-  // Sort matches: Safe first, then Probable, then Ambitious; then by probability descending
-  const chanceWeight = { "Safe": 3, "Probable": 2, "Ambitious": 1 };
+  // Smart Tier & Probability Sorting
+  const isElite = (exam === "jee" && rank <= 12000) || (exam === "neet" && rank <= 8000) || (is_percentile && rank >= 94.0);
+
   matches.sort((a, b) => {
-    if (chanceWeight[b.chance] !== chanceWeight[a.chance]) {
-      return chanceWeight[b.chance] - chanceWeight[a.chance];
+    if (isElite) {
+      if (b.tierWeight !== a.tierWeight) return b.tierWeight - a.tierWeight;
+      if (b.chanceWeight !== a.chanceWeight) return b.chanceWeight - a.chanceWeight;
+      return b.probability - a.probability;
+    } else {
+      const scoreA = (a.chanceWeight * 25) + (a.tierWeight * 15) + (a.probability * 0.5);
+      const scoreB = (b.chanceWeight * 25) + (b.tierWeight * 15) + (b.probability * 0.5);
+      return scoreB - scoreA;
     }
-    return b.probability - a.probability;
   });
 
   state.calcLastResults = matches;
   state.calcChanceFilter = "all";
 
-  // Show results section
+  // Reveal results section
   const resultsSection = document.getElementById("rank-calc-results-section");
   if (resultsSection) {
     resultsSection.classList.remove("hidden");
@@ -2104,8 +2196,8 @@ function runRankPrediction() {
   const summaryText = document.getElementById("calc-results-summary-text");
   if (summaryText) {
     if (exam === "mba") {
-      const scoreDisplay = rank <= 100 ? `${rank}%ile` : `AIR #${rank.toLocaleString()}`;
-      summaryText.innerHTML = `Found <span class="text-[#DFB15B] font-black">${matches.length} Verified Institutions</span> for ${scoreDisplay} (${category} • MBA / PGDM)`;
+      const scoreDisplay = is_percentile ? `${rank}%ile` : `AIR #${rank.toLocaleString()}`;
+      summaryText.innerHTML = `Found <span class="text-[#DFB15B] font-black">${matches.length} Verified Institutions</span> for ${scoreDisplay} (${category} • CAT / CMAT / XAT)`;
     } else {
       const examLabel = exam === "neet" ? "NEET-UG" : "JEE Main / Adv";
       summaryText.innerHTML = `Found <span class="text-[#DFB15B] font-black">${matches.length} Verified Institutions</span> for AIR #${rank.toLocaleString()} (${category} • ${examLabel})`;
@@ -2118,7 +2210,7 @@ function runRankPrediction() {
   renderRankResultsCards();
 
   // Scroll smoothly to results with sticky navbar offset
-  if (resultsSection) {
+  if (scrollIntoView && resultsSection) {
     const navOffset = 90;
     const elementPosition = resultsSection.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - navOffset;

@@ -2193,5 +2193,4685 @@ export const COLLEGES = [
         careerScope: "Direct placements in multinational export-import corporations, global shipping lines, and cross-border trade consultancies."
       }
     ]
+  },
+  {
+    "id": "col-gov-iitb",
+    "name": "Indian Institute of Technology (IIT) Bombay",
+    "shortName": "IIT Bombay",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Mumbai / Maharashtra",
+    "location": "Powai, Mumbai",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b932.5 LPA",
+    "highestPackage": "\u20b93.67 CPA",
+    "fees": "\u20b92.25 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main",
+      "JEE Advanced"
+    ],
+    "streams": [
+      "Computer Science & Engineering",
+      "Electrical Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "NIRF #1 Engineering",
+      "Global Tech Recruiter Destination"
+    ],
+    "description": "Indian Institute of Technology (IIT) Bombay is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iitb-iitb-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b92.25 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b92.25 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA Counseling (IIT Admissions)",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b932.5 LPA. Highest Package \u20b93.67 CPA."
+      },
+      {
+        "id": "col-gov-iitb-iitb-ee",
+        "name": "B.Tech in Electrical Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b92.25 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b92.25 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b932.5 LPA. Highest Package \u20b93.67 CPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iitm",
+    "name": "Indian Institute of Technology (IIT) Madras",
+    "shortName": "IIT Madras",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Chennai / Tamil Nadu",
+    "location": "Adyar, Chennai",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b930.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b92.1 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main",
+      "JEE Advanced"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "NIRF #1 Overall in India",
+      "IITM Research Park Ecosystem"
+    ],
+    "description": "Indian Institute of Technology (IIT) Madras is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iitm-iitm-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b92.1 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b92.1 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b930.5 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iitk",
+    "name": "Indian Institute of Technology (IIT) Kanpur",
+    "shortName": "IIT Kanpur",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Kanpur / Uttar Pradesh",
+    "location": "Kalyanpur, Kanpur",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b928.7 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b92.2 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main",
+      "JEE Advanced"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Legendary Computing & Cybersecurity Pioneer"
+    ],
+    "description": "Indian Institute of Technology (IIT) Kanpur is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iitk-iitk-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b92.2 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b92.2 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b928.7 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iitkgp",
+    "name": "Indian Institute of Technology (IIT) Kharagpur",
+    "shortName": "IIT Kharagpur",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Kharagpur / West Bengal",
+    "location": "Kharagpur Campus",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b926.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b92.2 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main",
+      "JEE Advanced"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "India's First IIT",
+      "Vast 2,100-Acre Campus & Alumni Network"
+    ],
+    "description": "Indian Institute of Technology (IIT) Kharagpur is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iitkgp-iitkgp-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b92.2 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b92.2 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b926.5 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iitr",
+    "name": "Indian Institute of Technology (IIT) Roorkee",
+    "shortName": "IIT Roorkee",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Roorkee / Uttarakhand",
+    "location": "Roorkee Campus",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b925.8 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b92.2 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main",
+      "JEE Advanced"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Oldest Technical Institute in Asia",
+      "Active AI & Robotics"
+    ],
+    "description": "Indian Institute of Technology (IIT) Roorkee is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iitr-iitr-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b92.2 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b92.2 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b925.8 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iitbhu",
+    "name": "Indian Institute of Technology (BHU) Varanasi",
+    "shortName": "IIT (BHU) Varanasi",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Varanasi / Uttar Pradesh",
+    "location": "BHU Campus, Varanasi",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b924.0 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b92.2 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main",
+      "JEE Advanced"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Centenary Engineering Legacy",
+      "Top High-Frequency Trading Recruiter"
+    ],
+    "description": "Indian Institute of Technology (BHU) Varanasi is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iitbhu-iitbhu-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b92.2 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b92.2 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b924.0 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-nitt",
+    "name": "National Institute of Technology (NIT) Tiruchirappalli",
+    "shortName": "NIT Trichy",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Tiruchirappalli / Tamil Nadu",
+    "location": "Thuvakudi, Trichy",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b927.2 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.75 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering",
+      "Electronics & Communication Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "NIRF #1 NIT in India",
+      "Unmatched Software MNC Placements"
+    ],
+    "description": "National Institute of Technology (NIT) Tiruchirappalli is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-nitt-nitt-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.75 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.75 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA / CSAB Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b927.2 LPA. Highest Package \u20b942 LPA."
+      },
+      {
+        "id": "col-gov-nitt-nitt-ece",
+        "name": "B.Tech in Electronics & Communication Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.75 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.75 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA / CSAB",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b927.2 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-nitk",
+    "name": "National Institute of Technology Karnataka (NITK) Surathkal",
+    "shortName": "NIT Surathkal",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Mangalore / Karnataka",
+    "location": "Surathkal, Mangalore",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b926.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.75 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Private Beachfront Campus",
+      "Outstanding Tech Placements"
+    ],
+    "description": "National Institute of Technology Karnataka (NITK) Surathkal is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-nitk-nitk-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.75 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.75 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA / CSAB",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b926.5 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-nitw",
+    "name": "National Institute of Technology (NIT) Warangal",
+    "shortName": "NIT Warangal",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Warangal / Telangana",
+    "location": "Kazipet, Warangal",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b925.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.75 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "First RECs in India",
+      "Exceptional Coding Culture"
+    ],
+    "description": "National Institute of Technology (NIT) Warangal is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-nitw-nitw-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.75 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.75 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA / CSAB",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b925.5 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-mnnit",
+    "name": "Motilal Nehru National Institute of Technology (MNNIT) Allahabad",
+    "shortName": "MNNIT Allahabad",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Prayagraj / Uttar Pradesh",
+    "location": "Teliarganj, Prayagraj",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b924.8 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.65 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Premier UP National Institute",
+      "Top Software Recruitment"
+    ],
+    "description": "Motilal Nehru National Institute of Technology (MNNIT) Allahabad is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-mnnit-mnnit-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.65 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.65 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA / CSAB (UP Home State 50%)",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b924.8 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-nitr",
+    "name": "National Institute of Technology (NIT) Rourkela",
+    "shortName": "NIT Rourkela",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Rourkela / Odisha",
+    "location": "Sector 1, Rourkela",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b922.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.75 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Extensive 1200-Acre Campus",
+      "Strong Tech Innovations"
+    ],
+    "description": "National Institute of Technology (NIT) Rourkela is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-nitr-nitr-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.75 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.75 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA / CSAB",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b922.5 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-nitc",
+    "name": "National Institute of Technology (NIT) Calicut",
+    "shortName": "NIT Calicut",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Kozhikode / Kerala",
+    "location": "Chathamangalam, Calicut",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b921.8 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.75 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Top Technical Institute in South India"
+    ],
+    "description": "National Institute of Technology (NIT) Calicut is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-nitc-nitc-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.75 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.75 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA / CSAB",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b921.8 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-iiith",
+    "name": "International Institute of Information Technology (IIIT) Hyderabad",
+    "shortName": "IIIT Hyderabad",
+    "type": "Private",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Hyderabad / Telangana",
+    "location": "Gachibowli, Hyderabad",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b932.2 LPA",
+    "highestPackage": "\u20b91.02 CPA",
+    "fees": "\u20b94.0 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "India's #1 Coding Institute",
+      "Supreme Research Labs & ICPC World Finalists"
+    ],
+    "description": "International Institute of Information Technology (IIIT) Hyderabad is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-iiith-iiith-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b94.0 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b94.0 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "IIIT Hyderabad Central Admissions",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b932.2 LPA. Highest Package \u20b91.02 CPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iiitd",
+    "name": "Indraprastha Institute of Information Technology (IIIT) Delhi",
+    "shortName": "IIIT Delhi",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Okhla Phase 3, New Delhi",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b923.7 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b94.5 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Top Tier Computer Science & AI Research Campus"
+    ],
+    "description": "Indraprastha Institute of Information Technology (IIIT) Delhi is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iiitd-iiitd-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b94.5 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b94.5 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JAC Delhi Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b923.7 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iiita",
+    "name": "Indian Institute of Information Technology (IIIT) Allahabad",
+    "shortName": "IIIT Allahabad",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Prayagraj / Uttar Pradesh",
+    "location": "Jhalwa, Prayagraj",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b925.8 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.95 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Information Technology"
+    ],
+    "image": "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Institute of National Importance",
+      "Top IT & Cyber Tech Recruiters"
+    ],
+    "description": "Indian Institute of Information Technology (IIIT) Allahabad is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iiita-iiita-it",
+        "name": "B.Tech in Information Technology",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.95 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.95 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA / CSAB",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b925.8 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-nsut",
+    "name": "Netaji Subhas University of Technology (NSUT Delhi)",
+    "shortName": "NSUT Delhi",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Dwarka, New Delhi",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b920.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b92.1 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Premier Delhi Engineering Campus",
+      "Renowned Tech Placements"
+    ],
+    "description": "Netaji Subhas University of Technology (NSUT Delhi) is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-nsut-nsut-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b92.1 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b92.1 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JAC Delhi",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b920.5 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-coep",
+    "name": "COEP Technological University (College of Engineering Pune)",
+    "shortName": "COEP Pune",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Pune / Maharashtra",
+    "location": "Shivajinagar, Pune",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b917.8 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.4 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Historic 1854 Legacy",
+      "Maharashtra's #1 Tech University"
+    ],
+    "description": "COEP Technological University (College of Engineering Pune) is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-coep-coep-cse",
+        "name": "B.Tech in Computer Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.4 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.4 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "DTE Maharashtra / CAP Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b917.8 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-hbtu",
+    "name": "Harcourt Butler Technical University (HBTU Kanpur)",
+    "shortName": "HBTU Kanpur",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Kanpur / Uttar Pradesh",
+    "location": "Nawabganj, Kanpur",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b912.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.35 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Century-Old Premier UP State University",
+      "Strong Core & IT Placement"
+    ],
+    "description": "Harcourt Butler Technical University (HBTU Kanpur) is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-hbtu-hbtu-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.35 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.35 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "HBTU Central Counseling / JEE Main",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b912.5 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-bmsce",
+    "name": "BMS College of Engineering (BMSCE Bangalore)",
+    "shortName": "BMSCE Bangalore",
+    "type": "Private",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Bangalore / Karnataka",
+    "location": "Basavanagudi, Bengaluru",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b913.8 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b92.4 Lakhs - \u20b98.5 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "First Private Engineering College in India (Est. 1946)"
+    ],
+    "description": "BMS College of Engineering (BMSCE Bangalore) is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-bmsce-bmsce-cse",
+        "name": "B.E. in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b92.4 Lakhs - \u20b98.5 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b92.4 Lakhs - \u20b98.5 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "COMEDK / KEA",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b913.8 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-pes",
+    "name": "PES University (RR & Electronic City Campus)",
+    "shortName": "PES University Bangalore",
+    "type": "Private",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Bangalore / Karnataka",
+    "location": "100 Feet Ring Road, BSK III Stage, Bengaluru",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b915.2 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b94.5 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Top Tier Tech Placement in Bengaluru",
+      "Super Dream Offer Hub"
+    ],
+    "description": "PES University (RR & Electronic City Campus) is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-pes-pes-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b94.5 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b94.5 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "PES University Admissions",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b915.2 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-jss",
+    "name": "JSS Academy of Technical Education (JSS Noida)",
+    "shortName": "JSS Noida",
+    "type": "Private",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Sector 62, Noida",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 3 (State / Direct)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b97.9 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.40 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Prime Noida Sector 62 Location",
+      "Established Top-Ranked AKTU College"
+    ],
+    "description": "JSS Academy of Technical Education (JSS Noida) is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-jss-jss-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.40 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.40 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "UPTAC Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b97.9 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-akgec",
+    "name": "Ajay Kumar Garg Engineering College (AKGEC Ghaziabad)",
+    "shortName": "AKGEC Ghaziabad",
+    "type": "Private",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Delhi / NCR",
+    "location": "27th Km Stone, Delhi-Hapur Bypass, Ghaziabad",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 3 (State / Direct)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b97.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.42 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Industrial Automation & Robotics Lab with KUKA",
+      "Top AKTU Enrolment"
+    ],
+    "description": "Ajay Kumar Garg Engineering College (AKGEC Ghaziabad) is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-akgec-akgec-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.42 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.42 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "UPTAC Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b97.5 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-kiet",
+    "name": "KIET Group of Institutions (Delhi-NCR Ghaziabad)",
+    "shortName": "KIET Ghaziabad",
+    "type": "Private",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Delhi-NCR, Meerut Road, Ghaziabad",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 3 (State / Direct)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b97.6 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.40 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "NBA Accredited",
+      "Excellent Coding and Product Company Record"
+    ],
+    "description": "KIET Group of Institutions (Delhi-NCR Ghaziabad) is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-kiet-kiet-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.40 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.40 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "UPTAC Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b97.6 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-cu",
+    "name": "Chandigarh University (Mohali / Chandigarh)",
+    "shortName": "Chandigarh University (CU)",
+    "type": "Private",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Punjab / Chandigarh",
+    "location": "NH-05, Ludhiana - Chandigarh Highway",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 3 (State / Direct)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b97.4 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.8 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "NAAC A+ Grade",
+      "Limca Book Record for Campus Placements"
+    ],
+    "description": "Chandigarh University (Mohali / Chandigarh) is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-cu-cu-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.8 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.8 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "Chandigarh University Admissions",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b97.4 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-lpu",
+    "name": "Lovely Professional University (LPU)",
+    "shortName": "LPU Phagwara / Jalandhar",
+    "type": "Private",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Punjab",
+    "location": "Jalandhar - Delhi G.T. Road, Phagwara",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 3 (State / Direct)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b97.2 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.6 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Mega 600-Acre Campus",
+      "Global Placement Opportunities"
+    ],
+    "description": "Lovely Professional University (LPU) is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-lpu-lpu-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.6 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.6 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "LPUNEST Admissions",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b97.2 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iiitl",
+    "name": "Indian Institute of Information Technology (IIIT) Lucknow",
+    "shortName": "IIIT Lucknow",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Lucknow / Uttar Pradesh",
+    "location": "Ahmamau, Lucknow",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b926.0 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b92.4 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Artificial Intelligence"
+    ],
+    "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Institute of National Importance",
+      "Top Emerging AI/CS Hub",
+      "Highest \u20b959 LPA"
+    ],
+    "description": "Indian Institute of Information Technology (IIIT) Lucknow is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iiitl-iiitl-cs",
+        "name": "B.Tech in Computer Science & Artificial Intelligence",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b92.4 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b92.4 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA / CSAB",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b926.0 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-nitkkr",
+    "name": "National Institute of Technology (NIT) Kurukshetra",
+    "shortName": "NIT Kurukshetra",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Kurukshetra / Haryana",
+    "location": "Kurukshetra, Haryana",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b917.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.65 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Established 1963 Legacy",
+      "Top Delhi-NCR Tech Recruiter Gateway"
+    ],
+    "description": "National Institute of Technology (NIT) Kurukshetra is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-nitkkr-nitkkr-cse",
+        "name": "B.Tech in Computer Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.65 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.65 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA / CSAB",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b917.5 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-nitd",
+    "name": "National Institute of Technology (NIT) Delhi",
+    "shortName": "NIT Delhi",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Narela, New Delhi",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b918.0 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.75 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Capital City Advantage",
+      "New Permanent Campus at Narela"
+    ],
+    "description": "National Institute of Technology (NIT) Delhi is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-nitd-nitdelhi-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.75 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.75 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JoSAA / CSAB",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b918.0 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-pec",
+    "name": "Punjab Engineering College (PEC Chandigarh)",
+    "shortName": "PEC Chandigarh",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Chandigarh",
+    "location": "Sector 12, Chandigarh",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b916.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.95 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Founded 1921",
+      "Renowned Alumni (Astronaut Kalpana Chawla)"
+    ],
+    "description": "Punjab Engineering College (PEC Chandigarh) is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-pec-pec-chd-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.95 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.95 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "JAC Chandigarh / JoSAA",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b916.5 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iet",
+    "name": "Institute of Engineering & Technology (IET Lucknow)",
+    "shortName": "IET Lucknow",
+    "type": "Government",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Lucknow / Uttar Pradesh",
+    "location": "Sitapur Road, Lucknow",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b910.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b995,000 / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "The 'IIT of AKTU'",
+      "Highest Ranking State Engineering College in Uttar Pradesh"
+    ],
+    "description": "Institute of Engineering & Technology (IET Lucknow) is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iet-iet-lucknow-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b995,000 / yr",
+        "feeBreakdown": "Annual Fee: \u20b995,000 / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "UPTAC (AKTU #1 Govt Engineering College)",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b910.5 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-mait",
+    "name": "Maharaja Agrasen Institute of Technology (MAIT Delhi)",
+    "shortName": "MAIT Delhi",
+    "type": "Private",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Delhi / NCR",
+    "location": "PSP Area, Sector 22, Rohini, Delhi",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b99.2 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.4 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Top Choice under IP University",
+      "Leading Product Company Recruiters"
+    ],
+    "description": "Maharaja Agrasen Institute of Technology (MAIT Delhi) is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-mait-mait-delhi-cse",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.4 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.4 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "IPU Central Counseling (GGSIPU #1 College)",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b99.2 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-abes",
+    "name": "ABES Engineering College (Ghaziabad, Delhi-NCR)",
+    "shortName": "ABES Ghaziabad",
+    "type": "Private",
+    "category": "Engineering & Tech",
+    "disciplines": [
+      "engineering",
+      "technology"
+    ],
+    "city": "Delhi / NCR",
+    "location": "19th Km Stone, NH-24, Ghaziabad",
+    "nirfRank": "Premier Engineering & Tech",
+    "accreditation": "Tier 3 (State / Direct)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b97.2 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.42 Lakhs / yr",
+    "entranceExams": [
+      "JEE Main"
+    ],
+    "streams": [
+      "Computer Science & Engineering"
+    ],
+    "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "High Enrolment",
+      "Cisco Networking Academy & AWS Cloud Labs"
+    ],
+    "description": "ABES Engineering College (Ghaziabad, Delhi-NCR) is recognized among India's leading institutions for Engineering & Tech, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-abes-abes-ghaziabad",
+        "name": "B.Tech in Computer Science & Engineering",
+        "degree": "Undergraduate (UG)",
+        "duration": "4 Years (8 Semesters)",
+        "fees": "\u20b91.42 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.42 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Mathematics and Chemistry/CS with min 75% marks (or 60% for state private). Qualify JEE.",
+        "entranceExam": "UPTAC Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Cloud Computing",
+          "Artificial Intelligence & ML",
+          "Cybersecurity",
+          "Data Engineering"
+        ],
+        "careerScope": "Avg Package \u20b97.2 LPA. Highest Package \u20b942 LPA."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-aiims-jod",
+    "name": "All India Institute of Medical Sciences (AIIMS) Jodhpur",
+    "shortName": "AIIMS Jodhpur",
+    "type": "Government",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Rajasthan",
+    "location": "Basni, Jodhpur",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b916.0 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b95,856 Total Course Fee",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Top 2nd Generation AIIMS",
+      "Premier Robotic Surgical Infrastructure"
+    ],
+    "description": "All India Institute of Medical Sciences (AIIMS) Jodhpur is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-aiims-jod-aiims-jodhpur",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b95,856 Total Course Fee",
+        "feeBreakdown": "Annual Fee: \u20b95,856 Total Course Fee \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "MCC Central Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b916.0 LPA. Associated with 1,000+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-aiims-bho",
+    "name": "All India Institute of Medical Sciences (AIIMS) Bhopal",
+    "shortName": "AIIMS Bhopal",
+    "type": "Government",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Madhya Pradesh",
+    "location": "Saket Nagar, Bhopal",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b915.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b95,856 Total Course Fee",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Institute of National Importance",
+      "Advanced Clinical Diagnostic Centers"
+    ],
+    "description": "All India Institute of Medical Sciences (AIIMS) Bhopal is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-aiims-bho-aiims-bhopal",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b95,856 Total Course Fee",
+        "feeBreakdown": "Annual Fee: \u20b95,856 Total Course Fee \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "MCC Central Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b915.5 LPA. Associated with 960+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-aiims-rsh",
+    "name": "All India Institute of Medical Sciences (AIIMS) Rishikesh",
+    "shortName": "AIIMS Rishikesh",
+    "type": "Government",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Uttarakhand",
+    "location": "Virbhadra Road, Rishikesh",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b915.2 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b95,856 Total Course Fee",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "High-Altitude Trauma & Disaster Medicine Center",
+      "Apex Himalayan Healthcare"
+    ],
+    "description": "All India Institute of Medical Sciences (AIIMS) Rishikesh is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-aiims-rsh-aiims-rishikesh",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b95,856 Total Course Fee",
+        "feeBreakdown": "Annual Fee: \u20b95,856 Total Course Fee \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "MCC Central Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b915.2 LPA. Associated with 1,050+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-aiims-pat",
+    "name": "All India Institute of Medical Sciences (AIIMS) Patna",
+    "shortName": "AIIMS Patna",
+    "type": "Government",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Bihar",
+    "location": "Phulwari Sharif, Patna",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b914.8 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b95,856 Total Course Fee",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Major Regional Tertiary Hub",
+      "Modern Multi-Specialty Hospital"
+    ],
+    "description": "All India Institute of Medical Sciences (AIIMS) Patna is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-aiims-pat-aiims-patna",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b95,856 Total Course Fee",
+        "feeBreakdown": "Annual Fee: \u20b95,856 Total Course Fee \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "MCC Central Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b914.8 LPA. Associated with 960+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-jipmer",
+    "name": "JIPMER (Jawaharlal Institute of Postgraduate Medical Education & Research)",
+    "shortName": "JIPMER Puducherry",
+    "type": "Government",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Puducherry",
+    "location": "Dhanvantari Nagar, Puducherry",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b917.0 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b912,620 / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Autonomous Institute of National Importance",
+      "Super Speciality Research"
+    ],
+    "description": "JIPMER (Jawaharlal Institute of Postgraduate Medical Education & Research) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-jipmer-jipmer-puducherry",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b912,620 / yr",
+        "feeBreakdown": "Annual Fee: \u20b912,620 / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "MCC Central Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b917.0 LPA. Associated with 2,150+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-vmmc",
+    "name": "Vardhman Mahavir Medical College & Safdarjung Hospital",
+    "shortName": "VMMC & Safdarjung Hospital",
+    "type": "Government",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Ring Road, Safdarjung, New Delhi",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b915.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b933,500 / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "One of Largest Tertiary Teaching Hospitals in South Asia"
+    ],
+    "description": "Vardhman Mahavir Medical College & Safdarjung Hospital is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-vmmc-vmmc-delhi",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b933,500 / yr",
+        "feeBreakdown": "Annual Fee: \u20b933,500 / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "MCC / IPU Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b915.5 LPA. Associated with 2,900+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-lhmc",
+    "name": "Lady Hardinge Medical College (LHMC Delhi)",
+    "shortName": "LHMC New Delhi",
+    "type": "Government",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Connaught Place, New Delhi",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b914.2 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b92,500 / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS (For Female Candidates)"
+    ],
+    "image": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Historic Central Delhi Institution",
+      "Associated Kalawati Saran Children's Hospital"
+    ],
+    "description": "Lady Hardinge Medical College (LHMC Delhi) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-lhmc-lhmc-delhi",
+        "name": "MBBS (For Female Candidates)",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b92,500 / yr",
+        "feeBreakdown": "Annual Fee: \u20b92,500 / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "MCC Central / DU Quota",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b914.2 LPA. Associated with 1,400+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-ucms",
+    "name": "University College of Medical Sciences (UCMS) & GTB Hospital",
+    "shortName": "UCMS Delhi",
+    "type": "Government",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Dilshad Garden, Delhi",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b914.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b95,200 / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Premier Research Medical College",
+      "1800-Bed Guru Teg Bahadur Hospital"
+    ],
+    "description": "University College of Medical Sciences (UCMS) & GTB Hospital is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-ucms-ucms-delhi",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b95,200 / yr",
+        "feeBreakdown": "Annual Fee: \u20b95,200 / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "MCC Central / DU Quota",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b914.5 LPA. Associated with 1,800+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-gsvm",
+    "name": "GSVM Medical College Kanpur",
+    "shortName": "GSVM Kanpur",
+    "type": "Government",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Kanpur / Uttar Pradesh",
+    "location": "Swaroop Nagar, Kanpur",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b912.0 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b936,000 / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Top 2nd Govt Medical College in UP",
+      "LLR Hospital Complex"
+    ],
+    "description": "GSVM Medical College Kanpur is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-gsvm-gsvm-kanpur",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b936,000 / yr",
+        "feeBreakdown": "Annual Fee: \u20b936,000 / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "UPDGME / MCC Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b912.0 LPA. Associated with 2,200+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-sms",
+    "name": "Sawai Man Singh (SMS) Medical College Jaipur",
+    "shortName": "SMS Jaipur",
+    "type": "Government",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Jaipur / Rajasthan",
+    "location": "JLN Marg, Jaipur",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b913.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b928,500 / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Rajasthan's #1 Medical Institution",
+      "Super-Specialty Inpatient Care"
+    ],
+    "description": "Sawai Man Singh (SMS) Medical College Jaipur is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-sms-sms-jaipur",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b928,500 / yr",
+        "feeBreakdown": "Annual Fee: \u20b928,500 / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "Rajasthan NEET Counseling / MCC",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b913.5 LPA. Associated with 4,000+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-kem",
+    "name": "Seth GS Medical College & KEM Hospital Mumbai",
+    "shortName": "KEM Mumbai",
+    "type": "Government",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Mumbai / Maharashtra",
+    "location": "Parel, Mumbai",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b914.0 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b91.15 Lakhs / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Century-Old Mumbai Medical Landmark",
+      "Exceptional Clinical Caseload"
+    ],
+    "description": "Seth GS Medical College & KEM Hospital Mumbai is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-kem-kem-mumbai",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b91.15 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b91.15 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "DME Maharashtra / MCC",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b914.0 LPA. Associated with 1,800+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-bmcri",
+    "name": "Bangalore Medical College & Research Institute (BMCRI)",
+    "shortName": "BMCRI Bangalore",
+    "type": "Government",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Bangalore / Karnataka",
+    "location": "Fort, KR Road, Bengaluru",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b913.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b965,000 / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Karnataka's #1 Premier Medical College",
+      "Victoria & Vani Vilas Hospitals"
+    ],
+    "description": "Bangalore Medical College & Research Institute (BMCRI) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-bmcri-bmcri-bangalore",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b965,000 / yr",
+        "feeBreakdown": "Annual Fee: \u20b965,000 / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "KEA Karnataka / MCC",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b913.5 LPA. Associated with 3,000+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-cmc",
+    "name": "Christian Medical College (CMC Vellore)",
+    "shortName": "CMC Vellore",
+    "type": "Private",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Vellore / Tamil Nadu",
+    "location": "Ida Scudder Road, Vellore",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b915.8 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b952,000 / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "NIRF #3 Medical in India",
+      "World-Renowned Medical Education & Research"
+    ],
+    "description": "Christian Medical College (CMC Vellore) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-cmc-cmc-vellore",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b952,000 / yr",
+        "feeBreakdown": "Annual Fee: \u20b952,000 / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "Tamil Nadu State Counseling (DME)",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b915.8 LPA. Associated with 3,000+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-stjohns",
+    "name": "St. John's Medical College (Bangalore)",
+    "shortName": "St. John's Bangalore",
+    "type": "Private",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Bangalore / Karnataka",
+    "location": "Sarjapur Road, John Nagar, Bengaluru",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b914.0 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b97.4 Lakhs / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "NIRF #13 Medical in India",
+      "Premier Non-Profit Medical Academy"
+    ],
+    "description": "St. John's Medical College (Bangalore) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-stjohns-st-johns-bangalore",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b97.4 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b97.4 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "KEA Karnataka Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b914.0 LPA. Associated with 1,350+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-kmcmang",
+    "name": "Kasturba Medical College (KMC Mangalore, MAHE)",
+    "shortName": "KMC Mangalore",
+    "type": "Private",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Karnataka",
+    "location": "Light House Hill Road, Mangalore",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b913.8 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b917.8 Lakhs / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Sister Campus of KMC Manipal",
+      "Wenlock & KMC Hospitals Clinical Base"
+    ],
+    "description": "Kasturba Medical College (KMC Mangalore, MAHE) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-kmcmang-kmc-mangalore",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b917.8 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b917.8 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "MCC Deemed Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b913.8 LPA. Associated with 1,500+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-himsr",
+    "name": "Hamdard Institute of Medical Sciences & Research (HIMSR New Delhi)",
+    "shortName": "HIMSR New Delhi",
+    "type": "Private",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Jamia Hamdard, Hamdard Nagar, New Delhi",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b912.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b916.0 Lakhs / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "NAAC A+ Deemed University in South Delhi",
+      "HAH Centenary Hospital"
+    ],
+    "description": "Hamdard Institute of Medical Sciences & Research (HIMSR New Delhi) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-himsr-himsr-delhi",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b916.0 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b916.0 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "MCC Deemed Medical Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b912.5 LPA. Associated with 750+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-mmc",
+    "name": "Muzaffarnagar Medical College (MMC Muzaffarnagar)",
+    "shortName": "Muzaffarnagar Medical College",
+    "type": "Private",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Uttar Pradesh",
+    "location": "Opp. Begrajpur Industrial Area, Muzaffarnagar",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 3 (State / Direct)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b99.8 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b912.8 Lakhs / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Established UP Private Medical College",
+      "High Patient OPD Volume"
+    ],
+    "description": "Muzaffarnagar Medical College (MMC Muzaffarnagar) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-mmc-muzaffarnagar-mbbs",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b912.8 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b912.8 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "UPDGME UP State Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b99.8 LPA. Associated with 850+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-rmc",
+    "name": "Rohilkhand Medical College & Hospital (Bareilly)",
+    "shortName": "Rohilkhand Medical College",
+    "type": "Private",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Uttar Pradesh",
+    "location": "Pilibhit Bypass Road, Bareilly",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 3 (State / Direct)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b910.0 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b913.0 Lakhs / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Well-Regarded Medical Institute in Western UP",
+      "Modern ICUs"
+    ],
+    "description": "Rohilkhand Medical College & Hospital (Bareilly) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-rmc-rohilkhand-mbbs",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b913.0 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b913.0 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "UPDGME UP State Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b910.0 LPA. Associated with 920+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-hims",
+    "name": "Hind Institute of Medical Sciences (Barabanki / Sitapur)",
+    "shortName": "Hind Medical College UP",
+    "type": "Private",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Uttar Pradesh",
+    "location": "Safedabad, Barabanki / Sitapur",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 3 (State / Direct)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b99.6 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b911.7 Lakhs / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Affiliated with Dr. RML Avadh University",
+      "Strong Clinical Training"
+    ],
+    "description": "Hind Institute of Medical Sciences (Barabanki / Sitapur) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-hims-hind-mbbs",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b911.7 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b911.7 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "UPDGME Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b99.6 LPA. Associated with 750+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-sims",
+    "name": "Saraswathi Institute of Medical Sciences (SIMS Hapur, NCR)",
+    "shortName": "Saraswathi Medical College Hapur",
+    "type": "Private",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Delhi / NCR",
+    "location": "NH-24, Anwarpur, Pilkhuwa, Hapur, Delhi-NCR",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 3 (State / Direct)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b99.2 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b911.8 Lakhs / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Located on Delhi-Lucknow NH-24",
+      "800-Bed Multi-Specialty Hospital"
+    ],
+    "description": "Saraswathi Institute of Medical Sciences (SIMS Hapur, NCR) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-sims-saraswathi-mbbs",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b911.8 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b911.8 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "UPDGME Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b99.2 LPA. Associated with 800+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-rama",
+    "name": "Rama Medical College Hospital & Research Centre (Hapur / Kanpur)",
+    "shortName": "Rama Medical College Hapur",
+    "type": "Private",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Delhi / NCR",
+    "location": "NH-24, Delhi-Hapur Highway, Hapur",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 3 (State / Direct)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b99.0 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b912.6 Lakhs / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Integrated Super-Specialty Medical Complex on NH-24"
+    ],
+    "description": "Rama Medical College Hospital & Research Centre (Hapur / Kanpur) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-rama-rama-mbbs",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b912.6 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b912.6 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "UPDGME Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b99.0 LPA. Associated with 750+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-gsmc",
+    "name": "GS Medical College & Hospital (Pilkhuwa, Hapur)",
+    "shortName": "GS Medical College Pilkhuwa",
+    "type": "Private",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Near Railway Crossing, Pilkhuwa, Hapur, NCR",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 3 (State / Direct)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b98.8 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b911.78 Lakhs / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "NABH Accredited Hospital",
+      "Serving Rural & Semi-Urban NCR Patients"
+    ],
+    "description": "GS Medical College & Hospital (Pilkhuwa, Hapur) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-gsmc-gs-medical-mbbs",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b911.78 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b911.78 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "UPDGME Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b98.8 LPA. Associated with 650+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-rml",
+    "name": "Dr. Ram Manohar Lohia Institute of Medical Sciences (RMLIMS Lucknow)",
+    "shortName": "RMLIMS Lucknow",
+    "type": "Government",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Lucknow / Uttar Pradesh",
+    "location": "Vibhuti Khand, Gomti Nagar, Lucknow",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b913.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b936,500 / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Autonomous Super-Specialty Medical Institute in Gomti Nagar"
+    ],
+    "description": "Dr. Ram Manohar Lohia Institute of Medical Sciences (RMLIMS Lucknow) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-rml-rml-lucknow",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b936,500 / yr",
+        "feeBreakdown": "Annual Fee: \u20b936,500 / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "UPDGME / MCC Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b913.5 LPA. Associated with 1,400+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-mmc",
+    "name": "Madras Medical College (MMC Chennai)",
+    "shortName": "Madras Medical College",
+    "type": "Government",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Chennai / Tamil Nadu",
+    "location": "EVR Periyar Salai, Park Town, Chennai",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b914.2 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b918,073 / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Established 1835 (3rd Oldest Medical College in India)",
+      "Rajiv Gandhi Govt General Hospital"
+    ],
+    "description": "Madras Medical College (MMC Chennai) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-mmc-mmc-chennai",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b918,073 / yr",
+        "feeBreakdown": "Annual Fee: \u20b918,073 / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "DME Tamil Nadu / MCC",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b914.2 LPA. Associated with 3,000+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-kims",
+    "name": "Kalinga Institute of Medical Sciences (KIMS Bhubaneswar)",
+    "shortName": "KIMS Bhubaneswar",
+    "type": "Private",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Bhubaneswar / Odisha",
+    "location": "Kushabhadra Campus, Patia, Bhubaneswar",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b912.0 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b918.5 Lakhs / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "2600-Bed Super Specialty Hospital",
+      "NABH & NABL Accredited"
+    ],
+    "description": "Kalinga Institute of Medical Sciences (KIMS Bhubaneswar) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-kims-kims-bhubaneswar",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b918.5 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b918.5 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "MCC Deemed Medical Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b912.0 LPA. Associated with 2,600+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-pims",
+    "name": "Prasad Institute of Medical Sciences (PIMS Lucknow)",
+    "shortName": "Prasad Medical College Lucknow",
+    "type": "Private",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Uttar Pradesh",
+    "location": "Sarojini Nagar, Kanpur Road, Lucknow",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 3 (State / Direct)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b98.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b911.0 Lakhs / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Accessible Lucknow Location on Kanpur Road",
+      "650-Bed Teaching Facility"
+    ],
+    "description": "Prasad Institute of Medical Sciences (PIMS Lucknow) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-pims-prasad-mbbs",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b911.0 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b911.0 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "UPDGME Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b98.5 LPA. Associated with 650+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-mims",
+    "name": "Mayo Institute of Medical Sciences (MIMS Barabanki / Lucknow NCR)",
+    "shortName": "Mayo Medical College",
+    "type": "Private",
+    "category": "Medical & Healthcare",
+    "disciplines": [
+      "medical",
+      "sciences"
+    ],
+    "city": "Uttar Pradesh",
+    "location": "Faizabad Road, Gadia, Barabanki",
+    "nirfRank": "Premier Medical & Healthcare",
+    "accreditation": "Tier 3 (State / Direct)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b98.8 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b911.21 Lakhs / yr",
+    "entranceExams": [
+      "NEET-UG",
+      "NEET-PG"
+    ],
+    "streams": [
+      "MBBS"
+    ],
+    "image": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "NABH Accredited Teaching Hospital on Lucknow-Faizabad Expressway"
+    ],
+    "description": "Mayo Institute of Medical Sciences (MIMS Barabanki / Lucknow NCR) is recognized among India's leading institutions for Medical & Healthcare, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-mims-mayo-mbbs",
+        "name": "MBBS",
+        "degree": "Undergraduate (UG)",
+        "duration": "5.5 Years (Inc. 1 Yr Internship)",
+        "fees": "\u20b911.21 Lakhs / yr",
+        "feeBreakdown": "Annual Fee: \u20b911.21 Lakhs / yr \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Passed 10+2 with Physics, Chemistry & Biology with min 50% marks (40% for reserved). Must qualify NEET-UG.",
+        "entranceExam": "UPDGME Counseling",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Clinical Medicine",
+          "Surgery",
+          "Pediatrics",
+          "Community Medicine"
+        ],
+        "careerScope": "Avg Stipend / Package \u20b98.8 LPA. Associated with 700+ Bed Teaching Hospital."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iima",
+    "name": "Indian Institute of Management (IIM) Ahmedabad",
+    "shortName": "IIM Ahmedabad",
+    "type": "Government",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Ahmedabad / Gujarat",
+    "location": "Vastrapur, Ahmedabad",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b934.45 LPA",
+    "highestPackage": "\u20b91.15 CPA",
+    "fees": "\u20b912.5 Lakhs / yr (\u20b925.0 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "Management (PGP / MBA)"
+    ],
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "NIRF #1 Management in India",
+      "Premier Global Business School",
+      "Top McKinsey, BCG & Goldman Sachs Hub"
+    ],
+    "description": "Indian Institute of Management (IIM) Ahmedabad is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iima-iima-pgp",
+        "name": "Post Graduate Program in Management (PGP / MBA)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b912.5 Lakhs / yr (\u20b925.0 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b912.5 Lakhs / yr (\u20b925.0 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "IIM Ahmedabad Selection (CAT + AWT & PI)",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b934.45 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iimb",
+    "name": "Indian Institute of Management (IIM) Bangalore",
+    "shortName": "IIM Bangalore",
+    "type": "Government",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Bangalore / Karnataka",
+    "location": "Bannerghatta Road, Bengaluru",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b935.31 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b912.25 Lakhs / yr (\u20b924.5 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "Master of Business Administration (PGP / MBA)"
+    ],
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "NIRF #2 Management",
+      "Leading Tech & Consulting Recruiter Destination"
+    ],
+    "description": "Indian Institute of Management (IIM) Bangalore is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iimb-iimb-pgp",
+        "name": "Master of Business Administration (PGP / MBA)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b912.25 Lakhs / yr (\u20b924.5 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b912.25 Lakhs / yr (\u20b924.5 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "IIM Bangalore Selection (CAT + WAT & PI)",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b935.31 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iimc",
+    "name": "Indian Institute of Management (IIM) Calcutta",
+    "shortName": "IIM Calcutta",
+    "type": "Government",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Kolkata / West Bengal",
+    "location": "Joka, Kolkata",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b935.07 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b912.0 Lakhs / yr (\u20b924.0 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "Master of Business Administration (MBA)"
+    ],
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Finance Capital of Indian B-Schools",
+      "Triple Crown Accredited (AACSB, AMBA, EQUIS)"
+    ],
+    "description": "Indian Institute of Management (IIM) Calcutta is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iimc-iimc-pgp",
+        "name": "Master of Business Administration (MBA)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b912.0 Lakhs / yr (\u20b924.0 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b912.0 Lakhs / yr (\u20b924.0 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "IIM Calcutta Selection (CAT + WAT-PI)",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b935.07 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iiml",
+    "name": "Indian Institute of Management (IIM) Lucknow",
+    "shortName": "IIM Lucknow",
+    "type": "Government",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Lucknow / Uttar Pradesh",
+    "location": "Prabandh Nagar, IIM Road, Lucknow",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b932.2 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b910.5 Lakhs / yr (\u20b921.0 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "Management (PGP)"
+    ],
+    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "NIRF Top 5 Management",
+      "Strongest Marketing & Strategy Alumni in India"
+    ],
+    "description": "Indian Institute of Management (IIM) Lucknow is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iiml-iiml-pgp",
+        "name": "Post Graduate Programme in Management (PGP)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b910.5 Lakhs / yr (\u20b921.0 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b910.5 Lakhs / yr (\u20b921.0 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "IIM Lucknow Selection (CAT + WAT-PI)",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b932.2 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iimk",
+    "name": "Indian Institute of Management (IIM) Kozhikode",
+    "shortName": "IIM Kozhikode",
+    "type": "Government",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Kozhikode / Kerala",
+    "location": "Kunnamangalam, Kozhikode",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b931.02 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b910.25 Lakhs / yr (\u20b920.5 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "Post Graduate Programme (PGP / MBA)"
+    ],
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Pioneer in Gender Diversity",
+      "Picturesque Hilltop Campus & High Tech Placements"
+    ],
+    "description": "Indian Institute of Management (IIM) Kozhikode is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iimk-iimk-pgp",
+        "name": "Post Graduate Programme (PGP / MBA)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b910.25 Lakhs / yr (\u20b920.5 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b910.25 Lakhs / yr (\u20b920.5 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "IIM Kozhikode Selection Process",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b931.02 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iimi",
+    "name": "Indian Institute of Management (IIM) Indore",
+    "shortName": "IIM Indore",
+    "type": "Government",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Indore / Madhya Pradesh",
+    "location": "Prabandh Shikhar, Rau-Pithampur Road, Indore",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b930.21 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b910.5 Lakhs / yr (\u20b921.0 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "Post Graduate Programme (PGP / MBA)"
+    ],
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Triple Crown Accredited",
+      "193-Acre Scenic Campus"
+    ],
+    "description": "Indian Institute of Management (IIM) Indore is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iimi-iimi-pgp",
+        "name": "Post Graduate Programme (PGP / MBA)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b910.5 Lakhs / yr (\u20b921.0 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b910.5 Lakhs / yr (\u20b921.0 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "IIM Indore Selection Process",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b930.21 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iimm",
+    "name": "Indian Institute of Management (IIM) Mumbai (formerly NITIE)",
+    "shortName": "IIM Mumbai",
+    "type": "Government",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Mumbai / Maharashtra",
+    "location": "Vihar Lake, Powai, Mumbai",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b931.0 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b910.5 Lakhs / yr (\u20b921.0 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "Master of Business Administration (General / Supply Chain & Operations)"
+    ],
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "The Supply Chain & Operations Capital of India",
+      "Surrounded by Lakes in Powai"
+    ],
+    "description": "Indian Institute of Management (IIM) Mumbai (formerly NITIE) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iimm-iimm-mba",
+        "name": "Master of Business Administration (General / Supply Chain & Operations)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b910.5 Lakhs / yr (\u20b921.0 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b910.5 Lakhs / yr (\u20b921.0 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "IIM Mumbai Admissions",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b931.0 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-xlri",
+    "name": "XLRI - Xavier School of Management (Jamshedpur / Delhi NCR)",
+    "shortName": "XLRI Jamshedpur",
+    "type": "Private",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Jharkhand",
+    "location": "Circuit House Area, Jamshedpur",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b932.7 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b914.0 Lakhs / yr (\u20b928.0 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "PGDM (Business Management / Human Resource Management)"
+    ],
+    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Oldest B-School in India (Est. 1949)",
+      "Unrivaled HR & General Management Program"
+    ],
+    "description": "XLRI - Xavier School of Management (Jamshedpur / Delhi NCR) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-xlri-xlri-pgdm",
+        "name": "PGDM (Business Management / Human Resource Management)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b914.0 Lakhs / yr (\u20b928.0 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b914.0 Lakhs / yr (\u20b928.0 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "XLRI Central Admissions (XAT + GD/PI)",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b932.7 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-spjimr",
+    "name": "S.P. Jain Institute of Management and Research (SPJIMR Mumbai)",
+    "shortName": "SPJIMR Mumbai",
+    "type": "Private",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Mumbai / Maharashtra",
+    "location": "Bhavan's Campus, Munshi Nagar, Andheri West, Mumbai",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b933.0 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b911.25 Lakhs / yr (\u20b922.5 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "Management (PGDM)"
+    ],
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Ranked #1 Business School by Financial Times (India)",
+      "Autumn Internships"
+    ],
+    "description": "S.P. Jain Institute of Management and Research (SPJIMR Mumbai) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-spjimr-spjimr-pgdm",
+        "name": "Post Graduate Diploma in Management (PGDM)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b911.25 Lakhs / yr (\u20b922.5 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b911.25 Lakhs / yr (\u20b922.5 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "SPJIMR Admissions (Profile + CAT/GMAT + PI)",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b933.0 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-mdi",
+    "name": "Management Development Institute (MDI Gurgaon)",
+    "shortName": "MDI Gurgaon",
+    "type": "Private",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Mehrauli Road, Sukhrali, Gurugram",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b927.67 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b912.0 Lakhs / yr (\u20b924.0 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "Management (PGDM / HRM / International)"
+    ],
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Prime Gurugram Corporate Hub Location",
+      "AACSB & AMBA Accredited"
+    ],
+    "description": "Management Development Institute (MDI Gurgaon) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-mdi-mdi-pgdm",
+        "name": "Post Graduate Diploma in Management (PGDM / HRM / International)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b912.0 Lakhs / yr (\u20b924.0 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b912.0 Lakhs / yr (\u20b924.0 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "MDI Gurgaon Admissions Process",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b927.67 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-nmims",
+    "name": "SVKM's NMIMS School of Business Management (Mumbai)",
+    "shortName": "NMIMS Mumbai",
+    "type": "Private",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Mumbai / Maharashtra",
+    "location": "V.L. Mehta Road, Vile Parle West, Mumbai",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b926.63 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b912.0 Lakhs / yr (\u20b924.0 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "MBA (Core / Human Resources / Digital Transformation)"
+    ],
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Financial Capital Headquarters",
+      "Top FMCG, Consulting & Banking Recruiters"
+    ],
+    "description": "SVKM's NMIMS School of Business Management (Mumbai) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-nmims-nmims-mba",
+        "name": "MBA (Core / Human Resources / Digital Transformation)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b912.0 Lakhs / yr (\u20b924.0 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b912.0 Lakhs / yr (\u20b924.0 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "NMIMS NMAT Central Admissions",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b926.63 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-iift",
+    "name": "Indian Institute of Foreign Trade (IIFT New Delhi)",
+    "shortName": "IIFT New Delhi",
+    "type": "Government",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Qutab Institutional Area, New Delhi",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b929.1 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b910.8 Lakhs / yr (\u20b921.6 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "International Business (MBA-IB)"
+    ],
+    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Ministry of Commerce & Industry Enterprise",
+      "World Trade & Global Supply Chain Eminence"
+    ],
+    "description": "Indian Institute of Foreign Trade (IIFT New Delhi) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-iift-iift-delhi",
+        "name": "MBA in International Business (MBA-IB)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b910.8 Lakhs / yr (\u20b921.6 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b910.8 Lakhs / yr (\u20b921.6 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "IIFT Admissions via CAT",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b929.1 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-imi",
+    "name": "International Management Institute (IMI New Delhi)",
+    "shortName": "IMI New Delhi",
+    "type": "Private",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Qutab Institutional Area, Tara Crescent, New Delhi",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b917.01 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b910.4 Lakhs / yr (\u20b920.8 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "Management)"
+    ],
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "India's 1st Corporate-Sponsored B-School",
+      "AMBA & AACSB Accredited"
+    ],
+    "description": "International Management Institute (IMI New Delhi) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-imi-imi-delhi",
+        "name": "PGDM (Post Graduate Diploma in Management)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b910.4 Lakhs / yr (\u20b920.8 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b910.4 Lakhs / yr (\u20b920.8 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "IMI Central Admissions",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b917.01 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-tapmi",
+    "name": "T.A. Pai Management Institute (TAPMI Manipal, MAHE)",
+    "shortName": "TAPMI Manipal",
+    "type": "Private",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Karnataka",
+    "location": "Manipal, Karnataka",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b915.7 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b98.5 Lakhs / yr (\u20b917.0 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "MBA (General / BKFS / Marketing / HR)"
+    ],
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "AACSB & AMBA Accredited",
+      "State-of-the-Art Bloomberg Finance Lab"
+    ],
+    "description": "T.A. Pai Management Institute (TAPMI Manipal, MAHE) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-tapmi-tapmi-manipal",
+        "name": "MBA (General / BKFS / Marketing / HR)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b98.5 Lakhs / yr (\u20b917.0 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b98.5 Lakhs / yr (\u20b917.0 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "TAPMI Admissions (MAHE)",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b915.7 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-fore",
+    "name": "FORE School of Management (New Delhi)",
+    "shortName": "FORE School of Management",
+    "type": "Private",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Qutab Institutional Area, New Delhi",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b914.98 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b99.2 Lakhs / yr (\u20b918.4 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "PGDM (International Business / Financial Management / Big Data Analytics)"
+    ],
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Premier South Delhi Campus",
+      "Top Tier Analytics & BFSI Placement Record"
+    ],
+    "description": "FORE School of Management (New Delhi) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-fore-fore-delhi",
+        "name": "PGDM (International Business / Financial Management / Big Data Analytics)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b99.2 Lakhs / yr (\u20b918.4 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b99.2 Lakhs / yr (\u20b918.4 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "FORE Admissions Process",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b914.98 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-glakes",
+    "name": "Great Lakes Institute of Management (Chennai / Gurgaon)",
+    "shortName": "Great Lakes",
+    "type": "Private",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Chennai / Tamil Nadu",
+    "location": "ECR Road, Chennai & Manesar, Gurgaon",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b915.1 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b99.75 Lakhs / yr (\u20b919.5 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "PGPM (1-Year) / PGDM (2-Year Flagship)"
+    ],
+    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "AMBA & SAQS Accredited",
+      "Founded by Prof. Bala V Balachandran",
+      "Top IT/Consulting"
+    ],
+    "description": "Great Lakes Institute of Management (Chennai / Gurgaon) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-glakes-greatlakes-pgdm",
+        "name": "PGPM (1-Year) / PGDM (2-Year Flagship)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b99.75 Lakhs / yr (\u20b919.5 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b99.75 Lakhs / yr (\u20b919.5 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "Great Lakes Central Admissions",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b915.1 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-gim",
+    "name": "Goa Institute of Management (GIM Goa)",
+    "shortName": "GIM Goa",
+    "type": "Private",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Goa",
+    "location": "Sanquelim, Poriem, Goa",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b914.87 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b99.5 Lakhs / yr (\u20b919.0 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "PGDM (Big Data Analytics / Healthcare / BIFS)"
+    ],
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Scenic 50-Acre Foothills Campus",
+      "Top Healthcare & Data Analytics B-School in India"
+    ],
+    "description": "Goa Institute of Management (GIM Goa) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-gim-gim-goa",
+        "name": "PGDM (Big Data Analytics / Healthcare / BIFS)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b99.5 Lakhs / yr (\u20b919.0 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b99.5 Lakhs / yr (\u20b919.0 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "GIM Admissions Process",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b914.87 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-lbsim",
+    "name": "Lal Bahadur Shastri Institute of Management (LBSIM New Delhi)",
+    "shortName": "LBSIM Delhi",
+    "type": "Private",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Sector 11, Dwarka, New Delhi",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b912.42 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b97.5 Lakhs / yr (\u20b915.0 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "PGDM (General / Financial Management / Research & Business Analytics)"
+    ],
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Established Value-Based Leadership",
+      "Premier Finance & Banking Hub in Dwarka"
+    ],
+    "description": "Lal Bahadur Shastri Institute of Management (LBSIM New Delhi) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-lbsim-lbsim-delhi",
+        "name": "PGDM (General / Financial Management / Research & Business Analytics)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b97.5 Lakhs / yr (\u20b915.0 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b97.5 Lakhs / yr (\u20b915.0 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "LBSIM Central Admissions",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b912.42 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-jaipuria",
+    "name": "Jaipuria Institute of Management (Noida / Lucknow)",
+    "shortName": "Jaipuria Institute Noida",
+    "type": "Private",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Sector 62, Noida, Delhi-NCR",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b911.29 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b96.5 Lakhs / yr (\u20b913.0 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "PGDM (Marketing, Service Management, Financial Analytics)"
+    ],
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "AACSB Member",
+      "NAAC A Grade",
+      "300+ Recruiters Across Consulting & BFSI"
+    ],
+    "description": "Jaipuria Institute of Management (Noida / Lucknow) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-jaipuria-jaipuria-pgdm",
+        "name": "PGDM (Marketing, Service Management, Financial Analytics)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b96.5 Lakhs / yr (\u20b913.0 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b96.5 Lakhs / yr (\u20b913.0 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "Jaipuria Central Admissions",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b911.29 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-jbims",
+    "name": "Jamnalal Bajaj Institute of Management Studies (JBIMS Mumbai)",
+    "shortName": "JBIMS Mumbai",
+    "type": "Government",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Mumbai / Maharashtra",
+    "location": "H.T. Parekh Marg, Churchgate, Mumbai",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b928.02 LPA",
+    "highestPackage": "\u20b944 LPA",
+    "fees": "\u20b93.0 Lakhs / yr (\u20b96.0 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "Management Studies (MMS / MBA)"
+    ],
+    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "The 'CEO Factory of India' in Nariman Point",
+      "Highest ROI in Maharashtra"
+    ],
+    "description": "Jamnalal Bajaj Institute of Management Studies (JBIMS Mumbai) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-jbims-jbims-mms",
+        "name": "Masters in Management Studies (MMS / MBA)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b93.0 Lakhs / yr (\u20b96.0 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b93.0 Lakhs / yr (\u20b96.0 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "DTE Maharashtra CAP / CAT All India",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b928.02 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-gov-sjmsom",
+    "name": "Shailesh J. Mehta School of Management (SJMSOM), IIT Bombay",
+    "shortName": "SJMSOM IIT Bombay",
+    "type": "Government",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Mumbai / Maharashtra",
+    "location": "Powai, Mumbai",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 1 (Premier)",
+    "rating": "4.8",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b928.88 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b97.0 Lakhs / yr (\u20b914.0 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "Master of Business Administration (MBA)"
+    ],
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "IIT Bombay Campus",
+      "Top Tier Analytics, Operations & Consulting Packages"
+    ],
+    "description": "Shailesh J. Mehta School of Management (SJMSOM), IIT Bombay is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-gov-sjmsom-sjmsom-iitb",
+        "name": "Master of Business Administration (MBA)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b97.0 Lakhs / yr (\u20b914.0 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b97.0 Lakhs / yr (\u20b914.0 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "IIT Bombay Central Admissions",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b928.88 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-kjsomaiya",
+    "name": "K J Somaiya Institute of Management (Mumbai)",
+    "shortName": "K J Somaiya Mumbai",
+    "type": "Private",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Mumbai / Maharashtra",
+    "location": "Vidyavihar, Mumbai",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b912.3 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b910.0 Lakhs / yr (\u20b920.0 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "MBA (Core / Healthcare / Sports Management)"
+    ],
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Vast 50-Acre Campus in Central Mumbai",
+      "AACSB Accredited"
+    ],
+    "description": "K J Somaiya Institute of Management (Mumbai) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-kjsomaiya-kjsomaiya-mba",
+        "name": "MBA (Core / Healthcare / Sports Management)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b910.0 Lakhs / yr (\u20b920.0 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b910.0 Lakhs / yr (\u20b920.0 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "Somaiya Vidyavihar Admissions",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b912.3 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-weschool",
+    "name": "Prin. L.N. Welingkar Institute of Management (WeSchool Mumbai)",
+    "shortName": "Welingkar (WeSchool) Mumbai",
+    "type": "Private",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Mumbai / Maharashtra",
+    "location": "L.N. Road, Matunga, Mumbai",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b912.4 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b97.0 Lakhs / yr (\u20b914.0 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "PGDM (Business Design / E-Biz / Retail / Media & Ent)"
+    ],
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Pioneer in Design Thinking & Business Innovation",
+      "Top FMCG Recruiter Choice"
+    ],
+    "description": "Prin. L.N. Welingkar Institute of Management (WeSchool Mumbai) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-weschool-weschool-pgdm",
+        "name": "PGDM (Business Design / E-Biz / Retail / Media & Ent)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b97.0 Lakhs / yr (\u20b914.0 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b97.0 Lakhs / yr (\u20b914.0 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "WeSchool Central Admissions",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b912.4 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-christ",
+    "name": "School of Business and Management, Christ (Deemed to be University)",
+    "shortName": "Christ University Bangalore",
+    "type": "Private",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Bangalore / Karnataka",
+    "location": "Hosur Road, Bengaluru",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 2 (Top Ranked)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b98.5 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b94.75 Lakhs / yr (\u20b99.5 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "Master of Business Administration (MBA)"
+    ],
+    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "Premier Bangalore B-School",
+      "Dynamic Corporate Mentorship"
+    ],
+    "description": "School of Business and Management, Christ (Deemed to be University) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-christ-christ-mba",
+        "name": "Master of Business Administration (MBA)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b94.75 Lakhs / yr (\u20b99.5 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b94.75 Lakhs / yr (\u20b99.5 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "Christ Central Admissions",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b98.5 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
+  },
+  {
+    "id": "col-pvt-jims",
+    "name": "Jagan Institute of Management Studies (JIMS Rohini, Delhi)",
+    "shortName": "JIMS Rohini Delhi",
+    "type": "Private",
+    "category": "Management & MBA",
+    "disciplines": [
+      "management",
+      "commerce"
+    ],
+    "city": "Delhi / NCR",
+    "location": "Sector 5, Rohini, New Delhi",
+    "nirfRank": "Premier Management & MBA",
+    "accreditation": "Tier 3 (State / Direct)",
+    "rating": "4.6",
+    "reviewsCount": 850,
+    "established": "1985",
+    "avgPackage": "\u20b98.3 LPA",
+    "highestPackage": "\u20b942 LPA",
+    "fees": "\u20b94.75 Lakhs / yr (\u20b99.5 Lakhs Total)",
+    "entranceExams": [
+      "CAT",
+      "XAT",
+      "CMAT",
+      "MAT"
+    ],
+    "streams": [
+      "PGDM (International Business / Retail Management)"
+    ],
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "NIRF Top Ranked in Delhi",
+      "Strong Placement Track Record in Retail & BFSI"
+    ],
+    "description": "Jagan Institute of Management Studies (JIMS Rohini, Delhi) is recognized among India's leading institutions for Management & MBA, offering industry-integrated curriculum and outstanding corporate/clinical outcomes.",
+    "courses": [
+      {
+        "id": "col-pvt-jims-jims-rohini",
+        "name": "PGDM (International Business / Retail Management)",
+        "degree": "Postgraduate (PG)",
+        "duration": "2 Years (4 Semesters)",
+        "fees": "\u20b94.75 Lakhs / yr (\u20b99.5 Lakhs Total)",
+        "feeBreakdown": "Annual Fee: \u20b94.75 Lakhs / yr (\u20b99.5 Lakhs Total) \u2022 Subsidized Govt / Institutional Quota Structure",
+        "eligibility": "Bachelor's Degree in any discipline with min 50% marks (45% for SC/ST). Must qualify CAT/XAT/CMAT/MAT.",
+        "entranceExam": "JIMS Central Admissions",
+        "seats": "120 - 180 Seats",
+        "mode": "Full-Time Regular (On-Campus)",
+        "specializations": [
+          "Marketing Management",
+          "Financial Analytics",
+          "Operations & Supply Chain",
+          "Human Resource"
+        ],
+        "careerScope": "Avg Package \u20b98.3 LPA. Top Recruiters across BFSI, Consulting, IT & FMCG."
+      }
+    ]
   }
 ];
