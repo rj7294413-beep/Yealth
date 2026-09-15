@@ -303,19 +303,20 @@ function renderColleges() {
         data-college-id="${c.id}"
         class="college-card-interactive bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group cursor-pointer hover:border-[#DFB15B]/80 hover:-translate-y-1">
         <div>
-          <!-- Campus Photo with Badges -->
-          <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-100">
+          <!-- Campus Photo with Badges (CollegeDekho Style) -->
+          <div class="relative h-52 sm:h-56 w-full overflow-hidden bg-slate-900 group">
             <img 
               src="${c.image}" 
               alt="${c.name}" 
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
+              onerror="this.src='assets/yealth-logo.png'"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/30 pointer-events-none"></div>
 
-            <!-- Type Badge (Govt / Private) -->
-            <div class="absolute top-3 left-3 flex items-center gap-1.5">
-              <span class="px-2.5 py-1 rounded-md text-[11px] font-black uppercase tracking-wider ${
+            <!-- Top Left: Type Badge (Govt / Private) -->
+            <div class="absolute top-3 left-3 flex items-center gap-1.5 z-10">
+              <span class="px-2.5 py-1 rounded-lg text-[10px] font-black uppercase tracking-wider ${
                 isGovt 
                   ? "bg-emerald-600 text-white shadow-sm" 
                   : "bg-[#082A50] text-[#DFB15B] border border-[#DFB15B]/40 shadow-sm"
@@ -324,16 +325,28 @@ function renderColleges() {
               </span>
             </div>
 
-            <!-- NIRF & Rating -->
-            <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/20 text-white text-[11px] font-bold">
-              <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400 fill-amber-400"></i>
-              <span>${c.rating}</span>
+            <!-- Top Right: Rating & Est. Year -->
+            <div class="absolute top-3 right-3 flex items-center gap-1.5 z-10">
+              <span class="bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg border border-white/20 text-white text-[10px] font-bold">
+                Est. ${c.established}
+              </span>
+              <span class="bg-amber-500 text-white text-[10px] font-black px-2 py-1 rounded-lg shadow-xs flex items-center gap-0.5">
+                <i data-lucide="star" class="w-3 h-3 text-white fill-white"></i>
+                <span>${c.rating}</span>
+              </span>
             </div>
 
-            <!-- Bottom of Image: Name & Location -->
-            <div class="absolute bottom-3 left-3 right-3 text-white">
-              <span class="text-[10px] font-bold text-[#DFB15B] uppercase tracking-wider block">${c.nirfRank || c.accreditation}</span>
-              <h3 class="text-base font-extrabold leading-tight text-white drop-shadow-sm">${c.name}</h3>
+            <!-- Floating Highest Package Badge -->
+            <div class="absolute top-11 right-3 z-10">
+              <span class="bg-white/95 backdrop-blur-md text-[#082A50] font-black text-[10px] px-2 py-0.5 rounded-md shadow-xs border border-slate-200">
+                Max ${c.highestPackage}
+              </span>
+            </div>
+
+            <!-- Bottom of Image: Title, Location & NIRF -->
+            <div class="absolute bottom-3 left-3 right-3 text-white z-10">
+              <span class="text-[10px] font-bold text-[#DFB15B] uppercase tracking-wider block truncate">${c.nirfRank || c.accreditation}</span>
+              <h3 class="text-base font-black leading-tight text-white drop-shadow-sm line-clamp-1">${c.name}</h3>
               <div class="flex items-center gap-1 text-[11px] text-slate-200 mt-0.5">
                 <i data-lucide="map-pin" class="w-3 h-3 text-[#DFB15B] shrink-0"></i>
                 <span class="truncate">${c.location}</span>
@@ -1269,6 +1282,7 @@ function showToast(message, type = "success") {
 
 /**
  * 7. College Details, Courses Catalog & Eligibility Modal
+ * CollegeDekho Reference Experience & High-Accessibility Course Explorer
  */
 export function setupCollegeDetailsModalEvents() {
   const modal = document.getElementById("modal-college-details");
@@ -1281,10 +1295,19 @@ export function setupCollegeDetailsModalEvents() {
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-      closeCollegeDetailsModal();
+    if (e.key === "Escape") {
+      const galleryModal = document.getElementById("modal-campus-gallery");
+      if (galleryModal && !galleryModal.classList.contains("hidden")) {
+        closeCampusGalleryModal();
+        return;
+      }
+      if (!modal.classList.contains("hidden")) {
+        closeCollegeDetailsModal();
+      }
     }
   });
+
+  setupCampusGalleryModalEvents();
 }
 
 export function closeCollegeDetailsModal() {
@@ -1319,7 +1342,7 @@ export function openCollegeDetailsModal(collegeId, searchKeyword = "") {
         fees: cutoff.fees,
         entranceExams: [cutoff.counselingBoard || cutoff.exam],
         streams: [cutoff.courseName],
-        image: "assets/yealth-logo.png",
+        image: `assets/colleges/${cutoff.collegeId}.jpg`,
         highlights: [cutoff.highlights, cutoff.counselingBoard],
         description: `${cutoff.collegeName} is recognized for top-tier academic excellence in ${cutoff.courseName}, featuring accredited faculty, state-of-the-art labs, and strong placement records.`,
         courses: [{
@@ -1380,7 +1403,6 @@ function getFilteredCollegeCourses(college) {
       const matchExam = (course.entranceExam || "").toLowerCase().includes(q);
       const matchElig = (course.eligibility || "").toLowerCase().includes(q);
       if (!matchName && !matchSpecialization && !matchExam && !matchElig) {
-        // Also check if key words match
         const words = q.split(/[\s,&/()\-]+/).filter(w => w.length > 2 && !["the", "and", "for", "with"].includes(w));
         const hasWordMatch = words.some(w => 
           (course.name || "").toLowerCase().includes(w) ||
@@ -1393,7 +1415,6 @@ function getFilteredCollegeCourses(college) {
     return true;
   });
 
-  // Safe fallback: If strict filter yields 0 matches, show all college courses so the student never sees an empty screen
   if (filtered.length === 0 && allCourses.length > 0) {
     return allCourses;
   }
@@ -1406,154 +1427,302 @@ function renderCollegeModalContent(college) {
 
   const isGovt = college.type === "Government";
   const coursesCount = (college.courses || []).length;
+  const inCart = getCart().colleges.some(c => c.id === college.id);
+
+  // CollegeDekho Reference Editorial Overview
+  const streamsText = (college.streams || []).slice(0, 5).join(", ");
+  const examsText = (college.entranceExams || []).join(", ") || "Entrance Examination";
+  const detailedOverview = `${college.shortName || college.name} is one of India's premier ${college.category.toLowerCase()} institutions, established in ${college.established} and located in ${college.location}. Ranked ${college.nirfRank || 'Premier'} nationally, the institution offers ${coursesCount}+ verified degree programs including ${streamsText}. Admissions are governed by national-level merit counseling including ${examsText}. Estimated annual tuition fees start from ${college.fees}, with peak placement packages reaching ${college.highestPackage || '₹40+ LPA'} with top corporate and clinical recruiters.`;
 
   content.innerHTML = `
-    <!-- Modal Header Banner -->
-    <div class="relative bg-[#071A33] text-white p-5 sm:p-6 pb-6 overflow-hidden shrink-0 border-b border-white/10">
-      <!-- Background photo with overlay -->
-      <div class="absolute inset-0 z-0">
-        <img src="${college.image}" alt="${college.name}" class="w-full h-full object-cover opacity-25" />
-        <div class="absolute inset-0 bg-gradient-to-t from-[#071A33] via-[#071A33]/85 to-[#071A33]/60"></div>
+    <!-- Top Micro Bar (Sticky) -->
+    <div class="bg-[#082A50] text-white px-4 sm:px-6 py-2.5 shrink-0 flex items-center justify-between border-b border-[#C59943]/30 z-30 shadow-md">
+      <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
+        <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center p-1 shrink-0 overflow-hidden">
+          <img src="${college.image}" alt="${college.shortName}" class="w-full h-full object-cover rounded-md" onerror="this.src='assets/yealth-logo.png'" />
+        </div>
+        <div class="min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="font-black text-xs sm:text-sm text-white truncate">${college.shortName || college.name}</span>
+            <span class="hidden sm:inline-block text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md ${
+              isGovt ? "bg-emerald-600 text-white" : "bg-[#DFB15B] text-[#071A33]"
+            }">
+              ${isGovt ? "🏛️ Government" : "🏫 Private"}
+            </span>
+          </div>
+          <div class="text-[10px] sm:text-[11px] text-[#DFB15B] font-semibold truncate hidden sm:block">
+            ${college.nirfRank || college.accreditation} • Est. ${college.established}
+          </div>
+        </div>
       </div>
 
-      <div class="relative z-10 flex flex-col justify-between h-full">
-        <!-- Top Controls & Badges -->
-        <div class="flex items-center justify-between gap-3 mb-3">
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="px-2.5 py-1 rounded-md text-[11px] font-black uppercase tracking-wider ${
-              isGovt 
-                ? "bg-emerald-600 text-white shadow-sm" 
-                : "bg-[#082A50] text-[#DFB15B] border border-[#DFB15B]/40 shadow-sm"
-            }">
-              ${isGovt ? "🏛️ Government Institution" : "🏫 Top Private University"}
-            </span>
-            <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-white/15 backdrop-blur-md text-[#DFB15B] border border-white/20">
-              ${college.nirfRank || college.accreditation}
-            </span>
-            <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-black/40 text-amber-300 flex items-center gap-1 border border-white/10">
-              <i data-lucide="star" class="w-3 h-3 text-amber-400 fill-amber-400"></i>
-              ${college.rating} (${college.reviewsCount} reviews)
-            </span>
-          </div>
+      <!-- Quick Action CTAs & Close -->
+      <div class="flex items-center gap-2 shrink-0">
+        <a 
+          href="#modal-courses-section"
+          class="hidden sm:flex items-center gap-1.5 text-xs font-bold text-[#DFB15B] hover:text-white bg-white/10 hover:bg-white/20 py-1.5 px-3 rounded-lg border border-white/20 transition-all">
+          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+          <span>${coursesCount} Courses</span>
+        </a>
 
-          <button 
-            type="button"
-            class="btn-close-college-modal text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-all shrink-0"
-            title="Close modal (Esc)">
-            <i data-lucide="x" class="w-5 h-5"></i>
-          </button>
-        </div>
-
-        <!-- College Name & Campus Details -->
-        <div>
-          <div class="flex items-center gap-1.5 text-xs text-[#DFB15B] font-bold mb-1">
-            <i data-lucide="map-pin" class="w-3.5 h-3.5 shrink-0"></i>
-            <span>${college.location}</span>
-            <span class="text-white/40">•</span>
-            <span>Est. ${college.established}</span>
-          </div>
-          <h2 class="text-xl sm:text-2xl md:text-3xl font-black text-white leading-tight drop-shadow-sm">
-            ${college.name}
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-200 mt-1 max-w-3xl line-clamp-2">
-            ${college.description}
-          </p>
-        </div>
-
-        <!-- Quick Metrics Row -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-4 mt-3 border-t border-white/15 text-xs">
-          <div class="bg-white/10 backdrop-blur-md p-2.5 rounded-xl border border-white/10">
-            <div class="text-[10px] uppercase font-bold text-slate-300">Offered Programs</div>
-            <div class="text-sm font-black text-[#DFB15B] flex items-center gap-1">
-              <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-              ${coursesCount} Verified Courses
-            </div>
-          </div>
-          <div class="bg-white/10 backdrop-blur-md p-2.5 rounded-xl border border-white/10">
-            <div class="text-[10px] uppercase font-bold text-slate-300">Avg Placement</div>
-            <div class="text-sm font-black text-emerald-400 flex items-center gap-1">
-              <i data-lucide="trending-up" class="w-3.5 h-3.5"></i>
-              ${college.avgPackage || 'High ROI'}
-            </div>
-          </div>
-          <div class="bg-white/10 backdrop-blur-md p-2.5 rounded-xl border border-white/10">
-            <div class="text-[10px] uppercase font-bold text-slate-300">Highest Package</div>
-            <div class="text-sm font-black text-white flex items-center gap-1">
-              <i data-lucide="award" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
-              ${college.highestPackage || 'Top Tier'}
-            </div>
-          </div>
-          <div class="bg-white/10 backdrop-blur-md p-2.5 rounded-xl border border-white/10">
-            <div class="text-[10px] uppercase font-bold text-slate-300">Est. Tuition Fee</div>
-            <div class="text-sm font-black text-white truncate">
-              ${college.fees}
-            </div>
-          </div>
-        </div>
+        <button 
+          type="button"
+          class="btn-close-college-modal text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-all flex items-center justify-center cursor-pointer"
+          title="Close modal (Esc)">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
       </div>
     </div>
 
-    <!-- Filter & Search Strip inside Modal -->
-    <div class="bg-slate-50 border-b border-gray-200 p-3 sm:p-4 space-y-2.5 shrink-0">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-2.5">
-        <!-- Search input -->
-        <div class="relative w-full sm:flex-1">
-          <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
-          <input 
-            type="text" 
-            id="modal-courses-search-input" 
-            value="${state.modalCourseSearch}" 
-            placeholder="Search course by name, branch (e.g. CSE, AI, MBBS, MBA, Law, Nursing)..." 
-            class="w-full text-xs sm:text-sm pl-9 pr-8 py-2 rounded-xl border border-gray-300 bg-white focus:border-[#082A50] focus:ring-2 focus:ring-[#082A50]/20 focus:outline-hidden"
-          />
-          ${state.modalCourseSearch ? `
-            <button id="btn-modal-clear-search" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1">
-              <i data-lucide="x" class="w-3.5 h-3.5"></i>
-            </button>
-          ` : ''}
-        </div>
+    <!-- Unified Smooth Scroll Body (NO SQUEEZED NESTED SCROLLING!) -->
+    <div id="modal-college-scroll-body" class="flex-1 overflow-y-auto bg-white">
+      
+      <!-- ================================================================= -->
+      <!-- COLLEGEDEKHO REFERENCE HERO SECTION (Image 2 Replica)             -->
+      <!-- ================================================================= -->
+      <div class="bg-gradient-to-br from-slate-50 via-white to-blue-50/30 p-4 sm:p-6 lg:p-8 border-b border-slate-200">
+        <div class="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-8">
+          
+          <!-- LEFT COLUMN: Profile Info, Badges, Rich Description & Gallery Links -->
+          <div class="flex-1 w-full flex flex-col justify-between">
+            <div>
+              <!-- Logo Emblem & Micro Actions (Info, Heart/Wishlist, Share) -->
+              <div class="flex items-center justify-between gap-3 mb-2">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center p-1.5 overflow-hidden">
+                    <img src="${college.image}" alt="Emblem" class="w-full h-full object-cover rounded-lg" onerror="this.src='assets/yealth-logo.png'" />
+                  </div>
+                  <div>
+                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">Verified Academic Institution</span>
+                    <span class="text-xs font-black text-[#082A50]">${college.accreditation || 'National Accreditation'}</span>
+                  </div>
+                </div>
 
-        <!-- Degree level filter chips -->
-        <div class="flex items-center gap-1.5 w-full sm:w-auto overflow-x-auto no-scrollbar">
-          ${[
-            { id: "all", label: "All Programs" },
-            { id: "UG", label: "UG (Bachelor)" },
-            { id: "PG", label: "PG (Master)" },
-            { id: "Integrated", label: "Integrated" }
-          ].map(tab => {
-            const isActive = state.modalDegreeFilter === tab.id;
-            return `
+                <!-- Interactive Action Icons (Like Image 2!) -->
+                <div class="flex items-center gap-1.5">
+                  <button 
+                    type="button" 
+                    id="btn-college-info-help"
+                    class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-gray-600 flex items-center justify-center transition-colors cursor-pointer"
+                    title="Institution Accreditation & Rank Intelligence">
+                    <i data-lucide="help-circle" class="w-4 h-4"></i>
+                  </button>
+
+                  <button 
+                    type="button" 
+                    id="btn-college-toggle-wishlist"
+                    data-college-id="${college.id}"
+                    class="w-9 h-9 rounded-full ${inCart ? 'bg-rose-50 text-rose-600 border border-rose-200' : 'bg-slate-100 hover:bg-rose-50 text-gray-600 hover:text-rose-600'} flex items-center justify-center transition-all cursor-pointer"
+                    title="${inCart ? 'Remove from Shortlist' : 'Add to Wishlist / Application Bundle'}">
+                    <i data-lucide="heart" class="w-4 h-4 ${inCart ? 'fill-rose-600 text-rose-600' : ''}"></i>
+                  </button>
+
+                  <button 
+                    type="button" 
+                    id="btn-college-share-link"
+                    data-college-name="${college.name}"
+                    data-college-id="${college.id}"
+                    class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-gray-600 flex items-center justify-center transition-colors cursor-pointer"
+                    title="Share / Copy Link">
+                    <i data-lucide="share-2" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- High-Impact Title (Exact Image 2 Format) -->
+              <h2 class="text-xl sm:text-2xl lg:text-3xl font-black text-[#082A50] leading-tight tracking-tight mt-2">
+                ${college.name} (${college.shortName}): Admission 2026, Courses, Fees, Cutoff, Placement, Ranking
+              </h2>
+
+              <!-- Rating Badge (Image 2 Style) -->
+              <div class="flex items-center gap-2 mt-2.5">
+                <div class="inline-flex items-center gap-1.5 bg-amber-500 text-white text-xs font-black px-2.5 py-1 rounded-md shadow-xs">
+                  <span>${college.rating}</span>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-white text-white"></i>
+                </div>
+                <span class="text-xs text-gray-600 font-bold">(${college.reviewsCount} Verified Reviews)</span>
+              </div>
+
+              <!-- Rich Editorial Description Paragraph (Image 2 Style) -->
+              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed font-medium mt-3.5">
+                ${detailedOverview}
+              </p>
+            </div>
+
+            <!-- Bottom Row: Location Badge & Campus Gallery Preview -->
+            <div class="flex flex-wrap items-center gap-3 pt-4 mt-4 border-t border-slate-200/80">
+              <!-- Location Link -->
+              <a 
+                href="https://maps.google.com/?q=${encodeURIComponent(college.name + ' ' + college.location)}" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs font-bold text-[#082A50] bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg border border-slate-200 transition-colors"
+                title="View Campus on Google Maps">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#C59943]"></i>
+                <span>${college.location}</span>
+              </a>
+
+              <!-- Gallery Avatar Preview Button (Like Image 2!) -->
               <button 
                 type="button" 
-                data-degree="${tab.id}" 
-                class="modal-degree-chip px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all border ${
-                  isActive 
-                    ? "bg-[#082A50] text-[#DFB15B] border-[#082A50] shadow-xs" 
-                    : "bg-white text-gray-700 hover:bg-slate-100 border-gray-300"
-                }">
-                ${tab.label}
+                class="btn-open-campus-gallery inline-flex items-center gap-2 text-xs font-extrabold text-[#082A50] hover:text-[#051C36] group bg-amber-50 hover:bg-amber-100 px-3 py-1.5 rounded-lg border border-amber-300 transition-all cursor-pointer"
+                data-college-id="${college.id}"
+                title="View Real Campus Photos & Infrastructure">
+                <div class="avatar-stack-container">
+                  <img src="${college.image}" class="avatar-stack-item" alt="Campus Photo 1" onerror="this.src='assets/yealth-logo.png'" />
+                  <img src="${college.image}" class="avatar-stack-item opacity-90" alt="Campus Photo 2" onerror="this.src='assets/yealth-logo.png'" />
+                  <img src="${college.image}" class="avatar-stack-item opacity-80" alt="Campus Photo 3" onerror="this.src='assets/yealth-logo.png'" />
+                </div>
+                <span class="underline underline-offset-2">Campus Gallery (8+ Photos)</span>
+                <i data-lucide="external-link" class="w-3 h-3 text-[#C59943] group-hover:translate-x-0.5 transition-transform"></i>
               </button>
-            `;
-          }).join("")}
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Real Campus Photo with Curved Cutout, Play Button & 4 Floating Badges -->
+          <div class="w-full lg:w-[440px] xl:w-[480px] shrink-0">
+            <div class="collegedekho-curve-frame relative aspect-4/3 w-full overflow-hidden bg-slate-900 group shadow-xl">
+              <!-- Genuine Real Campus Photo -->
+              <img 
+                src="${college.image}" 
+                alt="${college.name} Real Campus" 
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                onerror="this.src='assets/yealth-logo.png'"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none"></div>
+
+              <!-- Interactive Video Tour Play Button (Image 2 Style) -->
+              <button 
+                type="button"
+                class="btn-play-campus-tour collegedekho-play-btn absolute inset-0 m-auto w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-[#082A50] group-hover:scale-110 transition-transform shadow-2xl cursor-pointer"
+                data-college-id="${college.id}"
+                title="Explore Campus Virtual Video Tour">
+                <i data-lucide="play" class="w-6 h-6 sm:w-7 sm:h-7 fill-[#082A50] text-[#082A50] ml-1"></i>
+              </button>
+
+              <!-- 4 FLOATING STAT BADGES OVER PHOTO (Image 2 Replica) -->
+              <!-- 1. Top-Left: NIRF Rank -->
+              <div class="collegedekho-stat-badge absolute top-3 left-3 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl text-left pointer-events-auto">
+                <div class="text-[9px] uppercase font-bold text-gray-500 leading-none">NIRF Rank</div>
+                <div class="text-xs sm:text-sm font-black text-[#082A50] leading-tight mt-0.5">${college.nirfRank || 'Top Ranked'}</div>
+              </div>
+
+              <!-- 2. Top-Right: Year of Establishment -->
+              <div class="collegedekho-stat-badge absolute top-3 right-3 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl text-right pointer-events-auto">
+                <div class="text-[9px] uppercase font-bold text-gray-500 leading-none">Established</div>
+                <div class="text-xs sm:text-sm font-black text-[#082A50] leading-tight mt-0.5">${college.established}</div>
+              </div>
+
+              <!-- 3. Bottom-Left: Highest Package -->
+              <div class="collegedekho-stat-badge absolute bottom-3 left-3 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl text-left pointer-events-auto">
+                <div class="text-[9px] uppercase font-bold text-gray-500 leading-none">Highest Package</div>
+                <div class="text-xs sm:text-sm font-black text-[#082A50] leading-tight mt-0.5">${college.highestPackage || 'Top Tier'}</div>
+              </div>
+
+              <!-- 4. Bottom-Right: Institution Type -->
+              <div class="collegedekho-stat-badge absolute bottom-3 right-3 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl text-right pointer-events-auto">
+                <div class="text-[9px] uppercase font-bold text-gray-500 leading-none">Type</div>
+                <div class="text-xs sm:text-sm font-black ${isGovt ? 'text-emerald-700' : 'text-[#082A50]'} leading-tight mt-0.5">${college.type}</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <!-- Result Counter strip -->
-      <div id="modal-courses-counter-bar" class="flex items-center justify-between text-xs text-gray-600">
-        <!-- Dynamically rendered -->
+      <!-- ================================================================= -->
+      <!-- SECTION 2: STICKY SEARCH & FILTER STRIP                           -->
+      <!-- ================================================================= -->
+      <div id="modal-courses-section" class="sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b border-gray-200 px-4 sm:px-6 py-3.5 space-y-2.5 shadow-xs">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-2.5">
+          <!-- Search input -->
+          <div class="relative w-full sm:flex-1">
+            <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input 
+              type="text" 
+              id="modal-courses-search-input" 
+              value="${state.modalCourseSearch}" 
+              placeholder="Search course by name or branch (e.g. CSE, AI, MBBS, MBA, Law, B.Tech, Nursing)..." 
+              class="w-full text-xs sm:text-sm pl-10 pr-9 py-2.5 rounded-xl border border-gray-300 bg-slate-50/50 focus:bg-white focus:border-[#082A50] focus:ring-2 focus:ring-[#082A50]/20 focus:outline-hidden transition-all"
+            />
+            ${state.modalCourseSearch ? `
+              <button id="btn-modal-clear-search" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1 cursor-pointer">
+                <i data-lucide="x" class="w-3.5 h-3.5"></i>
+              </button>
+            ` : ''}
+          </div>
+
+          <!-- Degree level filter chips -->
+          <div class="flex items-center gap-1.5 w-full sm:w-auto overflow-x-auto no-scrollbar">
+            ${[
+              { id: "all", label: "All Programs" },
+              { id: "UG", label: "UG (Bachelor)" },
+              { id: "PG", label: "PG (Master)" },
+              { id: "Integrated", label: "Integrated / Special" }
+            ].map(tab => {
+              const isActive = state.modalDegreeFilter === tab.id;
+              return `
+                <button 
+                  type="button" 
+                  data-degree="${tab.id}" 
+                  class="modal-degree-chip px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all border cursor-pointer ${
+                    isActive 
+                      ? "bg-[#082A50] text-[#DFB15B] border-[#082A50] shadow-xs" 
+                      : "bg-white text-gray-700 hover:bg-slate-100 border-gray-300"
+                  }">
+                  ${tab.label}
+                </button>
+              `;
+            }).join("")}
+          </div>
+        </div>
+
+        <!-- Result Counter strip -->
+        <div id="modal-courses-counter-bar" class="flex items-center justify-between text-xs text-gray-600">
+          <!-- Dynamically populated -->
+        </div>
       </div>
+
+      <!-- ================================================================= -->
+      <!-- SECTION 3: SPACIOUS COURSE CARDS CONTAINER                        -->
+      <!-- No nested scrolling trap - flows naturally with full height!      -->
+      <!-- ================================================================= -->
+      <div id="modal-courses-cards-container" class="p-4 sm:p-6 lg:p-8 space-y-6 bg-slate-50/60">
+        <!-- Dynamically rendered by renderCollegeModalCoursesList() -->
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- SECTION 4: NEARBY STUDENT LIVING & HOSTELS TEASER                  -->
+      <!-- ================================================================= -->
+      <div class="p-4 sm:p-6 lg:p-8 pt-0 bg-slate-50/60">
+        <div class="bg-gradient-to-r from-[#082A50] via-[#0b3562] to-[#082A50] rounded-2xl p-5 sm:p-6 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-md">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-xl bg-[#DFB15B]/20 border border-[#DFB15B]/30 flex items-center justify-center shrink-0">
+              <i data-lucide="building" class="w-6 h-6 text-[#DFB15B]"></i>
+            </div>
+            <div>
+              <h4 class="text-base font-black text-white">Looking for Verified Hostels near ${college.shortName || college.name}?</h4>
+              <p class="text-xs text-slate-200 mt-0.5">Explore 100% verified student PGs and hostels within 1-3 km of campus with zero brokerage.</p>
+            </div>
+          </div>
+          <a 
+            href="hostels.html?college=${college.id}" 
+            class="whitespace-nowrap bg-gradient-to-r from-[#DFB15B] to-[#C59943] hover:from-[#C59943] hover:to-[#B08535] text-[#071A33] font-black text-xs sm:text-sm py-2.5 px-4 rounded-xl shadow-md flex items-center gap-1.5 transition-all">
+            <span>Explore Campus Hostels</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Scrollable Course Cards Container -->
-    <div id="modal-courses-cards-container" class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
-      <!-- Dynamically rendered by renderCollegeModalCoursesList() -->
-    </div>
-
-    <!-- Modal Footer Actions Bar -->
-    <div class="bg-white border-t border-gray-200 p-3 sm:p-4 shrink-0 flex flex-wrap items-center justify-between gap-3 shadow-lg">
-      <div class="flex items-center gap-2 text-xs text-gray-500">
-        <span class="w-2 h-2 rounded-full bg-[#1AB64F] animate-pulse"></span>
-        <span>Admissions Open for Session 2026-27 • Zero Brokerage Assistance</span>
+    <!-- Modal Footer Actions Bar (Fixed at bottom of modal) -->
+    <div class="bg-white border-t border-gray-200 p-3 sm:p-4 shrink-0 flex flex-wrap items-center justify-between gap-3 shadow-lg z-30">
+      <div class="flex items-center gap-2 text-xs text-gray-600">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#1AB64F] animate-pulse"></span>
+        <span class="font-bold text-gray-700">Admissions Open 2026-27</span>
+        <span class="hidden sm:inline text-gray-400">•</span>
+        <span class="hidden sm:inline">100% Free Counseling & Zero Brokerage</span>
       </div>
 
       <div class="flex items-center gap-2 w-full sm:w-auto">
@@ -1561,7 +1730,7 @@ function renderCollegeModalContent(college) {
           href="hostels.html?college=${college.id}"
           class="flex-1 sm:flex-initial bg-amber-50 hover:bg-amber-100 text-[#082A50] border border-amber-300 font-extrabold text-xs py-2.5 px-3.5 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-xs">
           <i data-lucide="building" class="w-3.5 h-3.5 text-[#C59943]"></i>
-          <span>View Hostels Near Campus</span>
+          <span>Campus Hostels</span>
         </a>
 
         <a 
@@ -1569,12 +1738,12 @@ function renderCollegeModalContent(college) {
           target="_blank"
           class="flex-1 sm:flex-initial bg-[#1AB64F] hover:bg-[#159c42] text-white font-extrabold text-xs py-2.5 px-3.5 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm">
           <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
-          <span>Chat with College Advisor</span>
+          <span>Chat with Advisor</span>
         </a>
 
         <button 
           type="button" 
-          class="btn-close-college-modal bg-slate-100 hover:bg-slate-200 text-gray-700 font-bold text-xs py-2.5 px-3.5 rounded-xl border border-slate-300 transition-all">
+          class="btn-close-college-modal bg-slate-100 hover:bg-slate-200 text-gray-700 font-bold text-xs py-2.5 px-4 rounded-xl border border-slate-300 transition-all cursor-pointer">
           Close
         </button>
       </div>
@@ -1601,13 +1770,59 @@ function renderCollegeModalContent(college) {
       state.modalDegreeFilter = chip.dataset.degree;
       content.querySelectorAll(".modal-degree-chip").forEach(c => {
         const isActive = c.dataset.degree === state.modalDegreeFilter;
-        c.className = `modal-degree-chip px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all border ${
+        c.className = `modal-degree-chip px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all border cursor-pointer ${
           isActive 
             ? "bg-[#082A50] text-[#DFB15B] border-[#082A50] shadow-xs" 
             : "bg-white text-gray-700 hover:bg-slate-100 border-gray-300"
         }`;
       });
       renderCollegeModalCoursesList(college);
+    });
+  });
+
+  // Action Icons listeners (Wishlist, Share, Info)
+  const wishlistBtn = content.querySelector("#btn-college-toggle-wishlist");
+  if (wishlistBtn) {
+    wishlistBtn.addEventListener("click", () => {
+      const isAlreadyIn = getCart().colleges.some(c => c.id === college.id);
+      if (isAlreadyIn) {
+        removeFromCart(college.id, "college");
+        showToast(`Removed ${college.shortName || college.name} from bundle`, "info");
+        wishlistBtn.className = "w-9 h-9 rounded-full bg-slate-100 hover:bg-rose-50 text-gray-600 hover:text-rose-600 flex items-center justify-center transition-all cursor-pointer";
+        wishlistBtn.innerHTML = '<i data-lucide="heart" class="w-4 h-4"></i>';
+      } else {
+        addToCart(college, "college");
+        showToast(`Added ${college.shortName || college.name} to application bundle!`, "success");
+        wishlistBtn.className = "w-9 h-9 rounded-full bg-rose-50 text-rose-600 border border-rose-200 flex items-center justify-center transition-all cursor-pointer";
+        wishlistBtn.innerHTML = '<i data-lucide="heart" class="w-4 h-4 fill-rose-600 text-rose-600"></i>';
+      }
+      lucide.createIcons();
+      renderColleges();
+    });
+  }
+
+  content.querySelector("#btn-college-share-link")?.addEventListener("click", (e) => {
+    const colId = college.id;
+    const shareUrl = `${window.location.origin}${window.location.pathname}?college=${colId}`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        showToast("College profile link copied to clipboard!", "success");
+      }).catch(() => {
+        showToast(`Share link: ${shareUrl}`, "info");
+      });
+    } else {
+      showToast(`Share link: ${shareUrl}`, "info");
+    }
+  });
+
+  content.querySelector("#btn-college-info-help")?.addEventListener("click", () => {
+    showToast(`${college.name}: Officially accredited with ${college.nirfRank || 'recognized national rating'}. Est. ${college.established}.`, "info");
+  });
+
+  // Gallery Open Events (Avatars + Play button)
+  content.querySelectorAll(".btn-open-campus-gallery, .btn-play-campus-tour").forEach(btn => {
+    btn.addEventListener("click", () => {
+      openCampusGalleryModal(college.id);
     });
   });
 
@@ -1631,11 +1846,11 @@ function renderCollegeModalCoursesList(college) {
 
   if (counterBar) {
     counterBar.innerHTML = `
-      <span>
-        Showing <strong class="text-[#082A50] font-black">${courses.length}</strong> of ${totalCourses} course${totalCourses === 1 ? '' : 's'} offered by <strong>${college.shortName || college.name}</strong>
+      <span class="text-xs text-gray-600">
+        Showing <strong class="text-[#082A50] font-black text-sm">${courses.length}</strong> of ${totalCourses} course${totalCourses === 1 ? '' : 's'} offered by <strong>${college.shortName || college.name}</strong>
       </span>
       ${(state.modalCourseSearch || state.modalDegreeFilter !== 'all') ? `
-        <button id="btn-reset-course-search" class="text-xs text-red-600 hover:text-red-700 underline font-bold">
+        <button id="btn-reset-course-search" class="text-xs text-rose-600 hover:text-rose-700 underline font-bold cursor-pointer">
           Reset Filter
         </button>
       ` : ''}
@@ -1648,7 +1863,7 @@ function renderCollegeModalCoursesList(college) {
       if (input) input.value = "";
       document.querySelectorAll(".modal-degree-chip").forEach(c => {
         const isActive = c.dataset.degree === "all";
-        c.className = `modal-degree-chip px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all border ${
+        c.className = `modal-degree-chip px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all border cursor-pointer ${
           isActive 
             ? "bg-[#082A50] text-[#DFB15B] border-[#082A50] shadow-xs" 
             : "bg-white text-gray-700 hover:bg-slate-100 border-gray-300"
@@ -1660,13 +1875,13 @@ function renderCollegeModalCoursesList(college) {
 
   if (courses.length === 0) {
     container.innerHTML = `
-      <div class="py-12 text-center bg-slate-50 rounded-2xl border border-dashed border-gray-300 p-8">
-        <div class="w-12 h-12 rounded-full bg-slate-200 text-gray-400 flex items-center justify-center mx-auto mb-3">
+      <div class="py-12 text-center bg-white rounded-2xl border-2 border-dashed border-gray-300 p-8">
+        <div class="w-12 h-12 rounded-full bg-slate-100 text-gray-400 flex items-center justify-center mx-auto mb-3">
           <i data-lucide="book-x" class="w-6 h-6"></i>
         </div>
         <h4 class="text-sm font-bold text-gray-800 mb-1">No Courses Match Your Search</h4>
-        <p class="text-xs text-gray-500 max-w-sm mx-auto mb-4">Try adjusting your keyword or reset filters to see all available degree programs.</p>
-        <button id="btn-empty-reset-courses" class="bg-[#082A50] text-white text-xs font-bold py-2 px-4 rounded-xl">
+        <p class="text-xs text-gray-500 max-w-sm mx-auto mb-4">Try adjusting your keyword or reset filters to explore all available verified programs.</p>
+        <button id="btn-empty-reset-courses" class="bg-[#082A50] text-white text-xs font-bold py-2.5 px-4 rounded-xl cursor-pointer shadow-sm">
           View All ${totalCourses} Programs
         </button>
       </div>
@@ -1688,71 +1903,71 @@ function renderCollegeModalCoursesList(college) {
     const isShortlisted = cart.colleges.some(c => c.id === college.id && c.selectedCourse === course.name);
 
     return `
-      <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-[#082A50] transition-all p-4 sm:p-5 shadow-xs hover:shadow-md space-y-3.5">
+      <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-[#082A50] transition-all p-5 sm:p-6 shadow-sm hover:shadow-md space-y-4">
         <!-- Course Header -->
-        <div class="flex flex-wrap items-start justify-between gap-3 border-b border-slate-100 pb-3">
+        <div class="flex flex-col md:flex-row md:items-start justify-between gap-3 border-b border-slate-100 pb-4">
           <div class="flex-1 min-w-[240px]">
-            <div class="flex items-center gap-2 flex-wrap mb-1.5">
-              <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#082A50] text-[#DFB15B]">
+            <div class="flex items-center gap-2 flex-wrap mb-2">
+              <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#082A50] text-[#DFB15B] shadow-xs">
                 ${course.degree || 'Degree Program'}
               </span>
-              <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-1">
+              <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-1">
                 <i data-lucide="clock" class="w-3 h-3 text-emerald-600"></i>
                 <span>${course.duration}</span>
               </span>
               ${course.seats ? `
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-blue-50 text-blue-800 border border-blue-200 flex items-center gap-1">
+                <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-blue-50 text-blue-800 border border-blue-200 flex items-center gap-1">
                   <i data-lucide="users" class="w-3 h-3 text-blue-600"></i>
                   <span>${course.seats}</span>
                 </span>
               ` : ''}
               ${course.mode ? `
-                <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 border border-slate-200">
+                <span class="text-[10px] font-semibold px-2 py-1 rounded-md bg-slate-100 text-slate-600 border border-slate-200">
                   ${course.mode}
                 </span>
               ` : ''}
             </div>
 
-            <h4 class="text-base sm:text-lg font-black text-gray-900 leading-snug">
+            <h4 class="text-base sm:text-lg lg:text-xl font-black text-gray-900 leading-snug">
               ${course.name}
             </h4>
           </div>
 
           <!-- Fees Callout Box -->
-          <div class="bg-amber-50/90 border border-amber-300 rounded-xl p-2.5 sm:px-3.5 text-right sm:text-right shrink-0">
-            <div class="text-[10px] font-bold uppercase tracking-wide text-[#A47B2E]">Tuition Fee</div>
-            <div class="text-sm sm:text-base font-black text-[#082A50] whitespace-nowrap">${course.fees}</div>
-            ${course.feeBreakdown ? `<div class="text-[10px] text-gray-500 mt-0.5 max-w-[220px] truncate" title="${course.feeBreakdown}">${course.feeBreakdown}</div>` : ''}
+          <div class="bg-gradient-to-br from-amber-50 to-amber-100/60 border border-amber-300 rounded-2xl p-3 sm:px-4 text-left md:text-right shrink-0">
+            <div class="text-[10px] font-bold uppercase tracking-wider text-[#A47B2E]">Tuition Fee</div>
+            <div class="text-base sm:text-lg font-black text-[#082A50] whitespace-nowrap">${course.fees}</div>
+            ${course.feeBreakdown ? `<div class="text-[10px] text-gray-600 mt-0.5 max-w-[240px] truncate" title="${course.feeBreakdown}">${course.feeBreakdown}</div>` : ''}
           </div>
         </div>
 
         <!-- 3-Column Specifications Matrix -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs">
           <div>
             <div class="text-[10px] uppercase font-bold text-gray-400">Duration & Semesters</div>
-            <div class="font-extrabold text-[#082A50] mt-0.5">${course.duration}</div>
+            <div class="font-black text-[#082A50] mt-0.5">${course.duration}</div>
           </div>
           <div>
             <div class="text-[10px] uppercase font-bold text-gray-400">Entrance / Selection</div>
-            <div class="font-extrabold text-gray-800 mt-0.5 truncate" title="${course.entranceExam}">${course.entranceExam}</div>
+            <div class="font-black text-gray-800 mt-0.5 truncate" title="${course.entranceExam}">${course.entranceExam}</div>
           </div>
           <div class="col-span-2 sm:col-span-1">
             <div class="text-[10px] uppercase font-bold text-gray-400">Approved Intake</div>
-            <div class="font-extrabold text-[#1AB64F] mt-0.5">${course.seats || 'Merit Counseling'}</div>
+            <div class="font-black text-[#1AB64F] mt-0.5">${course.seats || 'Merit Counseling'}</div>
           </div>
         </div>
 
         <!-- ELIGIBILITY CRITERIA HIGHLIGHT CALLOUT BOX -->
-        <div class="bg-gradient-to-r from-amber-50/80 via-blue-50/40 to-slate-50 border-2 border-amber-300/80 rounded-xl p-3.5 shadow-xs">
+        <div class="bg-gradient-to-r from-amber-50/90 via-blue-50/40 to-slate-50 border-2 border-amber-300/80 rounded-xl p-4 shadow-xs">
           <div class="flex items-center gap-2 mb-1.5">
-            <div class="w-5 h-5 rounded-full bg-[#082A50] text-[#DFB15B] flex items-center justify-center shrink-0 shadow-xs">
+            <div class="w-6 h-6 rounded-full bg-[#082A50] text-[#DFB15B] flex items-center justify-center shrink-0 shadow-xs">
               <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
             </div>
             <span class="text-xs font-black uppercase tracking-wider text-[#082A50]">
               Eligibility Criteria & Admission Requirements:
             </span>
           </div>
-          <p class="text-xs sm:text-sm text-gray-800 leading-relaxed font-medium pl-7">
+          <p class="text-xs sm:text-sm text-gray-800 leading-relaxed font-medium pl-8">
             ${course.eligibility}
           </p>
         </div>
@@ -1760,10 +1975,10 @@ function renderCollegeModalCoursesList(college) {
         <!-- Specializations / Streams if present -->
         ${course.specializations && course.specializations.length > 0 ? `
           <div>
-            <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Curriculum Specializations & Tracks:</div>
-            <div class="flex flex-wrap gap-1">
+            <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Curriculum Tracks & Specializations:</div>
+            <div class="flex flex-wrap gap-1.5">
               ${course.specializations.map(s => `
-                <span class="text-[11px] bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-md font-semibold border border-slate-200">${s}</span>
+                <span class="text-[11px] bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1 rounded-lg font-semibold border border-slate-200 transition-colors">${s}</span>
               `).join("")}
             </div>
           </div>
@@ -1771,25 +1986,25 @@ function renderCollegeModalCoursesList(college) {
 
         <!-- Placement & Career Highlight -->
         ${course.careerScope ? `
-          <div class="flex items-start gap-2 text-xs text-gray-700 bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+          <div class="flex items-start gap-2 text-xs text-gray-700 bg-slate-50 p-3 rounded-xl border border-slate-200">
             <i data-lucide="trending-up" class="w-4 h-4 text-[#1AB64F] shrink-0 mt-0.5"></i>
             <span><strong>Placement & Careers:</strong> ${course.careerScope}</span>
           </div>
         ` : ''}
 
         <!-- Course Action CTAs -->
-        <div class="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2.5">
+        <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
           <button 
             type="button"
             data-course-name="${course.name}"
             data-college-id="${college.id}"
-            class="btn-modal-select-course flex-1 sm:flex-initial py-2.5 px-4 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 transition-all shadow-sm ${
+            class="btn-modal-select-course flex-1 sm:flex-initial py-2.5 px-4 rounded-xl text-xs font-extrabold flex items-center justify-center gap-2 transition-all shadow-sm cursor-pointer ${
               isShortlisted 
                 ? "bg-emerald-600 text-white hover:bg-emerald-700" 
                 : "bg-[#082A50] hover:bg-[#051C36] text-[#DFB15B] hover:text-white"
             }">
             <i data-lucide="${isShortlisted ? 'check-check' : 'plus-circle'}" class="w-4 h-4"></i>
-            <span>${isShortlisted ? "Shortlisted in Bundle" : "Select for Application Bundle"}</span>
+            <span>${isShortlisted ? "Shortlisted in Application Bundle" : "Select for Application Bundle"}</span>
           </button>
 
           <a 
@@ -1825,6 +2040,120 @@ function renderCollegeModalCoursesList(college) {
   });
 
   lucide.createIcons();
+}
+
+/**
+ * Campus Photo Gallery Lightbox Viewer
+ */
+export function openCampusGalleryModal(collegeId) {
+  const college = COLLEGES.find(c => c.id === collegeId) || RANK_CUTOFFS.find(r => r.collegeId === collegeId);
+  if (!college) return;
+
+  const modal = document.getElementById("modal-campus-gallery");
+  const content = document.getElementById("modal-campus-gallery-content");
+  if (!modal || !content) return;
+
+  const collegeImg = college.image || `assets/colleges/${college.id}.jpg`;
+  const images = [
+    { url: collegeImg, title: `Iconic Main Campus Architecture & Entrance - ${college.shortName || college.name}` },
+    { url: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80", title: "Central Library & Digital Academic Research Commons" },
+    { url: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80", title: "Smart Amphitheatre Lecture Halls & High-Tech Classrooms" },
+    { url: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80", title: "Student Living, Hostels & Recreational Sports Facilities" }
+  ];
+
+  state.galleryActiveIndex = 0;
+
+  function renderGalleryView() {
+    const active = images[state.galleryActiveIndex] || images[0];
+    content.innerHTML = `
+      <!-- Gallery Header -->
+      <div class="p-4 sm:p-5 flex items-center justify-between border-b border-white/10 bg-slate-900 shrink-0">
+        <div>
+          <div class="text-[10px] font-bold uppercase tracking-wider text-[#DFB15B]">Verified Campus Infrastructure</div>
+          <h3 class="text-base sm:text-lg font-black text-white">${college.shortName || college.name} Campus Photography</h3>
+        </div>
+        <button type="button" class="btn-close-gallery-modal text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors cursor-pointer">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Main Photo Viewport -->
+      <div class="relative bg-black flex-1 flex items-center justify-center min-h-[300px] sm:min-h-[440px] max-h-[62vh] overflow-hidden">
+        <img src="${active.url}" alt="${active.title}" class="max-w-full max-h-full object-contain transition-all duration-300" onerror="this.src='assets/yealth-logo.png'" />
+        
+        <!-- Left / Right arrows -->
+        <button type="button" id="btn-gallery-prev" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer">
+          <i data-lucide="chevron-left" class="w-6 h-6"></i>
+        </button>
+        <button type="button" id="btn-gallery-next" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer">
+          <i data-lucide="chevron-right" class="w-6 h-6"></i>
+        </button>
+
+        <!-- Caption Strip -->
+        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-3 sm:p-4 text-center">
+          <p class="text-xs sm:text-sm font-bold text-white drop-shadow-sm">${active.title}</p>
+          <p class="text-[11px] text-gray-300">Photo ${state.galleryActiveIndex + 1} of ${images.length}</p>
+        </div>
+      </div>
+
+      <!-- Thumbnail Strip & CTAs -->
+      <div class="p-3 sm:p-4 bg-slate-900 border-t border-white/10 shrink-0 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-2 overflow-x-auto">
+          ${images.map((img, idx) => `
+            <button type="button" class="btn-gallery-thumb w-14 h-11 rounded-lg overflow-hidden border-2 transition-all cursor-pointer ${idx === state.galleryActiveIndex ? 'border-[#DFB15B] scale-105' : 'border-white/20 opacity-60 hover:opacity-100'}" data-index="${idx}">
+              <img src="${img.url}" class="w-full h-full object-cover" onerror="this.src='assets/yealth-logo.png'" />
+            </button>
+          `).join("")}
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="hostels.html?college=${college.id}" class="text-xs font-bold bg-amber-50 hover:bg-amber-100 text-[#082A50] border border-amber-300 py-2 px-3 rounded-xl flex items-center gap-1.5 transition-all">
+            <i data-lucide="building" class="w-3.5 h-3.5 text-[#C59943]"></i>
+            <span>Hostels Near Campus</span>
+          </a>
+          <button type="button" class="btn-close-gallery-modal text-xs font-bold bg-white/10 hover:bg-white/20 text-white py-2 px-3.5 rounded-xl border border-white/20 transition-all cursor-pointer">
+            Done
+          </button>
+        </div>
+      </div>
+    `;
+
+    lucide.createIcons();
+
+    content.querySelectorAll(".btn-close-gallery-modal").forEach(b => b.addEventListener("click", closeCampusGalleryModal));
+    content.querySelector("#btn-gallery-prev")?.addEventListener("click", () => {
+      state.galleryActiveIndex = (state.galleryActiveIndex - 1 + images.length) % images.length;
+      renderGalleryView();
+    });
+    content.querySelector("#btn-gallery-next")?.addEventListener("click", () => {
+      state.galleryActiveIndex = (state.galleryActiveIndex + 1) % images.length;
+      renderGalleryView();
+    });
+    content.querySelectorAll(".btn-gallery-thumb").forEach(tb => {
+      tb.addEventListener("click", () => {
+        state.galleryActiveIndex = parseInt(tb.dataset.index, 10);
+        renderGalleryView();
+      });
+    });
+  }
+
+  renderGalleryView();
+  modal.classList.remove("hidden");
+}
+
+export function closeCampusGalleryModal() {
+  const modal = document.getElementById("modal-campus-gallery");
+  if (modal) modal.classList.add("hidden");
+}
+
+export function setupCampusGalleryModalEvents() {
+  const modal = document.getElementById("modal-campus-gallery");
+  if (!modal) return;
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal || e.target.closest(".btn-close-gallery-modal")) {
+      closeCampusGalleryModal();
+    }
+  });
 }
 
 /**
@@ -2445,4 +2774,4 @@ function renderRankResultsCards() {
   lucide.createIcons();
 }
 
-
+

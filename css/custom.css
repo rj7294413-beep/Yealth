@@ -157,3 +157,52 @@ footer a:hover {
 footer h4 {
   color: #ffffff;
 }
+
+/* CollegeDekho Reference Layout Styles */
+.collegedekho-curve-frame {
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 16px 38px -10px rgba(8, 42, 80, 0.18), 0 0 0 1px rgba(8, 42, 80, 0.06);
+}
+
+.collegedekho-play-btn {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.collegedekho-play-btn:hover {
+  transform: scale(1.1);
+  background: #ffffff;
+}
+
+.collegedekho-stat-badge {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 6px 16px -2px rgba(8, 42, 80, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.collegedekho-stat-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px -3px rgba(8, 42, 80, 0.18);
+}
+
+/* Gallery Avatar Stack */
+.avatar-stack-container {
+  display: inline-flex;
+  align-items: center;
+}
+.avatar-stack-item {
+  width: 26px;
+  height: 26px;
+  border-radius: 9999px;
+  border: 2px solid #ffffff;
+  object-fit: cover;
+  margin-left: -8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.avatar-stack-item:first-child {
+  margin-left: 0;
+}
+

@@ -21,7 +21,7 @@ export const COLLEGES = [
     fees: "₹2.2 Lakhs / yr",
     entranceExams: ["JEE Advanced", "GATE", "CEED"],
     streams: ["Computer Science", "Electrical Engineering", "Mechanical", "AI & Robotics", "Biotechnology", "Industrial Design"],
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-gov-01.jpg",
     highlights: ["100% Placement Record", "Global Research Labs", "World-class Incubation Centre"],
     description: "Ranked among India's most prestigious technology institutes, renowned for supreme faculty, cutting-edge research, and top global recruiter networks.",
     courses: [
@@ -116,7 +116,7 @@ export const COLLEGES = [
     fees: "₹1,628 / yr (Govt Subsidized)",
     entranceExams: ["NEET UG", "INI CET"],
     streams: ["MBBS", "B.Sc Nursing", "MD / MS", "M.Ch Super Speciality", "Paramedical Sciences"],
-    image: "https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-gov-02.jpg",
     highlights: ["Super-specialty Hospital", "Subsidized Education", "Global Clinical Rotations"],
     description: "The crown jewel of Indian healthcare education offering unparalleled hands-on clinical exposure, subsidized tuition, and premier healthcare facilities.",
     courses: [
@@ -183,7 +183,7 @@ export const COLLEGES = [
     fees: "₹32,000 / yr",
     entranceExams: ["CUET UG"],
     streams: ["B.Com (Hons)", "BA (Hons) Economics", "PGD Global Business Ops", "Finance & Analytics"],
-    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-gov-03.jpg",
     highlights: ["Top Investment Banking Recruits", "Century of Alumni Network", "DU North Campus Hub"],
     description: "India's premier commerce institution feeding top global financial institutions, consulting firms, and premier MBA schools worldwide.",
     courses: [
@@ -250,7 +250,7 @@ export const COLLEGES = [
     fees: "₹1.9 Lakhs / yr",
     entranceExams: ["JEE Main", "JAC Delhi", "CAT"],
     streams: ["Computer Engineering", "IT", "Software Engg", "ECE", "Mathematics & Computing", "MBA Tech"],
-    image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-gov-04.jpg",
     highlights: ["Exceptional Coding Culture", "Sprawling 164-Acre Campus", "Top Tier MNC Recruits"],
     description: "Formerly Delhi College of Engineering, DTU is an engineering powerhouse producing industry leaders, tech founders, and Silicon Valley engineers.",
     courses: [
@@ -317,7 +317,7 @@ export const COLLEGES = [
     fees: "₹1.85 Lakhs / yr",
     entranceExams: ["AILET"],
     streams: ["BA LLB (Hons)", "LLM", "Ph.D in Law", "Corporate & Intellectual Property Law"],
-    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-gov-05.jpg",
     highlights: ["Supreme Court Proximity", "Top Magic Circle Firms", "International Moot Courts"],
     description: "A frontrunner in Indian legal education with state-of-the-art moot courts, supreme court clerkship placements, and corporate law recruiters.",
     courses: [
@@ -374,7 +374,7 @@ export const COLLEGES = [
     fees: "₹1.6 Lakhs / yr",
     entranceExams: ["JEE Main", "CUET", "GUMET"],
     streams: ["B.Tech CSE / AI / Cloud", "BBA / MBA", "BCA", "B.Pharm", "BA LLB / BBA LLB"],
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-01.jpg",
     highlights: ["850+ Recruiter Visits", "52-Acre Modern Smart Campus", "Proximity to Noida IT Hub"],
     description: "One of North India's fastest-growing private universities with modern innovation labs, top corporate tie-ups, and vibrant campus life.",
     courses: [
@@ -455,7 +455,7 @@ export const COLLEGES = [
     fees: "₹1.8 Lakhs - ₹12 Lakhs / yr",
     entranceExams: ["NEET UG", "JEE Main", "SUAT"],
     streams: ["MBBS (Sharda Hospital)", "B.Tech CSE", "B.Arch / Design", "MBA", "B.Sc Nursing"],
-    image: "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-02.jpg",
     highlights: ["900+ Bed Multi-specialty Hospital", "Students from 85+ Countries", "In Knowledge Park Hub"],
     description: "A truly global university located in Knowledge Park 3 featuring a 900+ bed teaching hospital, world-class dental, medical, and engineering colleges.",
     courses: [
@@ -564,7 +564,7 @@ export const COLLEGES = [
     fees: "₹3.6 Lakhs / yr",
     entranceExams: ["JEE Main", "SAT", "CUET"],
     streams: ["B.Tech CSE / AI & ML", "BBA (Fintech & Marketing)", "BA Journalism", "BBA LLB (Hons)"],
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-03.jpg",
     highlights: ["Times Group Media Advantage", "Leading CxO Mentorship", "Silicon Valley Internships"],
     description: "Founded by The Times Group, Bennett University delivers Ivy-League inspired curriculum, high average placement packages, and CXO mentorship.",
     courses: [
@@ -659,7 +659,7 @@ export const COLLEGES = [
     fees: "₹1.45 Lakhs / yr",
     entranceExams: ["JEE Main", "UPTAC"],
     streams: ["B.Tech CSE", "AI & Data Science", "IT & Cybersecurity", "MBA", "MCA"],
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-04.jpg",
     highlights: ["Right at Knowledge Park 2 Metro", "Top AKTU Placement Record", "Over 400+ IT Recruiters"],
     description: "Situated in the heart of Knowledge Park 2, GL Bajaj is renowned for discipline, exceptional placement stats in North India, and tech coding clubs.",
     courses: [
@@ -754,7 +754,7 @@ export const COLLEGES = [
     fees: "₹5.5 Lakhs / yr",
     entranceExams: ["BITSAT"],
     streams: ["B.E. Computer Science", "Electronics & Instrumentation", "Mechanical", "Economics Dual", "MBA Tech"],
-    image: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-05.jpg",
     highlights: ["Zero Attendance Policy", "Practice School Industry Internship", "Billion-Dollar Founder Alumni"],
     description: "Recognized as an Institute of Eminence, BITS Pilani is on par with the top IITs, famous for student autonomy, venture incubators, and dual-degree programs.",
     courses: [
@@ -807,7 +807,7 @@ export const COLLEGES = [
     fees: "₹3.8 Lakhs / yr",
     entranceExams: ["SET", "SNAP", "SLAT", "SEED"],
     streams: ["BBA (SCMS)", "MBA (SIBM Pune)", "BA LLB / BBA LLB (SLAT)", "B.Des (SID Pune)"],
-    image: "https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-06.jpg",
     highlights: ["Vibrant Multicultural Campus", "Leading Law & Business Schools", "Global Alumni Network"],
     description: "One of India's most prestigious deemed universities, celebrated for Symbiosis Law School, SIBM Pune, and world-class management infrastructure.",
     courses: [
@@ -874,7 +874,7 @@ export const COLLEGES = [
     fees: "₹1.98 Lakhs - ₹2.9 Lakhs / yr",
     entranceExams: ["VITEEE", "VILAT"],
     streams: ["B.Tech CSE (Core / AI / Data)", "B.Tech ECE", "BBA / MBA", "B.Des Industrial Design"],
-    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-07.jpg",
     highlights: ["Limca Record for Campus Placements", "ABET US Engineering Accreditation", "Super Dream Offers"],
     description: "Ranked among India's top engineering universities, VIT is legendary for its massive placement seasons with 900+ visiting global companies.",
     courses: [
@@ -927,7 +927,7 @@ export const COLLEGES = [
     fees: "₹3.5 Lakhs - ₹17.8 Lakhs / yr",
     entranceExams: ["NEET UG", "MET (Manipal)"],
     streams: ["MBBS (Kasturba Medical College)", "B.Tech (MIT Manipal)", "B.Pharm", "MBA (TAPMI)"],
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-08.jpg",
     highlights: ["KMC Ranked Top 10 Medical in India", "Sprawling 600-Acre Coastal Campus", "Global USMLE Pathways"],
     description: "MAHE is a premier Institute of Eminence; Kasturba Medical College (KMC) is revered globally for medical research, advanced simulation labs, and clinical brilliance.",
     courses: [
@@ -980,7 +980,7 @@ export const COLLEGES = [
     fees: "₹1.8 Lakhs - ₹3.8 Lakhs / yr",
     entranceExams: ["Amity JEE", "CUET", "Direct Merit"],
     streams: ["BBA / MBA", "B.Tech CSE & AI", "BA LLB / BBA LLB", "Fashion & Interior Design", "Biotech"],
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-09.jpg",
     highlights: ["Ultra-modern 100-Acre Smart Campus", "Global Study Programs (London/NY)", "300+ Hi-Tech Labs"],
     description: "North India's largest private research university, featuring state-of-the-art sports complexes, global immersion programs, and extensive corporate ties.",
     courses: [
@@ -1033,7 +1033,7 @@ export const COLLEGES = [
     fees: "₹3.9 Lakhs / yr",
     entranceExams: ["SNUSAT", "JEE Main"],
     streams: ["B.Tech Computer Science", "B.Tech Mechanical", "BMS (Bachelor of Management)", "Design & Fine Arts"],
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-10.jpg",
     highlights: ["Multidisciplinary Research Focus", "286-Acre Green Campus", "Direct HCL & Global Tech Links"],
     description: "Backed by the Shiv Nadar Foundation (HCL), SNU provides liberal research-intensive education with elite faculty from premier world universities.",
     courses: [
@@ -1086,7 +1086,7 @@ export const COLLEGES = [
     fees: "₹3.8 Lakhs / yr",
     entranceExams: ["JEE Main", "TIET Merit"],
     streams: ["Computer Engineering", "Electronics & Computers", "Mechanical", "LM Thapar MBA"],
-    image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-11.jpg",
     highlights: ["Partnership with Trinity College Dublin", "68 Years of Engineering Excellence", "Silicon Valley Alumni"],
     description: "One of India's oldest private technical institutions, renowned for world-class laboratories, rigorous curriculum, and partnerships with Trinity College Dublin.",
     courses: [
@@ -1139,7 +1139,7 @@ export const COLLEGES = [
     fees: "₹6.0 Lakhs / yr",
     entranceExams: ["LSAT—India", "JSAT", "CLAT"],
     streams: ["BA LLB (Hons)", "BBA LLB (Hons)", "LLM", "Jindal Global Business School (MBA)"],
-    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-12.jpg",
     highlights: ["Ranked #1 Law School in India by QS", "Faculty from Oxford, Harvard & Yale", "World-class Global Moot Courts"],
     description: "An Institute of Eminence internationally celebrated for Jindal Global Law School (JGLS), hosting premier legal scholars and international corporate placements.",
     courses: [
@@ -1192,7 +1192,7 @@ export const COLLEGES = [
     fees: "₹25.0 Lakhs / yr",
     entranceExams: ["NEET UG", "NEET PG"],
     streams: ["MBBS", "MD / MS Super Speciality", "B.Sc Nursing", "Physiotherapy (BPT)"],
-    image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-13.jpg",
     highlights: ["2,000+ Bed Super Specialty Hospital", "Robotic Surgery Training Lab", "NMC Deemed Medical Hub"],
     description: "A premier private medical institution equipped with Asia's largest robotic surgery training suites, high patient footfall, and advanced intensive care units.",
     courses: [
@@ -1245,7 +1245,7 @@ export const COLLEGES = [
     fees: "₹4.2 Lakhs / yr",
     entranceExams: ["SEED (Symbiosis Entrance Exam for Design)"],
     streams: ["B.Des Communication Design", "Industrial Product Design", "Fashion Communication", "User Experience (UX/UI)"],
-    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-14.jpg",
     highlights: ["Leading UX/UI Design Placement", "Industry Prototype Workshops", "Annual National Design Showcase"],
     description: "One of India's premier design schools, preparing students for leadership in Product Design, UI/UX, Animation, and Fashion Communication.",
     courses: [
@@ -1302,7 +1302,7 @@ export const COLLEGES = [
     fees: "₹4,200 / yr (Subsidized)",
     entranceExams: ["NEET UG", "INI CET"],
     streams: ["MBBS", "MD / MS", "M.Ch Super Speciality", "Diploma in Child Health"],
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-gov-06.jpg",
     highlights: ["Associated with Lok Nayak & GB Pant Hospitals", "2,800+ Bed Teaching Hospital", "Top Clinical Case Exposure"],
     description: "One of Asia's most coveted government medical colleges affiliated with the University of Delhi, producing India's top surgical specialists and medical researchers.",
     courses: [
@@ -1341,7 +1341,7 @@ export const COLLEGES = [
     fees: "₹54,000 / yr",
     entranceExams: ["NEET UG", "NEET MDS", "NEET PG"],
     streams: ["MBBS", "BDS", "MD / MS", "DM / M.Ch Super Speciality"],
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-gov-07.jpg",
     highlights: ["4,500+ Bed Multi-Specialty Hospital", "120-Year Heritage of Excellence", "Top Trauma & Organ Transplant Center"],
     description: "Uttar Pradesh's flagship medical university with an immense 4,500+ bed capacity hospital, offering unmatched surgical volume and hands-on patient care.",
     courses: [
@@ -1398,7 +1398,7 @@ export const COLLEGES = [
     fees: "₹1.42 Lakhs / yr",
     entranceExams: ["JEE Main", "UPTAC", "CUET"],
     streams: ["B.Tech CSE / AI / IoT", "B.Tech Data Science", "B.Tech Biotech", "MCA", "MBA"],
-    image: "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-15.jpg",
     highlights: ["First Autonomous Engineering College in Greater Noida", "Right at Knowledge Park 2 Metro", "Apple Authorized Training Centre"],
     description: "An autonomous tech powerhouse in Knowledge Park 2, celebrated for autonomous curriculum agility, Apple and PTC innovation labs, and strong AKTU placements.",
     courses: [
@@ -1465,7 +1465,7 @@ export const COLLEGES = [
     fees: "₹1.4 Lakhs - ₹2.2 Lakhs / yr",
     entranceExams: ["LET", "CLAT", "LSAT", "JEE Main"],
     streams: ["BA LLB (Hons)", "BBA LLB (Hons)", "B.Tech CSE", "B.Pharm", "MBA"],
-    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-16.jpg",
     highlights: ["Proximity to Knowledge Park 2 Metro", "International Legal & Moot Court Ties", "SILF Law Firm Partnerships"],
     description: "A premier institute in Knowledge Park 2 renowned for Lloyd Law College, hosting international mock trials, corporate law apprenticeships, and specialized B.Tech CSE programs.",
     courses: [
@@ -1518,7 +1518,7 @@ export const COLLEGES = [
     fees: "₹2.95 Lakhs / yr",
     entranceExams: ["JEE Main", "JIIT Direct Counseling"],
     streams: ["B.Tech CSE (Sec 62)", "B.Tech CSE (Sec 128)", "B.Tech ECE", "B.Tech IT & Computing", "MBA"],
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-17.jpg",
     highlights: ["Premier Coding Reputation in Delhi-NCR", "Direct Metro Access (Noida Electronic City)", "Tier-1 Tech Company Magnet"],
     description: "Ranked among India's finest deemed universities for Computer Science and IT education, famous for world-class coding culture, competitive programming, and top MNC offers.",
     courses: [
@@ -1585,7 +1585,7 @@ export const COLLEGES = [
     fees: "₹3.2 Lakhs / yr",
     entranceExams: ["SRMJEEE", "JEE Main"],
     streams: ["B.Tech CSE (Cloud / Cyber / AI)", "B.Tech ECE", "BBA", "MBA", "B.Pharm"],
-    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-18.jpg",
     highlights: ["NAAC A++ Highest Accreditation", "Over 1,100 Recruiter Visits", "Proximity to Delhi-Meerut Expressway"],
     description: "A deemed multi-campus university giant offering cutting-edge engineering programs, massive campus placement drives, and state-of-the-art incubation labs.",
     courses: [
@@ -1638,7 +1638,7 @@ export const COLLEGES = [
     fees: "₹3.85 Lakhs / yr",
     entranceExams: ["KIITEE", "JEE Main"],
     streams: ["B.Tech CSE", "B.Tech AI & Machine Learning", "B.Tech Aerospace", "MBA (KSOM)", "BA LLB (KSOL)"],
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-19.jpg",
     highlights: ["Institution of Eminence (IoE)", "100% Academic Placement Record", "Sprawling 25-Square-KM Smart Campus"],
     description: "Recognized as an Institution of Eminence, KIIT is one of Eastern India's largest research universities with 23 lush campuses, sports complexes, and 6,000+ placement offers.",
     courses: [
@@ -1691,7 +1691,7 @@ export const COLLEGES = [
     fees: "₹3.9 Lakhs / yr",
     entranceExams: ["UPESEAT", "JEE Main", "CUET"],
     streams: ["B.Tech CSE (Cloud / Cyber / AI)", "B.Tech Applied Petroleum", "BBA (Oil & Gas)", "BA LLB", "B.Des"],
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-20.jpg",
     highlights: ["Scenic Foothills Campus", "Specialized Energy & Aerospace Curriculum", "Global Exchange Tie-ups"],
     description: "Nestled in the Dehradun valley, UPES is renowned for domain-specific engineering, high-tech energy and cloud computing curriculum, and leading corporate partnerships.",
     courses: [
@@ -1744,7 +1744,7 @@ export const COLLEGES = [
     fees: "₹1.9 Lakhs / yr",
     entranceExams: ["JEE Main", "Chitkara Merit"],
     streams: ["B.Tech CSE (AI & Full Stack)", "B.Tech Robotics", "BBA", "MBA", "B.Des Animation"],
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-21.jpg",
     highlights: ["NAAC A+ Highest Grade", "Apple iOS Development Lab", "600+ MNC Placements Annually"],
     description: "North India's premier multi-disciplinary university offering industry-embedded engineering degrees, Apple and Microsoft developer centers, and high placement return on investment.",
     courses: [
@@ -1797,7 +1797,7 @@ export const COLLEGES = [
     fees: "₹2.6 Lakhs - ₹10.0 Lakhs / yr",
     entranceExams: ["KCET", "COMEDK", "JEE Main (Management)"],
     streams: ["B.E. Computer Science", "B.E. Information Science", "B.E. AI & ML", "B.E. Electronics & Communication"],
-    image: "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-22.jpg",
     highlights: ["Karnataka's #1 Ranked Engineering College", "Highest Private Engineering RoI in South India", "Direct Silicon City Recruiter Links"],
     description: "Located on Mysore Road in Bengaluru, RVCE is celebrated as South India's premier autonomous technical institution with placement figures rivaling top NITs and IITs.",
     courses: [
@@ -1850,7 +1850,7 @@ export const COLLEGES = [
     fees: "₹2.4 Lakhs - ₹9.0 Lakhs / yr",
     entranceExams: ["KCET", "COMEDK", "JEE Main"],
     streams: ["B.E. Computer Science & Engineering", "B.E. Data Science & AI", "B.E. Biotechnology", "MBA"],
-    image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-23.jpg",
     highlights: ["Autonomous Status with Dynamic Curriculum", "Over 350 Global IT Recruiters", "Heart of Bengaluru Location"],
     description: "One of Karnataka's oldest and most prestigious engineering institutions, producing software architects, tech entrepreneurs, and leading biomedical engineers.",
     courses: [
@@ -1903,7 +1903,7 @@ export const COLLEGES = [
     fees: "₹24.0 Lakhs / yr",
     entranceExams: ["NEET UG", "NEET MDS", "NEET PG"],
     streams: ["MBBS (Santosh Hospital)", "BDS (Santosh Dental)", "MD / MS", "B.Sc Nursing"],
-    image: "https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-24.jpg",
     highlights: ["800+ Bed Multi-Specialty Hospital", "15 Minutes from Central Delhi (Connaught Place)", "NABH & NABL Accredited"],
     description: "A premier private medical university located right on the Delhi-UP border, offering an 800+ bed teaching hospital, high patient footfall, and advanced clinical simulation suites.",
     courses: [
@@ -1956,7 +1956,7 @@ export const COLLEGES = [
     fees: "₹11.85 Lakhs / yr (Govt Fixed)",
     entranceExams: ["NEET UG", "NEET PG", "UPTAC"],
     streams: ["MBBS (1000-bed Hospital)", "BDS", "MD / MS", "BPT Physiotherapy", "B.Tech CSE"],
-    image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-25.jpg",
     highlights: ["1,000+ Bed Chhatrapati Shivaji Subharti Hospital", "Delhi-Meerut Rapid Rail (RRTS) Connectivity", "NABH Accredited Tertiary Center"],
     description: "A prestigious 250-acre medical township in Delhi-NCR featuring the 1000-bed Chhatrapati Shivaji Hospital, providing extensive clinical exposure and subsidized patient care.",
     courses: [
@@ -2009,7 +2009,7 @@ export const COLLEGES = [
     fees: "₹16.6 Lakhs / yr",
     entranceExams: ["NEET UG", "NEET PG"],
     streams: ["MBBS (950-bed Hospital)", "MD / MS", "B.Sc Radiography & Medical Tech", "B.Pharm"],
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-26.jpg",
     highlights: ["950+ Bed Multi-Specialty Hospital", "Asia's Advanced Medical Simulation Center", "NABH Accredited Blood Bank & Hospital"],
     description: "A leading private medical college in Lucknow equipped with advanced robotic clinical simulators, high patient OPD footfall, and intensive critical care units.",
     courses: [
@@ -2050,7 +2050,7 @@ export const COLLEGES = [
     fees: "₹1.0 Lakh / yr (₹2.0 Lakhs Total Course Fee)",
     entranceExams: ["CAT"],
     streams: ["MBA (Full-Time)", "Executive MBA", "MBA Healthcare Administration", "Ph.D in Management"],
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-gov-08.jpg",
     highlights: ["Highest ROI in Asia", "100% Top-Tier Placements", "Red Building of Dreams (North Campus)"],
     description: "Affectionately called the 'Red Building of Dreams', FMS Delhi delivers world-renowned management pedagogy with unprecedented ROI, attracting top global investment banks and management consultancies.",
     courses: [
@@ -2105,7 +2105,7 @@ export const COLLEGES = [
     fees: "₹10.5 Lakhs / yr (₹21.0 Lakhs Total Course Fee)",
     entranceExams: ["CAT", "XAT", "GMAT"],
     streams: ["PGDM (Core)", "PGDM Marketing", "PGDM Finance", "PGDM Dual Country (DCP)", "PGDM Banking & FinTech"],
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-27.jpg",
     highlights: ["AACSB Accredited", "India's #1 Marketing B-School", "Global Dual-Country Program (Dubai Campus)"],
     description: "A premier AACSB-accredited business school renowned nationwide for excellence in marketing, supply chain, and banking leadership with a powerful 15,000+ strong corporate alumni network.",
     courses: [
@@ -2160,7 +2160,7 @@ export const COLLEGES = [
     fees: "₹7.0 Lakhs / yr (₹14.0 Lakhs Total Course Fee)",
     entranceExams: ["CAT", "XAT", "CMAT", "MAT"],
     streams: ["PGDM", "PGDM International Business", "PGDM Retail Management", "PGDM Insurance Business Management"],
-    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    image: "assets/colleges/col-pvt-28.jpg",
     highlights: ["Prestigious Birla Legacy", "AACSB Accredited Institution", "100% Placements with Global Immersion"],
     description: "Established under the aegis of the Birla Academy of Art and Culture, BIMTECH is a top AACSB-accredited B-school in Knowledge Park 2 celebrated for ethical leadership and stellar industry connections.",
     courses: [

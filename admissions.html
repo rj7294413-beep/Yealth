@@ -1124,9 +1124,18 @@
   <!-- ========================================================================= -->
   <!-- MODAL: COLLEGE DETAILS, COURSES CATALOG & ELIGIBILITY INTERFACE           -->
   <!-- ========================================================================= -->
-  <div id="modal-college-details" class="modal-container hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
-    <div id="modal-college-details-content" class="modal-content-animated bg-white rounded-3xl max-w-4xl w-full shadow-2xl border border-gray-200 text-left overflow-hidden flex flex-col max-h-[92vh]">
+  <div id="modal-college-details" class="modal-container hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-y-auto">
+    <div id="modal-college-details-content" class="modal-content-animated bg-white rounded-3xl max-w-6xl w-full shadow-2xl border border-slate-200 text-left overflow-hidden flex flex-col max-h-[94vh] relative">
       <!-- Dynamically populated by admissionsApp.js: openCollegeDetailsModal() -->
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: CAMPUS REAL PHOTO GALLERY LIGHTBOX                                 -->
+  <!-- ========================================================================= -->
+  <div id="modal-campus-gallery" class="modal-container hidden fixed inset-0 z-60 modal-backdrop flex items-center justify-center p-2 sm:p-4">
+    <div id="modal-campus-gallery-content" class="modal-content-animated bg-slate-900 rounded-3xl max-w-4xl w-full shadow-2xl border border-white/20 text-left overflow-hidden flex flex-col max-h-[92vh] text-white">
+      <!-- Dynamically populated by admissionsApp.js: openCampusGalleryModal() -->
     </div>
   </div>
 
