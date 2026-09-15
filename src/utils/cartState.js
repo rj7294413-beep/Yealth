@@ -55,14 +55,14 @@ export function addToCart(item, type) {
         addedAt: new Date().toISOString()
       });
       saveCart(cart);
-      return { success: true, message: `${item.shortName || item.name} added to your selection bundle!` };
+      return { success: true, message: `${item.shortName || item.name} added to your wishlist!` };
     } else {
       if (item.selectedCourse) {
         existing.selectedCourse = item.selectedCourse;
         saveCart(cart);
         return { success: true, message: `Updated ${item.shortName || item.name} with course ${item.selectedCourse}!` };
       }
-      return { success: false, message: `${item.shortName || item.name} is already in your selection!` };
+      return { success: false, message: `${item.shortName || item.name} is already in your wishlist!` };
     }
   } else if (type === "hostel") {
     const exists = cart.hostels.some(h => h.id === item.id);
@@ -79,9 +79,9 @@ export function addToCart(item, type) {
         addedAt: new Date().toISOString()
       });
       saveCart(cart);
-      return { success: true, message: `${item.title} added to your living shortlist!` };
+      return { success: true, message: `${item.title} added to your wishlist!` };
     } else {
-      return { success: false, message: `${item.title} is already in your cart!` };
+      return { success: false, message: `${item.title} is already in your wishlist!` };
     }
   }
   return { success: false, message: "Unknown item type" };

@@ -427,21 +427,21 @@ function renderProperties() {
                 </span>
               </div>
 
-              <!-- Dual Action Buttons: Add to Cart + WhatsApp -->
+              <!-- Dual Action Buttons: Add to Wishlist + WhatsApp -->
               <div class="grid grid-cols-2 gap-2 mb-2">
                 <button 
                   data-hostel-id="${property.id}"
-                  class="btn-add-hostel-cart text-xs font-extrabold py-2.5 px-2 rounded-lg flex items-center justify-center gap-1.5 transition-all ${
+                  class="btn-add-hostel-cart text-xs font-extrabold py-2.5 px-2 rounded-lg flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
                     isInCart 
-                      ? "bg-amber-100 text-[#082A50] border border-amber-300"
+                      ? "bg-rose-50 text-rose-600 border border-rose-200"
                       : "bg-[#082A50] hover:bg-[#051C36] text-white"
                   }">
-                  <i data-lucide="${isInCart ? 'check' : 'shopping-bag'}" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
-                  <span>${isInCart ? 'In Cart' : 'Add to Cart'}</span>
+                  <i data-lucide="${isInCart ? 'check' : 'heart'}" class="w-3.5 h-3.5 ${isInCart ? 'text-rose-600' : 'text-[#DFB15B]'}"></i>
+                  <span>${isInCart ? 'In Wishlist' : 'Add to Wishlist'}</span>
                 </button>
                 <button 
                   data-whatsapp-property="${property.title}"
-                  class="btn-whatsapp-inquiry bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs font-bold py-2.5 px-2 rounded-lg flex items-center justify-center gap-1 transition-colors shadow-xs">
+                  class="btn-whatsapp-inquiry bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs font-bold py-2.5 px-2 rounded-lg flex items-center justify-center gap-1 transition-colors shadow-xs cursor-pointer">
                   <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
                   <span>Book Visit</span>
                 </button>
@@ -451,7 +451,7 @@ function renderProperties() {
               <button 
                 data-id="${property.id}"
                 data-tab="photos"
-                class="btn-open-property-details w-full text-center text-xs font-bold text-[#082A50] bg-slate-50 hover:bg-amber-50 py-2 rounded-lg transition-all flex items-center justify-center gap-1.5 border border-slate-200 hover:border-[#C59943]">
+                class="btn-open-property-details w-full text-center text-xs font-bold text-[#082A50] bg-slate-50 hover:bg-amber-50 py-2 rounded-lg transition-all flex items-center justify-center gap-1.5 border border-slate-200 hover:border-[#C59943] cursor-pointer">
                 <i data-lucide="eye" class="w-3.5 h-3.5 text-[#C59943]"></i>
                 <span>View Full Details, Rooms & 360° Tour</span>
                 <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-gray-400"></i>
@@ -477,8 +477,14 @@ function renderProperties() {
       const id = btn.dataset.hostelId;
       const prop = activePropertyList.find(p => p.id === id);
       if (prop) {
-        const res = addToCart(prop, "hostel");
-        showToast(res.message, res.success ? "success" : "info");
+        const inCart = getCart().hostels.some(h => h.id === id);
+        if (inCart) {
+          removeFromCart(id, "hostel");
+          showToast(`Removed ${prop.title} from Wishlist`, "info");
+        } else {
+          const res = addToCart(prop, "hostel");
+          showToast(res.message, res.success ? "success" : "info");
+        }
         renderProperties();
         renderCollegeRecommendations();
       }
@@ -1104,15 +1110,15 @@ export function openPropertyModal(property, defaultTab = "photos") {
       <div class="flex items-center gap-2 w-full sm:w-auto">
         <button 
           id="modal-add-to-cart-btn"
-          class="flex-1 sm:flex-none font-bold text-xs sm:text-sm py-3 px-4 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-xs ${
-            isInCart ? 'bg-amber-100 text-[#082A50] border border-amber-300' : 'bg-[#082A50] hover:bg-[#051C36] text-white'
+          class="flex-1 sm:flex-none font-bold text-xs sm:text-sm py-3 px-4 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer ${
+            isInCart ? 'bg-rose-50 text-rose-600 border border-rose-200' : 'bg-[#082A50] hover:bg-[#051C36] text-white'
           }">
-          <i data-lucide="${isInCart ? 'check' : 'shopping-bag'}" class="w-4 h-4 text-[#DFB15B]"></i>
-          <span>${isInCart ? 'Already in Cart' : 'Add to Cart'}</span>
+          <i data-lucide="${isInCart ? 'check' : 'heart'}" class="w-4 h-4 ${isInCart ? 'text-rose-600' : 'text-[#DFB15B]'}"></i>
+          <span>${isInCart ? 'In Wishlist' : 'Add to Wishlist'}</span>
         </button>
         <button 
           id="modal-book-whatsapp-btn"
-          class="flex-1 sm:flex-none bg-[#1AB64F] hover:bg-[#159c42] text-white py-3 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-xs transition-colors">
+          class="flex-1 sm:flex-none bg-[#1AB64F] hover:bg-[#159c42] text-white py-3 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-xs transition-colors cursor-pointer">
           <i data-lucide="message-circle" class="w-4 h-4"></i>
           <span>Schedule Visit</span>
         </button>
@@ -1172,12 +1178,19 @@ export function openPropertyModal(property, defaultTab = "photos") {
     });
   });
 
-  // Add to cart from modal
+  // Add to wishlist from modal
   document.getElementById("modal-add-to-cart-btn")?.addEventListener("click", () => {
-    const res = addToCart(property, "hostel");
-    showToast(res.message, res.success ? "success" : "info");
+    const inCart = getCart().hostels.some(h => h.id === property.id);
+    if (inCart) {
+      removeFromCart(property.id, "hostel");
+      showToast(`Removed ${property.title} from Wishlist`, "info");
+    } else {
+      const res = addToCart(property, "hostel");
+      showToast(res.message, res.success ? "success" : "info");
+    }
     openPropertyModal(property, state.activeModalTab);
     renderProperties();
+    renderCollegeRecommendations();
   });
 
   // WhatsApp visit
@@ -1239,11 +1252,11 @@ function renderCartDrawerContent() {
   if (totalItems === 0) {
     container.innerHTML = `
       <div class="py-12 text-center">
-        <div class="w-14 h-14 rounded-full bg-slate-100 text-[#082A50] flex items-center justify-center mx-auto mb-3">
-          <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+        <div class="w-14 h-14 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center mx-auto mb-3">
+          <i data-lucide="heart" class="w-6 h-6"></i>
         </div>
-        <h4 class="font-bold text-gray-800 text-sm mb-1">Your Selection Bundle is Empty</h4>
-        <p class="text-xs text-gray-500 max-w-xs mx-auto mb-5">Select a college and hostel to submit your unified zero-brokerage application.</p>
+        <h4 class="font-bold text-gray-800 text-sm mb-1">Your Wishlist is Empty</h4>
+        <p class="text-xs text-gray-500 max-w-xs mx-auto mb-5">Shortlist your dream colleges and verified student stays to track admission criteria and cutoffs.</p>
         <div class="flex items-center justify-center gap-2">
           <a href="admissions.html" class="bg-[#082A50] text-white text-xs font-bold py-2 px-3 rounded-lg">Explore Colleges</a>
           <a href="hostels.html" class="bg-slate-200 text-gray-800 text-xs font-bold py-2 px-3 rounded-lg">Explore Hostels</a>
@@ -2094,17 +2107,17 @@ export function renderCollegeRecommendations() {
                   <div class="flex items-center gap-1.5">
                     <button 
                       data-hostel-id="${property.id}"
-                      class="btn-add-hostel-cart text-xs font-extrabold py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all ${
+                      class="btn-add-hostel-cart text-xs font-extrabold py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
                         isInCart 
-                          ? "bg-amber-100 text-[#082A50] border border-amber-300"
+                          ? "bg-rose-50 text-rose-600 border border-rose-200" 
                           : "bg-[#082A50] hover:bg-[#051C36] text-white shadow-sm"
                       }">
-                      <i data-lucide="${isInCart ? 'check' : 'shopping-bag'}" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
-                      <span>${isInCart ? 'In Cart' : 'Add to Cart'}</span>
+                      <i data-lucide="${isInCart ? 'check' : 'heart'}" class="w-3.5 h-3.5 ${isInCart ? 'text-rose-600' : 'text-[#DFB15B]'}"></i>
+                      <span>${isInCart ? 'In Wishlist' : 'Add to Wishlist'}</span>
                     </button>
                     <button 
                       data-whatsapp-property="${property.title}"
-                      class="btn-whatsapp-inquiry bg-[#1AB64F] hover:bg-[#159c42] text-white p-2 rounded-xl shadow-xs transition-all" 
+                      class="btn-whatsapp-inquiry bg-[#1AB64F] hover:bg-[#159c42] text-white p-2 rounded-xl shadow-xs transition-all cursor-pointer" 
                       title="Book Visit on WhatsApp">
                       <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
                     </button>
@@ -2197,8 +2210,14 @@ export function renderCollegeRecommendations() {
       const id = btn.dataset.hostelId;
       const prop = activePropertyList.find(p => p.id === id);
       if (prop) {
-        const res = addToCart(prop, "hostel");
-        showToast(res.message, res.success ? "success" : "info");
+        const inCart = getCart().hostels.some(h => h.id === id);
+        if (inCart) {
+          removeFromCart(id, "hostel");
+          showToast(`Removed ${prop.title} from Wishlist`, "info");
+        } else {
+          const res = addToCart(prop, "hostel");
+          showToast(res.message, res.success ? "success" : "info");
+        }
         renderCollegeRecommendations();
         renderProperties();
       }

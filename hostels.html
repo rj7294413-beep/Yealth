@@ -87,10 +87,10 @@
           <span>List PG</span>
         </button>
 
-        <!-- Cart Button -->
-        <button id="btn-open-cart" class="relative flex items-center gap-1 text-xs lg:text-sm font-bold text-[#082A50] hover:text-[#051C36] bg-amber-50 hover:bg-amber-100 border border-amber-300 py-2 px-2.5 sm:px-3 rounded-lg transition-all" title="View Application Bundle">
-          <i data-lucide="shopping-bag" class="w-4 h-4 text-[#C59943]"></i>
-          <span class="hidden sm:inline">Cart</span>
+        <!-- Wishlist Button -->
+        <button id="btn-open-cart" class="relative flex items-center gap-1.5 text-xs lg:text-sm font-bold text-[#082A50] hover:text-[#051C36] bg-amber-50 hover:bg-amber-100 border border-amber-300 py-2 px-2.5 sm:px-3 rounded-lg transition-all cursor-pointer" title="View Wishlist & Saved Items">
+          <i data-lucide="heart" class="w-4 h-4 text-[#C59943] fill-[#C59943]/30"></i>
+          <span class="hidden sm:inline">Wishlist</span>
           <span id="cart-counter-badge" class="bg-[#082A50] text-[#DFB15B] text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
         </button>
 
@@ -881,11 +881,11 @@
   <!-- ========================================================================= -->
   <div id="modal-cart-drawer" class="modal-container hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-end">
     <div class="bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between overflow-hidden animate-slide-left border-l border-gray-200">
-      <!-- Cart Drawer Header -->
+      <!-- Wishlist Drawer Header -->
       <div class="bg-[#071A33] text-white p-4 flex items-center justify-between border-b border-white/10">
         <div class="flex items-center gap-2">
-          <i data-lucide="shopping-bag" class="w-5 h-5 text-[#DFB15B]"></i>
-          <h3 class="font-black text-base text-white">Your Selection Bundle</h3>
+          <i data-lucide="heart" class="w-5 h-5 text-[#DFB15B] fill-[#DFB15B]/30"></i>
+          <h3 class="font-black text-base text-white">Your Wishlist</h3>
         </div>
         <button id="btn-close-cart" class="text-white/70 hover:text-white p-1 rounded-lg hover:bg-white/10">
           <i data-lucide="x" class="w-5 h-5"></i>

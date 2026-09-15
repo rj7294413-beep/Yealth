@@ -415,13 +415,13 @@ function renderColleges() {
           <button 
             type="button"
             data-college-id="${c.id}" 
-            class="btn-toggle-college-cart flex-1 min-w-[120px] py-2.5 px-3 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 ${
+            class="btn-toggle-college-cart flex-1 min-w-[120px] py-2.5 px-3 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
               isInCart 
-                ? "bg-red-50 text-red-700 border border-red-200 hover:bg-red-100" 
+                ? "bg-rose-50 text-rose-600 border border-rose-200 hover:bg-rose-100" 
                 : "bg-[#082A50] hover:bg-[#051C36] text-white shadow-sm"
             }">
-            <i data-lucide="${isInCart ? 'trash-2' : 'shopping-bag'}" class="w-4 h-4"></i>
-            <span>${isInCart ? "Remove" : "Add to Cart"}</span>
+            <i data-lucide="${isInCart ? 'check' : 'heart'}" class="w-4 h-4 ${isInCart ? 'text-rose-600' : 'text-[#DFB15B]'}"></i>
+            <span>${isInCart ? "In Wishlist" : "Add to Wishlist"}</span>
           </button>
 
           <a 
@@ -434,8 +434,8 @@ function renderColleges() {
 
           <a 
             href="https://wa.me/919110155081?text=Hi%20Yealth%20Admissions!%20I%20am%20interested%20in%20applying%20to%20${encodeURIComponent(c.name)}%20(${c.type}).%20Please%20guide%20me%20on%20cutoffs%20and%20fees."
-            target="_blank"
-            class="btn-card-whatsapp-link bg-[#1AB64F] hover:bg-[#159c42] text-white p-2.5 rounded-xl flex items-center justify-center shadow-sm"
+            target="_blank" 
+            class="btn-card-whatsapp-link bg-[#1AB64F] hover:bg-[#159c42] text-white p-2.5 rounded-xl flex items-center justify-center shadow-sm" 
             title="Chat about this college on WhatsApp">
             <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
           </a>
@@ -492,12 +492,13 @@ function renderColleges() {
       const inCart = getCart().colleges.some(c => c.id === colId);
       if (inCart) {
         removeFromCart(colId, "college");
-        showToast(`Removed ${col.shortName || col.name} from bundle`);
+        showToast(`Removed ${col.shortName || col.name} from Wishlist`, "info");
       } else {
         addToCart(col, "college");
-        showToast(`Added ${col.shortName || col.name} to bundle!`);
+        showToast(`Added ${col.shortName || col.name} to Wishlist!`, "success");
       }
       renderColleges();
+      renderRankResultsCards();
     });
   });
 
@@ -601,11 +602,11 @@ function renderCartDrawerContent() {
   if (totalItems === 0) {
     container.innerHTML = `
       <div class="py-12 text-center">
-        <div class="w-14 h-14 rounded-full bg-slate-100 text-[#082A50] flex items-center justify-center mx-auto mb-3">
-          <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+        <div class="w-14 h-14 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center mx-auto mb-3">
+          <i data-lucide="heart" class="w-6 h-6"></i>
         </div>
-        <h4 class="font-bold text-gray-800 text-sm mb-1">Your Selection Bundle is Empty</h4>
-        <p class="text-xs text-gray-500 max-w-xs mx-auto mb-5">Select a college and hostel to submit your unified zero-brokerage application.</p>
+        <h4 class="font-bold text-gray-800 text-sm mb-1">Your Wishlist is Empty</h4>
+        <p class="text-xs text-gray-500 max-w-xs mx-auto mb-5">Shortlist your dream colleges and verified student stays to track admission criteria and cutoffs.</p>
         <div class="flex items-center justify-center gap-2">
           <a href="admissions.html" class="bg-[#082A50] text-white text-xs font-bold py-2 px-3 rounded-lg">Explore Colleges</a>
           <a href="hostels.html" class="bg-slate-200 text-gray-800 text-xs font-bold py-2 px-3 rounded-lg">Explore Hostels</a>
@@ -1314,6 +1315,7 @@ export function closeCollegeDetailsModal() {
   const modal = document.getElementById("modal-college-details");
   if (modal) {
     modal.classList.add("hidden");
+    modal.style.display = "none";
     document.body.style.overflow = "";
   }
 }
@@ -1329,9 +1331,9 @@ export function openCollegeDetailsModal(collegeId, searchKeyword = "") {
         shortName: cutoff.shortName || cutoff.collegeName,
         type: cutoff.type || "Government",
         category: cutoff.stream === "medical" ? "Medical & Healthcare" : (cutoff.stream === "management" ? "Management & MBA" : "Engineering & Tech"),
-        disciplines: [cutoff.stream],
-        city: cutoff.city,
-        location: cutoff.location,
+        disciplines: [cutoff.stream || "general"],
+        city: cutoff.city || "India",
+        location: cutoff.location || cutoff.city || "India",
         nirfRank: cutoff.tier || "Verified Premier",
         accreditation: cutoff.highlights || "Recognized Institution",
         rating: "4.8",
@@ -1339,19 +1341,19 @@ export function openCollegeDetailsModal(collegeId, searchKeyword = "") {
         established: "1980",
         avgPackage: cutoff.avgPackage || "₹12.5 LPA",
         highestPackage: cutoff.highestPackage || "₹45 LPA",
-        fees: cutoff.fees,
-        entranceExams: [cutoff.counselingBoard || cutoff.exam],
+        fees: cutoff.fees || "Competitive",
+        entranceExams: [cutoff.counselingBoard || cutoff.exam || "Entrance Merit"],
         streams: [cutoff.courseName],
         image: `assets/colleges/${cutoff.collegeId}.jpg`,
-        highlights: [cutoff.highlights, cutoff.counselingBoard],
+        highlights: [cutoff.highlights, cutoff.counselingBoard].filter(Boolean),
         description: `${cutoff.collegeName} is recognized for top-tier academic excellence in ${cutoff.courseName}, featuring accredited faculty, state-of-the-art labs, and strong placement records.`,
         courses: [{
           id: `${cutoff.collegeId}-course`,
           name: cutoff.courseName,
           degree: cutoff.stream === "management" ? "Postgraduate (PG)" : "Undergraduate (UG)",
           duration: cutoff.stream === "medical" ? "5.5 Years (Inc. 1 Yr Internship)" : (cutoff.stream === "management" ? "2 Years (4 Semesters)" : "4 Years (8 Semesters)"),
-          fees: cutoff.fees,
-          feeBreakdown: `Estimated Annual Fee: ${cutoff.fees}`,
+          fees: cutoff.fees || "Competitive",
+          feeBreakdown: `Estimated Annual Fee: ${cutoff.fees || 'Competitive'}`,
           eligibility: `Admission via ${cutoff.counselingBoard || "Central Entrance Counseling"} based on entrance merit.`,
           entranceExam: cutoff.counselingBoard || "Entrance Merit",
           seats: "120 - 180 Seats",
@@ -1362,7 +1364,10 @@ export function openCollegeDetailsModal(collegeId, searchKeyword = "") {
       };
     }
   }
-  if (!college) return;
+  if (!college) {
+    console.warn("College not found for modal:", collegeId);
+    return;
+  }
 
   state.modalActiveCollegeId = collegeId;
   state.modalCourseSearch = searchKeyword || "";
@@ -1370,10 +1375,19 @@ export function openCollegeDetailsModal(collegeId, searchKeyword = "") {
 
   const modal = document.getElementById("modal-college-details");
   const content = document.getElementById("modal-college-details-content");
-  if (!modal || !content) return;
+  if (!modal || !content) {
+    console.warn("Modal DOM element not found");
+    return;
+  }
 
-  renderCollegeModalContent(college);
+  try {
+    renderCollegeModalContent(college);
+  } catch (err) {
+    console.error("Error rendering college modal content:", err);
+  }
+
   modal.classList.remove("hidden");
+  modal.style.display = "flex";
   document.body.style.overflow = "hidden";
   lucide.createIcons();
 }
@@ -1432,7 +1446,7 @@ function renderCollegeModalContent(college) {
   // CollegeDekho Reference Editorial Overview
   const streamsText = (college.streams || []).slice(0, 5).join(", ");
   const examsText = (college.entranceExams || []).join(", ") || "Entrance Examination";
-  const detailedOverview = `${college.shortName || college.name} is one of India's premier ${college.category.toLowerCase()} institutions, established in ${college.established} and located in ${college.location}. Ranked ${college.nirfRank || 'Premier'} nationally, the institution offers ${coursesCount}+ verified degree programs including ${streamsText}. Admissions are governed by national-level merit counseling including ${examsText}. Estimated annual tuition fees start from ${college.fees}, with peak placement packages reaching ${college.highestPackage || '₹40+ LPA'} with top corporate and clinical recruiters.`;
+  const detailedOverview = `${college.shortName || college.name} is one of India's premier ${(college.category || 'educational').toLowerCase()} institutions, established in ${college.established || '1990'} and located in ${college.location || college.city || 'India'}. Ranked ${college.nirfRank || 'Premier'} nationally, the institution offers ${coursesCount}+ verified degree programs including ${streamsText}. Admissions are governed by national-level merit counseling including ${examsText}. Estimated annual tuition fees start from ${college.fees || 'Competitive'}, with peak placement packages reaching ${college.highestPackage || '₹40+ LPA'} with top corporate and clinical recruiters.`;
 
   content.innerHTML = `
     <!-- Top Micro Bar (Sticky) -->
@@ -1513,7 +1527,7 @@ function renderCollegeModalContent(college) {
                     id="btn-college-toggle-wishlist"
                     data-college-id="${college.id}"
                     class="w-9 h-9 rounded-full ${inCart ? 'bg-rose-50 text-rose-600 border border-rose-200' : 'bg-slate-100 hover:bg-rose-50 text-gray-600 hover:text-rose-600'} flex items-center justify-center transition-all cursor-pointer"
-                    title="${inCart ? 'Remove from Shortlist' : 'Add to Wishlist / Application Bundle'}">
+                    title="${inCart ? 'Remove from Wishlist' : 'Add to Wishlist'}">
                     <i data-lucide="heart" class="w-4 h-4 ${inCart ? 'fill-rose-600 text-rose-600' : ''}"></i>
                   </button>
 
@@ -1787,17 +1801,18 @@ function renderCollegeModalContent(college) {
       const isAlreadyIn = getCart().colleges.some(c => c.id === college.id);
       if (isAlreadyIn) {
         removeFromCart(college.id, "college");
-        showToast(`Removed ${college.shortName || college.name} from bundle`, "info");
+        showToast(`Removed ${college.shortName || college.name} from Wishlist`, "info");
         wishlistBtn.className = "w-9 h-9 rounded-full bg-slate-100 hover:bg-rose-50 text-gray-600 hover:text-rose-600 flex items-center justify-center transition-all cursor-pointer";
         wishlistBtn.innerHTML = '<i data-lucide="heart" class="w-4 h-4"></i>';
       } else {
         addToCart(college, "college");
-        showToast(`Added ${college.shortName || college.name} to application bundle!`, "success");
+        showToast(`Added ${college.shortName || college.name} to Wishlist!`, "success");
         wishlistBtn.className = "w-9 h-9 rounded-full bg-rose-50 text-rose-600 border border-rose-200 flex items-center justify-center transition-all cursor-pointer";
         wishlistBtn.innerHTML = '<i data-lucide="heart" class="w-4 h-4 fill-rose-600 text-rose-600"></i>';
       }
       lucide.createIcons();
       renderColleges();
+      renderRankResultsCards();
     });
   }
 
@@ -2000,16 +2015,16 @@ function renderCollegeModalCoursesList(college) {
             data-college-id="${college.id}"
             class="btn-modal-select-course flex-1 sm:flex-initial py-2.5 px-4 rounded-xl text-xs font-extrabold flex items-center justify-center gap-2 transition-all shadow-sm cursor-pointer ${
               isShortlisted 
-                ? "bg-emerald-600 text-white hover:bg-emerald-700" 
+                ? "bg-rose-50 text-rose-600 border border-rose-200" 
                 : "bg-[#082A50] hover:bg-[#051C36] text-[#DFB15B] hover:text-white"
             }">
-            <i data-lucide="${isShortlisted ? 'check-check' : 'plus-circle'}" class="w-4 h-4"></i>
-            <span>${isShortlisted ? "Shortlisted in Application Bundle" : "Select for Application Bundle"}</span>
+            <i data-lucide="${isShortlisted ? 'check' : 'heart'}" class="w-4 h-4 ${isShortlisted ? 'text-rose-600' : ''}"></i>
+            <span>${isShortlisted ? "In Wishlist" : "Add to Wishlist"}</span>
           </button>
 
           <a 
             href="https://wa.me/919110155081?text=Hi%20Yealth%20Admissions!%20I%20am%20interested%20in%20applying%20for%20${encodeURIComponent(course.name)}%20at%20${encodeURIComponent(college.name)}.%20Please%20verify%20my%20eligibility%20and%20provide%20cutoff%20details."
-            target="_blank"
+            target="_blank" 
             class="flex-1 sm:flex-initial bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs font-extrabold py-2.5 px-4 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm">
             <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
             <span>Inquire for ${course.shortName || 'Course'} on WhatsApp</span>
@@ -2024,18 +2039,25 @@ function renderCollegeModalCoursesList(college) {
     btn.addEventListener("click", () => {
       const courseName = btn.dataset.courseName;
       const colId = btn.dataset.collegeId;
-      const col = COLLEGES.find(c => c.id === colId);
+      let col = COLLEGES.find(c => c.id === colId);
+      if (!col) col = college;
       if (!col) return;
 
-      const payload = {
-        ...col,
-        selectedCourse: courseName
-      };
-
-      addToCart(payload, "college");
-      showToast(`Selected ${courseName} at ${col.shortName || col.name} for your bundle!`, "success");
+      const isShortlisted = cart.colleges.some(c => c.id === col.id && c.selectedCourse === courseName);
+      if (isShortlisted) {
+        removeFromCart(col.id, "college");
+        showToast(`Removed ${courseName} from Wishlist`, "info");
+      } else {
+        const payload = {
+          ...col,
+          selectedCourse: courseName
+        };
+        addToCart(payload, "college");
+        showToast(`Added ${courseName} at ${col.shortName || col.name} to Wishlist!`, "success");
+      }
       renderCollegeModalCoursesList(college);
       renderColleges();
+      renderRankResultsCards();
     });
   });
 
@@ -2629,11 +2651,14 @@ function renderRankResultsCards() {
   const scoreDisplay = isPercentile ? `${rank}%ile` : `AIR #${rank?.toLocaleString()}`;
   const examLabel = isMba ? "MBA" : (exam === "neet" ? "NEET-UG" : "JEE");
 
+  const cart = getCart();
+
   container.innerHTML = results.map(item => {
     const isGovt = item.type === "Government";
     const college = item.collegeRef;
     const imgUrl = college?.image || "assets/yealth-logo.png";
     const stars = college?.rating || "4.8";
+    const isInWishlist = cart.colleges.some(c => c.id === item.collegeId);
 
     // Cutoff range display text
     let cutoffDisplay = "";
@@ -2644,7 +2669,10 @@ function renderRankResultsCards() {
     }
 
     return `
-      <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-[#082A50] transition-all shadow-xs hover:shadow-xl flex flex-col justify-between overflow-hidden group">
+      <div 
+        data-college-id="${item.collegeId}" 
+        data-course-name="${item.courseName}"
+        class="calc-result-card bg-white rounded-2xl border-2 border-slate-200 hover:border-[#082A50] transition-all shadow-xs hover:shadow-xl flex flex-col justify-between overflow-hidden group cursor-pointer hover:-translate-y-1">
         <!-- Top Visual & Header -->
         <div>
           <div class="relative h-32 w-full overflow-hidden bg-slate-900">
@@ -2743,31 +2771,91 @@ function renderRankResultsCards() {
             type="button" 
             data-college-id="${item.collegeId}" 
             data-course-name="${item.courseName}"
-            class="btn-calc-explore-course w-full bg-[#082A50] hover:bg-[#051C36] text-[#DFB15B] hover:text-white font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm">
+            class="btn-calc-explore-course w-full bg-[#082A50] hover:bg-[#051C36] text-[#DFB15B] hover:text-white font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer">
             <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
             <span>Explore Course & Eligibility</span>
           </button>
 
-          <a 
-            href="https://wa.me/919110155081?text=Hi%20Yealth%20Admissions!%20I%20used%20the%20${isMba ? 'MBA%20Predictor' : 'Rank%20Predictor'}%20(${encodeURIComponent(scoreDisplay)}%20in%20${examLabel}%2C%20${category}%20category)%20and%20got%20matched%20with%20${encodeURIComponent(item.courseName)}%20at%20${encodeURIComponent(item.collegeName)}.%20Please%20guide%20me%20with%20admission%20and%20counseling."
-            target="_blank" 
-            class="w-full bg-[#1AB64F] hover:bg-[#159c42] text-white font-extrabold text-xs py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm">
-            <i data-lucide="message-circle" class="w-3.5 h-3.5 fill-white"></i>
-            <span>WhatsApp Admission Advisor</span>
-          </a>
+          <button 
+            type="button" 
+            data-college-id="${item.collegeId}" 
+            data-course-name="${item.courseName}"
+            class="btn-calc-toggle-wishlist w-full font-extrabold text-xs py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer ${
+              isInWishlist 
+                ? 'bg-rose-50 text-rose-600 border border-rose-200 hover:bg-rose-100' 
+                : 'bg-slate-100 hover:bg-rose-50 text-[#082A50] hover:text-rose-600 border border-slate-200 hover:border-rose-300'
+            }">
+            <i data-lucide="heart" class="w-3.5 h-3.5 ${isInWishlist ? 'fill-rose-600 text-rose-600' : 'text-rose-500'}"></i>
+            <span>${isInWishlist ? 'In Wishlist' : 'Add to Wishlist'}</span>
+          </button>
         </div>
       </div>
     `;
   }).join("");
 
-  // Attach button click listeners
+  // Card click -> Open details modal (clicking anywhere on the card)
+  container.querySelectorAll(".calc-result-card").forEach(card => {
+    card.addEventListener("click", (e) => {
+      if (e.target.closest("button") || e.target.closest("a")) return;
+      const colId = card.dataset.collegeId;
+      const cName = card.dataset.courseName;
+      if (colId) {
+        openCollegeDetailsModal(colId, cName);
+      }
+    });
+  });
+
+  // Explore button listener
   container.querySelectorAll(".btn-calc-explore-course").forEach(btn => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       const colId = btn.dataset.collegeId;
       const cName = btn.dataset.courseName;
       if (colId) {
         openCollegeDetailsModal(colId, cName);
       }
+    });
+  });
+
+  // Wishlist toggle listener
+  container.querySelectorAll(".btn-calc-toggle-wishlist").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const colId = btn.dataset.collegeId;
+      const cName = btn.dataset.courseName;
+      let college = COLLEGES.find(c => c.id === colId);
+      if (!college) {
+        const cutoff = RANK_CUTOFFS.find(r => r.collegeId === colId);
+        if (cutoff) {
+          college = {
+            id: cutoff.collegeId,
+            name: cutoff.collegeName,
+            shortName: cutoff.shortName || cutoff.collegeName,
+            type: cutoff.type || "Government",
+            city: cutoff.city || "India",
+            location: cutoff.location || cutoff.city || "India",
+            fees: cutoff.fees || "Competitive",
+            avgPackage: cutoff.avgPackage,
+            image: `assets/colleges/${cutoff.collegeId}.jpg`,
+            category: cutoff.stream === "medical" ? "Medical & Healthcare" : (cutoff.stream === "management" ? "Management & MBA" : "Engineering & Tech"),
+            selectedCourse: cName || cutoff.courseName
+          };
+        }
+      }
+      if (!college) return;
+
+      const inWishlist = getCart().colleges.some(c => c.id === college.id);
+      if (inWishlist) {
+        removeFromCart(college.id, "college");
+        showToast(`Removed ${college.shortName || college.name} from Wishlist`, "info");
+      } else {
+        addToCart({ ...college, selectedCourse: cName || college.selectedCourse }, "college");
+        showToast(`Added ${college.shortName || college.name} to Wishlist!`, "success");
+      }
+      renderRankResultsCards();
+      renderColleges();
     });
   });
 
