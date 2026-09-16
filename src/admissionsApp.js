@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupOrdersUI();
   setupStreamCardsClick();
   setupLoanCalculator();
+  setupFloatingLoanButton();
   setupCollegeDetailsModalEvents();
   setupRankCalculator();
 
@@ -126,7 +127,14 @@ function renderStreamFilterTabs() {
         <span>${t.label}</span>
       </button>
     `;
-  }).join("");
+  }).join("") + `
+    <a 
+      href="#loan-calculator-container" 
+      class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border flex items-center gap-1.5 bg-emerald-50 text-emerald-800 border-emerald-300 hover:bg-emerald-100 hover:scale-102 shadow-xs ml-1" 
+      title="Check Student Education Loan & EMI Options">
+      <span>💰 Education Loan Assistance</span>
+    </a>
+  `;
 
   container.querySelectorAll(".stream-filter-chip").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -550,6 +558,63 @@ function setupLoanCalculator() {
   rateSelect?.addEventListener("change", calculateLoan);
 
   calculateLoan();
+}
+
+/**
+ * 3.1 Setup Floating Loan Calculator Button & Smooth Navigation
+ */
+function setupFloatingLoanButton() {
+  const floatingBtn = document.getElementById("btn-floating-loan-calc");
+  const floatingContainer = document.getElementById("floating-loan-calc-container");
+  const targetCalculator = document.getElementById("loan-calculator-container");
+
+  function scrollToCalculator() {
+    const target = document.getElementById("loan-calculator-container") || document.getElementById("education-loan-section");
+    if (!target) return;
+
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    // Flash a golden highlight ring so user immediately spots the calculator
+    target.classList.add("ring-4", "ring-[#DFB15B]", "shadow-2xl");
+    setTimeout(() => {
+      target.classList.remove("ring-4", "ring-[#DFB15B]", "shadow-2xl");
+    }, 2200);
+  }
+
+  if (floatingBtn) {
+    floatingBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      scrollToCalculator();
+    });
+  }
+
+  // Intercept any in-page loan anchor links for silky smooth scrolling with highlight
+  document.querySelectorAll('a[href="#loan-calculator-container"], a[href="#education-loan-section"]').forEach(anchor => {
+    anchor.addEventListener("click", (e) => {
+      const href = anchor.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          const calcCard = document.getElementById("loan-calculator-container");
+          if (calcCard) {
+            calcCard.classList.add("ring-4", "ring-[#DFB15B]", "shadow-2xl");
+            setTimeout(() => {
+              calcCard.classList.remove("ring-4", "ring-[#DFB15B]", "shadow-2xl");
+            }, 2200);
+          }
+        }
+      }
+    });
+  });
+
+  // Check if page loaded with #education-loan-section or #loan-calculator-container
+  if (window.location.hash === "#loan-calculator-container" || window.location.hash === "#education-loan-section") {
+    setTimeout(() => {
+      scrollToCalculator();
+    }, 350);
+  }
 }
 
 /**
@@ -1740,6 +1805,14 @@ function renderCollegeModalContent(college) {
       </div>
 
       <div class="flex items-center gap-2 w-full sm:w-auto">
+        <button 
+          type="button"
+          class="btn-modal-goto-loan flex-1 sm:flex-initial bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs py-2.5 px-3.5 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer"
+          title="Calculate Education Loan & EMI for ${college.shortName || college.name}">
+          <i data-lucide="badge-indian-rupee" class="w-3.5 h-3.5 text-emerald-600"></i>
+          <span>Loan EMI</span>
+        </button>
+
         <a 
           href="hostels.html?college=${college.id}"
           class="flex-1 sm:flex-initial bg-amber-50 hover:bg-amber-100 text-[#082A50] border border-amber-300 font-extrabold text-xs py-2.5 px-3.5 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-xs">
@@ -1843,6 +1916,20 @@ function renderCollegeModalContent(college) {
 
   content.querySelectorAll(".btn-close-college-modal").forEach(btn => {
     btn.addEventListener("click", () => closeCollegeDetailsModal());
+  });
+
+  content.querySelectorAll(".btn-modal-goto-loan").forEach(btn => {
+    btn.addEventListener("click", () => {
+      closeCollegeDetailsModal();
+      setTimeout(() => {
+        const target = document.getElementById("loan-calculator-container") || document.getElementById("education-loan-section");
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "center" });
+          target.classList.add("ring-4", "ring-[#DFB15B]", "shadow-2xl");
+          setTimeout(() => target.classList.remove("ring-4", "ring-[#DFB15B]", "shadow-2xl"), 2200);
+        }
+      }, 150);
+    });
   });
 
   // Render course list
