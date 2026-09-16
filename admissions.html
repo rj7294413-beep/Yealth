@@ -64,57 +64,23 @@
         </a>
       </div>
 
-      <!-- Middle/Right Actions -->
-      <div class="flex items-center gap-1.5 sm:gap-2.5 lg:gap-3">
-        <!-- Gateway Switch Link -->
-        <a href="index.html" class="hidden sm:flex items-center gap-1.5 text-xs font-bold text-[#082A50] hover:text-[#051C36] bg-slate-100 hover:bg-slate-200 py-2 px-2.5 rounded-lg transition-colors border border-slate-200">
-          <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-[#C59943]"></i>
-          <span>Menu</span>
-        </a>
-
-        <!-- Rank Predictor Quick Nav -->
-        <a href="#rank-calculator-section" class="hidden md:flex items-center gap-1.5 text-xs font-bold text-[#082A50] hover:text-[#051C36] bg-amber-50 hover:bg-amber-100 py-2 px-2.5 rounded-lg transition-colors border border-amber-300">
-          <i data-lucide="calculator" class="w-3.5 h-3.5 text-[#C59943]"></i>
-          <span>Rank & MBA Predictor</span>
-        </a>
-
-        <!-- Education Loan Quick Nav -->
-        <a href="#education-loan-section" class="hidden sm:flex items-center gap-1.5 text-xs font-bold text-[#082A50] hover:text-[#051C36] bg-emerald-50 hover:bg-emerald-100 py-2 px-2.5 rounded-lg transition-colors border border-emerald-300" title="Education Loan Assistance & EMI Calculator">
-          <i data-lucide="badge-indian-rupee" class="w-3.5 h-3.5 text-emerald-600"></i>
-          <span>Education Loan</span>
-        </a>
-
+      <!-- Middle/Right Actions: Clean Navbar (Hostels & PGs, Wishlist, Sign In) -->
+      <div class="flex items-center gap-2 sm:gap-3">
         <!-- Switch to Hostels -->
-        <a href="hostels.html" class="flex items-center gap-1 text-xs lg:text-sm font-bold text-[#082A50] hover:text-[#051C36] border border-[#082A50]/30 hover:border-[#082A50] py-2 px-2.5 rounded-lg hover:bg-blue-50/50 transition-all">
+        <a href="hostels.html" class="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#082A50] hover:text-[#051C36] border border-[#082A50]/30 hover:border-[#082A50] py-2 px-2.5 sm:px-3 rounded-lg hover:bg-blue-50/50 transition-all">
           <i data-lucide="building" class="w-4 h-4 text-[#C59943]"></i>
-          <span>Hostels & PGs</span>
+          <span>Hostels &amp; PGs</span>
         </a>
 
-        <!-- Cart Button -->
-        <button id="btn-open-cart" class="relative flex items-center gap-1 text-xs lg:text-sm font-bold text-[#082A50] hover:text-[#051C36] bg-amber-50 hover:bg-amber-100 border border-amber-300 py-2 px-2.5 sm:px-3 rounded-lg transition-all" title="View Application Bundle">
-          <i data-lucide="shopping-bag" class="w-4 h-4 text-[#C59943]"></i>
-          <span class="hidden sm:inline">Cart</span>
+        <!-- Wishlist Button -->
+        <button id="btn-open-cart" class="relative flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#082A50] hover:text-[#051C36] bg-amber-50 hover:bg-amber-100 border border-amber-300 py-2 px-2.5 sm:px-3 rounded-lg transition-all cursor-pointer" title="View Wishlist &amp; Saved Items">
+          <i data-lucide="heart" class="w-4 h-4 text-[#C59943] fill-[#C59943]/30"></i>
+          <span>Wishlist</span>
           <span id="cart-counter-badge" class="bg-[#082A50] text-[#DFB15B] text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
-        </button>
-
-        <!-- Order Status Button -->
-        <button id="btn-open-orders" class="hidden sm:flex items-center gap-1 text-xs lg:text-sm font-bold text-[#082A50] hover:text-[#051C36] bg-slate-100 hover:bg-slate-200 py-2 px-2.5 rounded-lg transition-colors border border-slate-200" title="Check Order / Application Status">
-          <i data-lucide="clock" class="w-3.5 h-3.5 text-[#082A50]"></i>
-          <span class="hidden lg:inline">Status</span>
         </button>
 
         <!-- Auth Header Widget (Sign In / User Avatar) -->
         <div id="auth-header-widget"></div>
-
-        <!-- WhatsApp Counselor Button -->
-        <a 
-          href="https://wa.me/919110155081?text=Hi%20Yealth%20Admissions!%20I%20am%20looking%20for%20college%20counseling%20and%20admission%20guidance." 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs lg:text-sm font-bold py-2 px-3 rounded-xl flex items-center gap-1 shadow-sm transition-all hover:scale-102">
-          <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
-          <span class="hidden xl:inline">WhatsApp</span>
-        </a>
       </div>
     </div>
   </header>
@@ -1159,8 +1125,8 @@
       <!-- Cart Drawer Header -->
       <div class="bg-[#071A33] text-white p-4 flex items-center justify-between border-b border-white/10">
         <div class="flex items-center gap-2">
-          <i data-lucide="shopping-bag" class="w-5 h-5 text-[#DFB15B]"></i>
-          <h3 class="font-black text-base text-white">Your Selection Bundle</h3>
+          <i data-lucide="heart" class="w-5 h-5 text-[#DFB15B] fill-[#DFB15B]/30"></i>
+          <h3 class="font-black text-base text-white">Your Wishlist</h3>
         </div>
         <button id="btn-close-cart" class="text-white/70 hover:text-white p-1 rounded-lg hover:bg-white/10">
           <i data-lucide="x" class="w-5 h-5"></i>

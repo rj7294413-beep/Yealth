@@ -1182,8 +1182,8 @@ function setupAuthWidget() {
             <div class="text-[11px] text-gray-500 truncate">${user.email}</div>
           </div>
           <button class="btn-trigger-cart w-full text-left px-4 py-2 text-xs text-gray-700 hover:bg-slate-50 flex items-center gap-2">
-            <i data-lucide="shopping-bag" class="w-3.5 h-3.5 text-[#C59943]"></i>
-            My Selection Bundle
+            <i data-lucide="heart" class="w-3.5 h-3.5 text-[#C59943] fill-[#C59943]/30"></i>
+            My Wishlist
           </button>
           <button class="btn-trigger-orders w-full text-left px-4 py-2 text-xs text-gray-700 hover:bg-slate-50 flex items-center gap-2">
             <i data-lucide="clock" class="w-3.5 h-3.5 text-[#082A50]"></i>
