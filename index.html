@@ -41,18 +41,19 @@
 </head>
 <body class="bg-[#071A33] text-white antialiased min-h-screen flex flex-col justify-between relative overflow-x-hidden selection:bg-[#C59943] selection:text-white">
 
-  <!-- Ambient Glow Effects -->
+  <!-- Ambient Glow Background Effects -->
   <div class="absolute inset-0 pointer-events-none overflow-hidden">
     <div class="absolute -top-32 -left-32 w-96 h-96 bg-[#C59943]/20 rounded-full blur-3xl"></div>
-    <div class="absolute top-1/2 -right-32 w-[500px] h-[500px] bg-[#0E3E74]/30 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/3 -right-32 w-[550px] h-[550px] bg-[#0E3E74]/35 rounded-full blur-3xl"></div>
+    <div class="absolute top-2/3 left-10 w-[400px] h-[400px] bg-[#1AB64F]/10 rounded-full blur-3xl"></div>
     <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-[#C59943]/15 rounded-full blur-3xl"></div>
   </div>
 
   <!-- Top Navigation Utility Bar -->
-  <header class="relative z-20 border-b border-white/10 bg-[#071A33]/80 backdrop-blur-md">
+  <header class="relative z-20 border-b border-white/10 bg-[#071A33]/90 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <!-- Logo Branding -->
-      <a href="index.html" class="flex items-center gap-3 group py-1">
+      <a href="index.html" class="flex items-center gap-3 group py-1" title="Yealth Home">
         <div class="bg-white/95 p-1.5 rounded-xl shadow-md inline-block transition-transform group-hover:scale-105">
           <img 
             src="assets/yealth-logo.png" 
@@ -71,20 +72,31 @@
         </div>
       </a>
 
-      <!-- Quick Contact Links -->
+      <!-- Quick Nav Links -->
       <div class="flex items-center gap-2 sm:gap-3">
-        <a href="hostels.html" class="flex items-center gap-1.5 text-xs font-bold text-slate-200 hover:text-white py-2 px-3 rounded-lg hover:bg-white/10 transition-colors border border-white/10">
-          <i data-lucide="shopping-bag" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
-          <span>Hostels & Cart</span>
+        <!-- Direct Admissions Link -->
+        <a href="admissions.html" class="hidden md:flex items-center gap-1.5 text-xs font-bold text-slate-200 hover:text-white py-2 px-3 rounded-xl hover:bg-white/10 transition-colors border border-white/10">
+          <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+          <span>Admissions</span>
         </a>
-        <a href="tel:+919110155081" class="hidden sm:flex items-center gap-2 text-xs font-bold text-slate-200 hover:text-[#DFB15B] transition-colors py-2 px-3 rounded-lg hover:bg-white/5 border border-white/10">
+
+        <!-- Direct Hostels Link -->
+        <a href="hostels.html" class="flex items-center gap-1.5 text-xs font-bold text-slate-200 hover:text-white py-2 px-3 rounded-xl hover:bg-white/10 transition-colors border border-white/10">
+          <i data-lucide="building-2" class="w-3.5 h-3.5 text-[#1AB64F]"></i>
+          <span>Hostels &amp; PGs</span>
+        </a>
+
+        <!-- Phone Contact -->
+        <a href="tel:+919110155081" class="hidden sm:flex items-center gap-2 text-xs font-bold text-slate-200 hover:text-[#DFB15B] transition-colors py-2 px-3 rounded-xl hover:bg-white/5 border border-white/10">
           <i data-lucide="phone" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
           <span>+91 9110155081</span>
         </a>
+
+        <!-- WhatsApp Help CTA -->
         <a 
           href="https://wa.me/919110155081?text=Hi%20Yealth!%20I%20would%20like%20assistance%20with%20admissions%20or%20hostels."
           target="_blank"
-          class="bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs font-extrabold py-2 px-3 sm:px-4 rounded-xl flex items-center gap-1.5 shadow-md transition-all hover:scale-102">
+          class="bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs font-extrabold py-2 px-3.5 rounded-xl flex items-center gap-1.5 shadow-md transition-all hover:scale-102">
           <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
           <span class="hidden sm:inline">WhatsApp Help</span>
           <span class="sm:hidden">Help</span>
@@ -93,22 +105,65 @@
     </div>
   </header>
 
-  <!-- Main Content: The Two Gateway Options -->
-  <main class="relative z-10 flex-1 flex flex-col items-center justify-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 text-center">
+  <!-- Main Content: Gateway Options -->
+  <main class="relative z-10 flex-1 flex flex-col items-center justify-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 text-center w-full">
     
-    <!-- Hero Header Title -->
-    <div class="max-w-3xl mx-auto mb-10 sm:mb-12">
+    <!-- Hero Header Title & Subtitle -->
+    <div class="max-w-3xl mx-auto mb-8 sm:mb-10">
       <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold text-gray-200 mb-4 border border-[#C59943]/30 shadow-inner">
         <span class="w-2 h-2 rounded-full bg-[#DFB15B] animate-ping"></span>
-        <span>India's Dedicated Student Portal</span>
+        <span>India's Dedicated Student Portal &bull; Verified Guidance &amp; Living</span>
       </div>
 
       <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight mb-4">
         What are you <span class="gold-text-gradient text-[#DFB15B]">looking for</span> today?
       </h1>
-      <p class="text-sm sm:text-base md:text-lg text-slate-300 max-w-xl mx-auto font-medium">
-        Choose your desired service below to connect directly with verified experts and zero-brokerage campus resources.
+      <p class="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto font-medium leading-relaxed">
+        Choose your desired service below to connect directly with verified career counselors or discover zero-brokerage verified campus accommodations.
       </p>
+
+      <!-- Trust Metrics Bar -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 mt-6 max-w-4xl mx-auto">
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-2.5 sm:p-3 text-center backdrop-blur-sm">
+          <div class="text-base sm:text-lg font-black text-[#DFB15B]">500+</div>
+          <div class="text-[11px] sm:text-xs text-slate-300 font-medium">Partner Universities</div>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-2.5 sm:p-3 text-center backdrop-blur-sm">
+          <div class="text-base sm:text-lg font-black text-[#1AB64F]">10,000+</div>
+          <div class="text-[11px] sm:text-xs text-slate-300 font-medium">Verified Rooms &amp; PGs</div>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-2.5 sm:p-3 text-center backdrop-blur-sm">
+          <div class="text-base sm:text-lg font-black text-white">0% Brokerage</div>
+          <div class="text-[11px] sm:text-xs text-slate-300 font-medium">Zero Hidden Charges</div>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-2.5 sm:p-3 text-center backdrop-blur-sm">
+          <div class="text-base sm:text-lg font-black text-[#DFB15B]">100% Free</div>
+          <div class="text-[11px] sm:text-xs text-slate-300 font-medium">1-on-1 Counseling</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- "Need Help Choosing?" Quick Guide Banner -->
+    <div class="w-full max-w-4xl mb-8">
+      <div class="bg-white/5 border border-white/15 rounded-2xl p-4 sm:p-5 backdrop-blur-md text-left flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[#082A50] border border-[#C59943]/40 flex items-center justify-center shrink-0 text-[#DFB15B]">
+            <i data-lucide="help-circle" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-xs sm:text-sm font-extrabold text-white">Not sure where to begin?</div>
+            <div class="text-xs text-slate-300">Pick Option 1 for college shortlists &amp; guidance, or Option 2 for safe rooms &amp; PGs near campus.</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 w-full md:w-auto shrink-0">
+          <a href="admissions.html" class="flex-1 md:flex-none text-center text-xs font-bold bg-[#C59943]/20 hover:bg-[#C59943]/30 text-[#DFB15B] border border-[#C59943]/40 px-3.5 py-2 rounded-xl transition-colors">
+            Admissions Guide
+          </a>
+          <a href="hostels.html" class="flex-1 md:flex-none text-center text-xs font-bold bg-[#1AB64F]/20 hover:bg-[#1AB64F]/30 text-[#4ADE80] border border-[#1AB64F]/40 px-3.5 py-2 rounded-xl transition-colors">
+            Hostels Guide
+          </a>
+        </div>
+      </div>
     </div>
 
     <!-- ========================================================================= -->
@@ -116,187 +171,312 @@
     <!-- ========================================================================= -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full max-w-5xl">
       
-      <!-- Option 1: College Admissions Card (Fully Clickable) -->
+      <!-- Option 1: College Admissions Card -->
       <div 
         role="link"
         tabindex="0"
         data-card-url="admissions.html"
         onclick="navigateToOption(event, 'admissions.html')"
-        class="cursor-pointer group relative bg-gradient-to-b from-white/10 to-white/5 hover:from-white/15 hover:to-white/10 backdrop-blur-xl rounded-3xl p-6 sm:p-8 lg:p-10 border border-[#C59943]/40 hover:border-[#DFB15B] transition-all duration-300 shadow-2xl hover:shadow-[#C59943]/25 flex flex-col justify-between text-left transform hover:-translate-y-1.5 active:scale-[0.99] focus:outline-hidden focus:ring-2 focus:ring-[#DFB15B]">
+        class="gateway-card gateway-card-gold cursor-pointer group rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between text-left focus:outline-hidden focus:ring-2 focus:ring-[#DFB15B] select-none">
         
-        <!-- Top Badge -->
-        <div class="flex items-center justify-between mb-6">
-          <span class="bg-[#C59943]/20 text-[#DFB15B] border border-[#C59943]/40 text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full flex items-center gap-1.5">
-            <i data-lucide="award" class="w-3.5 h-3.5"></i>
-            Option 1
-          </span>
-          <span class="text-xs text-slate-300 font-semibold flex items-center gap-1">
-            <i data-lucide="check-circle" class="w-3.5 h-3.5 text-[#1AB64F]"></i>
-            Verified Counselors
-          </span>
-        </div>
+        <div>
+          <!-- Top Badges -->
+          <div class="flex items-center justify-between mb-6">
+            <span class="bg-[#C59943]/25 text-[#DFB15B] border border-[#C59943]/50 text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full flex items-center gap-1.5 shadow-xs">
+              <i data-lucide="award" class="w-3.5 h-3.5"></i>
+              Option 1 &bull; Admissions
+            </span>
+            <span class="text-xs text-slate-300 font-semibold flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-[#1AB64F]"></i>
+              Verified Counselors
+            </span>
+          </div>
 
-        <!-- Big Visual Icon -->
-        <div class="mb-6">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-[#082A50] to-[#0E3E74] text-[#DFB15B] border border-[#C59943]/50 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-            <i data-lucide="graduation-cap" class="w-8 h-8 sm:w-10 sm:h-10"></i>
+          <!-- Big Visual Icon -->
+          <div class="mb-6">
+            <div class="gateway-icon-box w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-[#082A50] to-[#0E3E74] text-[#DFB15B] border border-[#C59943]/50 flex items-center justify-center shadow-xl">
+              <i data-lucide="graduation-cap" class="w-8 h-8 sm:w-10 sm:h-10"></i>
+            </div>
+          </div>
+
+          <!-- Heading & Details -->
+          <div class="mb-6">
+            <h2 class="text-2xl sm:text-3xl font-black text-white group-hover:text-[#DFB15B] transition-colors mb-2 flex items-center justify-between">
+              <span>College Admissions</span>
+              <i data-lucide="arrow-right" class="w-6 h-6 text-[#DFB15B] opacity-0 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all"></i>
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-200 mb-5 leading-relaxed">
+              Get personalized 1-on-1 career guidance, seat matrices, cutoff analysis, and admission roadmaps for top universities across India.
+            </p>
+
+            <!-- Feature Highlights (4 Balanced Points) -->
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-center gap-2.5">
+                <div class="w-5 h-5 rounded-full bg-[#DFB15B]/15 border border-[#DFB15B]/30 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+                </div>
+                <span class="text-slate-200 font-medium">500+ Partner Universities &amp; Institutes</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="w-5 h-5 rounded-full bg-[#DFB15B]/15 border border-[#DFB15B]/30 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+                </div>
+                <span class="text-slate-200 font-medium">Engineering, Medical, MBA, Law &amp; Design</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="w-5 h-5 rounded-full bg-[#DFB15B]/15 border border-[#DFB15B]/30 flex items-center justify-center shrink-0">
+                  <i data-lucide="badge-percent" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+                </div>
+                <span class="text-[#DFB15B] font-bold">Education Loan Support (Up to ₹50L+ Collateral-Free)</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="w-5 h-5 rounded-full bg-[#DFB15B]/15 border border-[#DFB15B]/30 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+                </div>
+                <span class="text-slate-200 font-medium">100% Free Career Roadmap &amp; Zero Donation</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- Heading & Details -->
-        <div class="mb-6">
-          <h2 class="text-2xl sm:text-3xl font-black text-white group-hover:text-[#DFB15B] transition-colors mb-2 flex items-center justify-between">
-            <span>College Admissions</span>
-            <i data-lucide="chevron-right" class="w-6 h-6 text-[#DFB15B] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-200 mb-5 leading-relaxed">
-            Get personalized 1-on-1 career guidance, seat matrices, cutoff analysis, and admission roadmaps for top universities across India.
-          </p>
-
-          <!-- Feature Highlights -->
-          <ul class="space-y-2 text-xs sm:text-sm text-slate-300 mb-2">
-            <li class="flex items-center gap-2">
-              <i data-lucide="check" class="w-4 h-4 text-[#DFB15B] shrink-0"></i>
-              <span>500+ Partner Universities & Institutes</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <i data-lucide="check" class="w-4 h-4 text-[#DFB15B] shrink-0"></i>
-              <span>Engineering, Medical, MBA, Law & Design</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <i data-lucide="banknote" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-              <span class="text-emerald-200 font-semibold">Education Loan Support (Up to ₹50L+ Collateral-Free)</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <i data-lucide="check" class="w-4 h-4 text-[#DFB15B] shrink-0"></i>
-              <span>100% Free Career Roadmap & Zero Donation</span>
-            </li>
-          </ul>
-        </div>
-
         <!-- Action Buttons -->
-        <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row gap-3">
-          <span 
-            class="flex-1 bg-gradient-to-r from-[#C59943] to-[#DFB15B] hover:from-[#DFB15B] hover:to-[#C59943] text-[#082A50] font-black text-sm sm:text-base py-3.5 px-5 rounded-2xl text-center shadow-lg transition-all flex items-center justify-center gap-2 group-hover:shadow-amber-500/30 pointer-events-none">
-            <span>Explore Admissions</span>
-            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-          </span>
-          <a 
-            href="https://wa.me/919110155081?text=Hi%20Yealth%20Admissions,%20I%20need%20expert%20guidance%20for%20college%20admissions."
-            target="_blank"
-            onclick="event.stopPropagation()"
-            title="Chat with Counselor on WhatsApp"
-            class="btn-whatsapp-action relative z-10 bg-white/10 hover:bg-white/20 text-white font-bold text-sm py-3.5 px-4 rounded-2xl flex items-center justify-center gap-1.5 border border-white/15 transition-all hover:scale-102">
-            <i data-lucide="message-circle" class="w-4 h-4 text-[#1AB64F]"></i>
-            <span class="sm:hidden lg:inline">Counselor</span>
-          </a>
+        <div class="pt-5 border-t border-white/10 mt-6">
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a 
+              href="admissions.html"
+              onclick="event.stopPropagation()"
+              class="flex-1 bg-gradient-to-r from-[#C59943] to-[#DFB15B] hover:from-[#DFB15B] hover:to-[#C59943] text-[#082A50] font-black text-sm sm:text-base py-3.5 px-5 rounded-2xl text-center shadow-lg transition-all flex items-center justify-center gap-2 hover:shadow-[#C59943]/40 hover:scale-[1.02] active:scale-[0.98]">
+              <span>Explore Admissions</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a 
+              href="https://wa.me/919110155081?text=Hi%20Yealth%20Admissions,%20I%20need%20expert%20guidance%20for%20college%20admissions."
+              target="_blank"
+              onclick="event.stopPropagation()"
+              title="Chat with Counselor on WhatsApp"
+              class="btn-whatsapp-action bg-white/10 hover:bg-[#1AB64F]/20 hover:border-[#1AB64F]/60 text-white font-bold text-sm py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 border border-white/15 transition-all hover:scale-[1.02] active:scale-[0.98] shrink-0">
+              <i data-lucide="message-circle" class="w-4 h-4 text-[#1AB64F]"></i>
+              <span>Chat with Counselor</span>
+            </a>
+          </div>
+          <div class="text-[11px] text-slate-400 mt-3 text-center flex items-center justify-center gap-1.5 font-medium">
+            <i data-lucide="shield-check" class="w-3 h-3 text-[#DFB15B]"></i>
+            <span>Verified Counselors &bull; 100% Free Consultation</span>
+          </div>
         </div>
       </div>
 
-      <!-- Option 2: Hostels Card (Fully Clickable) -->
+      <!-- Option 2: Hostels & PGs Card -->
       <div 
         role="link"
         tabindex="0"
         data-card-url="hostels.html"
         onclick="navigateToOption(event, 'hostels.html')"
-        class="cursor-pointer group relative bg-gradient-to-b from-white/10 to-white/5 hover:from-white/15 hover:to-white/10 backdrop-blur-xl rounded-3xl p-6 sm:p-8 lg:p-10 border border-white/15 hover:border-[#1AB64F] transition-all duration-300 shadow-2xl hover:shadow-green-500/20 flex flex-col justify-between text-left transform hover:-translate-y-1.5 active:scale-[0.99] focus:outline-hidden focus:ring-2 focus:ring-[#1AB64F]">
+        class="gateway-card gateway-card-green cursor-pointer group rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between text-left focus:outline-hidden focus:ring-2 focus:ring-[#1AB64F] select-none">
         
-        <!-- Top Badge -->
-        <div class="flex items-center justify-between mb-6">
-          <span class="bg-[#1AB64F]/20 text-[#22C55E] border border-[#1AB64F]/40 text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full flex items-center gap-1.5">
-            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
-            Option 2
-          </span>
-          <span class="text-xs text-slate-300 font-semibold flex items-center gap-1">
-            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
-            Zero Brokerage
-          </span>
-        </div>
+        <div>
+          <!-- Top Badges -->
+          <div class="flex items-center justify-between mb-6">
+            <span class="bg-[#1AB64F]/25 text-[#4ADE80] border border-[#1AB64F]/50 text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full flex items-center gap-1.5 shadow-xs">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+              Option 2 &bull; Student Stays
+            </span>
+            <span class="text-xs text-slate-300 font-semibold flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+              Zero Brokerage
+            </span>
+          </div>
 
-        <!-- Big Visual Icon -->
-        <div class="mb-6">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-[#082A50] to-[#0E3E74] text-[#1AB64F] border border-green-500/40 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-            <i data-lucide="building-2" class="w-8 h-8 sm:w-10 sm:h-10"></i>
+          <!-- Big Visual Icon -->
+          <div class="mb-6">
+            <div class="gateway-icon-box w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-[#082A50] to-[#0E3E74] text-[#1AB64F] border border-green-500/40 flex items-center justify-center shadow-xl">
+              <i data-lucide="building-2" class="w-8 h-8 sm:w-10 sm:h-10"></i>
+            </div>
+          </div>
+
+          <!-- Heading & Details -->
+          <div class="mb-6">
+            <h2 class="text-2xl sm:text-3xl font-black text-white group-hover:text-[#1AB64F] transition-colors mb-2 flex items-center justify-between">
+              <span>Hostels &amp; Student PGs</span>
+              <i data-lucide="arrow-right" class="w-6 h-6 text-[#1AB64F] opacity-0 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all"></i>
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-200 mb-5 leading-relaxed">
+              Explore 10,000+ verified student hostels, PGs, and apartments near 30+ university hubs with 4-time meals, Wi-Fi, and 0 brokerage.
+            </p>
+
+            <!-- Feature Highlights (4 Balanced Points) -->
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-center gap-2.5">
+                <div class="w-5 h-5 rounded-full bg-[#1AB64F]/15 border border-[#1AB64F]/30 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-[#1AB64F]"></i>
+                </div>
+                <span class="text-slate-200 font-medium">10,000+ Verified Rooms in 30+ Campus Hubs</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="w-5 h-5 rounded-full bg-[#1AB64F]/15 border border-[#1AB64F]/30 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-[#1AB64F]"></i>
+                </div>
+                <span class="text-slate-200 font-medium">Fully Furnished Rooms + 100 Mbps Wi-Fi</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="w-5 h-5 rounded-full bg-[#1AB64F]/15 border border-[#1AB64F]/30 flex items-center justify-center shrink-0">
+                  <i data-lucide="utensils" class="w-3.5 h-3.5 text-[#1AB64F]"></i>
+                </div>
+                <span class="text-[#4ADE80] font-bold">Hygienic 4-Time Home Meals Included</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <div class="w-5 h-5 rounded-full bg-[#1AB64F]/15 border border-[#1AB64F]/30 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-[#1AB64F]"></i>
+                </div>
+                <span class="text-slate-200 font-medium">Zero Brokerage &amp; 24/7 CCTV &amp; Warden Security</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- Heading & Details -->
-        <div class="mb-6">
-          <h2 class="text-2xl sm:text-3xl font-black text-white group-hover:text-[#1AB64F] transition-colors mb-2 flex items-center justify-between">
-            <span>Hostels & Student PGs</span>
-            <i data-lucide="chevron-right" class="w-6 h-6 text-[#1AB64F] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-200 mb-5 leading-relaxed">
-            Explore 10,000+ verified student hostels, PGs, and apartments near 30+ university hubs with 4-time meals, Wi-Fi, and 0 brokerage.
-          </p>
-
-          <!-- Feature Highlights -->
-          <ul class="space-y-2 text-xs sm:text-sm text-slate-300 mb-2">
-            <li class="flex items-center gap-2">
-              <i data-lucide="check" class="w-4 h-4 text-[#1AB64F] shrink-0"></i>
-              <span>Fully Furnished Rooms + 100 Mbps Wi-Fi</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <i data-lucide="check" class="w-4 h-4 text-[#1AB64F] shrink-0"></i>
-              <span>Hygienic 4-Time Home Meals Included</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <i data-lucide="check" class="w-4 h-4 text-[#1AB64F] shrink-0"></i>
-              <span>24/7 CCTV, Biometrics & Warden Security</span>
-            </li>
-          </ul>
-        </div>
-
         <!-- Action Buttons -->
-        <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row gap-3">
-          <span 
-            class="flex-1 bg-[#1AB64F] hover:bg-[#159c42] text-white font-black text-sm sm:text-base py-3.5 px-5 rounded-2xl text-center shadow-lg transition-all flex items-center justify-center gap-2 group-hover:shadow-green-500/30 pointer-events-none">
-            <span>Explore Hostels</span>
-            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-          </span>
-          <a 
-            href="https://wa.me/919110155081?text=Hi%20Yealth!%20I%20am%20looking%20for%20a%20verified%20student%20hostel/PG."
-            target="_blank"
-            onclick="event.stopPropagation()"
-            title="Chat with Hostel Advisor on WhatsApp"
-            class="btn-whatsapp-action relative z-10 bg-white/10 hover:bg-white/20 text-white font-bold text-sm py-3.5 px-4 rounded-2xl flex items-center justify-center gap-1.5 border border-white/15 transition-all hover:scale-102">
-            <i data-lucide="message-circle" class="w-4 h-4 text-[#1AB64F]"></i>
-            <span class="sm:hidden lg:inline">Hostels</span>
+        <div class="pt-5 border-t border-white/10 mt-6">
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a 
+              href="hostels.html"
+              onclick="event.stopPropagation()"
+              class="flex-1 bg-[#1AB64F] hover:bg-[#159c42] text-white font-black text-sm sm:text-base py-3.5 px-5 rounded-2xl text-center shadow-lg transition-all flex items-center justify-center gap-2 hover:shadow-green-500/40 hover:scale-[1.02] active:scale-[0.98]">
+              <span>Explore Hostels</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a 
+              href="https://wa.me/919110155081?text=Hi%20Yealth!%20I%20am%20looking%20for%20a%20verified%20student%20hostel/PG."
+              target="_blank"
+              onclick="event.stopPropagation()"
+              title="Chat with Hostel Advisor on WhatsApp"
+              class="btn-whatsapp-action bg-white/10 hover:bg-[#1AB64F]/20 hover:border-[#1AB64F]/60 text-white font-bold text-sm py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 border border-white/15 transition-all hover:scale-[1.02] active:scale-[0.98] shrink-0">
+              <i data-lucide="message-circle" class="w-4 h-4 text-[#1AB64F]"></i>
+              <span>Chat with Advisor</span>
+            </a>
+          </div>
+          <div class="text-[11px] text-slate-400 mt-3 text-center flex items-center justify-center gap-1.5 font-medium">
+            <i data-lucide="lock" class="w-3 h-3 text-[#1AB64F]"></i>
+            <span>0% Brokerage &bull; Direct Verified Property Connect</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- INTERACTIVE FAST-NAV: POPULAR CITIES & STREAMS CHIPS                     -->
+    <!-- ========================================================================= -->
+    <div class="mt-12 w-full max-w-5xl bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-md text-left">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-6">
+        <div>
+          <h3 class="text-base sm:text-lg font-black text-white flex items-center gap-2">
+            <i data-lucide="compass" class="w-5 h-5 text-[#DFB15B]"></i>
+            <span>Direct Jump &bull; Popular Hubs &amp; Degree Programs</span>
+          </h3>
+          <p class="text-xs text-slate-300">Click any city or course below to go directly to filtered results.</p>
+        </div>
+        <div class="text-xs text-[#DFB15B] font-bold flex items-center gap-1">
+          <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+          <span>Instant Filter</span>
+        </div>
+      </div>
+
+      <!-- Campus Cities Chips -->
+      <div class="mb-5">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-1.5">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#1AB64F]"></i>
+          <span>Popular Student Hostel Locations:</span>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <a href="hostels.html?city=Greater+Noida" class="gateway-chip gateway-chip-green">
+            <span>Greater Noida (KP 2 &amp; 3)</span>
+          </a>
+          <a href="hostels.html?city=Delhi+%2F+NCR" class="gateway-chip gateway-chip-green">
+            <span>Delhi / NCR</span>
+          </a>
+          <a href="hostels.html?city=Kota" class="gateway-chip gateway-chip-green">
+            <span>Kota (Coaching Hub)</span>
+          </a>
+          <a href="hostels.html?city=Bangalore" class="gateway-chip gateway-chip-green">
+            <span>Bangalore</span>
+          </a>
+          <a href="hostels.html?city=Pune" class="gateway-chip gateway-chip-green">
+            <span>Pune</span>
+          </a>
+          <a href="hostels.html?city=Mumbai" class="gateway-chip gateway-chip-green">
+            <span>Mumbai</span>
+          </a>
+          <a href="hostels.html?city=Hyderabad" class="gateway-chip gateway-chip-green">
+            <span>Hyderabad</span>
+          </a>
+          <a href="hostels.html?city=Dehradun" class="gateway-chip gateway-chip-green">
+            <span>Dehradun</span>
+          </a>
+          <a href="hostels.html?city=Chandigarh" class="gateway-chip gateway-chip-green">
+            <span>Chandigarh</span>
           </a>
         </div>
       </div>
 
+      <!-- Degree Program Chips -->
+      <div class="pt-4 border-t border-white/10">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-1.5">
+          <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+          <span>Popular Admissions &amp; Study Streams:</span>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <a href="admissions.html?stream=engineering" class="gateway-chip gateway-chip-gold">
+            <span>B.Tech / Engineering</span>
+          </a>
+          <a href="admissions.html?stream=medical" class="gateway-chip gateway-chip-gold">
+            <span>MBBS / Medical &amp; Dental</span>
+          </a>
+          <a href="admissions.html?stream=management" class="gateway-chip gateway-chip-gold">
+            <span>MBA / Management</span>
+          </a>
+          <a href="admissions.html?stream=law" class="gateway-chip gateway-chip-gold">
+            <span>Law (BA LLB / BBA LLB)</span>
+          </a>
+          <a href="admissions.html" class="gateway-chip gateway-chip-gold">
+            <span>Design &amp; Architecture</span>
+          </a>
+          <a href="admissions.html" class="gateway-chip gateway-chip-gold">
+            <span>Pharmacy &amp; Nursing</span>
+          </a>
+        </div>
+      </div>
     </div>
 
-    <!-- Quick Location Chips Summary -->
-    <div class="mt-12 text-center text-xs text-slate-300">
-      <span class="font-bold text-[#DFB15B]">Popular Hubs Active:</span> Knowledge Park 2 (Greater Noida) • Delhi / NCR • Kota • Bangalore • Pune • Mumbai • Hyderabad • Dehradun • Chandigarh
-    </div>
   </main>
 
   <!-- Bottom Mini Footer -->
-  <footer class="relative z-20 border-t border-white/10 py-6 text-center text-xs text-slate-400 bg-[#071A33]/90">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <div>
-        © 2026 Yealth Living & Admissions Network. All rights reserved. | <span class="text-slate-300">Registered Office: Knowledge Park 2, Greater Noida, Uttar Pradesh 201310</span>
+  <footer class="relative z-20 border-t border-white/10 py-6 text-center text-xs text-slate-400 bg-[#071A33]/95">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-left text-slate-300">
+        <span class="font-bold text-white">&copy; 2026 Yealth Living &amp; Admissions Network.</span> All rights reserved.
+        <div class="text-[11px] text-slate-400 mt-0.5">
+          Registered Office: Knowledge Park 2, Greater Noida, Uttar Pradesh 201310
+        </div>
       </div>
-      <div class="flex items-center gap-4 text-slate-300 text-xs">
-        <a href="tel:+919110155081" class="hover:text-[#DFB15B] flex items-center gap-1">
+      <div class="flex flex-wrap items-center gap-4 text-slate-300 text-xs">
+        <a href="tel:+919110155081" class="hover:text-[#DFB15B] flex items-center gap-1.5 transition-colors">
           <i data-lucide="phone" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
-          +91 9110155081
+          <span>+91 9110155081</span>
         </a>
-        <a href="mailto:yealtthh@gmail.com" class="hover:text-[#DFB15B] flex items-center gap-1">
+        <a href="mailto:yealtthh@gmail.com" class="hover:text-[#DFB15B] flex items-center gap-1.5 transition-colors">
           <i data-lucide="mail" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
-          yealtthh@gmail.com
+          <span>yealtthh@gmail.com</span>
         </a>
+        <a href="hostels.html" class="hover:text-white transition-colors">Hostels Directory</a>
+        <a href="admissions.html" class="hover:text-white transition-colors">Admissions Portal</a>
       </div>
     </div>
   </footer>
 
   <script>
     function navigateToOption(event, url) {
-      // If clicked on WhatsApp button or its children, let WhatsApp link handle it
-      if (event.target.closest('.btn-whatsapp-action')) {
+      // If user clicked or tapped an interactive element (e.g. <a> tag, button), let it handle its own navigation
+      if (event.target.closest('a') || event.target.closest('button')) {
         return;
       }
       window.location.href = url;
@@ -305,11 +485,16 @@
     document.addEventListener("DOMContentLoaded", () => {
       lucide.createIcons();
 
-      // Keyboard navigation: pressing Enter on a focused card triggers navigation
+      // Keyboard accessibility: pressing Enter on a focused card triggers navigation
       document.querySelectorAll('[data-card-url]').forEach(card => {
         card.addEventListener('keydown', (e) => {
           if (e.key === 'Enter') {
-            window.location.href = card.dataset.cardUrl;
+            const targetA = card.querySelector('a');
+            if (targetA) {
+              targetA.click();
+            } else {
+              window.location.href = card.dataset.cardUrl;
+            }
           }
         });
       });

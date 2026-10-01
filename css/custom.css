@@ -223,4 +223,78 @@ footer h4 {
   animation: loan-pulse 2.8s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }
 
+/* Gateway Page Enhancements & Interactive Cards */
+.gateway-card {
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.gateway-card-gold {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(197, 153, 67, 0.04) 40%, rgba(8, 42, 80, 0.5) 100%);
+  border: 1px solid rgba(197, 153, 67, 0.35);
+}
+
+.gateway-card-gold:hover {
+  transform: translateY(-6px);
+  border-color: rgba(223, 177, 91, 0.85);
+  box-shadow: 0 24px 48px -12px rgba(197, 153, 67, 0.28), 0 0 30px -4px rgba(223, 177, 91, 0.2);
+}
+
+.gateway-card-green {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(26, 182, 79, 0.04) 40%, rgba(8, 42, 80, 0.5) 100%);
+  border: 1px solid rgba(26, 182, 79, 0.35);
+}
+
+.gateway-card-green:hover {
+  transform: translateY(-6px);
+  border-color: rgba(34, 197, 94, 0.85);
+  box-shadow: 0 24px 48px -12px rgba(26, 182, 79, 0.28), 0 0 30px -4px rgba(34, 197, 94, 0.2);
+}
+
+/* Gateway Icon Container */
+.gateway-icon-box {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.gateway-card:hover .gateway-icon-box {
+  transform: scale(1.08) translateY(-2px);
+}
+
+/* Quick Filter Interactive Chips */
+.gateway-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #E2E8F0;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.gateway-chip:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.gateway-chip-gold:hover {
+  border-color: rgba(223, 177, 91, 0.8);
+  box-shadow: 0 4px 14px -2px rgba(197, 153, 67, 0.3);
+  color: #DFB15B;
+}
+
+.gateway-chip-green:hover {
+  border-color: rgba(34, 197, 94, 0.8);
+  box-shadow: 0 4px 14px -2px rgba(26, 182, 79, 0.3);
+  color: #4ADE80;
+}
+
 

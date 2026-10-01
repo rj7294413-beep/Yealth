@@ -57,6 +57,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (colParam) {
       state.activeCollegeId = colParam;
     }
+    const cityParam = urlParams.get("city");
+    if (cityParam) {
+      const matchedCity = SITE_CONFIG.operatingCities.find(
+        c => c.toLowerCase() === cityParam.toLowerCase() || cityParam.toLowerCase().includes(c.toLowerCase())
+      );
+      if (matchedCity) {
+        state.activeCity = matchedCity;
+      }
+    }
+    const locParam = urlParams.get("location") || urlParams.get("q") || urlParams.get("search");
+    if (locParam) {
+      state.searchQuery.location = locParam;
+    }
   } catch (e) {
     console.error("Failed to parse URL query params", e);
   }
@@ -520,6 +533,10 @@ function setupSearchForm() {
   const whatsappSearchBtn = document.getElementById("btn-search-whatsapp");
 
   if (!form) return;
+
+  if (locationInput && state.searchQuery.location) {
+    locationInput.value = state.searchQuery.location;
+  }
 
   const handleSearchAction = (triggerWhatsApp = false) => {
     const loc = locationInput ? locationInput.value : "";
