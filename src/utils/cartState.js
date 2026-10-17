@@ -14,7 +14,7 @@ export function getCart() {
     const parsed = JSON.parse(raw);
     return {
       colleges: Array.isArray(parsed.colleges) ? parsed.colleges : [],
-      hostels: Array.isArray(parsed.hostels) ? parsed.hostels : []
+      hostels: [] // All hostel and PG listings removed - AVAILABLE SOON
     };
   } catch (e) {
     console.error("Failed to read cart from localStorage", e);

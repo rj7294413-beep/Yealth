@@ -435,9 +435,9 @@ function renderColleges() {
           <a 
             href="hostels.html?college=${c.id}" 
             class="btn-card-hostel-link bg-amber-50 hover:bg-amber-100 text-[#082A50] border border-amber-300 py-2.5 px-3 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 transition-all shadow-xs" 
-            title="Explore student hostels and PGs near ${c.shortName || c.name}">
+            title="Student hostels & PGs near ${c.shortName || c.name} - Available Soon">
             <i data-lucide="building" class="w-3.5 h-3.5 text-[#C59943]"></i>
-            <span>Hostels</span>
+            <span>Hostels (Soon)</span>
           </a>
 
           <a 
@@ -674,7 +674,7 @@ function renderCartDrawerContent() {
         <p class="text-xs text-gray-500 max-w-xs mx-auto mb-5">Shortlist your dream colleges and verified student stays to track admission criteria and cutoffs.</p>
         <div class="flex items-center justify-center gap-2">
           <a href="admissions.html" class="bg-[#082A50] text-white text-xs font-bold py-2 px-3 rounded-lg">Explore Colleges</a>
-          <a href="hostels.html" class="bg-slate-200 text-gray-800 text-xs font-bold py-2 px-3 rounded-lg">Explore Hostels</a>
+          <a href="hostels.html" class="bg-slate-200 text-gray-800 text-xs font-bold py-2 px-3 rounded-lg">Hostels (Soon)</a>
         </div>
       </div>
     `;
@@ -752,14 +752,14 @@ function renderCartDrawerContent() {
       <div class="bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 rounded-xl p-3.5 mb-4 text-left shadow-xs">
         <div class="flex items-center gap-1.5 mb-1">
           <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-          <span class="text-xs font-black uppercase tracking-wider text-[#082A50]">Recommended Campus Stays</span>
+          <span class="text-xs font-black uppercase tracking-wider text-[#082A50]">Campus Stays &bull; AVAILABLE SOON</span>
         </div>
         <p class="text-xs text-amber-900 mb-2.5">
-          You have shortlisted <strong>${cart.colleges[0].shortName || cart.colleges[0].name}</strong>! Pair your college with verified walking-distance student stays and zero brokerage.
+          You have shortlisted <strong>${cart.colleges[0].shortName || cart.colleges[0].name}</strong>! Verified student stays near campus with 0 brokerage will be available soon.
         </p>
         <a href="hostels.html?college=${cart.colleges[0].id}" class="w-full bg-[#082A50] hover:bg-[#051C36] text-[#DFB15B] text-xs font-extrabold py-2.5 px-3 rounded-lg flex items-center justify-center gap-1.5 transition-all shadow-sm">
-          <i data-lucide="building" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
-          <span>View Hostels Near ${cart.colleges[0].shortName || cart.colleges[0].name} →</span>
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-[#DFB15B]"></i>
+          <span>Hostels Near Campus (Available Soon) →</span>
         </a>
       </div>
     `;
@@ -1780,15 +1780,15 @@ function renderCollegeModalContent(college) {
               <i data-lucide="building" class="w-6 h-6 text-[#DFB15B]"></i>
             </div>
             <div>
-              <h4 class="text-base font-black text-white">Looking for Verified Hostels near ${college.shortName || college.name}?</h4>
-              <p class="text-xs text-slate-200 mt-0.5">Explore 100% verified student PGs and hostels within 1-3 km of campus with zero brokerage.</p>
+              <h4 class="text-base font-black text-white">Student Hostels near ${college.shortName || college.name}</h4>
+              <p class="text-xs text-slate-200 mt-0.5">Verified student PGs and hostels near campus will be available soon with 0 brokerage.</p>
             </div>
           </div>
           <a 
             href="hostels.html?college=${college.id}" 
             class="whitespace-nowrap bg-gradient-to-r from-[#DFB15B] to-[#C59943] hover:from-[#C59943] hover:to-[#B08535] text-[#071A33] font-black text-xs sm:text-sm py-2.5 px-4 rounded-xl shadow-md flex items-center gap-1.5 transition-all">
-            <span>Explore Campus Hostels</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            <i data-lucide="clock" class="w-4 h-4"></i>
+            <span>AVAILABLE SOON</span>
           </a>
         </div>
       </div>
@@ -1816,8 +1816,8 @@ function renderCollegeModalContent(college) {
         <a 
           href="hostels.html?college=${college.id}"
           class="flex-1 sm:flex-initial bg-amber-50 hover:bg-amber-100 text-[#082A50] border border-amber-300 font-extrabold text-xs py-2.5 px-3.5 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-xs">
-          <i data-lucide="building" class="w-3.5 h-3.5 text-[#C59943]"></i>
-          <span>Campus Hostels</span>
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-[#C59943]"></i>
+          <span>Hostels (Soon)</span>
         </a>
 
         <a 
@@ -2217,8 +2217,8 @@ export function openCampusGalleryModal(collegeId) {
 
         <div class="flex items-center gap-2">
           <a href="hostels.html?college=${college.id}" class="text-xs font-bold bg-amber-50 hover:bg-amber-100 text-[#082A50] border border-amber-300 py-2 px-3 rounded-xl flex items-center gap-1.5 transition-all">
-            <i data-lucide="building" class="w-3.5 h-3.5 text-[#C59943]"></i>
-            <span>Hostels Near Campus</span>
+            <i data-lucide="clock" class="w-3.5 h-3.5 text-[#C59943]"></i>
+            <span>Hostels (Available Soon)</span>
           </a>
           <button type="button" class="btn-close-gallery-modal text-xs font-bold bg-white/10 hover:bg-white/20 text-white py-2 px-3.5 rounded-xl border border-white/20 transition-all cursor-pointer">
             Done

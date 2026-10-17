@@ -20,19 +20,13 @@ import {
   signOut 
 } from "./utils/authState.js";
 
-// Helper to load user-submitted properties from localStorage
+// Helper to load properties - All hostel & PG listings removed (AVAILABLE SOON)
 function getMergedProperties() {
-  try {
-    const raw = localStorage.getItem("yealth_listed_properties");
-    const listed = raw ? JSON.parse(raw) : [];
-    return [...listed, ...PROPERTIES];
-  } catch (e) {
-    return PROPERTIES;
-  }
+  return [];
 }
 
 // Global Application State
-let activePropertyList = getMergedProperties();
+let activePropertyList = [];
 
 const state = {
   activeCity: "All Cities",
@@ -250,25 +244,47 @@ function renderProperties() {
   }
 
   if (countElement) {
-    countElement.innerHTML = `Showing <span class="font-bold text-[#082A50]">${filtered.length}</span> verified student stays`;
+    countElement.innerHTML = `
+      <span class="inline-flex items-center gap-1.5 font-black text-amber-700 bg-amber-50 px-3 py-1 rounded-full border border-amber-200 uppercase tracking-wider text-xs">
+        <i data-lucide="clock" class="w-3.5 h-3.5 text-[#C59943]"></i> AVAILABLE SOON
+      </span>
+    `;
   }
 
   if (filtered.length === 0) {
     container.innerHTML = `
-      <div class="col-span-full py-16 text-center bg-white rounded-2xl border border-dashed border-gray-300 p-8">
-        <div class="w-16 h-16 bg-blue-50 text-[#082A50] rounded-full flex items-center justify-center mx-auto mb-4">
-          <i data-lucide="building-2" class="w-8 h-8"></i>
+      <div class="col-span-full py-14 px-6 text-center bg-white rounded-3xl border-2 border-dashed border-[#DFB15B]/60 shadow-xl max-w-2xl mx-auto my-6">
+        <div class="w-20 h-20 bg-amber-50 text-[#C59943] rounded-full flex items-center justify-center mx-auto mb-5 border border-amber-200 shadow-inner">
+          <i data-lucide="clock" class="w-10 h-10 text-[#C59943]"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">No Properties Found</h3>
-        <p class="text-gray-500 max-w-md mx-auto mb-6 text-sm">
-          We couldn't find an exact match for "${state.searchQuery.location || state.activeCity}". Talk directly with our Student Living Advisor in Knowledge Park 2 to find unlisted or upcoming rooms!
+        
+        <div class="inline-flex items-center gap-2 bg-[#082A50] text-[#DFB15B] border border-[#DFB15B]/40 text-xs sm:text-sm font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-3 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-[#DFB15B] animate-pulse"></span>
+          AVAILABLE SOON
+        </div>
+
+        <h3 class="text-2xl sm:text-3xl font-black text-[#082A50] tracking-tight mb-3 uppercase">
+          AVAILABLE SOON
+        </h3>
+        
+        <p class="text-sm sm:text-base text-gray-600 max-w-lg mx-auto mb-7 font-medium leading-relaxed">
+          Every hostel and student PG is currently undergoing physical audits, hygiene inspection, and partner onboarding. Verified accommodations with meals and Wi-Fi will be available soon!
         </p>
-        <button 
-          id="btn-custom-inquiry-empty"
-          class="inline-flex items-center gap-2 bg-[#1AB64F] hover:bg-[#159c42] text-white px-6 py-3 rounded-lg font-bold text-sm shadow-md transition-all">
-          <i data-lucide="message-circle" class="w-4 h-4"></i>
-          Inquire Greater Noida / Custom Location on WhatsApp
-        </button>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <button 
+            id="btn-custom-inquiry-empty"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#1AB64F] hover:bg-[#159c42] text-white px-6 py-3.5 rounded-xl font-extrabold text-sm shadow-md transition-all">
+            <i data-lucide="message-circle" class="w-4 h-4 fill-white"></i>
+            <span>Get Advance Updates on WhatsApp</span>
+          </button>
+          <a 
+            href="admissions.html" 
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#082A50] hover:bg-[#051C36] text-white px-6 py-3.5 rounded-xl font-bold text-sm shadow-md transition-all border border-[#C59943]/30">
+            <i data-lucide="graduation-cap" class="w-4 h-4 text-[#DFB15B]"></i>
+            <span>Explore College Admissions</span>
+          </a>
+        </div>
       </div>
     `;
 
@@ -704,12 +720,12 @@ function setupModals() {
         console.error("Failed to save property", err);
       }
 
-      // Prepend to active list and re-render
-      activePropertyList = [newProperty, ...activePropertyList];
+      // Keep active list empty - Available Soon
+      activePropertyList = [];
       renderProperties();
 
       closeAllModals();
-      showToast(`🎉 "${title}" in ${city} has been listed live on Yealth!`, "success");
+      showToast(`🎉 Property details submitted! Our verification team will review and contact you when the portal launches.`, "success");
 
       // Offer WhatsApp verification link to Yealth Team
       const text = `Hi Yealth Team, I have listed my property: "${title}" located at "${location}". Rent: ₹${rent}/mo. Please verify and connect with me (${ownerName}, Phone: ${ownerPhone}).`;
@@ -1276,7 +1292,7 @@ function renderCartDrawerContent() {
         <p class="text-xs text-gray-500 max-w-xs mx-auto mb-5">Shortlist your dream colleges and verified student stays to track admission criteria and cutoffs.</p>
         <div class="flex items-center justify-center gap-2">
           <a href="admissions.html" class="bg-[#082A50] text-white text-xs font-bold py-2 px-3 rounded-lg">Explore Colleges</a>
-          <a href="hostels.html" class="bg-slate-200 text-gray-800 text-xs font-bold py-2 px-3 rounded-lg">Explore Hostels</a>
+          <a href="hostels.html" class="bg-slate-200 text-gray-800 text-xs font-bold py-2 px-3 rounded-lg">Hostels (Soon)</a>
         </div>
       </div>
     `;
@@ -2144,9 +2160,13 @@ export function renderCollegeRecommendations() {
             `;
           }).join("") : `
             <div class="col-span-full py-8 text-center bg-white/5 rounded-2xl border border-white/10 text-white">
-              <p class="text-xs text-slate-300">No immediate walking-distance hostels registered for this exact location yet. Our living advisor can arrange nearby accommodation.</p>
-              <button class="mt-3 bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs font-bold py-2 px-4 rounded-xl" onclick="window.open('https://wa.me/919110155081?text=Hi%20Yealth!%20Looking%20for%20hostels%20near%20${encodeURIComponent(activeCollege.name)}', '_blank')">
-                Inquire on WhatsApp
+              <span class="inline-flex items-center gap-1.5 bg-[#DFB15B]/20 text-[#DFB15B] border border-[#DFB15B]/40 text-xs font-black uppercase px-3 py-1 rounded-full mb-2">
+                <i data-lucide="clock" class="w-3.5 h-3.5"></i> AVAILABLE SOON
+              </span>
+              <p class="text-xs sm:text-sm text-slate-200 font-medium max-w-md mx-auto">Campus hostels and student PGs near ${activeCollege.shortName || activeCollege.name} will be available soon.</p>
+              <button class="mt-3 bg-[#1AB64F] hover:bg-[#159c42] text-white text-xs font-bold py-2 px-4 rounded-xl inline-flex items-center gap-1.5" onclick="window.open('https://wa.me/919110155081?text=Hi%20Yealth!%20Looking%20for%20hostels%20near%20${encodeURIComponent(activeCollege.name)}', '_blank')">
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                Pre-Register on WhatsApp
               </button>
             </div>
           `}
